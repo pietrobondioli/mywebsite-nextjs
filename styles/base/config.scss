@@ -1,0 +1,18 @@
+@import '../utilities/variables';
+@import './fonts';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+}
+
+body {
+  font-family: 'DMMono-Regular';
+  background-color: map-get($color, background);
+  color: map-get($color, regular-text);
+}
+
+img {
+  box-sizing: initial;
+}
