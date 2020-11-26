@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const NavbarContext = React.createContext();
 
 const NavbarContextProvider = ({ children }) => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [isNavbarOpen, setIsNavbarOpen] = React.useState(false);
 
   return (
     <NavbarContext.Provider value={{ isNavbarOpen, setIsNavbarOpen }}>

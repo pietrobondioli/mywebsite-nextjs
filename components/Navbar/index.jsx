@@ -1,5 +1,5 @@
 // React/Next Components
-import { useEffect, useRef, useContext } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 // External Libs
@@ -16,8 +16,8 @@ import navbarContent from './content';
 
 const Navbar = () => {
   const translate = useTranslation(navbarContent);
-  const { isNavbarOpen, setIsNavbarOpen } = useContext(NavbarContext);
-  const refMenu = useRef(null);
+  const { isNavbarOpen, setIsNavbarOpen } = React.useContext(NavbarContext);
+  const refMenu = React.useRef(null);
   let targetElement;
 
   const handleMenuToggle = () => {
@@ -33,11 +33,11 @@ const Navbar = () => {
     enableBodyScroll(targetElement);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     targetElement = refMenu.current;
   }, [isNavbarOpen]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.addEventListener('resize', resetMenuState);
     return () => {
       window.removeEventListener('resize', resetMenuState);

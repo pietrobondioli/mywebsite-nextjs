@@ -1,3 +1,4 @@
+import { Link as ScrollLink } from 'react-scroll';
 import presentationImage from '../../../public/icons/profile-256px.png';
 import aboutImage from '../../../public/icons/brain-256px.png';
 import articlesImage from '../../../public/icons/article-256px.png';
@@ -7,6 +8,7 @@ import contactImage from '../../../public/icons/contact-256px.png';
 export default [
   {
     image: presentationImage,
+    readMore: false,
     'pt-BR': {
       title: '',
       text:
@@ -15,57 +17,61 @@ export default [
     'en-US': {
       title: '',
       text:
-        'This site was built by me with the intent of presenting my work formally. You can take a look at the next sections for some articles of my own, read about me, check out projects which i have participated or contact me',
+        'This site was built by me with the intent of presenting my work formally.You can take a look at the next sections for some articles of my own, read about me, check out projects which i have participated or contact me',
     },
   },
   {
     image: aboutImage,
+    readMore: true,
     'pt-BR': {
-      title: 'titulo sobre',
+      title: 'sobre',
       text:
         'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
     },
     'en-US': {
-      title: 'about title',
+      title: 'about',
       text:
         'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
     },
   },
   {
     image: articlesImage,
+    readMore: true,
     'pt-BR': {
-      title: 'titulo artigos',
+      title: 'artigos',
       text:
         'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
     },
     'en-US': {
-      title: 'articles title',
+      title: 'articles',
       text:
         'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
     },
   },
   {
     image: projectsImage,
+    readMore: true,
     'pt-BR': {
-      title: 'titulo projetos',
+      title: 'projetos',
       text:
         'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
     },
     'en-US': {
-      title: 'projects title',
+      title: 'projects',
       text:
         'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
     },
   },
   {
     image: contactImage,
+    readMore: true,
     'pt-BR': {
-      title: 'titulo contato',
+      title: 'contato',
       text:
         'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
     },
     'en-US': {
-      title: 'contact title',
+      title: 'contact',
       text:
         'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
     },

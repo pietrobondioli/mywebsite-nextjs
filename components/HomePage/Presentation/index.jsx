@@ -18,6 +18,7 @@ const Presentation = () => {
             title={translate('title')}
             text={translate('text')}
             image={content.image}
+            readMore={content.readMore}
           />
         );
       })}

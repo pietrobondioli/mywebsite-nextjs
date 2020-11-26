@@ -35,6 +35,7 @@
     "no-param-reassign": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/jsx-boolean-value": "off",
     "react/prop-types": "off",
     "no-unused-vars": "warn",
     "no-console": "off",
@@ -44,6 +45,7 @@
     "jsx-a11y/control-has-associated-label": "off",
     "jsx-a11y/anchor-has-content": "off",
     "global-require": "off",
-    "import/no-dynamic-require": "off"
+    "import/no-dynamic-require": "off",
+    "no-plusplus": "off"
   }
 }
