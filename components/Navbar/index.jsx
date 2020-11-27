@@ -15,6 +15,9 @@ import useTranslation from '../../hooks/useTranslation';
 // Contents
 import navbarContent from './content';
 
+// Styles
+import styles from '../../styles/components/Navbar.module.scss';
+
 const Navbar = () => {
   const translate = useTranslation(navbarContent);
   const { isNavbarOpen, setIsNavbarOpen } = React.useContext(NavbarContext);
@@ -47,17 +50,21 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`navbar ${isDarkTheme && 'navbar_darkMode'}`}>
+    <nav className={`${styles.navbar} ${isDarkTheme && `${styles.navbar_darkMode}`}`}>
       <Link href="/">
-        <div className="navbar__logo" />
+        <div className={styles.navbar__logo} />
       </Link>
       <button
         type="button"
-        className={`${'navbar__button'}
-        ${isNavbarOpen ? 'navbar__button_active' : 'navbar__button_disabled'}
+        className={`${styles.navbar__button}
+        ${isNavbarOpen ? `${styles.navbar__button_active}` : `${styles.navbar__button_disabled}`}
         ${
           isDarkTheme &&
-          `${isNavbarOpen ? 'navbar__button_active_darkMode' : 'navbar__button_disabled_darkMode'}`
+          `${
+            isNavbarOpen
+              ? `${styles.navbar__button_active_darkMode}`
+              : `${styles.navbar__button_disabled_darkMode}`
+          }`
         }`}
         onClick={() => {
           setIsNavbarOpen(!isNavbarOpen);
@@ -66,27 +73,27 @@ const Navbar = () => {
       />
       <div
         ref={refMenu}
-        className={`${'navbar__menu'}
-            ${isNavbarOpen ? 'navbar__menu_active' : 'navbar__menu_disabled'}
-            ${isDarkTheme && 'navbar__menu_darkMode'}`}
+        className={`${styles.navbar__menu}
+            ${isNavbarOpen ? `${styles.navbar__menu_active}` : `${styles.navbar__menu_disabled}`}
+            ${isDarkTheme && `${styles.navbar__menu_darkMode}`}`}
       >
         <Link href="/">
-          <a className={`menu__item ${isDarkTheme && 'menu__item_darkMode'}`}>
+          <a className={`${styles.menu__item} ${isDarkTheme && `${styles.menu__item_darkMode}`}`}>
             {translate('about')}
           </a>
         </Link>
         <Link href="/">
-          <a className={`menu__item ${isDarkTheme && 'menu__item_darkMode'}`}>
+          <a className={`${styles.menu__item} ${isDarkTheme && `${styles.menu__item_darkMode}`}`}>
             {translate('articles')}
           </a>
         </Link>
         <Link href="/">
-          <a className={`menu__item ${isDarkTheme && 'menu__item_darkMode'}`}>
+          <a className={`${styles.menu__item} ${isDarkTheme && `${styles.menu__item_darkMode}`}`}>
             {translate('projects')}
           </a>
         </Link>
         <Link href="/">
-          <a className={`menu__item ${isDarkTheme && 'menu__item_darkMode'}`}>
+          <a className={`${styles.menu__item} ${isDarkTheme && `${styles.menu__item_darkMode}`}`}>
             {translate('contact')}
           </a>
         </Link>

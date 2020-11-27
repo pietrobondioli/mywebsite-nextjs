@@ -1,6 +1,6 @@
-@import '../utilities/variables';
-@import '../utilities/config';
-@import '../utilities/mixins';
+@import '../utils/variables';
+@import '../utils/config';
+@import '../utils/mixins';
 
 $navbar-images: (
   'logo': url('../../public/icons/logo.png'),
@@ -24,7 +24,7 @@ $navbar-images: (
   pointer-events: none;
   &_darkMode {
     color: map-get($dark-colors, regular-text);
-    background-color: map-get($dark-colors, background);
+    background-color: transparent;
   }
 }
 
@@ -55,6 +55,7 @@ $navbar-images: (
   background-color: transparent;
   z-index: 999;
   transition: all 600ms ease-in-out;
+  pointer-events: all;
   &_disabled {
     background-image: map-get($navbar-images, black-menuBar);
     &_darkMode {

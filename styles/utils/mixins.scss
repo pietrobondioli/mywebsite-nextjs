@@ -1,0 +1,14 @@
+%backgroundConfigs {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+}
+
+@mixin flexSection($justify) {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: $justify;
+}

@@ -1,6 +1,7 @@
 $colors: (
-  'primary': #8257e6,
+  'primary': #a47dff,
   'white-text': #f5f5f5,
+  'special-text': #04D361,
   'weak-shadow': rgba(3, 3, 3, 0.1),
   'regular-shadow': rgba(3, 3, 3, 0.3),
 );
@@ -9,12 +10,10 @@ $light-colors: (
   'background': #f5f5f5,
   'card-background': #ececec,
   'regular-text': #141414,
-  'special-text': #f5f5f5,
 );
 
 $dark-colors: (
   'background': #121214,
   'card-background': #212025,
-  'regular-text': #f5f5f5,
-  'special-text': #121214,
+  'regular-text': #f5f5f5
 );

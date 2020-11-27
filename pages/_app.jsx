@@ -11,7 +11,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 // Styles
-import '../styles/global.scss';
+import '../styles/main.scss';
 
 // Assets
 import favicon from '../public/icons/favicon.ico';

@@ -6,6 +6,9 @@ import { Link as ScrollLink } from 'react-scroll';
 import { NavbarContext } from '../../../contexts/NavbarContext';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 
+// Components
+import TerminalUnderslash from '../../TerminalUnderslash';
+
 // External Libs
 
 // Contents
@@ -13,6 +16,9 @@ import headerContent from './content';
 
 // Hooks
 import useTranslation from '../../../hooks/useTranslation';
+
+// Styles
+import styles from '../../../styles/pages/HomePage/Header.module.scss';
 
 const Header = () => {
   const translate = useTranslation(headerContent);
@@ -52,35 +58,44 @@ const Header = () => {
   }, [terminalCommand]);
 
   return (
-    <section className={`header ${isDarkTheme && 'header_darkMode'}`}>
-      <div className="header__content">
-        <div className="content__title">Pietro Bondioli</div>
-        <div className="content__terminal">
+    <section className={`${styles.header} ${isDarkTheme && `${styles.header_darkMode}`}`}>
+      <div className={styles.header__content}>
+        <div className={styles.content__title}>Pietro Bondioli</div>
+        <div className={styles.content__terminal}>
           <div>
             [pietro@pietro-pc{' '}
-            <span className={`terminal__wd ${isDarkTheme && 'terminal__wd_darkMode'}`}>
+            <span
+              className={`${styles.terminal__wd} ${
+                isDarkTheme && `${styles.terminal__wd_darkMode}`
+              }`}
+            >
               {translate('myWebsite')}
             </span>
             ]$
           </div>
-          <div className={`terminal__command ${isDarkTheme && 'terminal__command_darkMode'}`}>
+          <div
+            className={`${styles.terminal__command} ${
+              isDarkTheme && `${styles.terminal__command_darkMode}`
+            }`}
+          >
             {terminalCommand}
-            {!isNavbarOpen && (
-              <span
-                className={`terminal__underslash
-              ${!isTyping ? 'terminal__underslash_active' : 'terminal__underslash_disabled'}`}
-              >
-                _
-              </span>
-            )}
+            <TerminalUnderslash
+              animation={
+                !isTyping ? `terminal__underslash_active` : `terminal__underslash_disabled`
+              }
+            />
           </div>
         </div>
       </div>
-      <ScrollLink to="presentation" spy={true} smooth={true} className="header__arrow">
+      <ScrollLink to="presentation" spy={true} smooth={true} className={styles.header__arrow}>
         {/* this is needed because there is an bug that animated itens overlap
             any other component no matter how z-index property is configured */}
         {!isNavbarOpen && (
-          <div className={`arrow__button ${isDarkTheme && 'arrow__button_darkMode'}`} />
+          <div
+            className={`${styles.arrow__button} ${
+              isDarkTheme && `${styles.arrow__button_darkMode}`
+            }`}
+          />
         )}
       </ScrollLink>
     </section>
