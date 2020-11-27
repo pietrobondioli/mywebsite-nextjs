@@ -9,7 +9,12 @@
   flex-flow: column;
   align-items: center;
   justify-content: space-evenly;
-  background-color: map-get($color, background);
+  background-color: map-get($light-colors, background);
+  color: map-get($light-colors, regular-text);
+  &_darkMode {
+    background-color: map-get($dark-colors, background);
+    color: map-get($dark-colors, regular-text);
+  }
 }
 
 .footer__text {
@@ -20,8 +25,6 @@
 .footer__text_separator::before {
   content: '\A';
   white-space: pre;
-  // display: block;
-  // visibility: hidden;
   @include media-lg {
     content: '-';
     white-space: normal;

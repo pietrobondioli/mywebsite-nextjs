@@ -7,7 +7,6 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  background-color: map-get($color, background);
 }
 
 // Header Section
@@ -15,6 +14,12 @@
 .header {
   @extend %section;
   justify-content: flex-end;
+  background-color: map-get($light-colors, background);
+  color: map-get($light-colors, regular-text);
+  &_darkMode {
+    background-color: map-get($dark-colors, background);
+    color: map-get($dark-colors, regular-text);
+  }
 }
 
 .header__content {
@@ -31,13 +36,16 @@
     flex-flow: column;
     align-items: center;
     justify-content: space-around;
-    color: map-get($color, primary);
+    color: map-get($colors, primary);
     .terminal__wd,
     .terminal__command {
-      color: map-get($color, regular-text);
+      color: map-get($light-colors, regular-text);
+      &_darkMode {
+        color: map-get($dark-colors, regular-text);
+      }
     }
     .terminal__underslash {
-      color: map-get($color, primary);
+      color: map-get($colors, primary);
       &_active {
         animation: terminal-underslash-animation 600ms cubic-bezier(1, 0.1, 0.1, 1) infinite
           alternate;
@@ -82,6 +90,9 @@
     background-size: 24px;
     animation: arrow-animation 700ms ease-in-out infinite alternate;
     background-image: url('../../public/icons/black-arrow-48px.png');
+    &_darkMode {
+      background-image: url('../../public/icons/white-arrow-48px.png');
+    }
     @include media-lg {
       width: 48px;
       height: 48px;
@@ -107,6 +118,12 @@
 .presentation {
   @extend %section;
   justify-content: space-evenly;
+  background-color: map-get($light-colors, background);
+  color: map-get($light-colors, regular-text);
+  &_darkMode {
+    background-color: map-get($dark-colors, background);
+    color: map-get($light-colors, special-text);
+  }
 }
 
 .presentation__title {
@@ -156,11 +173,11 @@
     border-radius: 5px;
     transition: all 300ms ease-in-out;
     background-color: transparent;
-    color: map-get($color, primary);
-    border: 2px solid map-get($color, primary);
+    color: map-get($colors, primary);
+    border: 2px solid map-get($colors, primary);
     &:hover {
-      background-color: map-get($color, primary);
-      color: map-get($color, white-text);
+      background-color: map-get($colors, primary);
+      color: map-get($colors, white-text);
       border: 2px solid transparent;
     }
   }

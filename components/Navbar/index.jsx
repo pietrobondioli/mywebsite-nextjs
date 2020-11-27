@@ -7,6 +7,7 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
 
 // Contexts
 import { NavbarContext } from '../../contexts/NavbarContext';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 // Hooks
 import useTranslation from '../../hooks/useTranslation';
@@ -17,6 +18,7 @@ import navbarContent from './content';
 const Navbar = () => {
   const translate = useTranslation(navbarContent);
   const { isNavbarOpen, setIsNavbarOpen } = React.useContext(NavbarContext);
+  const { isDarkTheme } = React.useContext(ThemeContext);
   const refMenu = React.useRef(null);
   let targetElement;
 
@@ -45,14 +47,18 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isDarkTheme && 'navbar_darkMode'}`}>
       <Link href="/">
         <div className="navbar__logo" />
       </Link>
       <button
         type="button"
         className={`${'navbar__button'}
-        ${isNavbarOpen ? 'navbar__button_active' : 'navbar__button_disabled'}`}
+        ${isNavbarOpen ? 'navbar__button_active' : 'navbar__button_disabled'}
+        ${
+          isDarkTheme &&
+          `${isNavbarOpen ? 'navbar__button_active_darkMode' : 'navbar__button_disabled_darkMode'}`
+        }`}
         onClick={() => {
           setIsNavbarOpen(!isNavbarOpen);
           handleMenuToggle();
@@ -61,19 +67,28 @@ const Navbar = () => {
       <div
         ref={refMenu}
         className={`${'navbar__menu'}
-            ${isNavbarOpen ? 'navbar__menu_active' : 'navbar__menu_disabled'}`}
+            ${isNavbarOpen ? 'navbar__menu_active' : 'navbar__menu_disabled'}
+            ${isDarkTheme && 'navbar__menu_darkMode'}`}
       >
         <Link href="/">
-          <a className="menu__item">{translate('about')}</a>
+          <a className={`menu__item ${isDarkTheme && 'menu__item_darkMode'}`}>
+            {translate('about')}
+          </a>
         </Link>
         <Link href="/">
-          <a className="menu__item">{translate('articles')}</a>
+          <a className={`menu__item ${isDarkTheme && 'menu__item_darkMode'}`}>
+            {translate('articles')}
+          </a>
         </Link>
         <Link href="/">
-          <a className="menu__item">{translate('projects')}</a>
+          <a className={`menu__item ${isDarkTheme && 'menu__item_darkMode'}`}>
+            {translate('projects')}
+          </a>
         </Link>
         <Link href="/">
-          <a className="menu__item">{translate('contact')}</a>
+          <a className={`menu__item ${isDarkTheme && 'menu__item_darkMode'}`}>
+            {translate('contact')}
+          </a>
         </Link>
       </div>
     </nav>

@@ -5,15 +5,10 @@
 $navbar-images: (
   'logo': url('../../public/icons/logo.png'),
   'animatedLogo': url('../../public/icons/logoAnimated.png'),
-  'menuBar': url('../../public/icons/black-menu-3bars-48px.png'),
-  'closeMenu': url('../../public/icons/black-x-48px.png'),
-);
-
-$menu-colors: (
-  'background': #00000000,
-  'menu-background': #ebebeb,
-  'text-color': map-get($color, regular-text),
-  'text-color-onHover': map-get($color, primary),
+  'black-menuBar': url('../../public/icons/black-menu-3bars-48px.png'),
+  'black-closeMenu': url('../../public/icons/black-x-48px.png'),
+  'white-menuBar': url('../../public/icons/white-menu-3bars-48px.png'),
+  'white-closeMenu': url('../../public/icons/white-x-48px.png'),
 );
 
 .navbar {
@@ -24,8 +19,13 @@ $menu-colors: (
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: map-get($menu-colors, text-color);
-  background-color: map-get($menu-colors, background);
+  color: map-get($light-colors, regular-text);
+  background-color: transparent;
+  pointer-events: none;
+  &_darkMode {
+    color: map-get($dark-colors, regular-text);
+    background-color: map-get($dark-colors, background);
+  }
 }
 
 .navbar__logo {
@@ -38,6 +38,7 @@ $menu-colors: (
   background-size: 32px 32px;
   z-index: 2;
   transition: all 400ms ease-in-out;
+  pointer-events: all;
   &:hover {
     transform: scale(1.2);
     background-image: map-get($navbar-images, animatedLogo);
@@ -55,11 +56,17 @@ $menu-colors: (
   z-index: 999;
   transition: all 600ms ease-in-out;
   &_disabled {
-    background-image: map-get($navbar-images, menuBar);
+    background-image: map-get($navbar-images, black-menuBar);
+    &_darkMode {
+      background-image: map-get($navbar-images, white-menuBar);
+    }
   }
   &_active {
-    background-image: map-get($navbar-images, closeMenu);
+    background-image: map-get($navbar-images, black-closeMenu);
     transform: rotate(-90deg);
+    &_darkMode {
+      background-image: map-get($navbar-images, white-closeMenu);
+    }
   }
   @include media-lg {
     display: none;
@@ -76,9 +83,12 @@ $menu-colors: (
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  background-color: map-get($menu-colors, menu-background);
+  background-color: map-get($light-colors, card-background);
   z-index: 99;
   transition: all 800ms ease;
+  &_darkMode {
+    background-color: map-get($dark-colors, card-background);
+  }
   &_disabled {
     clip-path: circle(50px at 90% -10%);
     -webkit-clip-path: circle(50px at 90% -10%);
@@ -110,11 +120,14 @@ $menu-colors: (
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  color: map-get($menu-colors, text-color);
+  color: map-get($light-colors, regular-text);
   text-decoration: none;
   transition: all 300ms ease-in-out;
+  &_darkMode {
+    color: map-get($dark-colors, regular-text);
+  }
   &:hover {
-    color: map-get($menu-colors, text-color-onHover);
+    color: map-get($colors, primary);
   }
   @include media-lg {
     margin: 0 12px;
