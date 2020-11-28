@@ -5,6 +5,9 @@ import Link from 'next/link';
 // External Libs
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
+// Components
+import ToggleThemeButton from './ToggleThemeButton';
+
 // Contexts
 import { NavbarContext } from '../../contexts/NavbarContext';
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -25,14 +28,6 @@ const Navbar = () => {
   const refMenu = React.useRef(null);
   let targetElement;
 
-  const handleMenuToggle = () => {
-    if (isNavbarOpen) {
-      enableBodyScroll(targetElement);
-    } else {
-      disableBodyScroll(targetElement);
-    }
-  };
-
   const resetMenuState = () => {
     setIsNavbarOpen(false);
     enableBodyScroll(targetElement);
@@ -40,6 +35,11 @@ const Navbar = () => {
 
   React.useEffect(() => {
     targetElement = refMenu.current;
+    if (!isNavbarOpen) {
+      enableBodyScroll(targetElement);
+    } else {
+      disableBodyScroll(targetElement);
+    }
   }, [isNavbarOpen]);
 
   React.useEffect(() => {
@@ -68,7 +68,6 @@ const Navbar = () => {
         }`}
         onClick={() => {
           setIsNavbarOpen(!isNavbarOpen);
-          handleMenuToggle();
         }}
       />
       <div
@@ -77,6 +76,7 @@ const Navbar = () => {
             ${isNavbarOpen ? `${styles.navbar__menu_active}` : `${styles.navbar__menu_disabled}`}
             ${isDarkTheme && `${styles.navbar__menu_darkMode}`}`}
       >
+        <ToggleThemeButton />
         <Link href="/">
           <a className={`${styles.menu__item} ${isDarkTheme && `${styles.menu__item_darkMode}`}`}>
             {translate('about')}

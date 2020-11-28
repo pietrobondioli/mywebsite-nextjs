@@ -3,6 +3,7 @@ import React from 'react';
 // Translations
 import useTranslation from '../../hooks/useTranslation';
 
+// Content
 import footerContent from './content';
 
 // Contexts
