@@ -9,12 +9,6 @@
   flex-flow: column;
   align-items: center;
   justify-content: space-evenly;
-  background-color: map-get($light-colors, background);
-  color: map-get($light-colors, regular-text);
-  &_darkMode {
-    background-color: map-get($dark-colors, background);
-    color: map-get($dark-colors, regular-text);
-  }
 }
 
 .footer__text {

@@ -9,6 +9,7 @@ import { ThemeContextProvider } from '../contexts/ThemeContext';
 // Components
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import WithTheme from '../hocs/WithTheme';
 
 // Styles
 import '../styles/main.scss';
@@ -25,8 +26,10 @@ const MyApp = ({ Component, pageProps }) => {
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <Navbar />
-        <Component {...pageProps} />
-        <Footer />
+        <WithTheme>
+          <Component {...pageProps} />
+          <Footer />
+        </WithTheme>
       </ThemeContextProvider>
     </NavbarContextProvider>
   );

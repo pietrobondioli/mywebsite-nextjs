@@ -5,10 +5,4 @@
 .section {
   @include flexSection(space-evenly);
   min-height: 100vh;
-  background-color: map-get($light-colors, background);
-  color: map-get($light-colors, regular-text);
-  &_darkMode {
-    background-color: map-get($dark-colors, background);
-    color: map-get($dark-colors, regular-text);
-  }
 }

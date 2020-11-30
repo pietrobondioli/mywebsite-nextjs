@@ -58,7 +58,7 @@ const Header = () => {
   }, [terminalCommand]);
 
   return (
-    <section className={`${styles.header} ${isDarkTheme && `${styles.header_darkMode}`}`}>
+    <section className={styles.header}>
       <div className={styles.header__content}>
         <div className={styles.content__title}>Pietro Bondioli</div>
         <div className={styles.content__terminal}>

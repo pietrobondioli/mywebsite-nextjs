@@ -1,0 +1,10 @@
+@import '../utils/variables';
+
+.theme {
+  color: map-get($light-colors, regular-text);
+  background-color: map-get($light-colors, background);
+  &_darkMode {
+    color: map-get($dark-colors, regular-text);
+    background-color: map-get($dark-colors, background);
+  }
+}

@@ -1,9 +1,9 @@
 import { Link as ScrollLink } from 'react-scroll';
-import presentationImage from '../../../public/icons/profile-256px.png';
-import aboutImage from '../../../public/icons/brain-256px.png';
-import articlesImage from '../../../public/icons/article-256px.png';
-import projectsImage from '../../../public/icons/book-256px.png';
-import contactImage from '../../../public/icons/contact-256px.png';
+import presentationImage from '../../../public/icons/presentation/profile-256px.png';
+import aboutImage from '../../../public/icons/presentation/brain-256px.png';
+import articlesImage from '../../../public/icons/presentation/article-256px.png';
+import projectsImage from '../../../public/icons/presentation/book-256px.png';
+import contactImage from '../../../public/icons/presentation/contact-256px.png';
 
 export default [
   {

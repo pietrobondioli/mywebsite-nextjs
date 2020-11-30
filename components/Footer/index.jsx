@@ -13,16 +13,16 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import styles from '../../styles/components/Footer.module.scss';
 
 // Assets
-import linkedinImg from '../../public/icons/linkedin-48px.png';
-import githubImg from '../../public/icons/black-github-48px.png';
-import whiteGithubImg from '../../public/icons/white-github-48px.png';
+import linkedinImg from '../../public/icons/footer/linkedin-48px.png';
+import githubImg from '../../public/icons/footer/black-github-48px.png';
+import whiteGithubImg from '../../public/icons/footer/white-github-48px.png';
 
 const Footer = () => {
   const translations = useTranslation(footerContent);
   const { isDarkTheme } = React.useContext(ThemeContext);
 
   return (
-    <footer className={`${styles.footer} ${isDarkTheme && `${styles.footer_darkMode}`}`}>
+    <footer className={styles.footer}>
       <p className={styles.footer__text}>
         Pietro Bondioli <span className={styles.footer__text_separator} />{' '}
         {translations('copyright')} &copy; 2019

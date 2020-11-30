@@ -7,12 +7,6 @@
 .header {
   @include flexSection(flex-end);
   height: 100vh;
-  background-color: map-get($light-colors, background);
-  color: map-get($light-colors, regular-text);
-  &_darkMode {
-    background-color: map-get($dark-colors, background);
-    color: map-get($dark-colors, regular-text);
-  }
 }
 
 .header__content {
@@ -63,9 +57,9 @@
     height: 32px;
     background-size: 24px;
     animation: arrow-animation 700ms ease-in-out infinite alternate;
-    background-image: url('../../../public/icons/black-arrow-48px.png');
+    background-image: url('../../../public/icons/header/black-arrow-48px.png');
     &_darkMode {
-      background-image: url('../../../public/icons/white-arrow-48px.png');
+      background-image: url('../../../public/icons/header/white-arrow-48px.png');
     }
     @include media-lg {
       width: 48px;

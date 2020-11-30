@@ -50,7 +50,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`${styles.navbar} ${isDarkTheme && `${styles.navbar_darkMode}`}`}>
+    <nav className={styles.navbar}>
       <Link href="/">
         <div className={styles.navbar__logo} />
       </Link>
@@ -77,7 +77,7 @@ const Navbar = () => {
             ${isDarkTheme && `${styles.navbar__menu_darkMode}`}`}
       >
         <ToggleThemeButton />
-        <Link href="/">
+        <Link href="/about">
           <a className={`${styles.menu__item} ${isDarkTheme && `${styles.menu__item_darkMode}`}`}>
             {translate('about')}
           </a>
