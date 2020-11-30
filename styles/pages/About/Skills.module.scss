@@ -1,0 +1,36 @@
+@import '../../utils/variables';
+@import '../../utils/config';
+@import '../../utils/mixins';
+
+.skills__section {
+  padding-top: 48px;
+}
+
+.skills__content {
+  width: 100%;
+  padding: 0 32px;
+  display: flex;
+  flex-flow: column;
+  .name {
+    font-size: 18px;
+    align-self: flex-start;
+    margin: 16px 0;
+  }
+  .skills {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 32px 0;
+    @include media-md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include media-lg {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  @include media-md {
+    padding: 0 72px;
+  }
+  @include media-lg {
+    padding: 0 96px;
+  }
+}

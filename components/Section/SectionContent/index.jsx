@@ -14,7 +14,7 @@ import sectionContent from './content';
 import styles from '../../../styles/components/Section/SectionContent.module.scss';
 
 const SectionContent = (props) => {
-  const { text, image, readMore } = props;
+  const { children, text, image, readMore } = props;
   const { isDarkTheme } = React.useContext(ThemeContext);
   const translation = useTranslation(sectionContent);
 
@@ -26,7 +26,7 @@ const SectionContent = (props) => {
     >
       <img className={styles.content__image} src={image} alt="img" />
       <div>
-        <div className={styles.content__text}>{text}</div>
+        <div className={styles.content__text}>{children || text}</div>
         {readMore && <div className={styles.content__button}>{translation('readMore')}</div>}
       </div>
     </div>
