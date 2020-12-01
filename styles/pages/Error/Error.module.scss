@@ -1,0 +1,23 @@
+@import '../../utils/mixins';
+
+.error {
+  font-size: 16px;
+  height: 75vh;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  div {
+    padding: 6px;
+  }
+  .errorImage {
+    @extend %backgroundConfigs;
+    background-image: url('../../../public/icons/error/warning-128px.png');
+    background-size: 128px 128px;
+    width: 128px;
+    height: 128px;
+    justify-self: center;
+  }
+  .errorCode {
+    font-size: 32px;
+  }
+}

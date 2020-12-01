@@ -1,9 +1,9 @@
-@use '../utils/variables' as *;
-@use '../utils/config' as *;
+@use '../../utils/variables' as *;
+@use '../../utils/config' as *;
 
 $icons-images: (
-  'sun': url('../../public/icons/toggleThemeButton/sun-32px.png'),
-  'moon': url('../../public/icons/toggleThemeButton/moon-32px.png'),
+  'sun': url('../../../public/icons/toggleThemeButton/sun-32px.png'),
+  'moon': url('../../../public/icons/toggleThemeButton/moon-32px.png'),
 );
 
 %iconConfig {

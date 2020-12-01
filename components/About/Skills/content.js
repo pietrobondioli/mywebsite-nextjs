@@ -7,8 +7,9 @@ import cssImg from '../../../public/icons/skills/css-32px.png';
 import jqueryImg from '../../../public/icons/skills/jquery-32px.png';
 import sassImg from '../../../public/icons/skills/sass-32px.png';
 import bootstrapImg from '../../../public/icons/skills/bootstrap-32px.png';
-import electronImg from '../../../public/icons/skills/electron-32px.png';
+import electronImg from '../../../public/icons/skills/electron-plane-32px.png';
 import reactImg from '../../../public/icons/skills/react-32px.png';
+import nextImg from '../../../public/icons/skills/nextjs-32px.png';
 import expressImg from '../../../public/icons/skills/express-logo-32px.png';
 
 import linuxImg from '../../../public/icons/skills/linux-32px.png';
@@ -30,7 +31,12 @@ import firebaseImg from '../../../public/icons/skills/firebase-32px.png';
 
 export default [
   {
-    typeName: 'programming languages',
+    'pt-BR': {
+      typeName: 'linguagens de programação',
+    },
+    'en-US': {
+      typeName: 'programming languages',
+    },
     skills: [
       {
         name: 'javascript',
@@ -60,7 +66,12 @@ export default [
     ],
   },
   {
-    typeName: 'frameworks',
+    'pt-BR': {
+      typeName: 'frameworks',
+    },
+    'en-US': {
+      typeName: 'frameworks',
+    },
     skills: [
       {
         name: 'reactJS',
@@ -70,7 +81,7 @@ export default [
       {
         name: 'nextJS',
         link: 'https://nextjs.org/',
-        image: reactImg,
+        image: nextImg,
       },
       {
         name: 'express',
@@ -83,19 +94,24 @@ export default [
         image: electronImg,
       },
       {
-        name: 'bootstrap',
-        link: 'https://getbootstrap.com/',
-        image: bootstrapImg,
-      },
-      {
         name: 'jQuery',
         link: 'https://jquery.com/',
         image: jqueryImg,
       },
+      {
+        name: 'bootstrap',
+        link: 'https://getbootstrap.com/',
+        image: bootstrapImg,
+      },
     ],
   },
   {
-    typeName: 'tools',
+    'pt-BR': {
+      typeName: 'ferramentas',
+    },
+    'en-US': {
+      typeName: 'tools',
+    },
     skills: [
       {
         name: 'linux',
@@ -152,15 +168,15 @@ export default [
         link: 'https://code.visualstudio.com/',
         image: vscodeImg,
       },
-      {
-        name: 'vim',
-        link: 'https://www.vim.org/',
-        image: vimImg,
-      },
     ],
   },
   {
-    typeName: 'others',
+    'pt-BR': {
+      typeName: 'outros',
+    },
+    'en-US': {
+      typeName: 'others',
+    },
     skills: [
       {
         name: 'nodeJs',

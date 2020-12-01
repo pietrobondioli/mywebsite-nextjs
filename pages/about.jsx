@@ -12,10 +12,10 @@ import Skills from '../components/About/Skills';
 // Contents
 const aboutContent = {
   'pt-BR': {
-    pageTitle: 'About',
+    pageTitle: 'Sobre',
   },
   'en-US': {
-    pageTitle: 'Sobre',
+    pageTitle: 'About',
   },
 };
 

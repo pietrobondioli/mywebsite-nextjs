@@ -1,14 +1,38 @@
-export default {
-  'pt-BR': {
-    about: 'sobre',
-    articles: 'artigos',
-    projects: 'projetos',
-    contact: 'contato',
+export default [
+  {
+    link: '/about',
+    'pt-BR': {
+      itemName: 'sobre',
+    },
+    'en-US': {
+      itemName: 'about',
+    },
   },
-  'en-US': {
-    about: 'about',
-    articles: 'articles',
-    projects: 'projects',
-    contact: 'contact',
+  {
+    link: '/articles',
+    'pt-BR': {
+      itemName: 'artigos',
+    },
+    'en-US': {
+      itemName: 'articles',
+    },
   },
-};
+  {
+    link: '/projects',
+    'pt-BR': {
+      itemName: 'projetos',
+    },
+    'en-US': {
+      itemName: 'projects',
+    },
+  },
+  {
+    link: '/contact',
+    'pt-BR': {
+      itemName: 'contato',
+    },
+    'en-US': {
+      itemName: 'contact',
+    },
+  },
+];

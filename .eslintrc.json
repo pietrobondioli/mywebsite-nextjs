@@ -38,6 +38,7 @@
     "react/jsx-boolean-value": "off",
     "react/prop-types": "off",
     "no-unused-vars": "warn",
+    "no-nested-ternary": "off",
     "no-console": "off",
     "func-names": "off",
     "react/prefer-stateless-function": "off",

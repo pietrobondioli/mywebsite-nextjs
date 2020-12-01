@@ -1,12 +1,14 @@
 // React/Next Components
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 // External Libs
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 // Components
 import ToggleThemeButton from './ToggleThemeButton';
+import NavbarItem from './NavbarItem';
 
 // Contexts
 import { NavbarContext } from '../../contexts/NavbarContext';
@@ -19,10 +21,11 @@ import useTranslation from '../../hooks/useTranslation';
 import navbarContent from './content';
 
 // Styles
-import styles from '../../styles/components/Navbar.module.scss';
+import styles from '../../styles/components/Navbar/Navbar.module.scss';
 
 const Navbar = () => {
-  const translate = useTranslation(navbarContent);
+  const router = useRouter();
+  let translate;
   const { isNavbarOpen, setIsNavbarOpen } = React.useContext(NavbarContext);
   const { isDarkTheme } = React.useContext(ThemeContext);
   const refMenu = React.useRef(null);
@@ -46,6 +49,13 @@ const Navbar = () => {
     window.addEventListener('resize', resetMenuState);
     return () => {
       window.removeEventListener('resize', resetMenuState);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    router.events.on('routeChangeStart', resetMenuState);
+    return () => {
+      router.events.off('routeChangeStart', resetMenuState);
     };
   }, []);
 
@@ -77,26 +87,10 @@ const Navbar = () => {
             ${isDarkTheme && `${styles.navbar__menu_darkMode}`}`}
       >
         <ToggleThemeButton />
-        <Link href="/about">
-          <a className={`${styles.menu__item} ${isDarkTheme && `${styles.menu__item_darkMode}`}`}>
-            {translate('about')}
-          </a>
-        </Link>
-        <Link href="/">
-          <a className={`${styles.menu__item} ${isDarkTheme && `${styles.menu__item_darkMode}`}`}>
-            {translate('articles')}
-          </a>
-        </Link>
-        <Link href="/">
-          <a className={`${styles.menu__item} ${isDarkTheme && `${styles.menu__item_darkMode}`}`}>
-            {translate('projects')}
-          </a>
-        </Link>
-        <Link href="/">
-          <a className={`${styles.menu__item} ${isDarkTheme && `${styles.menu__item_darkMode}`}`}>
-            {translate('contact')}
-          </a>
-        </Link>
+        {navbarContent.map((item) => {
+          translate = useTranslation(item);
+          return <NavbarItem itemName={translate('itemName')} itemLink={item.link} />;
+        })}
       </div>
     </nav>
   );
