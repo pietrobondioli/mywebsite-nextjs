@@ -8,6 +8,7 @@ import { ThemeContext } from '../../../contexts/ThemeContext';
 
 // Components
 import TerminalUnderslash from '../../TerminalUnderslash';
+import Section from '../../Section';
 
 // External Libs
 
@@ -58,7 +59,7 @@ const Header = () => {
   }, [terminalCommand]);
 
   return (
-    <section className={styles.header}>
+    <Section>
       <div className={styles.header__content}>
         <div className={styles.content__title}>Pietro Bondioli</div>
         <div className={styles.content__terminal}>
@@ -98,7 +99,7 @@ const Header = () => {
           />
         )}
       </ScrollLink>
-    </section>
+    </Section>
   );
 };
 

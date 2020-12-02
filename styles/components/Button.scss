@@ -1,0 +1,14 @@
+@import '../utils/variables';
+
+.button {
+  background-color: transparent;
+  color: map-get($colors, primary);
+  border: 2px solid map-get($colors, primary);
+  transition: all 300ms ease-in-out;
+  border-radius: 2px;
+  &:hover {
+    background-color: map-get($colors, primary);
+    color: map-get($colors, white-text);
+    border: 2px solid transparent;
+  }
+}

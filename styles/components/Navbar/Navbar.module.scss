@@ -26,7 +26,7 @@ $navbar-images: (
 .navbar__logo {
   cursor: pointer;
   width: 48px;
-  height: 48px;
+  height: map-get($heights, navbar);
   @extend %backgroundConfigs;
   background-image: map-get($navbar-images, logo);
   background-color: transparent;
@@ -51,6 +51,9 @@ $navbar-images: (
   z-index: 999;
   transition: all 600ms ease-in-out;
   pointer-events: all;
+  &:selected {
+    border: none;
+  }
   &_disabled {
     background-image: map-get($navbar-images, black-menuBar);
     &_darkMode {

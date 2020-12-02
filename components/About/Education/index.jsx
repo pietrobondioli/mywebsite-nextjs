@@ -25,24 +25,22 @@ const Education = () => {
   let translate = useTranslation(sectionContent);
 
   return (
-    <div id="education">
-      <Section key={translate('title')}>
-        <SectionTitle title={translate('title')} />
-        {educationContent.map((content) => {
-          translate = useTranslation(content);
-          return (
-            <SectionContent image={content.image} readMore={content.readMore}>
-              <div className={`${styles.about__text}`}>
-                <div className={`${styles.title}`}>{translate('name')}</div>
-                <div className={`${styles.subtitle}`}>{translate('course')}</div>
-                <div className={`${styles.description}`}>{translate('description')}</div>
-                <div className={`${styles.period}`}>{translate('period')}</div>
-              </div>
-            </SectionContent>
-          );
-        })}
-      </Section>
-    </div>
+    <Section key={translate('title')}>
+      <SectionTitle title={translate('title')} />
+      {educationContent.map((content) => {
+        translate = useTranslation(content);
+        return (
+          <SectionContent image={content.image} readMore={content.readMore}>
+            <div className={`${styles.about__text}`}>
+              <div className={`${styles.title}`}>{translate('name')}</div>
+              <div className={`${styles.subtitle}`}>{translate('course')}</div>
+              <div className={`${styles.description}`}>{translate('description')}</div>
+              <div className={`${styles.period}`}>{translate('period')}</div>
+            </div>
+          </SectionContent>
+        );
+      })}
+    </Section>
   );
 };
 

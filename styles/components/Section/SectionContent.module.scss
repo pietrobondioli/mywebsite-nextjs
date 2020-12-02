@@ -4,7 +4,6 @@
 .section__content {
   min-height: 70vh;
   width: 100%;
-  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -31,16 +30,7 @@
     padding: 6px 16px;
     font-size: 18px;
     text-align: center;
-    border-radius: 5px;
-    background-color: transparent;
-    color: map-get($colors, primary);
-    border: 2px solid map-get($colors, primary);
-    transition: all 300ms ease-in-out;
-    &:hover {
-      background-color: map-get($colors, primary);
-      color: map-get($colors, white-text);
-      border: 2px solid transparent;
-    }
+    border-radius: 2px;
   }
   @include media-sm {
     .content__image {
@@ -53,7 +43,6 @@
     }
   }
   @include media-md {
-    padding: 0 48px;
     .content__image {
       width: 196px;
       height: 196px;
@@ -71,7 +60,6 @@
   }
   @include media-lg {
     flex-flow: row;
-    padding: 0 64px;
     .content__image,
     & > div {
       margin: 0 48px;

@@ -3,6 +3,18 @@
 @import '../../utils/variables';
 
 .section {
-  @include flexSection(space-evenly);
-  min-height: 100vh;
+  display: grid;
+  justify-content: stretch;
+  justify-items: center;
+  gap: 16px;
+  padding: map-get($heights, navbar) 32px;
+  min-height: map-get($heights, section);
+  @include media-md {
+    padding: map-get($heights, navbar) 64px;
+    gap: 32px;
+  }
+  @include media-lg {
+    padding: map-get($heights, navbar) 96px;
+    gap: 48px;
+  }
 }

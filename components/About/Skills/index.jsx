@@ -24,30 +24,28 @@ const sectionContent = {
 const Skills = () => {
   let translate = useTranslation(sectionContent);
   return (
-    <div className={styles.skills__section}>
-      <Section key={translate('title')}>
-        <SectionTitle title={translate('title')} />
-        {skillsContent.map((skillType) => {
-          translate = useTranslation(skillType);
-          return (
-            <div className={styles.skills__content}>
-              <div className={styles.name}>{translate('typeName')}</div>
-              <div className={styles.skills}>
-                {skillType.skills.map((skill) => {
-                  return (
-                    <SkillItem
-                      skillLink={skill.link}
-                      skillName={skill.name}
-                      skillImage={skill.image}
-                    />
-                  );
-                })}
-              </div>
+    <Section key={translate('title')}>
+      <SectionTitle title={translate('title')} />
+      {skillsContent.map((skillType) => {
+        translate = useTranslation(skillType);
+        return (
+          <div className={styles.skills__content}>
+            <div className={styles.name}>{translate('typeName')}</div>
+            <div className={styles.skills}>
+              {skillType.skills.map((skill) => {
+                return (
+                  <SkillItem
+                    skillLink={skill.link}
+                    skillName={skill.name}
+                    skillImage={skill.image}
+                  />
+                );
+              })}
             </div>
-          );
-        })}
-      </Section>
-    </div>
+          </div>
+        );
+      })}
+    </Section>
   );
 };
 

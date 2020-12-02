@@ -84,12 +84,12 @@ export default [
         image: nextImg,
       },
       {
-        name: 'express',
+        name: 'expressJS',
         link: 'https://expressjs.com/',
         image: expressImg,
       },
       {
-        name: 'electron',
+        name: 'electronJS',
         link: 'https://www.electronjs.org/',
         image: electronImg,
       },

@@ -27,7 +27,9 @@ const SectionContent = (props) => {
       <img className={styles.content__image} src={image} alt="img" />
       <div>
         <div className={styles.content__text}>{children || text}</div>
-        {readMore && <div className={styles.content__button}>{translation('readMore')}</div>}
+        {readMore && (
+          <div className={`button ${styles.content__button}`}>{translation('readMore')}</div>
+        )}
       </div>
     </div>
   );

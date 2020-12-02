@@ -2,13 +2,8 @@
 @import '../../utils/config';
 @import '../../utils/mixins';
 
-.skills__section {
-  padding-top: 48px;
-}
-
 .skills__content {
   width: 100%;
-  padding: 0 32px;
   display: flex;
   flex-flow: column;
   .name {
@@ -27,10 +22,7 @@
       grid-template-columns: repeat(5, 1fr);
     }
   }
-  @include media-md {
-    padding: 0 72px;
-  }
   @include media-lg {
-    padding: 0 96px;
+    padding: 0 48px;
   }
 }
