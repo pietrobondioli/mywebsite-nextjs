@@ -23,9 +23,11 @@ const sectionContent = {
 
 const Skills = () => {
   let translate = useTranslation(sectionContent);
+
   return (
     <Section key={translate('title')}>
       <SectionTitle title={translate('title')} />
+
       {skillsContent.map((skillType) => {
         translate = useTranslation(skillType);
         return (

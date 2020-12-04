@@ -89,15 +89,9 @@ const Header = () => {
         </div>
       </div>
       <ScrollLink to="presentation" spy={true} smooth={true} className={styles.header__arrow}>
-        {/* this is needed because there is an bug that animated itens overlap
-            any other component no matter how z-index property is configured */}
-        {!isNavbarOpen && (
-          <div
-            className={`${styles.arrow__button} ${
-              isDarkTheme && `${styles.arrow__button_darkMode}`
-            }`}
-          />
-        )}
+        <div
+          className={`${styles.arrow__button} ${isDarkTheme && `${styles.arrow__button_darkMode}`}`}
+        />
       </ScrollLink>
     </Section>
   );

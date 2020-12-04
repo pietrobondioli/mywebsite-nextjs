@@ -10,14 +10,18 @@ $colors: (
 
 $light-colors: (
   'background': #f5f5f5,
+  'contrast-background': #121214,
   'card-background': #ececec,
-  'regular-text': #141414,
+  'regular-text': #121214,
+  'contrast-text': #f5f5f5,
 );
 
 $dark-colors: (
   'background': #121214,
+  'contrast-background': #f5f5f5,
   'card-background': #212025,
-  'regular-text': #f5f5f5
+  'regular-text': #f5f5f5,
+  'contrast-text': #121214,
 );
 
 $heights: (

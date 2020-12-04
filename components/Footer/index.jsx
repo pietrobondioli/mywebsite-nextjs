@@ -19,14 +19,14 @@ import githubImg from '../../public/icons/footer/black-github-48px.png';
 import whiteGithubImg from '../../public/icons/footer/white-github-48px.png';
 
 const Footer = () => {
-  const translations = useTranslation(footerContent);
+  const translate = useTranslation(footerContent);
   const { isDarkTheme } = React.useContext(ThemeContext);
 
   return (
     <footer className={styles.footer}>
       <p className={styles.footer__text}>
-        Pietro Bondioli <span className={styles.footer__text_separator} />{' '}
-        {translations('copyright')} &copy; 2019
+        Pietro Bondioli <span className={styles.footer__text_separator} /> {translate('copyright')}{' '}
+        &copy; 2019
       </p>
       <div>
         <a href="https://www.github.com/Bondioli-Pietro" target="_blank" rel="noreferrer">

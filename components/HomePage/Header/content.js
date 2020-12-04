@@ -1,10 +1,10 @@
 export default {
   'pt-BR': {
     myWebsite: 'meuWebsite',
-    welcomeWebsite: 'echo bem vindo ao meu Website!',
+    welcomeWebsite: 'echo bem vindo ao meu website!',
   },
   'en-US': {
     myWebsite: 'myWebsite',
-    welcomeWebsite: 'echo welcome to my Website!',
+    welcomeWebsite: 'echo welcome to my website!',
   },
 };

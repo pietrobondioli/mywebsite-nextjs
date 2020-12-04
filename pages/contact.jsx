@@ -6,6 +6,7 @@ import useTranslation from '../hooks/useTranslation';
 
 // Components
 import ContactForm from '../components/Contact/ContactForm';
+import ContactInfo from '../components/Contact/ContactInfo';
 
 // Contents
 const contactContent = {
@@ -26,6 +27,7 @@ function Contact() {
         <title>{translate('pageTitle')}</title>
       </Head>
       <ContactForm />
+      <ContactInfo />
     </>
   );
 }

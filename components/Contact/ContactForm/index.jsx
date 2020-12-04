@@ -20,9 +20,18 @@ import { ThemeContext } from '../../../contexts/ThemeContext';
 // Content
 import contactFormContent from './content';
 
+const sectionContent = {
+  'pt-BR': {
+    title: 'contate-me',
+  },
+  'en-US': {
+    title: 'contact me',
+  },
+};
+
 const ContactForm = () => {
   const { isDarkTheme } = React.useContext(ThemeContext);
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm({ mode: 'onChange' });
   const translate = useTranslation(contactFormContent);
 
   const onSubmit = (formData) => {
@@ -31,7 +40,7 @@ const ContactForm = () => {
 
   return (
     <Section>
-      <SectionTitle title={translate('sectionName')} />
+      <SectionTitle title={translate('title', sectionContent)} />
       <form
         className={`${styles.form} ${isDarkTheme && styles.form_darkMode}`}
         onSubmit={handleSubmit(onSubmit)}
@@ -58,13 +67,10 @@ const ContactForm = () => {
             name="lastName"
             id="lastName"
             type="text"
-            ref={register({ required: true, minLength: 1, maxLength: 32 })}
+            ref={register({ required: false, minLength: 1, maxLength: 32 })}
           />
           {errors.lastName && (
             <div>
-              {errors.lastName?.type === 'required' && (
-                <p>{translate('lastName_error_required')}</p>
-              )}
               {errors.lastName?.type === 'minLength' && <p>{translate('lastName_error_length')}</p>}
               {errors.lastName?.type === 'maxLength' && <p>{translate('lastName_error_length')}</p>}
             </div>
@@ -72,10 +78,19 @@ const ContactForm = () => {
         </div>
         <div className={`${styles.form__group} ${styles.form__email}`}>
           <label htmlFor="email">{translate('email')}</label>
-          <input name="email" id="email" type="text" ref={register({ required: true })} />
+          <input
+            name="email"
+            id="email"
+            type="text"
+            ref={register({
+              required: true,
+              pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            })}
+          />
           {errors.email && (
             <div>
               {errors.email?.type === 'required' && <p>{translate('email_error_required')}</p>}
+              {errors.email?.type === 'pattern' && <p>{translate('email_error_pattern')}</p>}
             </div>
           )}
         </div>

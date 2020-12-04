@@ -11,11 +11,7 @@ const TerminalUnderslash = (props) => {
   const { animation } = props;
   const { isNavbarOpen } = React.useContext(NavbarContext);
 
-  return (
-    <span className={`${styles.terminal__underslash} ${styles[animation]}`}>
-      {!isNavbarOpen && '_'}
-    </span>
-  );
+  return <span className={`${styles.terminal__underslash} ${styles[animation]}`}>_</span>;
 };
 
 export default TerminalUnderslash;

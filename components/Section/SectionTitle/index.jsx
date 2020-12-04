@@ -22,8 +22,7 @@ const SectionTitle = (props) => {
             isDarkTheme && `${styles.section__title_darkMode}`
           }`}
         >
-          {title}
-          <TerminalUnderslash animation="terminal__underslash_active" />
+          {title} <TerminalUnderslash animation="terminal__underslash_active" />
         </div>
       )}
     </>
