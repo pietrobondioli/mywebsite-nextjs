@@ -1,0 +1,29 @@
+@use '../../utils/variables.scss' as *;
+
+.skill {
+  flex-basis: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin: 16px;
+  border: 2px solid var(--primary);
+  border-radius: 3px;
+  transition: all 300ms ease-in-out;
+  &:hover {
+    background-color: var(--primary);
+    .name {
+      color: var(--white-text);
+    }
+  }
+  .name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0 5px;
+  }
+  .image {
+    width: 32px;
+    height: 32px;
+  }
+}

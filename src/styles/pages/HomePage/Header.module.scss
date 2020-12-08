@@ -1,0 +1,76 @@
+@import '../../utils/variables';
+@import '../../utils/config';
+@import '../../utils/mixins';
+
+// Header Section
+
+.header__content {
+  align-self: end;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  .content__title {
+  }
+  .content__terminal {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--primary);
+    .terminal__wd,
+    .terminal__command {
+      color: var(--regular-text);
+    }
+  }
+  @include media-sm {
+    font-size: 16px;
+  }
+  @include media-lg {
+    font-size: 20px;
+    .content__terminal {
+      flex-flow: row;
+      .terminal__command {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.header__arrow {
+  align-self: end;
+  padding-bottom: 48px;
+  display: flex;
+  align-items: center;
+  .arrow__button {
+    cursor: pointer;
+    @extend %backgroundConfigs;
+    width: 32px;
+    height: 32px;
+    background-size: 24px;
+    animation: arrow-animation 700ms ease-in-out infinite alternate;
+    background-image: var(--header-arrow-img);
+    @include media-lg {
+      width: 48px;
+      height: 48px;
+      background-size: 30px;
+    }
+  }
+  @include media-md {
+    padding-bottom: 0;
+  }
+}
+
+@keyframes arrow-animation {
+  from {
+    transform: scale(1.15) rotate(90deg) translateX(8px);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1) rotate(90deg);
+    opacity: 0.5;
+  }
+}

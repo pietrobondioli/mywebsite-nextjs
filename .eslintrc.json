@@ -33,6 +33,7 @@
       }
     ],
     "no-param-reassign": "off",
+    "no-useless-escape": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-boolean-value": "off",
