@@ -23,6 +23,7 @@ export default [
   {
     image: aboutImage,
     readMore: true,
+    readMoreLink: '/about',
     'pt-BR': {
       title: 'sobre',
       text:
@@ -37,6 +38,7 @@ export default [
   {
     image: articlesImage,
     readMore: true,
+    readMoreLink: '/articles',
     'pt-BR': {
       title: 'artigos',
       text:
@@ -51,6 +53,7 @@ export default [
   {
     image: projectsImage,
     readMore: true,
+    readMoreLink: '/projects',
     'pt-BR': {
       title: 'projetos',
       text:
@@ -65,6 +68,7 @@ export default [
   {
     image: contactImage,
     readMore: true,
+    readMoreLink: '/contact',
     'pt-BR': {
       title: 'contato',
       text:

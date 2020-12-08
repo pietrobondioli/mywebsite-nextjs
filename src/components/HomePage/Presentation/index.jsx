@@ -21,6 +21,7 @@ const Presentation = () => {
               text={translate('text')}
               image={content.image}
               readMore={content.readMore}
+              readMoreLink={content.readMoreLink}
             />
           </Section>
         );

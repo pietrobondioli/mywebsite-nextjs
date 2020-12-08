@@ -10,15 +10,13 @@ import { useForm } from 'react-hook-form';
 // Components
 import Section from '../../Section';
 import SectionTitle from '../../Section/SectionTitle';
+import FormAlert from './FormAlert';
 
 // Translations
 import useTranslation from '../../../hooks/useTranslation';
 
 // Styles
 import styles from '../../../styles/pages/Contact/ContactForm.module.scss';
-
-// Contexts
-import { ThemeContext } from '../../../contexts/ThemeContext';
 
 // Content
 import contactFormContent from './content';
@@ -35,6 +33,16 @@ const sectionContent = {
 const ContactForm = () => {
   const { register, handleSubmit, errors } = useForm({ mode: 'onChange' });
   const translate = useTranslation(contactFormContent);
+  const [submitStatus, setSubmitStatus] = React.useState(false);
+  const [submitVisibility, setSubmitVisibility] = React.useState(false);
+
+  const handleSubmitStatus = (status) => {
+    setSubmitStatus(status);
+    setSubmitVisibility(true);
+    setTimeout(() => {
+      setSubmitVisibility(false);
+    }, 2000);
+  };
 
   const onSubmit = (formData) => {
     console.log(JSON.stringify(formData));
@@ -45,10 +53,11 @@ const ContactForm = () => {
       },
       body: JSON.stringify(formData),
     })
-      .then(function (response) {
-        console.log(response);
+      .then((response) => {
+        console.log(response.ok);
+        handleSubmitStatus(response.ok);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.error(error);
       });
   };
@@ -150,6 +159,11 @@ const ContactForm = () => {
           />
         </div>
       </form>
+      {submitStatus ? (
+        <FormAlert show={submitVisibility} status={true} />
+      ) : (
+        <FormAlert show={submitVisibility} status={false} />
+      )}
     </Section>
   );
 };

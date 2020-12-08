@@ -1,0 +1,48 @@
+@import '../../utils/config';
+
+.articleCard {
+  cursor: pointer;
+  width: 100%;
+  height: 512px;
+  display: grid;
+  grid-template-rows: 7fr 2fr 1fr 7fr;
+  background-color: var(--card-background);
+  color: var(--regular-text);
+  border-radius: 2px;
+  transition: all 200ms ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+  @include media-xl {
+    height: 768px;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    padding: 0 16px;
+  }
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+  .title {
+    font-size: 16px;
+    @include media-md {
+      font-size: 18px;
+    }
+  }
+  .date {
+    font-size: 12px;
+    @include media-md {
+      font-size: 14px;
+    }
+  }
+  .abstract {
+    align-items: stretch;
+    font-size: 14px;
+    @include media-md {
+      font-size: 16px;
+    }
+  }
+}

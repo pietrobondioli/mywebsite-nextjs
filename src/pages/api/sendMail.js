@@ -20,10 +20,7 @@ const handler = async (req, res) => {
       </div>
     `,
   });
-  if (info.accepted.length) {
-    return res.json({ sended: true });
-  }
-  return res.json({ sended: false });
+  res.send(info);
 };
 
 export default handler;

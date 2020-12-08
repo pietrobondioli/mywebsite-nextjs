@@ -1,8 +1,6 @@
 // React/Next Components
 import React from 'react';
-
-// Contexts
-import { ThemeContext } from '../../../contexts/ThemeContext';
+import Link from 'next/link';
 
 // Hooks
 import useTranslation from '../../../hooks/useTranslation';
@@ -14,7 +12,7 @@ import sectionContent from './content';
 import styles from '../../../styles/components/Section/SectionContent.module.scss';
 
 const SectionContent = (props) => {
-  const { children, text, image, readMore } = props;
+  const { children, text, image, readMore, readMoreLink } = props;
   const translation = useTranslation(sectionContent);
 
   return (
@@ -23,7 +21,9 @@ const SectionContent = (props) => {
       <div>
         <div className={styles.content__text}>{children || text}</div>
         {readMore && (
-          <div className={`button ${styles.content__button}`}>{translation('readMore')}</div>
+          <Link href={readMoreLink}>
+            <a className={`button ${styles.content__button}`}>{translation('readMore')}</a>
+          </Link>
         )}
       </div>
     </div>
