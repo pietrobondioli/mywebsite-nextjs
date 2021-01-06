@@ -13,11 +13,6 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 // Styles
 import styles from '../../styles/components/Footer.module.scss';
 
-// Assets
-import linkedinImg from '../../public/icons/footer/linkedin-48px.png';
-import githubImg from '../../public/icons/footer/black-github-48px.png';
-import whiteGithubImg from '../../public/icons/footer/white-github-48px.png';
-
 const Footer = () => {
   const translate = useTranslation(footerContent);
   const { theme } = React.useContext(ThemeContext);
@@ -28,16 +23,12 @@ const Footer = () => {
         Pietro Bondioli <span className={styles.footer__text_separator} /> {translate('copyright')}{' '}
         &copy; 2019
       </p>
-      <div>
+      <div className={styles.footer__icons}>
         <a href="https://www.github.com/Bondioli-Pietro" target="_blank" rel="noreferrer">
-          <img
-            src={theme === 'dark' ? whiteGithubImg : githubImg}
-            className={styles.footer__icon}
-            alt="Github"
-          />
+          <div className={`${styles.footer__icon} ${styles.github}`} />
         </a>
         <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-          <img src={linkedinImg} className={styles.footer__icon} alt="Linkedin" />
+          <div className={`${styles.footer__icon} ${styles.linkedin}`} />
         </a>
       </div>
     </footer>

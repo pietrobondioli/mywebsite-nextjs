@@ -1,6 +1,6 @@
 // Components
-import Section from '../../Section';
-import SectionTitle from '../../Section/SectionTitle';
+import Section from '../../../components/Section';
+import SectionTitle from '../../../components/Section/SectionTitle';
 import SkillItem from './SkillItem';
 
 // Hooks

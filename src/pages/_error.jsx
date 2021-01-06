@@ -1,5 +1,5 @@
 // Components
-import ErrorAlert from '../components/ErrorAlert';
+import ErrorAlert from '../containers/ErrorAlert';
 
 const Error = (props) => {
   const { statusCode } = props;

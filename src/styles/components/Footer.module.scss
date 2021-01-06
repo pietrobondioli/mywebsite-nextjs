@@ -25,9 +25,24 @@
   }
 }
 
-.footer__icon {
-  width: 34px;
-  height: 34px;
-  padding: 5px 10px;
-  margin: 0 5px;
+.footer__icons {
+  display: flex;
+  .footer__icon {
+    box-sizing: content-box;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    margin: 0 12px;
+    background-repeat: no-repeat;
+    background-size: 32px;
+    background-position: center;
+  }
+}
+
+.github {
+  background-image: var(--footer-github-icon);
+}
+
+.linkedin {
+  background-image: var(--footer-linkedin-icon);
 }

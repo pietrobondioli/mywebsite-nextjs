@@ -5,8 +5,8 @@ import Head from 'next/head';
 import useTranslation from '../hooks/useTranslation';
 
 // Components
-import Header from '../components/HomePage/Header';
-import Presentation from '../components/HomePage/Presentation';
+import Header from '../containers/HomePage/Header';
+import Presentation from '../containers/HomePage/Presentation';
 
 // Contents
 const homeContent = {
@@ -26,8 +26,10 @@ function HomePage() {
       <Head>
         <title>{translate('pageTitle')}</title>
       </Head>
-      <Header />
-      <Presentation />
+      <main>
+        <Header />
+        <Presentation />
+      </main>
     </>
   );
 }

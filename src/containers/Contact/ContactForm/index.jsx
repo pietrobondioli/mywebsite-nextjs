@@ -1,6 +1,3 @@
-// TODO
-//   - mail response alert
-
 // React/Next Components
 import React from 'react';
 
@@ -8,8 +5,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 // Components
-import Section from '../../Section';
-import SectionTitle from '../../Section/SectionTitle';
+import Section from '../../../components/Section';
+import SectionTitle from '../../../components/Section/SectionTitle';
 import FormAlert from './FormAlert';
 
 // Translations
@@ -162,8 +159,8 @@ const ContactForm = () => {
       {submitStatus ? (
         <FormAlert show={submitVisibility} status={true} />
       ) : (
-        <FormAlert show={submitVisibility} status={false} />
-      )}
+          <FormAlert show={submitVisibility} status={false} />
+        )}
     </Section>
   );
 };

@@ -8,15 +8,12 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import useTranslation from '../../../hooks/useTranslation';
 
 // Components
-import Section from '../../Section';
-import SectionTitle from '../../Section/SectionTitle';
+import Section from '../../../components/Section';
+import SectionTitle from '../../../components/Section/SectionTitle';
 import ContactCard from './ContactCard';
 
 // Content
 import contactInfoContent from './content';
-
-// Contexts
-import { ThemeContext } from '../../../contexts/ThemeContext';
 
 // Styles
 import styles from '../../../styles/pages/Contact/ContactInfo.module.scss';

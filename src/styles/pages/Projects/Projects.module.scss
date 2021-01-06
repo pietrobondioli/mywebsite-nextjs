@@ -1,14 +1,13 @@
 @import '../../utils/config';
 
-.about__text {
+.project__text {
   & div {
     text-align: center;
     padding: 8px 0;
     font-weight: 600;
   }
-  .title {
-  }
-  .subtitle {
+  .subject {
+    font-size: 18px;
   }
   .description {
     font-weight: 400;
@@ -16,7 +15,5 @@
     @include media-md {
       text-align: center;
     }
-  }
-  .period {
   }
 }

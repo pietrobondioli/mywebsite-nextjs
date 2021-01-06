@@ -1,7 +1,7 @@
 // Components
-import Section from '../../Section';
-import SectionTitle from '../../Section/SectionTitle';
-import SectionContent from '../../Section/SectionContent';
+import Section from '../../../components/Section';
+import SectionTitle from '../../../components/Section/SectionTitle';
+import SectionContent from '../../../components/Section/SectionContent';
 
 // Hooks
 import useTranslation from '../../../hooks/useTranslation';

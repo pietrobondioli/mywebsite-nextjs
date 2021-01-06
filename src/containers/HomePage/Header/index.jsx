@@ -7,8 +7,8 @@ import { Link as ScrollLink } from 'react-scroll';
 import { LocaleContext } from '../../../contexts/LocaleContext';
 
 // Components
-import TerminalUnderslash from '../../TerminalUnderslash';
-import Section from '../../Section';
+import TerminalUnderslash from '../../../components/TerminalUnderslash';
+import Section from '../../../components/Section';
 
 // External Libs
 
@@ -45,7 +45,7 @@ const Header = () => {
             return lastState + letter;
           });
           if (letters.length === index + 1) setIsTyping(false);
-        }, 200 * index)
+        }, 150 * index)
       );
     });
   };

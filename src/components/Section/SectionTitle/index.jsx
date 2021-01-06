@@ -4,9 +4,6 @@ import React from 'react';
 // Components
 import TerminalUnderslash from '../../TerminalUnderslash';
 
-// Contexts
-import { ThemeContext } from '../../../contexts/ThemeContext';
-
 // Styles
 import styles from '../../../styles/components/Section/SectionTitle.module.scss';
 

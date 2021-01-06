@@ -5,20 +5,20 @@ import Head from 'next/head';
 import useTranslation from '../hooks/useTranslation';
 
 // Components
-import ArticlesSection from '../containers/Articles';
+import ProjectsSection from '../containers/Projects';
 
 // Contents
-const pageName = {
+const projectsContent = {
   'pt-BR': {
-    pageTitle: 'Artigos',
+    pageTitle: 'Projetos',
   },
   'en-US': {
-    pageTitle: 'Articles',
+    pageTitle: 'Projects',
   },
 };
 
-function Articles() {
-  const translate = useTranslation(pageName);
+function Projects() {
+  const translate = useTranslation(projectsContent);
 
   return (
     <>
@@ -26,10 +26,10 @@ function Articles() {
         <title>{translate('pageTitle')}</title>
       </Head>
       <main>
-        <ArticlesSection />
+        <ProjectsSection />
       </main>
     </>
   );
 }
 
-export default Articles;
+export default Projects;

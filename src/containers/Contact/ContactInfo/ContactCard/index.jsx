@@ -1,9 +1,6 @@
 // React/Next Components
 import React from 'react';
 
-// Contexts
-import { ThemeContext } from '../../../../contexts/ThemeContext';
-
 // Styles
 import styles from '../../../../styles/pages/Contact/ContactCard.module.scss';
 

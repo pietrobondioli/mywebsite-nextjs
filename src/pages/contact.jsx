@@ -5,8 +5,8 @@ import Head from 'next/head';
 import useTranslation from '../hooks/useTranslation';
 
 // Components
-import ContactForm from '../components/Contact/ContactForm';
-import ContactInfo from '../components/Contact/ContactInfo';
+import ContactForm from '../containers/Contact/ContactForm';
+import ContactInfo from '../containers/Contact/ContactInfo';
 
 // Contents
 const contactContent = {
@@ -26,8 +26,10 @@ function Contact() {
       <Head>
         <title>{translate('pageTitle')}</title>
       </Head>
-      <ContactForm />
-      <ContactInfo />
+      <main>
+        <ContactForm />
+        <ContactInfo />
+      </main>
     </>
   );
 }

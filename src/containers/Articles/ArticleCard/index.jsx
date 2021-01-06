@@ -5,7 +5,7 @@ import Link from 'next/link';
 // Styles
 import styles from '../../../styles/pages/Articles/ArticleCard.module.scss';
 
-const Articles = (props) => {
+const ArticleCard = (props) => {
   const { articleSlug, articleImage, articleTitle, articleDate, articleAbstract } = props;
 
   return (
@@ -20,4 +20,4 @@ const Articles = (props) => {
   );
 };
 
-export default Articles;
+export default ArticleCard;

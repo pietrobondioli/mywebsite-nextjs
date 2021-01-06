@@ -5,9 +5,9 @@ import Head from 'next/head';
 import useTranslation from '../hooks/useTranslation';
 
 // Components
-import Education from '../components/About/Education';
-import Experience from '../components/About/Experience';
-import Skills from '../components/About/Skills';
+import Education from '../containers/About/Education';
+import Experience from '../containers/About/Experience';
+import Skills from '../containers/About/Skills';
 
 // Contents
 const aboutContent = {
@@ -27,9 +27,11 @@ function About() {
       <Head>
         <title>{translate('pageTitle')}</title>
       </Head>
-      <Skills />
-      <Education />
-      <Experience />
+      <main>
+        <Skills />
+        <Education />
+        <Experience />
+      </main>
     </>
   );
 }
