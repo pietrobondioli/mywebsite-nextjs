@@ -1,48 +1,60 @@
 @import '../../utils/config';
 
-.articleCard {
+.articlesCard {
+  position: relative;
   cursor: pointer;
-  width: 100%;
-  height: 512px;
-  display: grid;
-  grid-template-rows: 7fr 2fr 1fr 7fr;
-  background-color: var(--card-background);
+  max-height: 300px;
   color: var(--regular-text);
-  border-radius: 2px;
+  background-color: var(--card-background);
+  box-shadow: 1px 1px 2px 1px var(--weak-shadow);
   transition: all 200ms ease-in-out;
-  &:hover {
-    transform: scale(1.1);
-  }
   @include media-xl {
-    height: 768px;
+    max-height: 360px;
   }
-  div {
+  .cardImage {
+    overflow: hidden;
+    .image {
+      max-width: 100%;
+    }
+  }
+  .cardText {
+    position: absolute;
     display: flex;
-    align-items: center;
-    justify-content: stretch;
-    padding: 0 16px;
+    flex-flow: column;
+    justify-content: space-evenly;
+    bottom: -20%;
+    padding: 16px;
+    background-color: var(--card-background);
+    z-index: 2;
+    & > * {
+      padding: 8px 0;
+    }
+    @include media-lg {
+      padding: 24px 16px;
+    }
   }
-  .image {
-    width: 100%;
-    height: 100%;
+  .image, .cardText {
+    transition: all 300ms ease-in-out;
+  }
+  &:hover {
+    box-shadow: 1px 1px 3px 2px var(--weak-shadow);
+    .image {
+      transform: scale(1.05);
+    }
+    .cardText {
+      padding: 24px 16px;
+      @include media-xl {
+        padding: 32px 16px;
+      }
+    }
   }
   .title {
-    font-size: 16px;
-    @include media-md {
-      font-size: 18px;
-    }
+    font-size: 22px;
   }
   .date {
-    font-size: 12px;
-    @include media-md {
-      font-size: 14px;
-    }
+    color: var(--article-card-opaque-text);
   }
-  .abstract {
-    align-items: stretch;
+  .author, .date {
     font-size: 14px;
-    @include media-md {
-      font-size: 16px;
-    }
   }
 }

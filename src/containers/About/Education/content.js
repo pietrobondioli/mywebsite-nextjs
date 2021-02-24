@@ -1,21 +1,20 @@
-import mackenzieImage from '../../../public/icons/presentation/brain-256px.png';
+import mackenzieImage from '../../../public/icons/about/mackenzie-logo.png';
 
 export default [
   {
     image: mackenzieImage,
     readMore: false,
     'pt-BR': {
-      name: 'Mackenzie BR',
+      name: 'Mackenzie',
       course: 'Análise e Desenvolvimento de Sistemas',
       description:
-        'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
+        'Talvez as partes mais impactantes do curso para mim foram aquelas onde eu aprendi coisas básicas que formaram e reforçaram o meu conhecimento base em tecnologia, sou grato a matérias como Cálculo, Hardware, Algoritmos, Estrutura de Dados, Ética, entre outras.',
       period: '2019 ~ PRESENTE',
     },
     'en-US': {
       name: 'Mackenzie US',
       course: 'Software Analysis and Development',
-      description:
-        'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
+      description: `Perhaps the most impactful parts of the course for me were those where I learned basic things that formed and reinforced my basic knowledge in technology, I am grateful to subjects such as Calculation, Hardware, Algorithms, Data Structure, Ethics, among others.`,
       period: '2019 ~ PRESENT',
     },
   },

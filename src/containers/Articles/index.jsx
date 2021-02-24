@@ -25,9 +25,9 @@ const Articles = () => {
               key={card.articleSlug}
               articleSlug={card.articleSlug}
               articleImage={card.articleImage}
-              articleDate={card.articleDate}
               articleTitle={translate('articleTitle')}
-              articleAbstract={translate('articleAbstract')}
+              articleAuthor={card.articleAuthor}
+              articleDate={card.articleDate}
             />
           );
         })}

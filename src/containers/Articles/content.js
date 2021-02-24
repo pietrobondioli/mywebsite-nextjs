@@ -1,34 +1,16 @@
-import teste1 from '../../public/articles/segurança-informação-card.jpeg';
+import passwordsAndDigitalSecurityImage from '../../public/articles/passwords-and-digital-security/how-secure-is-my-password.png';
 
 export default [
   {
-    articleSlug: 'nomeArtigo',
-    articleImage: teste1,
-    articleDate: '22/08/2001',
+    articleSlug: 'passwords-and-digital-security',
+    articleImage: passwordsAndDigitalSecurityImage,
+    articleDate: '11/02/2021',
+    articleAuthor: 'PIETRO BONDIOLI',
     'pt-BR': {
-      articleTitle: 'teste1 port',
-      articleAbstract:
-        'Odit in nisi voluptatum debitis debitis. Voluptates id nostrum rerum. Architecto voluptatem quo corrupti amet ullam aut. Et nostrum corporis aut ut corrupti accusamus est modi.',
+      articleTitle: 'Porquê (e como) você deveria proteger todas as suas contas online',
     },
     'en-US': {
-      articleTitle: 'teste1 ingles',
-      articleAbstract:
-        'Odit in nisi voluptatum debitis debitis. Voluptates id nostrum rerum. Architecto voluptatem quo corrupti amet ullam aut. Et nostrum corporis aut ut corrupti accusamus est modi.',
-    },
-  },
-  {
-    articleSlug: 'nomeArtigo2',
-    articleImage: teste1,
-    articleDate: '22/08/2001',
-    'pt-BR': {
-      articleTitle: 'teste1 port',
-      articleAbstract:
-        'Odit in nisi voluptatum debitis debitis. Voluptates id nostrum rerum. Architecto voluptatem quo corrupti amet ullam aut. Et nostrum corporis aut ut corrupti accusamus est modi.',
-    },
-    'en-US': {
-      articleTitle: 'teste1 ingles',
-      articleAbstract:
-        'Odit in nisi voluptatum debitis debitis. Voluptates id nostrum rerum. Architecto voluptatem quo corrupti amet ullam aut. Et nostrum corporis aut ut corrupti accusamus est modi.',
+      articleTitle: 'Why (and How) you should protect all your online accounts',
     },
   },
 ];
