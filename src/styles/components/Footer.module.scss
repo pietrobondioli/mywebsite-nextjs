@@ -16,6 +16,17 @@
   font-size: 16px;
 }
 
+.footer__link {
+  color: var(--primary-darker);
+  transition: all 300ms ease-in-out;
+  &:visited {
+    color: var(--primary-darker);
+  }
+  &:hover {
+    color: var(--primary);
+  }
+}
+
 .footer__text_separator::before {
   content: '\A';
   white-space: pre;

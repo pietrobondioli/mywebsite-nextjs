@@ -42,7 +42,6 @@ const ContactForm = () => {
   };
 
   const onSubmit = (formData) => {
-    console.log(JSON.stringify(formData));
     fetch('/api/sendMail', {
       method: 'POST',
       headers: {
@@ -51,7 +50,6 @@ const ContactForm = () => {
       body: JSON.stringify(formData),
     })
       .then((response) => {
-        console.log(response.ok);
         handleSubmitStatus(response.ok);
       })
       .catch((error) => {
@@ -159,8 +157,8 @@ const ContactForm = () => {
       {submitStatus ? (
         <FormAlert show={submitVisibility} status={true} />
       ) : (
-          <FormAlert show={submitVisibility} status={false} />
-        )}
+        <FormAlert show={submitVisibility} status={false} />
+      )}
     </Section>
   );
 };

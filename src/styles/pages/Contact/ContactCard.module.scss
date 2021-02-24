@@ -30,6 +30,7 @@
     height: 100%;
     border-radius: 2px;
     transition: all 500ms ease-in-out;
+    box-shadow: 1px 1px 2px 1px var(--weak-shadow);
   }
   &:hover {
     .card__front {
@@ -47,17 +48,5 @@
   @include media-lg {
     height: 256px;
     width: 80%;
-  }
-  &:nth-child(1) .card__front {
-    background-color: #f584f5;
-  }
-  &:nth-child(2) .card__front {
-    background-color: #7ac95c;
-  }
-  &:nth-child(3) .card__front {
-    background-color: #4eaaec;
-  }
-  &:nth-child(4) .card__front {
-    background-color: #f0e32f;
   }
 }

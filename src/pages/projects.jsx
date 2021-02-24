@@ -11,9 +11,11 @@ import ProjectsSection from '../containers/Projects';
 const projectsContent = {
   'pt-BR': {
     pageTitle: 'Projetos',
+    pageDescription: 'Aqui você pode ver alguns projetos dos quais eu participei ou fui criador.',
   },
   'en-US': {
     pageTitle: 'Projects',
+    pageDescription: 'Here you can take a look at some projects I created or participated.',
   },
 };
 
@@ -24,6 +26,7 @@ function Projects() {
     <>
       <Head>
         <title>{translate('pageTitle')}</title>
+        <meta name="description" content={translate('pageDescription')} />
       </Head>
       <main>
         <ProjectsSection />

@@ -5,8 +5,8 @@ const useTranslation = (content) => {
   const router = useRouter();
   const { locale, defaultLocale } = router;
 
-  function translate(key, translateLib = content) {
-    return translateLib[locale][key] || translateLib[defaultLocale][key] || '';
+  function translate(key, lib = content) {
+    return lib[locale][key] || lib[defaultLocale][key] || '';
   }
 
   return translate;

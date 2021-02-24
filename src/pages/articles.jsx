@@ -11,9 +11,13 @@ import ArticlesSection from '../containers/Articles';
 const pageName = {
   'pt-BR': {
     pageTitle: 'Artigos',
+    pageDescription:
+      'Eu escrevo artigos sobre tecnologia - e as vezes sobre alguns "pensamentos esquecíveis".',
   },
   'en-US': {
     pageTitle: 'Articles',
+    pageDescription:
+      'I write articles about technology - and sometimes about some "forgettable thoughts" of mine.',
   },
 };
 
@@ -24,6 +28,7 @@ function Articles() {
     <>
       <Head>
         <title>{translate('pageTitle')}</title>
+        <meta name="description" content={translate('pageDescription')} />
       </Head>
       <main>
         <ArticlesSection />

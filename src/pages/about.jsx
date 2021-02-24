@@ -13,9 +13,11 @@ import Skills from '../containers/About/Skills';
 const aboutContent = {
   'pt-BR': {
     pageTitle: 'Sobre',
+    pageDescription: 'Conhecimentos - Educação - Experiência',
   },
   'en-US': {
     pageTitle: 'About',
+    pageDescription: 'Skills - Education - Experience',
   },
 };
 

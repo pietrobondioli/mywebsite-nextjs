@@ -6,10 +6,19 @@ import Link from 'next/link';
 import styles from '../../../styles/components/Navbar/NavbarItem.module.scss';
 
 const NavbarItem = (props) => {
-  const { itemName, itemLink, itemLocale, itemScroll } = props;
+  const { itemName, itemLink, itemQuery, itemLocale, itemScroll } = props;
 
   return (
-    <Link href={itemLink || ''} locale={itemLocale} scroll={itemScroll}>
+    <Link
+      href={
+        {
+          pathname: itemLink,
+          query: itemQuery,
+        } || ''
+      }
+      locale={itemLocale}
+      scroll={itemScroll}
+    >
       <a className={styles.menu__item}>{itemName}</a>
     </Link>
   );

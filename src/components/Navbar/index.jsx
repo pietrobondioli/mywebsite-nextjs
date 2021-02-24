@@ -53,14 +53,9 @@ const Navbar = () => {
 
   React.useEffect(() => {
     window.addEventListener('resize', resetMenuState);
-    return () => {
-      window.removeEventListener('resize', resetMenuState);
-    };
-  }, []);
-
-  React.useEffect(() => {
     router.events.on('routeChangeStart', resetMenuState);
     return () => {
+      window.removeEventListener('resize', resetMenuState);
       router.events.off('routeChangeStart', resetMenuState);
     };
   }, []);
@@ -91,6 +86,7 @@ const Navbar = () => {
           key="changeLocale"
           itemName={changeLocale}
           itemLink={router.pathname}
+          itemQuery={router.query}
           itemLocale={`${changeLocale}`}
           itemScroll={false}
         />

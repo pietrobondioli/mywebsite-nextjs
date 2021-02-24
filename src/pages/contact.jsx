@@ -12,9 +12,13 @@ import ContactInfo from '../containers/Contact/ContactInfo';
 const contactContent = {
   'pt-BR': {
     pageTitle: 'Contato',
+    pageDescription:
+      'E-mail: pietrobondiolideveloper@gmail.com \n Github: www.github.com/bondiolipietro \n Linkedin: www.linkedin.com/in/pietrobondioli/',
   },
   'en-US': {
     pageTitle: 'Contact',
+    pageDescription:
+      'E-mail: pietrobondiolideveloper@gmail.com \n Github: www.github.com/bondiolipietro \n Linkedin: www.linkedin.com/in/pietrobondioli',
   },
 };
 
@@ -25,6 +29,7 @@ function Contact() {
     <>
       <Head>
         <title>{translate('pageTitle')}</title>
+        <meta name="description" content={translate('pageDescription')} />
       </Head>
       <main>
         <ContactForm />

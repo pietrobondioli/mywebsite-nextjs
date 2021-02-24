@@ -1,15 +1,45 @@
 import gmailImg from '../../../public/icons/contact/gmail-128px.png';
-import githubImg from '../../../public/icons/contact/github-128px.png';
+import githubImg from '../../../public/icons/contact/github-black-128px.png';
 import instagramImg from '../../../public/icons/contact/instagram-128px.png';
 import linkedinImg from '../../../public/icons/contact/linkedin-128px.png';
 import telegramImg from '../../../public/icons/contact/telegram-128px.png';
 
 export default [
   {
+    type: 'link',
+    image: linkedinImg,
+    cardColor: '#80d8ff',
+    name: 'linkedin/pietrobondioli',
+    content: 'https://www.linkedin.com/in/pietrobondioli/',
+    'pt-BR': {
+      alt: 'linkedin',
+      message: 'clique para abrir linkedin',
+    },
+    'en-US': {
+      alt: 'linkedin',
+      message: 'click to open linkedin',
+    },
+  },
+  {
+    type: 'link',
+    image: githubImg,
+    cardColor: '#7c7c7c',
+    name: 'github/bondioli-pietro',
+    content: 'https://github.com/bondiolipietro',
+    'pt-BR': {
+      alt: 'github',
+      message: 'clique para abrir github',
+    },
+    'en-US': {
+      alt: 'github',
+      message: 'click to open github',
+    },
+  },
+  {
     type: 'copy',
     image: gmailImg,
-    cardColor: '#d44a3c',
-    content: 'bondiolipietrodev@gmail.com',
+    cardColor: '#ff8a80',
+    content: 'pietrobondiolideveloper@gmail.com',
     'pt-BR': {
       alt: 'e-mail',
       message: 'clique para copiar o email',
@@ -31,36 +61,6 @@ export default [
     'en-US': {
       alt: 'telegram',
       message: 'click to copy phone number',
-    },
-  },
-  {
-    type: 'link',
-    image: githubImg,
-    cardColor: '#222222',
-    name: 'github/bondioli-pietro',
-    content: 'https://github.com/Bondioli-Pietro',
-    'pt-BR': {
-      alt: 'github',
-      message: 'clique para abrir github',
-    },
-    'en-US': {
-      alt: 'github',
-      message: 'click to open github',
-    },
-  },
-  {
-    type: 'link',
-    image: linkedinImg,
-    cardColor: '#5793ce',
-    name: 'linkedin/pietrobondioli',
-    content: 'https://www.linkedin.com/',
-    'pt-BR': {
-      alt: 'linkedin',
-      message: 'clique para abrir linkedin',
-    },
-    'en-US': {
-      alt: 'linkedin',
-      message: 'click to open linkedin',
     },
   },
   {

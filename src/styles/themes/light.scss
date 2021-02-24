@@ -1,19 +1,23 @@
 .light {
-  --primary: #a47dff;
-  --white-text: #f5f5f5;
-  --special-text: #04d361;
-  --weak-shadow: rgba(12, 12, 12, 0.15);
-  --regular-shadow: rgba(12, 12, 12, 0.3);
+  --primary: #549ecf;
+  --primary-darker: #3b8dc4;
+  --white-text: #fcfcfc;
+  --weak-shadow: rgba(26, 31, 39, 0.15);
+  --regular-shadow: rgba(26, 31, 39, 0.3);
   --default-green: #6db16b;
   --default-red: #ec3535;
-  --background: #f5f5f5;
-  --contrast-background: #121212;
-  --card-background: #e4e4e4;
-  --regular-text: #121212;
-  --contrast-text: #f5f5f5;
+  --navbar: #ffffff;
+  --background: #fcfcfc;
+  --contrast-background: #1a1f27;
+  --card-background: #dbdbdb;
+  --regular-text: #0a0a0a;
+  --contrast-text: #fcfcfc;
+  --article-card-opaque-text: #616161;
+  --article-opaque-text: #919191;
+  --article-opaque-item: rgba(145, 145, 145, .7);
   --header-arrow-img: url('../../public/icons/header/black-arrow-48px.png');
   --navbar-menu-bars: url('../../public/icons/navbar/black-menu-3bars-48px.png');
   --navbar-close-menu: url('../../public/icons/navbar/black-x-48px.png');
-  --footer-github-icon: url('../../public/icons/footer/github-black-32px.png');
-  --footer-linkedin-icon: url('../../public/icons/footer/linkedin-32px.png');
+  --footer-github-icon: url('../../public/icons/footer/github-black-64px.png');
+  --footer-linkedin-icon: url('../../public/icons/footer/linkedin-64px.png');
 }

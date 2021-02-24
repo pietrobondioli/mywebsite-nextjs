@@ -8,7 +8,7 @@
   justify-items: center;
   gap: 16px;
   padding: map-get($heights, navbar) 32px;
-  min-height: map-get($heights, section);
+  min-height: 100vh;
   @include media-md {
     padding: map-get($heights, navbar) 64px;
     gap: 32px;

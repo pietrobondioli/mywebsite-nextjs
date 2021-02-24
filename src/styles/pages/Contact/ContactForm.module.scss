@@ -41,8 +41,20 @@
     min-height: 40px;
   }
   input, textarea {
-    box-shadow: 0px 0px 2px 1px var(--weak-shadow);
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    box-shadow: 1px 1px 1px 1px var(--weak-shadow);
     border-radius: 2px;
+    &:focus {
+      box-shadow: 1px 1px 3px 1px var(--weak-shadow);
+    }
+    &[id="submit"] {
+      font-size: 18px;
+      font-family: 'Source Code Pro', monospace;
+      &:focus {
+        box-shadow: none;
+      }
+    }
   }
   p {
     color: var(--default-red);
@@ -79,9 +91,7 @@
   padding-top: 16px;
   .input {
     font-weight: 600;
-    font-size: 16px;
     cursor: pointer;
     padding: 12px 12px;
-    box-shadow: none;
   }
 }

@@ -15,7 +15,7 @@ export default [
     },
     'en-US': {
       title: '',
-      text: `My name is Pietro Bondioli, i'm 19 years old, and I'm a student of Software Analysis and Development at Mackenzie. I've always liked technology, but the area that most excites me is web development related to any financial subject, such as e-commerces, financial market and cryptocurrencies. This website was created by me with the intention of being a place where I can better present my work and skills, ando also share my knowledge, thoughts and ideas (through articles and projects).`,
+      text: `My name is Pietro Bondioli, I'm 19 years old, and I'm a student of Software Analysis and Development at Mackenzie. I've always liked technology, but the area that most excites me is web development related to any financial subject, such as e-commerces, financial market and cryptocurrencies. This website was created by me with the intention of being a place where I can better present my work and skills, ando also share my knowledge, thoughts and ideas (through articles and projects).`,
     },
   },
   {

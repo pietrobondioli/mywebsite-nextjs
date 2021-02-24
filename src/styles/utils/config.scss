@@ -2,9 +2,15 @@ $mobile-width: 360px;
 $lg-mobile-width: 480px;
 $tablet-width: 768px;
 $desktop-width: 1024px;
-$large-desktop-width: 1440px;
+$large-desktop-width: 1366px;
+$extra-large-desktop-width: 1600px;
 
 @mixin media-sm {
+  @media screen and (min-width: $mobile-width) {
+    @content;
+  }
+}
+@mixin media-ms {
   @media screen and (min-width: $mobile-width) {
     @content;
   }
@@ -21,6 +27,11 @@ $large-desktop-width: 1440px;
 }
 @mixin media-xl {
   @media screen and (min-width: $large-desktop-width) {
+    @content;
+  }
+}
+@mixin media-xxl {
+  @media screen and (min-width: $extra-large-desktop-width) {
     @content;
   }
 }
