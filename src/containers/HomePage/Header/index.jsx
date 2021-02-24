@@ -1,6 +1,5 @@
 // React/Next Components
 import React from 'react';
-import { useRouter } from 'next/router';
 
 // Contexts
 import { Link as ScrollLink } from 'react-scroll';
@@ -58,7 +57,7 @@ const Header = () => {
     timeouts.push(
       setTimeout(() => {
         typingAnimation(phrase);
-      }, 5000)
+      }, 3000)
     );
   };
 

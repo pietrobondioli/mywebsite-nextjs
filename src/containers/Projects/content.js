@@ -1,4 +1,4 @@
-import projectImage from '../../public/icons/presentation/contact-256px.png';
+import projectImage from '../../public/icons/home/contact-256px.png';
 
 export default [
   {
@@ -6,16 +6,14 @@ export default [
     readMore: true,
     readMoreLink: '',
     'pt-BR': {
-      name: 'Projeto',
-      subject: 'um projeto legal',
+      name: 'Meu WebSite',
       description:
-        'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
+        'Este não foi o primeiro site que eu programei mas foi o primeiro que eu de fato "concluí". O site foi construído em Javascript com o framework Next.js, a estilização foi feita usando Scss, e eu optei por usar o Docker para virtualizar o projeto por conta das diversas mudanças de sistema operacional que eu estava fazendo enquanto desenvolvia.',
     },
     'en-US': {
-      name: 'Project',
-      subject: 'a cool project',
+      name: 'My Website',
       description:
-        'Iste velit quia est ipsa quod ad. Praesentium fuga est quos deleniti doloribus. Aut ducimus dolorem beatae dolore aliquam. Maiores maiores quae minima eos quae. Dolorum praesentium nam officiis aut et ut et. Rerum aut placeat dolorem libero repellendus quia unde tempore.',
+        'This was not the first site that I programmed but it was the first that I actually "completed". The site was built in Javascript with the Next.js framework, styling was done using Scss, and I chose to use Docker to virtualize the project due to the various changes of operating system I was making while developing.',
     },
   },
 ];
