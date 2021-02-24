@@ -1,27 +1,22 @@
 // React/Next Components
 import React from 'react';
 
-// Translations
-import useTranslation from '../../hooks/useTranslation';
-
-// Content
-import footerContent from './content';
-
-// Contexts
-import { ThemeContext } from '../../contexts/ThemeContext';
-
 // Styles
 import styles from '../../styles/components/Footer.module.scss';
 
 const Footer = () => {
-  const translate = useTranslation(footerContent);
-  const { theme } = React.useContext(ThemeContext);
-
   return (
     <footer className={styles.footer}>
       <p className={styles.footer__text}>
-        Pietro Bondioli <span className={styles.footer__text_separator} /> {translate('copyright')}{' '}
-        &copy; 2019
+        Pietro Bondioli <span className={styles.footer__text_separator} />{' '}
+        <a
+          className={styles.footer__link}
+          href="https://opensource.org/licenses/MIT"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Copyright (c) 2021 MIT
+        </a>
       </p>
       <div className={styles.footer__icons}>
         <a href="https://www.github.com/Bondioli-Pietro" target="_blank" rel="noreferrer">
