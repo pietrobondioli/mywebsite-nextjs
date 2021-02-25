@@ -4,14 +4,20 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(1, minmax(256px, 384px));
+  grid-template-rows: repeat(auto-fit, minmax(256px, 416px));
+  justify-content: space-evenly;
   gap: 32px;
   justify-items: center;
   padding: 64px 0;
   @include media-md {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(256px, 384px));
   }
   @include media-lg {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(256px, 384px));
+    gap: 48px;
+  }
+  @include media-xxl {
+    grid-template-columns: repeat(4, minmax(256px, 384px));
   }
 }

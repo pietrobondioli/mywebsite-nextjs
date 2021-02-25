@@ -5,9 +5,9 @@ export default [
     articleSlug: 'passwords-and-digital-security',
     articleImage: passwordsAndDigitalSecurityImage,
     articleDate: '11/02/2021',
-    articleAuthor: 'PIETRO BONDIOLI',
+    articleAuthor: 'Pietro Bondioli',
     'pt-BR': {
-      articleTitle: 'Porquê (e como) você deveria proteger todas as suas contas online',
+      articleTitle: 'Por que (e como) você deveria proteger todas as suas contas online',
     },
     'en-US': {
       articleTitle: 'Why (and How) you should protect all your online accounts',

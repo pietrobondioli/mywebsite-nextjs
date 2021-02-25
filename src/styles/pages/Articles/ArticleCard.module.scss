@@ -1,60 +1,55 @@
 @import '../../utils/config';
 
 .articlesCard {
-  position: relative;
   cursor: pointer;
-  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: center;
   color: var(--regular-text);
   background-color: var(--card-background);
-  box-shadow: 1px 1px 2px 1px var(--weak-shadow);
   transition: all 200ms ease-in-out;
-  @include media-xl {
-    max-height: 360px;
-  }
   .cardImage {
-    overflow: hidden;
-    .image {
-      max-width: 100%;
-    }
+    max-width: 100%;
+    height: auto;
   }
   .cardText {
-    position: absolute;
+    position: relative;
+    height: 100%;
+    bottom: 14px;
     display: flex;
     flex-flow: column;
-    justify-content: space-evenly;
-    bottom: -20%;
-    padding: 16px;
+    justify-content: center;
+    align-items: start;
+    padding: 14px 14px 0 14px;
     background-color: var(--card-background);
     z-index: 2;
     & > * {
-      padding: 8px 0;
-    }
-    @include media-lg {
-      padding: 24px 16px;
+      padding: 6px 0;
     }
   }
-  .image, .cardText {
+  .cardImage,
+  .cardText {
     transition: all 300ms ease-in-out;
   }
   &:hover {
-    box-shadow: 1px 1px 3px 2px var(--weak-shadow);
-    .image {
+    .cardImage {
       transform: scale(1.05);
     }
     .cardText {
-      padding: 24px 16px;
-      @include media-xl {
-        padding: 32px 16px;
-      }
+      bottom: 20px;
     }
   }
   .title {
-    font-size: 22px;
+    font-size: 20px;
   }
   .date {
     color: var(--article-card-opaque-text);
   }
-  .author, .date {
+  .author,
+  .date {
     font-size: 14px;
   }
 }

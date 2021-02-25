@@ -11,9 +11,7 @@ const ArticleCard = (props) => {
   return (
     <Link href={`/articles/${articleSlug}`}>
       <div className={styles.articlesCard}>
-        <div className={styles.cardImage}>
-          <img src={articleImage} alt={articleTitle} className={styles.image} />
-        </div>
+        <img src={articleImage} alt={articleTitle} className={styles.cardImage} />
         <div className={styles.cardText}>
           <div className={styles.title}>{articleTitle}</div>
           <div className={styles.date}>{articleDate}</div>

@@ -42,11 +42,8 @@
   }
   @include media-sm {
     height: 224px;
-    width: 90%;
-    grid-template-columns: repeat(2, 1fr);
   }
   @include media-lg {
     height: 256px;
-    width: 80%;
   }
 }

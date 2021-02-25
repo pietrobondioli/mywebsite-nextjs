@@ -11,7 +11,7 @@ const Article = () => {
   return (
     <>
       <Head>
-        <title>Porquê (e como) você deveria proteger todas as suas contas online</title>
+        <title>Por que (e como) você deveria proteger todas as suas contas online</title>
         <meta
           name="description"
           content="80% das violações de dados registradas em 2020 foram causadas por senhas que eram fracas ou que foram roubadas. Saiba como se proteger usando os apps Bitwarden e Authy."
@@ -20,7 +20,7 @@ const Article = () => {
       <div className={styles.article}>
         <img className={styles.headerImage} src={articleImage} alt="" />
         <div className={styles.title}>
-          Porquê (e como) você deveria proteger todas as suas contas online
+          Por que (e como) você deveria proteger todas as suas contas online
         </div>
         <div className={styles.date}>Fev 11, 2021 &middot; 15 min leitura</div>
         <div className={`${styles.paragraph} ${styles.regular_text}  ${styles.primary_paragraph}`}>
