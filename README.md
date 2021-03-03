@@ -1,5 +1,5 @@
 # My Website - Next.Js
-This website was created by me with the intention of being a place where I can better present my work and skills, ando also share my knowledge, thoughts and ideas (through my articles and projects). 
+This website was created by me with the intention of being a place where I can better present my work and skills, ando also share my knowledge, thoughts and ideas (through my articles and projects).
 
 ## Notes
 I've used Docker to virtualize the project during development due to the various changes of operating system I was making.
@@ -26,4 +26,4 @@ yarn start
 - Pietro Bondioli ([@bondiolipietro](https://github.com/bondiolipietro))
 
 ## License
-[MIT](LICENSE)
+[MIT](https://opensource.org/licenses/MIT)
