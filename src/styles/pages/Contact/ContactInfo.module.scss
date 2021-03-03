@@ -8,19 +8,10 @@
   justify-content: space-around;
   justify-items: center;
   grid-auto-rows: 1fr;
-  grid-template-columns: repeat(1, minmax(256px, 384px));
+  grid-template-columns: repeat(auto-fill, minmax(256px, 384px));
   gap: 32px;
-  @include media-md {
-    grid-template-columns: repeat(2, minmax(256px, 384px));
-  }
   @include media-lg {
     gap: 48px;
-  }
-  @include media-xl {
-    grid-template-columns: repeat(3, minmax(256px, 384px));
-  }
-  @include media-xxl {
-    grid-template-columns: repeat(4, minmax(256px, 384px));
   }
 }
 
