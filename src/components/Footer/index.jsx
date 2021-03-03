@@ -19,10 +19,10 @@ const Footer = () => {
         </a>
       </p>
       <div className={styles.footer__icons}>
-        <a href="https://www.github.com/Bondioli-Pietro" target="_blank" rel="noreferrer">
+        <a href="https://github.com/bondiolipietro" target="_blank" rel="noreferrer">
           <div className={`${styles.footer__icon} ${styles.github}`} />
         </a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+        <a href="https://www.linkedin.com/in/pietrobondioli/" target="_blank" rel="noreferrer">
           <div className={`${styles.footer__icon} ${styles.linkedin}`} />
         </a>
       </div>
