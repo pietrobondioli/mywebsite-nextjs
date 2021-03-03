@@ -15,7 +15,7 @@ const Presentation = () => {
       {presentationContent.map((content) => {
         const translate = useTranslation(content);
         return (
-          <Section key={translate('title')}>
+          <Section key={translate('title')} sectionType="flex-h">
             <SectionTitle title={translate('title')} />
             <SectionContent
               text={translate('text')}

@@ -16,5 +16,20 @@
   @include media-lg {
     padding: map-get($heights, navbar) 96px;
     gap: 48px;
+    &.flex-h {
+      min-height: 70vh;
+    }
+  }
+  @include media-xl {
+    padding: map-get($heights, navbar) 160px;
+    &.flex-h {
+      min-height: 60vh;
+    }
+  }
+  @include media-xxl {
+    padding: map-get($heights, navbar) 224px;
+    &.flex-h {
+      min-height: 40vh;
+    }
   }
 }

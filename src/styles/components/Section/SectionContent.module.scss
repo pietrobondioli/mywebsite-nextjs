@@ -48,10 +48,6 @@
       width: 132px;
       height: 132px;
     }
-    // .content__text,
-    // .content__button {
-    //   margin: 48px 0;
-    // }
     .content__text {
       font-size: 18px;
     }
@@ -69,5 +65,11 @@
     & > div {
       padding: 0 48px;
     }
+  }
+  @include media-xl {
+    min-height: 50vh;
+  }
+  @include media-xxl {
+    min-height: 40vh;
   }
 }

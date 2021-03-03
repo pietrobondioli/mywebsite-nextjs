@@ -5,9 +5,13 @@ import React from 'react';
 import styles from '../../styles/components/Section/Section.module.scss';
 
 const Section = (props) => {
-  const { children } = props;
+  const { sectionType, children } = props;
 
-  return <section className={styles.section}>{children}</section>;
+  return (
+    <section className={`${styles.section} ${sectionType && styles[sectionType]}`}>
+      {children}
+    </section>
+  );
 };
 
 export default Section;
