@@ -29,10 +29,10 @@
   display: flex;
   flex-flow: column;
   label {
-    font-size: 16px;
+    font-size: 1rem;
     padding-bottom: 16px;
     @include media-md {
-      font-size: 18px;
+      font-size: 1.15rem;
     }
   }
   input {
@@ -42,14 +42,14 @@
   }
   input, textarea {
     font-family: 'Merriweather', serif;
-    font-size: 14px;
+    font-size: 0.9rem;
     box-shadow: 1px 1px 1px 1px var(--weak-shadow);
     border-radius: 2px;
     &:focus {
       box-shadow: 1px 1px 3px 1px var(--weak-shadow);
     }
     &[id="submit"] {
-      font-size: 18px;
+      font-size: 1.15rem;
       font-family: 'Source Code Pro', monospace;
       &:focus {
         box-shadow: none;

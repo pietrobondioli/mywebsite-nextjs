@@ -1,27 +1,26 @@
 @import '../../utils/config';
 
 .article {
-  // position: relative;
   display: flex;
   flex-flow: column;
   align-items: center;
   padding: 48px 0;
   max-width: 100vw;
+  overflow: hidden;
   & > * {
     width: 100%;
     padding: 12px 0;
   }
   .headerImage {
     padding: 32px 0;
-    transform: scale(1.25);
   }
   .title {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
   }
   .date {
     text-align: left;
-    font-size: 14px;
+    font-size: 0.75rem;
     font-weight: bold;
     color: var(--article-opaque-text);
     font-family: 'Merriweather', serif;
@@ -30,19 +29,19 @@
     font-weight: bold;
   }
   .primary_topicTitle {
-    font-size: 22px;
+    font-size: 1.35rem;
   }
   .secondary_topicTitle {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   .tertiary_topicTitle {
-    font-size: 18px;
+    font-size: 1.15rem;
   }
   .small_text {
-    font-size: 14px;
+    font-size: 0.75rem;
   }
   .regular_text {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .paragraph {
     text-align: justify;
@@ -121,7 +120,7 @@
       width: 45vw;
     }
     .title {
-      font-size: 28px;
+      font-size: 1.75rem;
     }
     .primary_paragraph {
       padding: 16px 96px;

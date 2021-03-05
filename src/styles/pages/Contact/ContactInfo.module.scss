@@ -22,7 +22,7 @@
   justify-content: center;
   flex-flow: column;
   text-align: center;
-  font-size: 14px;
+  font-size: 0.75rem;
   font-weight: 600;
   word-wrap: break-word;
   width: 100%;
@@ -34,7 +34,7 @@
     color: var(--primary);
   }
   @include media-sm {
-    font-size: 16px;
+    font-size: 0.95rem;
   }
   div {
     padding: 10px 5px;
