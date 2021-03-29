@@ -16,6 +16,18 @@ const Article = () => {
           name="description"
           content="80% das violações de dados registradas em 2020 foram causadas por senhas que eram fracas ou que foram roubadas. Saiba como se proteger usando os apps Bitwarden e Authy."
         />
+        <meta
+          property="og:title"
+          content="Por que (e como) você deveria proteger todas as suas contas online"
+        />
+        <meta property="og:site_name" content="Pietro Bondioli" />
+        <meta property="og:url" content="pietrobondioli.com.br" />
+        <meta
+          property="og:description"
+          content="80% das violações de dados registradas em 2020 foram causadas por senhas que eram fracas ou que foram roubadas. Saiba como se proteger usando os apps Bitwarden e Authy."
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={articleImage} />
       </Head>
       <div className={styles.article}>
         <img className={styles.headerImage} src={articleImage} alt="" />

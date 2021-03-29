@@ -16,6 +16,18 @@ const Article = () => {
           name="description"
           content="80% of all data breaches recorded in 2020 were caused by passwords that are weak or that were stolen in some way. Learn how to protect yourself using Bitwarden and Authy apps."
         />
+        <meta
+          property="og:title"
+          content="Why (and How) you should protect all your online accounts"
+        />
+        <meta property="og:site_name" content="Pietro Bondioli" />
+        <meta property="og:url" content="pietrobondioli.com.br" />
+        <meta
+          property="og:description"
+          content="80% of all data breaches recorded in 2020 were caused by passwords that are weak or that were stolen in some way. Learn how to protect yourself using Bitwarden and Authy apps."
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={articleImage} />
       </Head>
       <div className={styles.article}>
         <img className={styles.headerImage} src={articleImage} alt="" />
