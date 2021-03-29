@@ -22,7 +22,7 @@ const Article = () => {
         <div className={styles.title}>
           Why (and How) you should protect all your online accounts
         </div>
-        <div className={styles.date}>Feb 11, 2021 &middot; 15 min reading</div>
+        <div className={styles.date}>Feb 11, 2021 &middot; 15 min reading - by Pietro Bondioli</div>
         <div className={`${styles.paragraph} ${styles.regular_text} ${styles.primary_paragraph}`}>
           According to “D.B.I.R.” report, published by the technology company Verizon, 80% of all
           data breaches recorded in 2020 were caused by passwords that are weak or that were stolen

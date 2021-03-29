@@ -22,7 +22,9 @@ const Article = () => {
         <div className={styles.title}>
           Por que (e como) você deveria proteger todas as suas contas online
         </div>
-        <div className={styles.date}>Fev 11, 2021 &middot; 15 min leitura</div>
+        <div className={styles.date}>
+          Fev 11, 2021 &middot; 15 min leitura - por Pietro Bondioli
+        </div>
         <div className={`${styles.paragraph} ${styles.regular_text}  ${styles.primary_paragraph}`}>
           Segundo o relatório “D.B.I.R.”, publicado em 2020 pela empresa de tecnologia Verizon, 80%
           de todas as violações de dados registradas em 2020 foram causadas por senhas que eram

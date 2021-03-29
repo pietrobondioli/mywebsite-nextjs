@@ -1,4 +1,4 @@
-import presentationImage from '../../../public/icons/home/profile-256px.png';
+import presentationImage from '../../../public/icons/home/profile-512px.png';
 import aboutImage from '../../../public/icons/home/brain-256px.png';
 import articlesImage from '../../../public/icons/home/article-256px.png';
 import projectsImage from '../../../public/icons/home/book-256px.png';
