@@ -24,7 +24,6 @@ const MyApp = ({ Component, pageProps }) => {
       <ThemeContextProvider>
         <NavbarContextProvider>
           <Head>
-            <title>Pietro Bondioli</title>
             <link rel="shortcut icon" href={favicon} />
             <meta httpEquiv="content-type" content="text/html" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
