@@ -2,6 +2,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 
 // Components
 import Section from '../../components/Section';
@@ -15,9 +16,14 @@ const Article = () => {
   const { locale } = React.useContext(LocaleContext);
   const ArticleContent = dynamic(() => import(`../../articles/${slug}/${locale}`), { ssr: false });
   return (
-    <Section>
-      <ArticleContent />
-    </Section>
+    <>
+      <Head>
+        <meta property="og:type" content="article" />
+      </Head>
+      <Section>
+        <ArticleContent />
+      </Section>
+    </>
   );
 };
 

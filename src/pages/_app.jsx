@@ -24,14 +24,20 @@ const MyApp = ({ Component, pageProps }) => {
       <ThemeContextProvider>
         <NavbarContextProvider>
           <Head>
+            <title>Pietro Bondioli</title>
             <link rel="shortcut icon" href={favicon} />
             <meta httpEquiv="content-type" content="text/html" />
-            <meta property="og:type" content="website" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta httpEquiv="content-language" content="pt, en" />
             <meta name="author" content="Pietro Bondioli" />
             <meta name="creator" content="Pietro Bondioli" />
             <meta name="robots" content="index, follow" />
+            <meta property="og:type" content="website" />
+            <meta property="og:site_name" content="Pietro Bondioli" />
+            <meta property="og:url" content="pietrobondioli.com.br" />
+            <meta name="twitter:url" content="pietrobondioli.com.br" />
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:title" content="Pietro Bondioli" />
           </Head>
           <WithTheme>
             <Navbar />
