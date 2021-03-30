@@ -32,12 +32,6 @@ const MyApp = ({ Component, pageProps }) => {
             <meta name="author" content="Pietro Bondioli" />
             <meta name="creator" content="Pietro Bondioli" />
             <meta name="robots" content="index, follow" />
-            <meta property="og:type" content="website" />
-            <meta property="og:site_name" content="Pietro Bondioli" />
-            <meta property="og:url" content="pietrobondioli.com.br" />
-            <meta name="twitter:url" content="pietrobondioli.com.br" />
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:title" content="Pietro Bondioli" />
           </Head>
           <WithTheme>
             <Navbar />
