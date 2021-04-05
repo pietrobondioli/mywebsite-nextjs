@@ -28,33 +28,39 @@ const sectionContent = {
 };
 
 const ContactForm = () => {
-  const { register, handleSubmit, errors } = useForm({ mode: 'onChange' });
+  const { register, handleSubmit, errors, reset } = useForm({ mode: 'onChange' });
   const translate = useTranslation(contactFormContent);
   const [submitStatus, setSubmitStatus] = React.useState(false);
+  const [alreadySubmited, setAlreadySubmited] = React.useState(false);
   const [submitVisibility, setSubmitVisibility] = React.useState(false);
 
   const handleSubmitStatus = (status) => {
     setSubmitStatus(status);
     setSubmitVisibility(true);
+    setAlreadySubmited(!alreadySubmited);
+    reset();
     setTimeout(() => {
       setSubmitVisibility(false);
     }, 2000);
   };
 
   const onSubmit = (formData) => {
-    fetch('/api/sendMail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        handleSubmitStatus(response.ok);
+    if (!alreadySubmited) {
+      setAlreadySubmited(!alreadySubmited);
+      fetch('/api/sendMail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify(formData),
       })
-      .catch((error) => {
-        console.error(error);
-      });
+        .then((response) => {
+          handleSubmitStatus(response.ok);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   };
 
   return (

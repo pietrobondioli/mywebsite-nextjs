@@ -3,10 +3,10 @@ import RateLimit from 'express-rate-limit';
 import mailTransporter from '../../lib/nodeMailer';
 
 // CORS MIDDLEWARE
-const whitelist = ['http://localhost:3000', 'http://www.pietrobondioli.com.br'];
+const whitelist = [/^(https?:\/\/(?:.+\.)?pietrobondioli\.com.br(?::\d{1,5})?)$/gm];
 
 const cors = Cors({
-  methods: ['GET', 'HEAD'],
+  methods: ['POST'],
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true);
