@@ -31,13 +31,13 @@ const ContactForm = () => {
   const { register, handleSubmit, errors, reset } = useForm({ mode: 'onChange' });
   const translate = useTranslation(contactFormContent);
   const [submitStatus, setSubmitStatus] = React.useState(false);
-  const [alreadySubmited, setAlreadySubmited] = React.useState(false);
+  const [alreadySubmitedd, setAlreadySubmitedd] = React.useState(false);
   const [submitVisibility, setSubmitVisibility] = React.useState(false);
 
   const handleSubmitStatus = (status) => {
     setSubmitStatus(status);
     setSubmitVisibility(true);
-    setAlreadySubmited(!alreadySubmited);
+    setAlreadySubmitedd(!alreadySubmitedd);
     reset();
     setTimeout(() => {
       setSubmitVisibility(false);
@@ -45,8 +45,8 @@ const ContactForm = () => {
   };
 
   const onSubmit = (formData) => {
-    if (!alreadySubmited) {
-      setAlreadySubmited(!alreadySubmited);
+    if (!alreadySubmitedd) {
+      setAlreadySubmitedd(!alreadySubmitedd);
       fetch('/api/sendMail', {
         method: 'POST',
         headers: {

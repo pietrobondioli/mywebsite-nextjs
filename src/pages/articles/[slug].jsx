@@ -34,6 +34,7 @@ const Article = ({ article }) => {
         <meta property="article:modified_time" content={metadata.lastModified} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content={metadata.twitterProfile} />
+        <meta name="twitter:creator" content={metadata.twitterProfile} />
         <meta name="twitter:title" content={metadata.title} />
         <meta name="twitter:description" content={metadata.excerpt} />
         <meta name="twitter:image" content={metadata.imageUrl} />

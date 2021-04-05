@@ -1,5 +1,6 @@
 // React/Next Components
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 // Hooks
 import useTranslation from '../hooks/useTranslation';
@@ -12,16 +13,17 @@ import Skills from '../containers/About/Skills';
 // Contents
 const aboutContent = {
   'pt-BR': {
-    pageTitle: 'Sobre',
+    pageTitle: 'Sobre - Pietro Bondioli',
     pageDescription: 'Conhecimentos - Educação - Experiência',
   },
   'en-US': {
-    pageTitle: 'About',
+    pageTitle: 'About - Pietro Bondioli',
     pageDescription: 'Skills - Education - Experience',
   },
 };
 
 function About() {
+  const router = useRouter();
   const translate = useTranslation(aboutContent);
 
   return (
@@ -29,6 +31,11 @@ function About() {
       <Head>
         <title>{translate('pageTitle')}</title>
         <meta name="description" content={translate('pageDescription')} />
+        <meta property="og:title" content={translate('pageTitle')} />
+        <meta property="og:description" content={translate('pageDescription')} />
+        <meta property="og:url" content={`pietrobondioli.com.br${router.asPath}`} />
+        <meta name="twitter:title" content={translate('pageTitle')} />
+        <meta name="twitter:description" content={translate('pageDescription')} />
       </Head>
       <main>
         <Skills />
