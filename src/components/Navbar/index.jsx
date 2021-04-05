@@ -8,11 +8,11 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
 
 // Components
 import ToggleThemeButton from './ToggleThemeButton';
+import ChangeLocaleButton from './ChangeLocaleButton';
 import NavbarItem from './NavbarItem';
 
 // Contexts
 import { NavbarContext } from '../../contexts/NavbarContext';
-import { LocaleContext } from '../../contexts/LocaleContext';
 
 // Hooks
 import useTranslation from '../../hooks/useTranslation';
@@ -27,14 +27,9 @@ const Navbar = () => {
   const router = useRouter();
   let translate;
   const { isNavbarOpen, setIsNavbarOpen } = React.useContext(NavbarContext);
-  const { locales, locale } = React.useContext(LocaleContext);
   const refMenu = React.useRef(null);
   const refNavBarFocusItem = React.useRef(null);
   let targetElement;
-
-  const changeLocale = locales.filter((loc) => {
-    return loc !== locale;
-  });
 
   const resetMenuState = () => {
     setIsNavbarOpen(false);
@@ -82,14 +77,7 @@ const Navbar = () => {
             ${isNavbarOpen ? `${styles.navbar__menu_active}` : `${styles.navbar__menu_disabled}`}`}
       >
         <ToggleThemeButton />
-        <NavbarItem
-          key="changeLocale"
-          itemName={changeLocale}
-          itemLink={router.pathname}
-          itemQuery={router.query}
-          itemLocale={`${changeLocale}`}
-          itemScroll={false}
-        />
+        <ChangeLocaleButton />
         {navbarContent.map((item) => {
           translate = useTranslation(item);
           return (

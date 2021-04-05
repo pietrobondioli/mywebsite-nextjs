@@ -28,6 +28,7 @@ function About() {
     <>
       <Head>
         <title>{translate('pageTitle')}</title>
+        <meta name="description" content={translate('pageDescription')} />
       </Head>
       <main>
         <Skills />

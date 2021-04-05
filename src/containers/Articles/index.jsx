@@ -22,8 +22,8 @@ const Articles = () => {
           const translate = useTranslation(card);
           return (
             <ArticleCard
-              key={card.articleSlug}
-              articleSlug={card.articleSlug}
+              key={translate('articleSlug')}
+              articleSlug={translate('articleSlug')}
               articleImage={card.articleImage}
               articleTitle={translate('articleTitle')}
               articleAuthor={card.articleAuthor}
