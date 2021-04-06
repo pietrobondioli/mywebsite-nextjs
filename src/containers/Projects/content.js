@@ -4,6 +4,7 @@ export default [
   {
     image: projectImage,
     readMore: true,
+    readMoreTargetBlank: true,
     readMoreLink: 'https://github.com/bondiolipietro/mywebsite-nextjs',
     'pt-BR': {
       name: 'Meu WebSite',

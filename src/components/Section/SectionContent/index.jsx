@@ -12,7 +12,7 @@ import sectionContent from './content';
 import styles from '../../../styles/components/Section/SectionContent.module.scss';
 
 const SectionContent = (props) => {
-  const { children, text, image, readMore, readMoreLink } = props;
+  const { children, text, image, readMore, readMoreLink, readMoreTargetBlank } = props;
   const translation = useTranslation(sectionContent);
 
   return (
@@ -20,11 +20,21 @@ const SectionContent = (props) => {
       <img className={styles.content__image} src={image} alt="img" />
       <div>
         <div className={styles.content__text}>{children || text}</div>
-        {readMore && (
-          <Link href={readMoreLink}>
-            <a className={`button ${styles.content__button}`}>{translation('readMore')}</a>
-          </Link>
-        )}
+        {readMore &&
+          (!readMoreTargetBlank ? (
+            <Link href={readMoreLink}>
+              <a className={`button ${styles.content__button}`}>{translation('readMore')}</a>
+            </Link>
+          ) : (
+            <a
+              href={readMoreLink}
+              className={`button ${styles.content__button}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {translation('readMore')}
+            </a>
+          ))}
       </div>
     </div>
   );

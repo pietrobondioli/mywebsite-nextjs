@@ -14,7 +14,7 @@ const contactContent = {
   'pt-BR': {
     pageTitle: 'Contato - Pietro Bondioli',
     pageDescription:
-      'E-mail: pietrobondiolideveloper@gmail.com \n Github: www.github.com/bondiolipietro \n Linkedin: www.linkedin.com/in/pietrobondioli/',
+      'E-mail: pietrobondiolideveloper@gmail.com \n Github: www.github.com/bondiolipietro \n Linkedin: www.linkedin.com/in/pietrobondioli',
   },
   'en-US': {
     pageTitle: 'Contact - Pietro Bondioli',

@@ -19,11 +19,11 @@ const ProjectsSection = () => {
         const translate = useTranslation(content);
         return (
           <Section key={translate('name')}>
-            {/* <SectionTitle title={translate('name')} /> */}
             <SectionContent
               image={content.image}
               readMore={content.readMore}
               readMoreLink={content.readMoreLink}
+              readMoreTargetBlank={content.readMoreTargetBlank}
             >
               <div className={styles.project__text}>
                 <div className={styles.name}>{translate('name')}</div>

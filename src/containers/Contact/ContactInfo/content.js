@@ -3,6 +3,7 @@ import githubImg from '../../../public/icons/contact/github-black-128px.png';
 import instagramImg from '../../../public/icons/contact/instagram-128px.png';
 import linkedinImg from '../../../public/icons/contact/linkedin-128px.png';
 import telegramImg from '../../../public/icons/contact/telegram-128px.png';
+import twitterImg from '../../../public/icons/contact/twitter-128px.png';
 
 export default [
   {
@@ -10,7 +11,7 @@ export default [
     image: linkedinImg,
     cardColor: '#80d8ff',
     name: 'linkedin/pietrobondioli',
-    content: 'https://www.linkedin.com/in/pietrobondioli/',
+    content: 'https://www.linkedin.com/in/pietrobondioli',
     'pt-BR': {
       alt: 'linkedin',
       message: 'clique para abrir linkedin',
@@ -24,7 +25,7 @@ export default [
     type: 'link',
     image: githubImg,
     cardColor: '#7c7c7c',
-    name: 'github/bondioli-pietro',
+    name: 'github/bondiolipietro',
     content: 'https://github.com/bondiolipietro',
     'pt-BR': {
       alt: 'github',
@@ -68,14 +69,29 @@ export default [
     image: instagramImg,
     cardColor: '#ff8a80',
     name: 'instagram/pietrobondioli',
-    content: 'https://instagram.com/pietrobondioli/',
+    content: 'https://instagram.com/pietrobondioli',
     'pt-BR': {
       alt: 'instagram',
-      message: 'clique para abrir instagram',
+      message: 'clique para abrir o instagram',
     },
     'en-US': {
       alt: 'instagram',
       message: 'click to open instagram',
+    },
+  },
+  {
+    type: 'link',
+    image: twitterImg,
+    cardColor: '#80D8FF',
+    name: 'twitter/bondioli_pietro',
+    content: 'https://twitter.com/bondioli_pietro',
+    'pt-BR': {
+      alt: 'twitter',
+      message: 'clique para abrir o twitter',
+    },
+    'en-US': {
+      alt: 'twitter',
+      message: 'click to open twitter',
     },
   },
 ];
