@@ -133,7 +133,7 @@
   }
   @include media-md {
     & > * {
-      padding: 18px 32px;
+      padding: 12px 32px;
     }
     th,
     td {
@@ -158,7 +158,7 @@
   }
   @include media-lg {
     & > * {
-      padding: 18px 96px;
+      padding: 12px 96px;
     }
     table {
       max-width: 80%;
@@ -177,7 +177,7 @@
   }
   @include media-xl {
     & > * {
-      padding: 24px 160px;
+      padding: 18px 160px;
     }
     table {
       max-width: 70%;

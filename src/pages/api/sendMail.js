@@ -3,16 +3,16 @@ import RateLimit from 'express-rate-limit';
 import mailTransporter from '../../lib/nodeMailer';
 
 // CORS MIDDLEWARE
-const whitelist = [/^(https?:\/\/(?:.+\.)?pietrobondioli\.com.br(?::\d{1,5})?)$/gm];
+const whitelist = [/^(https?:\/\/(?:.+\.)?(pietrobondioli\.com.br\/?)(:\d{1,5})?(\/\w{1,}?)?)$/m];
 
 const cors = Cors({
   methods: ['POST'],
   origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed.'));
-    }
+    let isWhiteListed;
+    whitelist.forEach((regex) => {
+      isWhiteListed = regex.test(origin);
+    });
+    callback(isWhiteListed ? null : new Error('Not allowed.'), isWhiteListed);
   },
 });
 
