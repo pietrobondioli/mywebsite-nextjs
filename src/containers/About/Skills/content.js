@@ -3,6 +3,7 @@ import typescriptImg from '../../../public/icons/skills/typescript-32px.png';
 import pythonImg from '../../../public/icons/skills/python-32px.png';
 import htmlImg from '../../../public/icons/skills/html-32px.png';
 import cssImg from '../../../public/icons/skills/css-32px.png';
+import sqlImg from '../../../public/icons/skills/sql-db-32px.png';
 
 import jqueryImg from '../../../public/icons/skills/jquery-32px.png';
 import sassImg from '../../../public/icons/skills/sass-32px.png';
@@ -26,6 +27,7 @@ import vimImg from '../../../public/icons/skills/vim-32px.png';
 
 import nodejsImg from '../../../public/icons/skills/nodejs-32px.png';
 import mongodbImg from '../../../public/icons/skills/mongodb-32px.png';
+import postgreSqlImg from '../../../public/icons/skills/postgresql-32px.png';
 import herokuImg from '../../../public/icons/skills/heroku-plain-32px.png';
 import firebaseImg from '../../../public/icons/skills/firebase-32px.png';
 
@@ -62,6 +64,16 @@ export default [
         name: 'css',
         link: 'https://developer.mozilla.org/pt-BR/docs/Web/CSS',
         image: cssImg,
+      },
+      {
+        name: 'sass',
+        link: 'https://sass-lang.com/',
+        image: sassImg,
+      },
+      {
+        name: 'sql',
+        link: 'https://en.wikipedia.org/wiki/SQL',
+        image: sqlImg,
       },
     ],
   },
@@ -134,11 +146,6 @@ export default [
         image: sshImg,
       },
       {
-        name: 'sass',
-        link: 'https://sass-lang.com/',
-        image: sassImg,
-      },
-      {
         name: 'npm',
         link: 'https://www.npmjs.com/',
         image: npmImg,
@@ -168,6 +175,11 @@ export default [
         link: 'https://code.visualstudio.com/',
         image: vscodeImg,
       },
+      {
+        name: 'vim',
+        link: 'https://www.vim.org/',
+        image: vimImg,
+      },
     ],
   },
   {
@@ -187,6 +199,11 @@ export default [
         name: 'mongoDB',
         link: 'https://www.mongodb.com/',
         image: mongodbImg,
+      },
+      {
+        name: 'postgreSql',
+        link: 'https://www.postgresql.org/',
+        image: postgreSqlImg,
       },
       {
         name: 'heroku',
