@@ -7,17 +7,12 @@ import remarkHTML from 'remark-html';
 
 const ARTICLES_PATH = path.resolve('src', '_articles');
 
-
 async function getArticle(locale, slug) {
   const fileContent = fs.readFileSync(`${ARTICLES_PATH}/${locale}/${slug}.md`, 'utf-8');
 
   const { content, data: metadata } = grayMatter(fileContent);
 
-  const htmlContent = unified()
-    .use(parse)
-    .use(remarkHTML)
-    .processSync(content)
-    .toString();
+  const htmlContent = unified().use(parse).use(remarkHTML).processSync(content).toString();
 
   return {
     metadata: {

@@ -24,7 +24,7 @@ const Article = ({ article }) => {
         <meta property="og:title" content={metadata.title} />
         <meta property="og:type" content="article" />
         <meta property="og:description" content={metadata.excerpt} />
-        <meta property="og:image" content={metadata.imageUrl} />
+        <meta property="og:image" itemProp="image" content={metadata.imageUrl} />
         <meta property="og:image:alt" content={metadata.imageAlt} />
         <meta property="og:url" content={`pietrobondioli.com.br${router.asPath}`} />
         <meta property="og:site_name" content="Pietro Bondioli" />
