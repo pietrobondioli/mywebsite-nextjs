@@ -14,11 +14,13 @@ import nextImg from '../../../public/icons/skills/nextjs-32px.png';
 import expressImg from '../../../public/icons/skills/express-logo-32px.png';
 
 import linuxImg from '../../../public/icons/skills/linux-32px.png';
+import windowsImg from '../../../public/icons/skills/windows-32px.png';
 import gitImg from '../../../public/icons/skills/git-32px.png';
 import dockerImg from '../../../public/icons/skills/docker-32px.png';
 import npmImg from '../../../public/icons/skills/npm-32px.png';
 import yarnImg from '../../../public/icons/skills/yarn-logo-32px.png';
 import sshImg from '../../../public/icons/skills/ssh-32px.png';
+import pugImg from '../../../public/icons/skills/pug-32px.png';
 import webpackImg from '../../../public/icons/skills/webpack-32px.png';
 import gulpImg from '../../../public/icons/skills/gulp-32px.png';
 import babelImg from '../../../public/icons/skills/babel-32px.png';
@@ -131,6 +133,11 @@ export default [
         image: linuxImg,
       },
       {
+        name: 'windows',
+        link: 'https://www.microsoft.com/pt-br/windows/',
+        image: windowsImg,
+      },
+      {
         name: 'git',
         link: 'https://git-scm.com/',
         image: gitImg,
@@ -154,6 +161,11 @@ export default [
         name: 'yarn',
         link: 'https://classic.yarnpkg.com/pt-BR/',
         image: yarnImg,
+      },
+      {
+        name: 'pug',
+        link: 'https://pugjs.org/api/getting-started.html',
+        image: pugImg,
       },
       {
         name: 'webpack',
