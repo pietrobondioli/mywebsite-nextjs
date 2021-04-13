@@ -1,10 +1,10 @@
 // Components
-import Section from '../../../components/Section';
-import SectionTitle from '../../../components/Section/SectionTitle';
-import SectionContent from '../../../components/Section/SectionContent';
+import Section from '@components/Section';
+import SectionTitle from '@components/Section/SectionTitle';
+import SectionContent from '@components/Section/SectionContent';
 
 // Hooks
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
 
 // Content
 import presentationContent from './content';

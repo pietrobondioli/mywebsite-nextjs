@@ -1,13 +1,12 @@
 // Components
-import Section from '../../components/Section';
-import SectionTitle from '../../components/Section/SectionTitle';
-import SectionContent from '../../components/Section/SectionContent';
+import Section from '@components/Section';
+import SectionContent from '@components/Section/SectionContent';
 
 // Hooks
-import useTranslation from '../../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
 
 // Styles
-import styles from '../../styles/pages/Projects/Projects.module.scss';
+import styles from '@styles/pages/Projects/Projects.module.scss';
 
 // Content
 import projectsContent from './content';

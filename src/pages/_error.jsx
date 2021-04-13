@@ -2,10 +2,10 @@
 import Head from 'next/head';
 
 // Components
-import ErrorAlert from '../containers/ErrorAlert';
+import ErrorAlert from '@containers/ErrorAlert';
 
 // Hooks
-import useTranslation from '../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
 
 const errorContent = {
   'pt-BR': {

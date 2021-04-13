@@ -4,16 +4,16 @@ import React from 'react';
 // External Libs
 import { useForm } from 'react-hook-form';
 
-// Components
-import Section from '../../../components/Section';
-import SectionTitle from '../../../components/Section/SectionTitle';
-import FormAlert from './FormAlert';
-
 // Translations
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
 
 // Styles
-import styles from '../../../styles/pages/Contact/ContactForm.module.scss';
+import styles from '@styles/pages/Contact/ContactForm.module.scss';
+
+// Components
+import Section from '@components/Section';
+import SectionTitle from '@components/Section/SectionTitle';
+import FormAlert from './FormAlert';
 
 // Content
 import contactFormContent from './content';

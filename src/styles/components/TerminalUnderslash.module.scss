@@ -4,14 +4,12 @@
   color: var(--primary);
   font-weight: bolder;
   &_active {
-    animation: terminal_underslash_animation 600ms cubic-bezier(1, 0.1, 0.1, 1) infinite
-      alternate;
+    animation: terminal_underslash_animation 600ms cubic-bezier(1, 0.1, 0.1, 1) infinite alternate;
   }
   &_disabled {
     animation: none;
   }
 }
-
 
 @keyframes terminal_underslash_animation {
   from {

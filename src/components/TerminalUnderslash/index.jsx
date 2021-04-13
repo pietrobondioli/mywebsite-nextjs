@@ -2,10 +2,10 @@
 import React from 'react';
 
 // Contexts
-import { NavbarContext } from '../../contexts/NavbarContext';
+import { NavbarContext } from '@contexts/NavbarContext';
 
 // Style
-import styles from '../../styles/components/TerminalUnderslash.module.scss';
+import styles from '@styles/components/TerminalUnderslash.module.scss';
 
 const TerminalUnderslash = (props) => {
   const { animation } = props;

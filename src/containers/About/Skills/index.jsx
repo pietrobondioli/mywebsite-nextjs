@@ -1,13 +1,13 @@
 // Components
-import Section from '../../../components/Section';
-import SectionTitle from '../../../components/Section/SectionTitle';
-import SkillItem from './SkillItem';
+import Section from '@components/Section';
+import SectionTitle from '@components/Section/SectionTitle';
 
 // Hooks
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
 
 // Styles
-import styles from '../../../styles/pages/About/Skills.module.scss';
+import styles from '@styles/pages/About/Skills.module.scss';
+import SkillItem from './SkillItem';
 
 // Content
 import skillsContent from './content';

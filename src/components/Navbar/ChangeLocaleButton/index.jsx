@@ -2,14 +2,14 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-// Components
-import NavbarItem from '../NavbarItem';
-
 // Hooks
-import useObjectTranslation from '../../../hooks/useObjectTranslation';
+import useObjectTranslation from '@hooks/useObjectTranslation';
 
 // Contexts
-import { LocaleContext } from '../../../contexts/LocaleContext';
+import { LocaleContext } from '@contexts/LocaleContext';
+
+// Components
+import NavbarItem from '../NavbarItem';
 
 // Translations
 import queryTranslations from './queryTranslations';

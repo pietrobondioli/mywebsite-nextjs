@@ -1,6 +1,6 @@
 import Cors from 'cors';
 import RateLimit from 'express-rate-limit';
-import mailTransporter from '../../lib/nodeMailer';
+import mailTransporter from '@lib/nodeMailer';
 
 // CORS MIDDLEWARE
 const whitelist = [/^(https?:\/\/(?:.+\.)?(pietrobondioli\.com.br\/?)(:\d{1,5})?(\/\w{1,}?)?)$/m];

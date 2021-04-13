@@ -1,18 +1,18 @@
 // React/Next Components
 import React from 'react';
 
-// Components
-import Section from '../../components/Section';
-import ArticleCard from './ArticleCard';
-
 // Translations
-import useTranslation from '../../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
+
+// Styles
+import styles from '@styles/pages/Articles/Articles.module.scss';
+
+// Components
+import Section from '@components/Section';
+import ArticleCard from './ArticleCard';
 
 // Content
 import articles from './content';
-
-// Styles
-import styles from '../../styles/pages/Articles/Articles.module.scss';
 
 const Articles = () => {
   return (

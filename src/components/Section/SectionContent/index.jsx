@@ -3,13 +3,13 @@ import React from 'react';
 import Link from 'next/link';
 
 // Hooks
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
+
+// Styles
+import styles from '@styles/components/Section/SectionContent.module.scss';
 
 // Contents
 import sectionContent from './content';
-
-// Styles
-import styles from '../../../styles/components/Section/SectionContent.module.scss';
 
 const SectionContent = (props) => {
   const { children, text, image, readMore, readMoreLink, readMoreTargetBlank } = props;

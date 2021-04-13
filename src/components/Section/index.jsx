@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Styles
-import styles from '../../styles/components/Section/Section.module.scss';
+import styles from '@styles/components/Section/Section.module.scss';
 
 const Section = (props) => {
   const { sectionType, children } = props;

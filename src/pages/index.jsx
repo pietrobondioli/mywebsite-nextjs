@@ -2,11 +2,11 @@
 import Head from 'next/head';
 
 // Hooks
-import useTranslation from '../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
 
 // Components
-import Header from '../containers/HomePage/Header';
-import Presentation from '../containers/HomePage/Presentation';
+import Header from '@containers/HomePage/Header';
+import Presentation from '@containers/HomePage/Presentation';
 
 // Contents
 const indexContent = {

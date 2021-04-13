@@ -2,13 +2,13 @@
 import React from 'react';
 
 // Translations
-import useTranslation from '../../../../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
+
+// Styles
+import styles from '@styles/pages/Contact/FormAlert.module.scss';
 
 // Content
 import formAlertContent from './content';
-
-// Styles
-import styles from '../../../../styles/pages/Contact/FormAlert.module.scss';
 
 const FormAlert = (props) => {
   const translate = useTranslation(formAlertContent);

@@ -6,22 +6,22 @@ import { useRouter } from 'next/router';
 // External Libs
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
+// Styles
+import styles from '@styles/components/Navbar/Navbar.module.scss';
+
+// Hooks
+import useTranslation from '@hooks/useTranslation';
+
+// Contexts
+import { NavbarContext } from '@contexts/NavbarContext';
+
 // Components
 import ToggleThemeButton from './ToggleThemeButton';
 import ChangeLocaleButton from './ChangeLocaleButton';
 import NavbarItem from './NavbarItem';
 
-// Contexts
-import { NavbarContext } from '../../contexts/NavbarContext';
-
-// Hooks
-import useTranslation from '../../hooks/useTranslation';
-
 // Contents
 import navbarContent from './content';
-
-// Styles
-import styles from '../../styles/components/Navbar/Navbar.module.scss';
 
 const Navbar = () => {
   const router = useRouter();

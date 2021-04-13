@@ -3,14 +3,14 @@
 import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import getArticle from '../../lib/getArticle';
-import getArticlesSlugs from '../../lib/getArticlesSlugs';
+import getArticle from '@lib/getArticle';
+import getArticlesSlugs from '@lib/getArticlesSlugs';
 
 // Components
-import Section from '../../components/Section';
+import Section from '@components/Section';
 
 // Styles
-import styles from '../../styles/pages/Article/Article.module.scss';
+import styles from '@styles/pages/Article/Article.module.scss';
 
 const Article = ({ article }) => {
   const router = useRouter();
@@ -43,7 +43,7 @@ const Article = ({ article }) => {
       <Section>
         <img
           className={styles.article_img}
-          src={require('../../public/articles/passwords-and-digital-security.png').default}
+          src={require('@public/articles/passwords-and-digital-security.png').default}
           alt=""
         />
         <article className={styles.article} dangerouslySetInnerHTML={{ __html: article.content }} />

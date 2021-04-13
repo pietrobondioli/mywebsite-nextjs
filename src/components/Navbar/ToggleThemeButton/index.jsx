@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Styles
-import styles from '../../../styles/components/Navbar/ToggleThemeButton.module.scss';
+import styles from '@styles/components/Navbar/ToggleThemeButton.module.scss';
 
-import { ThemeContext } from '../../../contexts/ThemeContext';
+import { ThemeContext } from '@contexts/ThemeContext';
 
 const ToggleThemeButton = () => {
   const { theme, toggleTheme } = React.useContext(ThemeContext);

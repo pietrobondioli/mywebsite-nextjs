@@ -3,12 +3,12 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 // Hooks
-import useTranslation from '../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
 
 // Components
-import Education from '../containers/About/Education';
-import Experience from '../containers/About/Experience';
-import Skills from '../containers/About/Skills';
+import Education from '@containers/About/Education';
+import Experience from '@containers/About/Experience';
+import Skills from '@containers/About/Skills';
 
 // Contents
 const aboutContent = {

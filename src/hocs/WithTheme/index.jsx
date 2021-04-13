@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Contexts
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext } from '@contexts/ThemeContext';
 
 const WithTheme = (props) => {
   const { children } = props;

@@ -1,5 +1,5 @@
 // Styles
-import styles from '../../../../styles/pages/About/SkillItem.module.scss';
+import styles from '@styles/pages/About/SkillItem.module.scss';
 
 const SkillsItem = (props) => {
   const { skillLink, skillName, skillImage } = props;

@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 
 // Styles
-import styles from '../../../styles/components/Navbar/NavbarItem.module.scss';
+import styles from '@styles/components/Navbar/NavbarItem.module.scss';
 
 const NavbarItem = (props) => {
   const { itemName, itemLink, itemQuery, itemLocale, itemScroll } = props;

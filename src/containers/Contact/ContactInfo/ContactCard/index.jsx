@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Styles
-import styles from '../../../../styles/pages/Contact/ContactCard.module.scss';
+import styles from '@styles/pages/Contact/ContactCard.module.scss';
 
 const ContactInfo = (props) => {
   const { img, alt, cardColor, children } = props;

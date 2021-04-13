@@ -1,8 +1,8 @@
 // Translations
-import useTranslation from '../../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
 
 // Styles
-import styles from '../../styles/pages/Error/Error.module.scss';
+import styles from '@styles/pages/Error/Error.module.scss';
 
 import errorAlertContent from './content';
 

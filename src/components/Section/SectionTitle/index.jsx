@@ -1,11 +1,11 @@
 // React/Next Components
 import React from 'react';
 
+// Styles
+import styles from '@styles/components/Section/SectionTitle.module.scss';
+
 // Components
 import TerminalUnderslash from '../../TerminalUnderslash';
-
-// Styles
-import styles from '../../../styles/components/Section/SectionTitle.module.scss';
 
 const SectionTitle = (props) => {
   const { title } = props;

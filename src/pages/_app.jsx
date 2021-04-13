@@ -2,21 +2,23 @@
 import React from 'react';
 import Head from 'next/head';
 
+// Hocs
+import WithTheme from '@hocs/WithTheme';
+
 // Components Context
-import { NavbarContextProvider } from '../contexts/NavbarContext';
-import { ThemeContextProvider } from '../contexts/ThemeContext';
-import { LocaleContextProvider } from '../contexts/LocaleContext';
+import { NavbarContextProvider } from '@contexts/NavbarContext';
+import { ThemeContextProvider } from '@contexts/ThemeContext';
+import { LocaleContextProvider } from '@contexts/LocaleContext';
 
 // Components
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import WithTheme from '../hocs/WithTheme';
+import Navbar from '@components/Navbar';
+import Footer from '@components/Footer';
 
 // Styles
-import '../styles/main.scss';
+import '@styles/main.scss';
 
 // Assets
-import favicon from '../public/icons/favicon.ico';
+import favicon from '@public/icons/favicon.ico';
 
 const MyApp = ({ Component, pageProps }) => {
   return (

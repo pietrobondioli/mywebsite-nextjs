@@ -1,24 +1,24 @@
 // React/Next Components
 import React from 'react';
 
-// Contexts
+// External Libs
 import { Link as ScrollLink } from 'react-scroll';
-import { LocaleContext } from '../../../contexts/LocaleContext';
+
+// Contexts
+import { LocaleContext } from '@contexts/LocaleContext';
 
 // Components
-import TerminalUnderslash from '../../../components/TerminalUnderslash';
-import Section from '../../../components/Section';
+import TerminalUnderslash from '@components/TerminalUnderslash';
+import Section from '@components/Section';
 
-// External Libs
+// Hooks
+import useTranslation from '@hooks/useTranslation';
+
+// Styles
+import styles from '@styles/pages/HomePage/Header.module.scss';
 
 // Contents
 import headerContent from './content';
-
-// Hooks
-import useTranslation from '../../../hooks/useTranslation';
-
-// Styles
-import styles from '../../../styles/pages/HomePage/Header.module.scss';
 
 const Header = () => {
   const translate = useTranslation(headerContent);

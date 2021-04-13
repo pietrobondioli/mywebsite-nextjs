@@ -5,18 +5,18 @@ import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 // Translations
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
+
+// Styles
+import styles from '@styles/pages/Contact/ContactInfo.module.scss';
 
 // Components
-import Section from '../../../components/Section';
-import SectionTitle from '../../../components/Section/SectionTitle';
+import Section from '@components/Section';
+import SectionTitle from '@components/Section/SectionTitle';
 import ContactCard from './ContactCard';
 
 // Content
 import contactInfoContent from './content';
-
-// Styles
-import styles from '../../../styles/pages/Contact/ContactInfo.module.scss';
 
 const sectionContent = {
   'pt-BR': {

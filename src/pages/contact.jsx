@@ -3,11 +3,11 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 // Hooks
-import useTranslation from '../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
 
 // Components
-import ContactForm from '../containers/Contact/ContactForm';
-import ContactInfo from '../containers/Contact/ContactInfo';
+import ContactForm from '@containers/Contact/ContactForm';
+import ContactInfo from '@containers/Contact/ContactInfo';
 
 // Contents
 const contactContent = {

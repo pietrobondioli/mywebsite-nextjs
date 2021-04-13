@@ -3,10 +3,10 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 // Hooks
-import useTranslation from '../hooks/useTranslation';
+import useTranslation from '@hooks/useTranslation';
 
 // Components
-import ArticlesSection from '../containers/Articles';
+import ArticlesSection from '@containers/Articles';
 
 // Contents
 const pageName = {
