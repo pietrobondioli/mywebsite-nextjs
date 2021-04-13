@@ -1,8 +1,6 @@
-import passwordsAndDigitalSecurityImage from '../../public/articles/passwords-and-digital-security.png';
-
 export default [
   {
-    articleImage: passwordsAndDigitalSecurityImage,
+    articleImage: '/articles/passwords-and-digital-security.png',
     articleDate: '11/02/2021',
     articleAuthor: 'Pietro Bondioli',
     'pt-BR': {

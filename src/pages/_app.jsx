@@ -17,16 +17,13 @@ import Footer from '@components/Footer';
 // Styles
 import '@styles/main.scss';
 
-// Assets
-import favicon from '@public/icons/favicon.ico';
-
 const MyApp = ({ Component, pageProps }) => {
   return (
     <LocaleContextProvider>
       <ThemeContextProvider>
         <NavbarContextProvider>
           <Head>
-            <link rel="shortcut icon" href={favicon} />
+            <link rel="shortcut icon" href="/icons/favicon.ico" />
             <meta httpEquiv="content-type" content="text/html" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta httpEquiv="content-language" content="pt, en" />

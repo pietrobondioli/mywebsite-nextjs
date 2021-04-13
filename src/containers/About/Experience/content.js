@@ -1,8 +1,6 @@
-import expImage from '../../../public/icons/home/brain-256px.png';
-
 export default [
   {
-    image: expImage,
+    image: '/icons/home/brain-256px.png',
     readMore: false,
     'pt-BR': {
       name: 'Freelancer',

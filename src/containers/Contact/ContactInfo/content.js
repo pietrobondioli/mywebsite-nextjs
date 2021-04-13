@@ -1,14 +1,7 @@
-import gmailImg from '../../../public/icons/contact/gmail-128px.png';
-import githubImg from '../../../public/icons/contact/github-black-128px.png';
-import instagramImg from '../../../public/icons/contact/instagram-128px.png';
-import linkedinImg from '../../../public/icons/contact/linkedin-128px.png';
-import telegramImg from '../../../public/icons/contact/telegram-128px.png';
-import twitterImg from '../../../public/icons/contact/twitter-128px.png';
-
 export default [
   {
     type: 'link',
-    image: linkedinImg,
+    image: '/icons/contact/linkedin-128px.png',
     cardColor: '#80d8ff',
     name: 'linkedin/pietrobondioli',
     content: 'https://www.linkedin.com/in/pietrobondioli',
@@ -23,7 +16,7 @@ export default [
   },
   {
     type: 'link',
-    image: githubImg,
+    image: '/icons/contact/github-black-128px.png',
     cardColor: '#7c7c7c',
     name: 'github/bondiolipietro',
     content: 'https://github.com/bondiolipietro',
@@ -38,7 +31,7 @@ export default [
   },
   {
     type: 'copy',
-    image: gmailImg,
+    image: '/icons/contact/gmail-128px.png',
     cardColor: '#ff8a80',
     content: 'pietrobondiolideveloper@gmail.com',
     'pt-BR': {
@@ -52,7 +45,7 @@ export default [
   },
   {
     type: 'copy',
-    image: telegramImg,
+    image: '/icons/contact/telegram-128px.png',
     cardColor: '#80d8ff',
     content: '+55(12)99634-1642',
     'pt-BR': {
@@ -66,7 +59,7 @@ export default [
   },
   {
     type: 'link',
-    image: instagramImg,
+    image: '/icons/contact/instagram-128px.png',
     cardColor: '#ff8a80',
     name: 'instagram/pietrobondioli',
     content: 'https://instagram.com/pietrobondioli',
@@ -81,7 +74,7 @@ export default [
   },
   {
     type: 'link',
-    image: twitterImg,
+    image: '/icons/contact/twitter-128px.png',
     cardColor: '#80D8FF',
     name: 'twitter/bondioli_pietro',
     content: 'https://twitter.com/bondioli_pietro',

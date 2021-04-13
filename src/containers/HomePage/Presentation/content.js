@@ -1,12 +1,6 @@
-import presentationImage from '../../../public/icons/home/profile-512px.png';
-import aboutImage from '../../../public/icons/home/brain-256px.png';
-import articlesImage from '../../../public/icons/home/article-256px.png';
-import projectsImage from '../../../public/icons/home/book-256px.png';
-import contactImage from '../../../public/icons/home/contact-256px.png';
-
 export default [
   {
-    image: presentationImage,
+    image: '/icons/home/profile-512px.png',
     readMore: false,
     'pt-BR': {
       title: '',
@@ -19,7 +13,7 @@ export default [
     },
   },
   {
-    image: aboutImage,
+    image: '/icons/home/brain-256px.png',
     readMore: true,
     readMoreLink: '/about',
     'pt-BR': {
@@ -32,7 +26,7 @@ export default [
     },
   },
   {
-    image: articlesImage,
+    image: '/icons/home/article-256px.png',
     readMore: true,
     readMoreLink: '/articles',
     'pt-BR': {
@@ -45,7 +39,7 @@ export default [
     },
   },
   {
-    image: projectsImage,
+    image: '/icons/home/book-256px.png',
     readMore: true,
     readMoreLink: '/projects',
     'pt-BR': {
@@ -58,7 +52,7 @@ export default [
     },
   },
   {
-    image: contactImage,
+    image: '/icons/home/contact-256px.png',
     readMore: true,
     readMoreLink: '/contact',
     'pt-BR': {

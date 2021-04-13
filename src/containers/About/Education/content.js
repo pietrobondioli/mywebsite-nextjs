@@ -1,8 +1,6 @@
-import mackenzieImage from '../../../public/icons/about/mackenzie-logo.png';
-
 export default [
   {
-    image: mackenzieImage,
+    image: '/icons/about/mackenzie-logo.png',
     readMore: false,
     'pt-BR': {
       name: 'Mackenzie',

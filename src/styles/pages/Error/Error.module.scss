@@ -11,7 +11,7 @@
   }
   .errorImage {
     @extend %backgroundConfigs;
-    background-image: url('../../../public/icons/error/warning-128px.png');
+    background-image: url('/icons/error/warning-128px.png');
     background-size: 128px 128px;
     width: 128px;
     height: 128px;

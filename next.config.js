@@ -1,6 +1,4 @@
-const withImages = require('next-images')
-
-module.exports = withImages({
+module.exports ={
   esModule: true,
   webpackDevMiddleware: (config) => {
     config.watchOptions = {
@@ -14,4 +12,4 @@ module.exports = withImages({
     locales: ['en-US', 'pt-BR'],
     defaultLocale: 'en-US',
   },
-});
+};

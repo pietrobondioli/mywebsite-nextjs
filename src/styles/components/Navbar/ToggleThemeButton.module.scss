@@ -2,8 +2,8 @@
 @use '../../utils/config' as *;
 
 $icons-images: (
-  'sun': url('../../../public/icons/toggleThemeButton/sun-32px.png'),
-  'moon': url('../../../public/icons/toggleThemeButton/moon-32px.png'),
+  'sun': url('/icons/toggleThemeButton/sun-32px.png'),
+  'moon': url('/icons/toggleThemeButton/moon-32px.png'),
 );
 
 %iconConfig {

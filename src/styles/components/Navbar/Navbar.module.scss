@@ -3,12 +3,12 @@
 @import '../../utils/mixins';
 
 $navbar-images: (
-  'logo': url('../../../public/icons/navbar/logo.png'),
-  'animatedLogo': url('../../../public/icons/navbar/logoAnimated.png'),
-  'black-menuBar': url('../../../public/icons/navbar/black-menu-3bars-48px.png'),
-  'black-closeMenu': url('../../../public/icons/navbar/black-x-48px.png'),
-  'white-menuBar': url('../../../public/icons/navbar/white-menu-3bars-48px.png'),
-  'white-closeMenu': url('../../../public/icons/navbar/white-x-48px.png'),
+  'logo': url('/icons/navbar/logo.png'),
+  'animatedLogo': url('/icons/navbar/logoAnimated.png'),
+  'black-menuBar': url('/icons/navbar/black-menu-3bars-48px.png'),
+  'black-closeMenu': url('/icons/navbar/black-x-48px.png'),
+  'white-menuBar': url('/icons/navbar/white-menu-3bars-48px.png'),
+  'white-closeMenu': url('/icons/navbar/white-x-48px.png'),
 );
 
 .navbar {

@@ -1,38 +1,3 @@
-import javascriptImg from '../../../public/icons/skills/javascript-32px.png';
-import typescriptImg from '../../../public/icons/skills/typescript-32px.png';
-import pythonImg from '../../../public/icons/skills/python-32px.png';
-import htmlImg from '../../../public/icons/skills/html-32px.png';
-import cssImg from '../../../public/icons/skills/css-32px.png';
-import sqlImg from '../../../public/icons/skills/sql-db-32px.png';
-
-import jqueryImg from '../../../public/icons/skills/jquery-32px.png';
-import sassImg from '../../../public/icons/skills/sass-32px.png';
-import bootstrapImg from '../../../public/icons/skills/bootstrap-32px.png';
-import electronImg from '../../../public/icons/skills/electron-plane-32px.png';
-import reactImg from '../../../public/icons/skills/react-32px.png';
-import nextImg from '../../../public/icons/skills/nextjs-32px.png';
-import expressImg from '../../../public/icons/skills/express-logo-32px.png';
-
-import linuxImg from '../../../public/icons/skills/linux-32px.png';
-import windowsImg from '../../../public/icons/skills/windows-32px.png';
-import gitImg from '../../../public/icons/skills/git-32px.png';
-import dockerImg from '../../../public/icons/skills/docker-32px.png';
-import npmImg from '../../../public/icons/skills/npm-32px.png';
-import yarnImg from '../../../public/icons/skills/yarn-logo-32px.png';
-import sshImg from '../../../public/icons/skills/ssh-32px.png';
-import pugImg from '../../../public/icons/skills/pug-32px.png';
-import webpackImg from '../../../public/icons/skills/webpack-32px.png';
-import gulpImg from '../../../public/icons/skills/gulp-32px.png';
-import babelImg from '../../../public/icons/skills/babel-32px.png';
-import vscodeImg from '../../../public/icons/skills/vscode-32px.png';
-import vimImg from '../../../public/icons/skills/vim-32px.png';
-
-import nodejsImg from '../../../public/icons/skills/nodejs-32px.png';
-import mongodbImg from '../../../public/icons/skills/mongodb-32px.png';
-import postgreSqlImg from '../../../public/icons/skills/postgresql-32px.png';
-import herokuImg from '../../../public/icons/skills/heroku-plain-32px.png';
-import firebaseImg from '../../../public/icons/skills/firebase-32px.png';
-
 export default [
   {
     'pt-BR': {
@@ -45,37 +10,37 @@ export default [
       {
         name: 'javascript',
         link: 'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript',
-        image: javascriptImg,
+        image: '/icons/skills/javascript-32px.png',
       },
       {
         name: 'typescript',
         link: 'https://www.typescriptlang.org/',
-        image: typescriptImg,
+        image: '/icons/skills/typescript-32px.png',
       },
       {
         name: 'python',
         link: 'https://www.python.org/',
-        image: pythonImg,
+        image: '/icons/skills/python-32px.png',
       },
       {
         name: 'html',
         link: 'https://developer.mozilla.org/pt-BR/docs/Web/HTML',
-        image: htmlImg,
+        image: '/icons/skills/html-32px.png',
       },
       {
         name: 'css',
         link: 'https://developer.mozilla.org/pt-BR/docs/Web/CSS',
-        image: cssImg,
+        image: '/icons/skills/css-32px.png',
       },
       {
         name: 'sass',
         link: 'https://sass-lang.com/',
-        image: sassImg,
+        image: '/icons/skills/sass-32px.png',
       },
       {
         name: 'sql',
         link: 'https://en.wikipedia.org/wiki/SQL',
-        image: sqlImg,
+        image: '/icons/skills/sql-db-32px.png',
       },
     ],
   },
@@ -90,32 +55,32 @@ export default [
       {
         name: 'reactJS',
         link: 'https://reactjs.org/',
-        image: reactImg,
+        image: '/icons/skills/react-32px.png',
       },
       {
         name: 'nextJS',
         link: 'https://nextjs.org/',
-        image: nextImg,
+        image: '/icons/skills/nextjs-32px.png',
       },
       {
         name: 'expressJS',
         link: 'https://expressjs.com/',
-        image: expressImg,
+        image: '/icons/skills/express-32px.png',
       },
       {
         name: 'electronJS',
         link: 'https://www.electronjs.org/',
-        image: electronImg,
+        image: '/icons/skills/electron-32px.png',
       },
       {
         name: 'jQuery',
         link: 'https://jquery.com/',
-        image: jqueryImg,
+        image: '/icons/skills/jquery-32px.png',
       },
       {
         name: 'bootstrap',
         link: 'https://getbootstrap.com/',
-        image: bootstrapImg,
+        image: '/icons/skills/bootstrap-32px.png',
       },
     ],
   },
@@ -130,67 +95,67 @@ export default [
       {
         name: 'linux',
         link: 'https://www.linux.org/',
-        image: linuxImg,
+        image: '/icons/skills/linux-32px.png',
       },
       {
         name: 'windows',
         link: 'https://www.microsoft.com/pt-br/windows/',
-        image: windowsImg,
+        image: '/icons/skills/windows-32px.png',
       },
       {
         name: 'git',
         link: 'https://git-scm.com/',
-        image: gitImg,
+        image: '/icons/skills/git-32px.png',
       },
       {
         name: 'docker',
         link: 'https://www.docker.com/',
-        image: dockerImg,
+        image: '/icons/skills/docker-32px.png',
       },
       {
         name: 'ssh',
         link: 'https://www.ssh.com/ssh/',
-        image: sshImg,
+        image: '/icons/skills/ssh-32px.png',
       },
       {
         name: 'npm',
         link: 'https://www.npmjs.com/',
-        image: npmImg,
+        image: '/icons/skills/npm-32px.png',
       },
       {
         name: 'yarn',
         link: 'https://classic.yarnpkg.com/pt-BR/',
-        image: yarnImg,
+        image: '/icons/skills/yarn-32px.png',
       },
       {
         name: 'pug',
         link: 'https://pugjs.org/api/getting-started.html',
-        image: pugImg,
+        image: '/icons/skills/pug-32px.png',
       },
       {
         name: 'webpack',
         link: 'https://webpack.js.org/',
-        image: webpackImg,
+        image: '/icons/skills/webpack-32px.png',
       },
       {
         name: 'gulp',
         link: 'https://gulpjs.com/',
-        image: gulpImg,
+        image: '/icons/skills/gulp-32px.png',
       },
       {
         name: 'babel',
         link: 'https://babeljs.io/',
-        image: babelImg,
+        image: '/icons/skills/babel-32px.png',
       },
       {
         name: 'vscode',
         link: 'https://code.visualstudio.com/',
-        image: vscodeImg,
+        image: '/icons/skills/vscode-32px.png',
       },
       {
         name: 'vim',
         link: 'https://www.vim.org/',
-        image: vimImg,
+        image: '/icons/skills/vim-32px.png',
       },
     ],
   },
@@ -205,27 +170,27 @@ export default [
       {
         name: 'nodeJs',
         link: 'https://nodejs.org/en/',
-        image: nodejsImg,
+        image: '/icons/skills/nodejs-32px.png',
       },
       {
         name: 'mongoDB',
         link: 'https://www.mongodb.com/',
-        image: mongodbImg,
+        image: '/icons/skills/mongodb-32px.png',
       },
       {
         name: 'postgreSql',
         link: 'https://www.postgresql.org/',
-        image: postgreSqlImg,
+        image: '/icons/skills/postgresql-32px.png',
       },
       {
         name: 'heroku',
         link: 'https://www.heroku.com/',
-        image: herokuImg,
+        image: '/icons/skills/heroku-32px.png',
       },
       {
         name: 'firebase',
         link: 'https://firebase.google.com/',
-        image: firebaseImg,
+        image: '/icons/skills/firebase-32px.png',
       },
     ],
   },

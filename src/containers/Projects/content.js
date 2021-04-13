@@ -1,8 +1,6 @@
-import projectImage from '../../public/icons/home/contact-256px.png';
-
 export default [
   {
-    image: projectImage,
+    image: '/icons/home/contact-256px.png',
     readMore: true,
     readMoreTargetBlank: true,
     readMoreLink: 'https://github.com/bondiolipietro/mywebsite-nextjs',

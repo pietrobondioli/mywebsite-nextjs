@@ -24,7 +24,7 @@ const Article = ({ article }) => {
         <meta property="og:title" content={metadata.title} />
         <meta property="og:type" content="article" />
         <meta property="og:description" content={metadata.excerpt} />
-        <meta property="og:image" itemProp="image" content={metadata.imageUrl} />
+        <meta property="og:image" itemProp="image" content={metadata.image} />
         <meta property="og:image:alt" content={metadata.imageAlt} />
         <meta property="og:url" content={`pietrobondioli.com.br${router.asPath}`} />
         <meta property="og:site_name" content="Pietro Bondioli" />
@@ -37,15 +37,11 @@ const Article = ({ article }) => {
         <meta name="twitter:creator" content={metadata.twitterProfile} />
         <meta name="twitter:title" content={metadata.title} />
         <meta name="twitter:description" content={metadata.excerpt} />
-        <meta name="twitter:image" content={metadata.imageUrl} />
+        <meta name="twitter:image" content={metadata.image} />
         <meta name="twitter:image:alt" content={metadata.imageAlt} />
       </Head>
       <Section>
-        <img
-          className={styles.article_img}
-          src={require('@public/articles/passwords-and-digital-security.png').default}
-          alt=""
-        />
+        <img className={styles.article_img} src={metadata.image} alt={metadata.imageAlt} />
         <article className={styles.article} dangerouslySetInnerHTML={{ __html: article.content }} />
       </Section>
     </>
