@@ -18,13 +18,13 @@ const articleCardContent = {
 };
 
 const ArticleCard = (props) => {
-  const { articleSlug, articleImage, articleTitle, articleDate, articleAuthor } = props;
+  const { articleSlug, articleImage, articleImageAlt, articleTitle, articleDate, articleAuthor } = props;
   const translate = useTranslation(articleCardContent);
 
   return (
     <Link href={`/articles/${articleSlug}`}>
       <div className={styles.articlesCard}>
-        <img src={articleImage} alt={articleTitle} className={styles.cardImage} />
+        <img src={articleImage} alt={articleImageAlt} className={styles.cardImage} />
         <div className={styles.cardText}>
           <div className={styles.title}>{articleTitle}</div>
           <div className={styles.date}>{articleDate}</div>

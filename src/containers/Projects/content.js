@@ -8,11 +8,13 @@ export default [
       name: 'Meu WebSite',
       description:
         'Este não foi o primeiro site que eu programei mas foi o primeiro que eu de fato "concluí". O site foi construído em Javascript com o framework Next.js, a estilização foi feita usando Scss, e eu optei por usar o Docker para virtualizar o projeto por conta das diversas mudanças de sistema operacional que eu estava fazendo enquanto desenvolvia.',
+      imageAlt: 'Um notebook e um balão de fala simbolizando um Website.',
     },
     'en-US': {
       name: 'My Website',
       description:
         'This was not the first site that I programmed but it was the first that I actually "completed". The site was built in Javascript with the Next.js framework, styling was done using Scss, and I chose to use Docker to virtualize the project due to the various changes of operating system I was making while developing.',
+      imageAlt: 'A notebook with a speech bubble symbolizing a Website.',
     },
   },
 ];

@@ -5,8 +5,7 @@ lastModified: '2021-02-11'
 author: 'Pietro Bondioli'
 excerpt: '80% of all data breaches recorded in 2020 were caused by passwords that are weak or that were stolen in some way. Learn how to protect yourself using the apps Bitwarden and Authy.'
 image: '/articles/passwords-and-digital-security.png'
-imageUrl: 'https://www.dropbox.com/s/6y6h2oe8cv0lz0y/passwords-and-digital-security.png?raw=1'
-imageAlt: 'Password security.'
+imageAlt: 'A computer, a padlock and a key symbolizing the concept of digital security.'
 twitterProfile: '@bondioli_pietro'
 ---
 

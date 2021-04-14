@@ -5,8 +5,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p className={styles.footer__text}>
-        Pietro Bondioli
-        <span className={styles.footer__text_separator} />{' '}
+        Pietro Bondioli <span className={styles.footer__text_separator} />{' '}
         <a
           className={styles.footer__link}
           href="https://opensource.org/licenses/MIT"

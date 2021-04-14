@@ -37,12 +37,7 @@ const ContactInfo = () => {
         {contactInfoContent.map((card) => {
           translate = useTranslation(card);
           return (
-            <ContactCard
-              key={translate('alt')}
-              img={card.image}
-              alt={translate('alt')}
-              cardColor={card.cardColor}
-            >
+            <ContactCard key={card.id} img={card.image} alt={card.imageAlt} cardColor={card.cardColor}>
               {card.type === 'link' && (
                 <a href={card.content} target="blank" className={styles.card__link}>
                   {card.name}

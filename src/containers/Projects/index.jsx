@@ -20,6 +20,7 @@ const ProjectsSection = () => {
           <Section key={translate('name')}>
             <SectionContent
               image={content.image}
+              imageAlt={translate('imageAlt')}
               readMore={content.readMore}
               readMoreLink={content.readMoreLink}
               readMoreTargetBlank={content.readMoreTargetBlank}

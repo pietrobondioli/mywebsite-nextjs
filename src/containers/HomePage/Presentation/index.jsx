@@ -20,6 +20,7 @@ const Presentation = () => {
             <SectionContent
               text={translate('text')}
               image={content.image}
+              imageAlt={translate('imageAlt')}
               readMore={content.readMore}
               readMoreLink={content.readMoreLink}
             />

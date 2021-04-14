@@ -30,7 +30,12 @@ const Experience = () => {
       {experienceContent.map((content) => {
         translate = useTranslation(content);
         return (
-          <SectionContent key={translate('name')} image={content.image} readMore={content.readMore}>
+          <SectionContent
+            key={translate('name')}
+            image={content.image}
+            imageAlt={translate('imageAlt')}
+            readMore={content.readMore}
+          >
             <div className={`${styles.about__text}`}>
               <div className={`${styles.title}`}>{translate('name')}</div>
               <div className={`${styles.subtitle}`}>{translate('position')}</div>

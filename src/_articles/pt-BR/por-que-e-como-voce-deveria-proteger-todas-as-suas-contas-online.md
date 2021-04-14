@@ -5,8 +5,7 @@ lastModified: '2021-02-11'
 author: 'Pietro Bondioli'
 excerpt: '80% das violações de dados registradas em 2020 foram causadas por senhas que eram fracas ou que foram roubadas. Saiba como se proteger usando os apps Bitwarden e Authy.'
 image: '/articles/passwords-and-digital-security.png'
-imageUrl: 'https://www.dropbox.com/s/6y6h2oe8cv0lz0y/passwords-and-digital-security.png?raw=1'
-imageAlt: 'Segurança de senhas.'
+imageAlt: 'Um computador, um cadeado e uma chave simbolizando o conceito de segurança digital.'
 twitterProfile: '@bondioli_pietro'
 ---
 

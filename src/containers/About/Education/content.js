@@ -1,6 +1,7 @@
 export default [
   {
     image: '/icons/about/mackenzie-logo.png',
+    imageAlt: 'mackenzie logo',
     readMore: false,
     'pt-BR': {
       name: 'Mackenzie',

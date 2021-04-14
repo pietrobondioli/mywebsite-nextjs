@@ -12,12 +12,12 @@ import styles from '@styles/components/Section/SectionContent.module.scss';
 import sectionContent from './content';
 
 const SectionContent = (props) => {
-  const { children, text, image, readMore, readMoreLink, readMoreTargetBlank } = props;
+  const { children, text, image, imageAlt, readMore, readMoreLink, readMoreTargetBlank } = props;
   const translation = useTranslation(sectionContent);
 
   return (
     <div className={styles.section__content}>
-      <img className={styles.content__image} src={image} alt="img" />
+      <img className={styles.content__image} src={image} alt={imageAlt} />
       <div>
         <div className={styles.content__text}>{children || text}</div>
         {readMore &&

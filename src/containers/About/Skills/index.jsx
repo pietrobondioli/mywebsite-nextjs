@@ -41,6 +41,7 @@ const Skills = () => {
                     skillLink={skill.link}
                     skillName={skill.name}
                     skillImage={skill.image}
+                    skillImageAlt={skill.imageAlt}
                   />
                 );
               })}
