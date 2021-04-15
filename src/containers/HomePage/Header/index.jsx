@@ -81,9 +81,7 @@ const Header = () => {
           <div className={styles.terminal__command}>
             {terminalCommand}
             <TerminalUnderslash
-              animation={
-                !isTyping ? `terminal__underslash_active` : `terminal__underslash_disabled`
-              }
+              animation={!isTyping ? `terminal__underslash_active` : `terminal__underslash_disabled`}
             />
           </div>
         </div>

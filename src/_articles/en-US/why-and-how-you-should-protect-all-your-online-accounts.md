@@ -1,6 +1,8 @@
 ---
+slug: 'why-and-how-you-should-protect-all-your-online-accounts'
 title: 'Why (and How) you should protect all your online accounts'
 published: '2021-02-11'
+publishedHumanReadable: '02/11/2021'
 lastModified: '2021-02-11'
 author: 'Pietro Bondioli'
 excerpt: '80% of all data breaches recorded in 2020 were caused by passwords that are weak or that were stolen in some way. Learn how to protect yourself using the apps Bitwarden and Authy.'

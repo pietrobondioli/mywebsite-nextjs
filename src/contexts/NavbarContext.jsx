@@ -6,9 +6,7 @@ const NavbarContextProvider = ({ children }) => {
   const [isNavbarOpen, setIsNavbarOpen] = React.useState(false);
 
   return (
-    <NavbarContext.Provider value={{ isNavbarOpen, setIsNavbarOpen }}>
-      {children}
-    </NavbarContext.Provider>
+    <NavbarContext.Provider value={{ isNavbarOpen, setIsNavbarOpen }}>{children}</NavbarContext.Provider>
   );
 };
 

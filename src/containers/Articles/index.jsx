@@ -1,9 +1,6 @@
 // React/Next Components
 import React from 'react';
 
-// Translations
-import useTranslation from '@hooks/useTranslation';
-
 // Styles
 import styles from '@styles/pages/Articles/Articles.module.scss';
 
@@ -11,24 +8,20 @@ import styles from '@styles/pages/Articles/Articles.module.scss';
 import Section from '@components/Section';
 import ArticleCard from './ArticleCard';
 
-// Content
-import articles from './content';
-
-const Articles = () => {
+const Articles = ({ articles }) => {
   return (
     <Section>
       <div className={styles.articles}>
-        {articles.map((card) => {
-          const translate = useTranslation(card);
+        {articles.map((article) => {
           return (
             <ArticleCard
-              key={translate('articleSlug')}
-              articleSlug={translate('articleSlug')}
-              articleImage={card.articleImage}
-              articleImageAlt={translate('articleImageAlt')}
-              articleTitle={translate('articleTitle')}
-              articleAuthor={card.articleAuthor}
-              articleDate={card.articleDate}
+              key={article.slug}
+              articleSlug={article.slug}
+              articleImage={article.image}
+              articleImageAlt={article.imageAlt}
+              articleTitle={article.title}
+              articleAuthor={article.author}
+              articleDate={article.publishedHumanReadable}
             />
           );
         })}

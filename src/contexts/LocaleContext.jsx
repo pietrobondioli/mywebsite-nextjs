@@ -9,9 +9,7 @@ const LocaleContextProvider = ({ children }) => {
   const { locales, locale, defaultLocale } = router;
 
   return (
-    <LocaleContext.Provider value={{ locales, locale, defaultLocale }}>
-      {children}
-    </LocaleContext.Provider>
+    <LocaleContext.Provider value={{ locales, locale, defaultLocale }}>{children}</LocaleContext.Provider>
   );
 };
 

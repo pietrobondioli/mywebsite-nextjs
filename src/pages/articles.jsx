@@ -8,8 +8,12 @@ import useTranslation from '@hooks/useTranslation';
 // Components
 import ArticlesSection from '@containers/Articles';
 
+// Lib
+import getArticle from '@lib/getArticle';
+import getArticlesSlugs from '@lib/getArticlesSlugs';
+
 // Contents
-const pageName = {
+const pageInfo = {
   'pt-BR': {
     pageTitle: 'Artigos - Pietro Bondioli',
     pageDescription:
@@ -22,9 +26,9 @@ const pageName = {
   },
 };
 
-function Articles() {
+function Articles({ articles }) {
   const router = useRouter();
-  const translate = useTranslation(pageName);
+  const translate = useTranslation(pageInfo);
 
   return (
     <>
@@ -38,10 +42,29 @@ function Articles() {
         <meta name="twitter:description" content={translate('pageDescription')} />
       </Head>
       <main>
-        <ArticlesSection />
+        <ArticlesSection articles={articles} />
       </main>
     </>
   );
+}
+
+export async function getStaticProps(context) {
+  const { locale } = context;
+
+  const articlesSlugs = await getArticlesSlugs([locale]);
+
+  const articles = [];
+
+  await articlesSlugs[locale].forEach(async (slug) => {
+    const { metadata } = await getArticle(locale, slug);
+    articles.push(metadata);
+  });
+
+  return {
+    props: {
+      articles,
+    },
+  };
 }
 
 export default Articles;

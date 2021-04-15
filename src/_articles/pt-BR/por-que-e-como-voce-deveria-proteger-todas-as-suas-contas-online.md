@@ -1,6 +1,8 @@
 ---
+slug: 'por-que-e-como-voce-deveria-proteger-todas-as-suas-contas-online'
 title: 'Por que (e como) você deveria proteger todas as suas contas online'
 published: '2021-02-11'
+publishedHumanReadable: '11/02/2021'
 lastModified: '2021-02-11'
 author: 'Pietro Bondioli'
 excerpt: '80% das violações de dados registradas em 2020 foram causadas por senhas que eram fracas ou que foram roubadas. Saiba como se proteger usando os apps Bitwarden e Authy.'

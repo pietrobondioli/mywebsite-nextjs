@@ -81,11 +81,7 @@ const Navbar = () => {
         {navbarContent.map((item) => {
           translate = useTranslation(item);
           return (
-            <NavbarItem
-              key={translate('itemName')}
-              itemName={translate('itemName')}
-              itemLink={item.link}
-            />
+            <NavbarItem key={translate('itemName')} itemName={translate('itemName')} itemLink={item.link} />
           );
         })}
       </div>
