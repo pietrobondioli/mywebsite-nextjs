@@ -27,7 +27,7 @@ const ChangeLocaleButton = () => {
   return (
     <NavbarItem
       key="changeLocale"
-      itemName={changeLocale}
+      itemName={locale}
       itemLink={router.pathname}
       itemQuery={translateObject(router.query)}
       itemLocale={changeLocale[0]}

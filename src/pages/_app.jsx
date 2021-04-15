@@ -35,6 +35,7 @@ const MyApp = ({ Component, pageProps }) => {
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@bondioli_pietro" />
             <meta name="twitter:creator" content="@bondioli_pietro" />
+            <meta name="google-site-verification" content="6m8-QuB3vOo-b-V4kOc1lSgrfKvGVHxLVQDN6UWY6fE" />
           </Head>
           <WithTheme>
             <Navbar />

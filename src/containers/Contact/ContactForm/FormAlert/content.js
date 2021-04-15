@@ -4,7 +4,7 @@ export default {
     error: 'Não foi possível enviar a mensagem.',
   },
   'en-US': {
-    success: 'Message sended.',
+    success: 'Message sent.',
     error: 'Unable to send message.',
   },
 };
