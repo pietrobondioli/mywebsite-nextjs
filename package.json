@@ -1,7 +1,6 @@
 {
   "name": "mywebsite-nextjs",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Pietro Bondioli <pietrobondiolideveloper@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -28,7 +27,9 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express-rate-limit": "^5.2.6",
+    "globby": "^11.0.3",
     "gray-matter": "^4.0.2",
+    "moment": "^2.29.1",
     "next": "^10.0.1",
     "nodemailer": "^6.4.16",
     "nodemailer-smtp-transport": "^2.7.4",
