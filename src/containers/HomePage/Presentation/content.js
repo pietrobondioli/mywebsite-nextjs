@@ -1,6 +1,6 @@
 export default [
   {
-    image: '/icons/home/profile-512px.png',
+    image: '/icons/home/pietro-720px.jpg',
     readMore: false,
     'pt-BR': {
       title: '',
