@@ -4,8 +4,8 @@
   "author": "Pietro Bondioli <pietrobondiolideveloper@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint --fix .",
-    "format": "prettier --write .",
+    "lint": "eslint --fix",
+    "format": "prettier --write",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
