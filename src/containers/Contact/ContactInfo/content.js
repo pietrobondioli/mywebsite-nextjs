@@ -49,7 +49,7 @@ export default [
     image: '/icons/contact/telegram-128px.png',
     imageAlt: 'Telegram logo.',
     cardColor: '#80d8ff',
-    content: '+55(12)99634-1642',
+    content: '+55(12)98148-5929',
     'pt-BR': {
       message: 'clique para copiar o número de telefone',
     },
