@@ -1,6 +1,6 @@
 ---
 slug: 'por-que-e-como-voce-deveria-proteger-todas-as-suas-contas-online'
-title: 'Por que (e como) você deveria proteger todas as suas contas online'
+title: 'Por que (e Como) você deveria proteger todas as suas contas online'
 published: '2021-02-11'
 publishedHumanReadable: '11/02/2021'
 lastModified: '2021-02-11'
@@ -11,7 +11,7 @@ imageAlt: 'Um computador, um cadeado e uma chave simbolizando o conceito de segu
 twitterProfile: '@bondioli_pietro'
 ---
 
-# **Por que (e como) você deveria proteger todas as suas contas online**
+# **Por que (e Como) você deveria proteger todas as suas contas online**
 
 ##### Fev 11, 2021 · 10 min leitura - por Pietro Bondioli
 
