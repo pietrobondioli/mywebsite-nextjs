@@ -28,7 +28,6 @@ const Navbar = () => {
   let translate;
   const { isNavbarOpen, setIsNavbarOpen } = React.useContext(NavbarContext);
   const refMenu = React.useRef(null);
-  const refNavBarFocusItem = React.useRef(null);
   let targetElement;
 
   const resetMenuState = () => {
@@ -37,7 +36,6 @@ const Navbar = () => {
   };
 
   React.useEffect(() => {
-    refNavBarFocusItem.current.focus();
     targetElement = refMenu.current;
     if (!isNavbarOpen) {
       enableBodyScroll(targetElement);
@@ -49,6 +47,7 @@ const Navbar = () => {
   React.useEffect(() => {
     window.addEventListener('resize', resetMenuState);
     router.events.on('routeChangeStart', resetMenuState);
+    clearAllBodyScrollLocks();
     return () => {
       window.removeEventListener('resize', resetMenuState);
       router.events.off('routeChangeStart', resetMenuState);
@@ -60,8 +59,6 @@ const Navbar = () => {
       <Link href="/">
         <div className={styles.navbar__logo} />
       </Link>
-      {/* this button is needed because in chrome mobile the button 'navbar__button' does not render the background-image change until it loses focus */}
-      <button type="button" ref={refNavBarFocusItem} className={styles.navBarFocusItem} />
       <button
         type="button"
         onClick={() => {
