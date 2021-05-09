@@ -60,6 +60,7 @@ const generateArticlesUrls = async (articles) => {
     const loc = article
       .replace('src', '')
       .replace('_articles', '')
+      .replace(/(en-US|pt-BR)/, '$1/articles')
       .replace(/(\.mdx|\.md)/, '')
       .replace(/[\/]{2,}/, '/');
 
