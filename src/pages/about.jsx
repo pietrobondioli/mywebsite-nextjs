@@ -39,8 +39,8 @@ function About() {
       </Head>
       <main>
         <Skills />
-        <Education />
         <Experience />
+        <Education />
       </main>
     </>
   );
