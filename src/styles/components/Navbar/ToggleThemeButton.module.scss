@@ -1,77 +1,77 @@
-@use '../../utils/variables' as *;
-@use '../../utils/config' as *;
+@use "../../utils/variables" as *;
+@use "../../utils/config" as *;
 
 $icons-images: (
-  'sun': url('/icons/toggleThemeButton/sun-32px.png'),
-  'moon': url('/icons/toggleThemeButton/moon-32px.png'),
+    "sun": url("/icons/toggleThemeButton/sun-32px.png"),
+    "moon": url("/icons/toggleThemeButton/moon-32px.png"),
 );
 
 %iconConfig {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background-size: 12px 12px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-origin: content-box;
-  pointer-events: none;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-size: 12px 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    pointer-events: none;
 }
 
 .toggleButton {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 40px;
-  height: 20px;
-  margin: 12px 0;
-  box-sizing: content-box;
-  @include media-lg {
-    margin: 0 12px;
-  }
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 20px;
+    margin: 12px 0;
+    box-sizing: content-box;
+    @include media-lg {
+        margin: 0 12px;
+    }
 }
 
 .toggleButton__input {
-  position: relative;
-  width: 40px;
-  height: 20px;
-  appearance: none;
-  background-color: #5f188f;
-  border-radius: 20px;
-  box-shadow: inset 0 0 5px var(--weak-shadow);
-  outline: none;
-  transition: all 500ms;
-  &:checked {
-    background-color: #33a4f0;
-  }
-  &::before {
-    content: '';
-    position: absolute;
-    width: 20px;
+    position: relative;
+    width: 40px;
     height: 20px;
-    transform: scale(1.1);
-    border-radius: 50%;
-    top: 0;
-    right: 20px;
-    background-color: #cecece;
-    z-index: 2;
+    appearance: none;
+    background-color: #5f188f;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px var(--weak-shadow);
+    outline: none;
     transition: all 500ms;
-  }
-  &:checked::before {
-    right: 0;
-  }
+    &:checked {
+        background-color: #33a4f0;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        transform: scale(1.1);
+        border-radius: 50%;
+        top: 0;
+        right: 20px;
+        background-color: #cecece;
+        z-index: 2;
+        transition: all 500ms;
+    }
+    &:checked::before {
+        right: 0;
+    }
 }
 
 .toggleButton__ball {
 }
 
 .toggleButton__sun {
-  @extend %iconConfig;
-  background-image: map-get($icons-images, sun);
-  left: 3px;
+    @extend %iconConfig;
+    background-image: map-get($icons-images, sun);
+    left: 3px;
 }
 
 .toggleButton__moon {
-  @extend %iconConfig;
-  background-image: map-get($icons-images, moon);
-  right: 3px;
+    @extend %iconConfig;
+    background-image: map-get($icons-images, moon);
+    right: 3px;
 }

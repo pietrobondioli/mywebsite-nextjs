@@ -1,106 +1,106 @@
-@import '../../utils/variables';
-@import '../../utils/config';
-@import '../../utils/mixins';
+@import "../../utils/variables";
+@import "../../utils/config";
+@import "../../utils/mixins";
 
 $navbar-images: (
-  'logo': url('/icons/navbar/logo.png'),
-  'animatedLogo': url('/icons/navbar/logoAnimated.png'),
-  'black-menuBar': url('/icons/navbar/black-menu-3bars-48px.png'),
-  'black-closeMenu': url('/icons/navbar/black-x-48px.png'),
-  'white-menuBar': url('/icons/navbar/white-menu-3bars-48px.png'),
-  'white-closeMenu': url('/icons/navbar/white-x-48px.png'),
+    "logo": url("/icons/navbar/logo.png"),
+    "animatedLogo": url("/icons/navbar/logoAnimated.png"),
+    "black-menuBar": url("/icons/navbar/black-menu-3bars-48px.png"),
+    "black-closeMenu": url("/icons/navbar/black-x-48px.png"),
+    "white-menuBar": url("/icons/navbar/white-menu-3bars-48px.png"),
+    "white-closeMenu": url("/icons/navbar/white-x-48px.png"),
 );
 
 .navbar {
-  width: 100%;
-  max-width: 100%;
-  height: 48px;
-  padding: 0 10px;
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  pointer-events: none;
-  z-index: 999;
-  background-color: var(--navbar);
-  box-shadow: 0px 0px 2px 1px var(--weak-shadow);
+    width: 100%;
+    max-width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 999;
+    background-color: var(--navbar);
+    box-shadow: 0px 0px 2px 1px var(--weak-shadow);
 }
 
 .navbar__logo {
-  cursor: pointer;
-  width: 48px;
-  height: map-get($heights, navbar);
-  @extend %backgroundConfigs;
-  background-image: map-get($navbar-images, logo);
-  background-color: transparent;
-  background-size: 32px 32px;
-  z-index: 2;
-  transition: all 400ms ease-in-out;
-  pointer-events: all;
-  &:hover {
-    transform: scale(1.2);
-    background-image: map-get($navbar-images, animatedLogo);
-  }
+    cursor: pointer;
+    width: 48px;
+    height: map-get($heights, navbar);
+    @extend %backgroundConfigs;
+    background-image: map-get($navbar-images, logo);
+    background-color: transparent;
+    background-size: 32px 32px;
+    z-index: 2;
+    transition: all 400ms ease-in-out;
+    pointer-events: all;
+    &:hover {
+        transform: scale(1.2);
+        background-image: map-get($navbar-images, animatedLogo);
+    }
 }
 
 .navbar__button {
-  width: 48px;
-  height: 48px;
-  padding: 0;
-  border: none;
-  @extend %backgroundConfigs;
-  background-size: 22px 22px;
-  background-color: transparent;
-  z-index: 999;
-  transition: all 600ms ease-in-out;
-  pointer-events: all;
-  &:selected {
+    width: 48px;
+    height: 48px;
+    padding: 0;
     border: none;
-  }
-  &_disabled {
-    background-image: var(--navbar-menu-bars);
-  }
-  &_active {
-    background-image: var(--navbar-close-menu);
-    transform: rotate(-90deg);
-  }
-  @include media-lg {
-    display: none;
-  }
+    @extend %backgroundConfigs;
+    background-size: 22px 22px;
+    background-color: transparent;
+    z-index: 999;
+    transition: all 600ms ease-in-out;
+    pointer-events: all;
+    &:selected {
+        border: none;
+    }
+    &_disabled {
+        background-image: var(--navbar-menu-bars);
+    }
+    &_active {
+        background-image: var(--navbar-close-menu);
+        transform: rotate(-90deg);
+    }
+    @include media-lg {
+        display: none;
+    }
 }
 
 .navbar__menu {
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--navbar);
-  z-index: 99;
-  transition: all 800ms ease;
-  &_disabled {
-    clip-path: circle(50px at 90% -10%);
-    -webkit-clip-path: circle(50px at 90% -10%);
-    pointer-events: none;
-  }
-  &_active {
-    clip-path: circle(2000px at 90% -10%);
-    -webkit-clip-path: circle(2000px at 90% -10%);
-    pointer-events: all;
-  }
-  @include media-lg {
-    height: 100%;
-    width: auto;
-    position: relative;
-    flex-flow: row;
-    justify-content: flex-end;
-    background-color: transparent;
-    clip-path: none;
-    -webkit-clip-path: none;
-    pointer-events: all;
-  }
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--navbar);
+    z-index: 99;
+    transition: all 800ms ease;
+    &_disabled {
+        clip-path: circle(50px at 90% -10%);
+        -webkit-clip-path: circle(50px at 90% -10%);
+        pointer-events: none;
+    }
+    &_active {
+        clip-path: circle(2000px at 90% -10%);
+        -webkit-clip-path: circle(2000px at 90% -10%);
+        pointer-events: all;
+    }
+    @include media-lg {
+        height: 100%;
+        width: auto;
+        position: relative;
+        flex-flow: row;
+        justify-content: flex-end;
+        background-color: transparent;
+        clip-path: none;
+        -webkit-clip-path: none;
+        pointer-events: all;
+    }
 }

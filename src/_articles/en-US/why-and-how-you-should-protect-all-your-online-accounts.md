@@ -1,14 +1,14 @@
 ---
-slug: 'why-and-how-you-should-protect-all-your-online-accounts'
-title: 'Why (and How) you should protect all your online accounts'
-published: '2021-02-11'
-publishedHumanReadable: '02/11/2021'
-lastModified: '2021-02-11'
-author: 'Pietro Bondioli'
-excerpt: '80% of all data breaches recorded in 2020 were caused by passwords that are weak or that were stolen in some way. Learn how to protect yourself using the apps Bitwarden and Authy.'
-image: '/articles/passwords-and-digital-security.png'
-imageAlt: 'A computer, a padlock and a key symbolizing the concept of digital security.'
-twitterProfile: '@bondioli_pietro'
+slug: "why-and-how-you-should-protect-all-your-online-accounts"
+title: "Why (and How) you should protect all your online accounts"
+published: "2021-02-11"
+publishedHumanReadable: "02/11/2021"
+lastModified: "2021-02-11"
+author: "Pietro Bondioli"
+excerpt: "80% of all data breaches recorded in 2020 were caused by passwords that are weak or that were stolen in some way. Learn how to protect yourself using the apps Bitwarden and Authy."
+image: "/articles/passwords-and-digital-security.png"
+imageAlt: "A computer, a padlock and a key symbolizing the concept of digital security."
+twitterProfile: "@bondioli_pietro"
 ---
 
 # **Why (and How) you should protect all your online accounts**
@@ -35,10 +35,10 @@ One of the biggest security problems arises when, in addition to using weak pass
 
 Let’s say Mary has 24 online accounts, among them are:
 
-- 1 Google account with the password: p1zz4maria
-- 1 Twitter account with the password: 123p1zz4
-- 1 Amazon account with the password: pizza123456
-- 1 Habbo Hotel account with the password: pizza
+-   1 Google account with the password: p1zz4maria
+-   1 Twitter account with the password: 123p1zz4
+-   1 Amazon account with the password: pizza123456
+-   1 Habbo Hotel account with the password: pizza
 
 Now imagine that the Habbo Hotel database has been compromised (or that Mary fell into an online scam) and now a malicious group know that the email and password of her Habbo account are, respectively, mary@gmail.com and “password”, these informations would be enough for them to gain access to all her other accounts, and it would only take a few hours, maybe minutes, since Mary uses repetitive passwords and doesn’t have enabled any kind of “two-factor authentication”.
 
@@ -134,9 +134,9 @@ Using this mathematical concept, we can calculate, for example, how many possibl
 
 We must consider that, normally, when we create a password, 94 characters are available:
 
-- Numbers (10 different: 0-9)
-- Letters (52 different: A-Z and a-z)
-- Symbols (32 different)
+-   Numbers (10 different: 0-9)
+-   Letters (52 different: A-Z and a-z)
+-   Symbols (32 different)
 
 So there are 16 possible positions (size) and 94 possibilities for each position. Multiplying the number of possibilities for each position we get:
 
@@ -189,10 +189,10 @@ The simplest way to add a layer on your account security is to use different ema
 
 Let’s say that John uses internet for 4 clearly distinct purposes:
 
-- Use social networks
-- Shop online
-- Store photos and another medias
-- Exchange work-related emails
+-   Use social networks
+-   Shop online
+-   Store photos and another medias
+-   Exchange work-related emails
 
 It’s recommended that John creates an email for each of these purposes, so that if the email he uses to work, for example, get hacked, the hackers will not find a “pot of gold” with all of John's information in one place – his photos, shopping information and his social interactions will remain safe. For this method to be effective, each of these emails needs to be protected by good (random and unique) passwords and the “two-factor authentication” should be enabled.
 
@@ -208,20 +208,20 @@ This feature is good for your security because even if some person and/or group 
 
 In short, we have seen that to effectively protect our online accounts we need to:
 
-- Use strong and unique passwords for each account (randomly generated)
-- Separate account security in layers (mainly using 2FA)
+-   Use strong and unique passwords for each account (randomly generated)
+-   Separate account security in layers (mainly using 2FA)
 
 But while trying to fulfill these requirements we can run into problems. For example, when we create strong and unique passwords for each account, how can we memorize them all? Or also, with two-factor authentication enabled, how to know where your verification code will arrive? And if I change my cell phone number? How can I receive the verification code via SMS if I no longer have access to the old number? To help us get over these problems there are free and secure applications/services we can use:
 
-- For account/password management we can use BitWarden, an application that, in addition to being free for all platforms (PC and Mobile), is also completely transparent with the community
-- For managing and integrating all accounts with two-factor authentication we can use Authy, a free application for all platforms, that is very intuitive for those who are going to use it for the first time
+-   For account/password management we can use BitWarden, an application that, in addition to being free for all platforms (PC and Mobile), is also completely transparent with the community
+-   For managing and integrating all accounts with two-factor authentication we can use Authy, a free application for all platforms, that is very intuitive for those who are going to use it for the first time
 
 ### **BitWarden**
 
 BitWarden, besides storing all your credentials securely, will also help you:
 
-- Generating random and unique passwords
-- Auto-filling login forms
+-   Generating random and unique passwords
+-   Auto-filling login forms
 
 And the main thing about the tool is that you will be able to create accounts using random and unique passwords without having the problem of having to remember each one, since once logged into the BitWarden application you can use the auto-fill feature, or you can copy the password of each registered account, so the only password you will need to remember is the BitWarden Master Password.
 
@@ -230,48 +230,48 @@ And the main thing about the tool is that you will be able to create accounts us
 If you are using cell phones or any other mobile device (cell phones, tablets, etc) you can follow the same steps by downloading the BitWarden app from the Google or IOS (Apple) app store.
 
 1. First you must create a BitWarden account:
-   1. Access <a href="https://www.bitwarden.com/" target="_blank" rel="noopener">https://www.bitwarden.com/</a> and click on Start a Free Trial or Log In.
-   2. If you have clicked Log In now you must click Create Account.
-   3. In the account creation screen fill in the requested data:
-      1. Enter your primary email address and your name.
-      2. Use <a href="https://www.lastpass.com/password-generatoren.com/" target="_blank" rel="noopener">https://www.lastpass.com/password-generator</a> to randomly generate your Master Password:
-         - When generating your password use at least 16 characters in “length”, it is important because this password will protect all your other passwords, so it needs to be strong. The site gives you the option to create an "easy to pronounce", "easy to read" or "all characters" password, choose the one of your preference.
-         - I recommend that you write down your email and master password on a piece of paper and keep it somewhere safe in your home (since you may forget your password).
-      3. In the “password hint” field you can put anything (or simply with a reminder of where the paper with the passwords written is).
-   4. After creating your account you will be redirected to your BitWarden vault, there you will see a notification asking you to confirm your email:
-      1. Click the "send email" button on the notification.
-      2. Check your email account inbox, there you will find an email from BitWarden with a confirmation link, click on this link to confirm your account.
-   5. That's it! Your vault has been created!
+    1. Access <a href="https://www.bitwarden.com/" target="_blank" rel="noopener">https://www.bitwarden.com/</a> and click on Start a Free Trial or Log In.
+    2. If you have clicked Log In now you must click Create Account.
+    3. In the account creation screen fill in the requested data:
+        1. Enter your primary email address and your name.
+        2. Use <a href="https://www.lastpass.com/password-generatoren.com/" target="_blank" rel="noopener">https://www.lastpass.com/password-generator</a> to randomly generate your Master Password:
+            - When generating your password use at least 16 characters in “length”, it is important because this password will protect all your other passwords, so it needs to be strong. The site gives you the option to create an "easy to pronounce", "easy to read" or "all characters" password, choose the one of your preference.
+            - I recommend that you write down your email and master password on a piece of paper and keep it somewhere safe in your home (since you may forget your password).
+        3. In the “password hint” field you can put anything (or simply with a reminder of where the paper with the passwords written is).
+    4. After creating your account you will be redirected to your BitWarden vault, there you will see a notification asking you to confirm your email:
+        1. Click the "send email" button on the notification.
+        2. Check your email account inbox, there you will find an email from BitWarden with a confirmation link, click on this link to confirm your account.
+    5. That's it! Your vault has been created!
 2. Download the BitWarden application/program/extension on the platforms where you will use the tool. At <a href="https://www.bitwarden.com/download/" target="_blank" rel="noopener">https://www.bitwarden.com/download/</a> you can find download links for many different platforms/systems.
 3. Independently of which platform you are using BitWarden on, three tabs will be available by default in the applications:
-   1. My Vault: on this tab you will see all the credentials/passwords/accounts you have stored in your vault.
-   2. Generator/Tools: in this tab you’ll find a tool for generating random and unique passwords, whenever you create a new account on any site use this tool to generate your password.
-   3. Settings: a tab with various configuration options for your Extension, your Vault and your BitWarden Account.
+    1. My Vault: on this tab you will see all the credentials/passwords/accounts you have stored in your vault.
+    2. Generator/Tools: in this tab you’ll find a tool for generating random and unique passwords, whenever you create a new account on any site use this tool to generate your password.
+    3. Settings: a tab with various configuration options for your Extension, your Vault and your BitWarden Account.
 4. On all platforms you will have the same basic features available:
-   1. You can manually add new credentials to your vault by clicking on the "+" button, when clicking on the button a form with some fields will appear:
-      1. The "type" field is the type of credential you want to save, in this case we are registering online accounts, so leave "credential" checked.
-      2. The "name" field refers to the name you want to give that credential, put whatever you think is best, in my case I always write something like "Email Main Account" or “Email Secondary Account”.
-      3. The "username" and "password" fields are the credentials you want to save.
-      4. The "URI" or "URL" field refers to the websites these credentials are from, for example if you are registering a gmail credential you should fill in this field with "gmail.com".
-      5. The other fields are irrelevant at this point, you can just leave them as they are by default.
-   2. You can access all credentials stored in your vault and copy the "username" or "password" of any credential at any time.
-   3. An automatic password generation tool that can be used to generate random and unique passwords according to your chosen options, you can choose the password size, character types used, among other options.
+    1. You can manually add new credentials to your vault by clicking on the "+" button, when clicking on the button a form with some fields will appear:
+        1. The "type" field is the type of credential you want to save, in this case we are registering online accounts, so leave "credential" checked.
+        2. The "name" field refers to the name you want to give that credential, put whatever you think is best, in my case I always write something like "Email Main Account" or “Email Secondary Account”.
+        3. The "username" and "password" fields are the credentials you want to save.
+        4. The "URI" or "URL" field refers to the websites these credentials are from, for example if you are registering a gmail credential you should fill in this field with "gmail.com".
+        5. The other fields are irrelevant at this point, you can just leave them as they are by default.
+    2. You can access all credentials stored in your vault and copy the "username" or "password" of any credential at any time.
+    3. An automatic password generation tool that can be used to generate random and unique passwords according to your chosen options, you can choose the password size, character types used, among other options.
 5. If you want to use BitWarden in a web browser:
-   1. At the <a href="https://www.bitwarden.com/download/" target="_blank" rel="noopener">link passed in topic 2</a> you will find links to install the extension in eight different Browsers (Google Chrome, Firefox, Opera, Microsoft Edge, Safari, Vivaldi, Brave and Tor Browser), click on the link that corresponds to your browser and install the extension.
-   2. With the extension installed click on the icon (a white and blue shield) that will appear in your browser toolbar and login with your BitWarden account.
-   3. After logging in we will see that now there is 4 tabs within the extension window:
-      1. The three standard tabs.
-      2. A tab called "Tab" where all the saved credentials for the site you are currently on will be shown.
-   4. By making use of the extension the following additional functionality will be available: 3. Every time you make login or create a new account the extension will ask you to save your credentials, you just have to click "yes". 4. If you have already saved login credentials from some site, whenever you login again to that site just click on the extension icon (blue and white shield), go to the "Tab" section, and click on the saved credential, it will fill the login formulary automatically.
+    1. At the <a href="https://www.bitwarden.com/download/" target="_blank" rel="noopener">link passed in topic 2</a> you will find links to install the extension in eight different Browsers (Google Chrome, Firefox, Opera, Microsoft Edge, Safari, Vivaldi, Brave and Tor Browser), click on the link that corresponds to your browser and install the extension.
+    2. With the extension installed click on the icon (a white and blue shield) that will appear in your browser toolbar and login with your BitWarden account.
+    3. After logging in we will see that now there is 4 tabs within the extension window:
+        1. The three standard tabs.
+        2. A tab called "Tab" where all the saved credentials for the site you are currently on will be shown.
+    4. By making use of the extension the following additional functionality will be available: 3. Every time you make login or create a new account the extension will ask you to save your credentials, you just have to click "yes". 4. If you have already saved login credentials from some site, whenever you login again to that site just click on the extension icon (blue and white shield), go to the "Tab" section, and click on the saved credential, it will fill the login formulary automatically.
 6. If you want to use BitWarden on a mobile device:
-   1. At the <a href="https://www.bitwarden.com/download/" target="_blank" rel="noopener">link passed in topic 2</a> you will find links to install the application on both Android or IOS (Apple), or you can also simply search for "BitWarden" in the "AppStore" or "PlayStore" and install it.
-   2. With the app already installed, open the application and make login with your email address and your master password.
-   3. In the case of mobile devices you also have the auto-fill feature, but it must be enabled:
-      1. Open the app and go to the "Settings" tab.
-      2. Activate the "Autofill Service" and the "Autofill Accessibility Service".
-   4. If your device has a biometric reader (fingerprint reader) you can use this to unlock your BitWarden vault, eliminating the need to write your master password every time:
-      1. Open the app and go to the "Settings" tab.
-      2. Look for the "Unlock with Biometrics" option and click to activate it.
+    1. At the <a href="https://www.bitwarden.com/download/" target="_blank" rel="noopener">link passed in topic 2</a> you will find links to install the application on both Android or IOS (Apple), or you can also simply search for "BitWarden" in the "AppStore" or "PlayStore" and install it.
+    2. With the app already installed, open the application and make login with your email address and your master password.
+    3. In the case of mobile devices you also have the auto-fill feature, but it must be enabled:
+        1. Open the app and go to the "Settings" tab.
+        2. Activate the "Autofill Service" and the "Autofill Accessibility Service".
+    4. If your device has a biometric reader (fingerprint reader) you can use this to unlock your BitWarden vault, eliminating the need to write your master password every time:
+        1. Open the app and go to the "Settings" tab.
+        2. Look for the "Unlock with Biometrics" option and click to activate it.
 7. The "BitWarden" PC/Notebook application has no extra features worth mentioning.
 
 ### **Authy**
@@ -283,36 +283,36 @@ Authy is an authenticator app, meaning that it will work as an external factor f
 Although there is a PC/Notebook application, this tutorial will only cover using the application on mobile devices.
 
 1. Download the Authy application to your Android or IOS mobile device:
-   1. At <a href="https://www.authy.com/download/" target="_blank" rel="noopener">https://www.authy.com/download/</a> you can find download links for many different platforms/systems. You can also find the app in the "AppStore" or "PlayStore" simply by searching for "Authy", the full name of the app in those stores is "Twilio Authy" or "Twilio Authy 2-Factor Authentication".
+    1. At <a href="https://www.authy.com/download/" target="_blank" rel="noopener">https://www.authy.com/download/</a> you can find download links for many different platforms/systems. You can also find the app in the "AppStore" or "PlayStore" simply by searching for "Authy", the full name of the app in those stores is "Twilio Authy" or "Twilio Authy 2-Factor Authentication".
 2. Open the application and register using your cell phone number and email address:
-   1. The application will ask you to confirm a code received via SMS or Call on your cell phone, I recommend choosing the SMS option.
-   2. The email and cell phone used to register can be changed later if necessary.
+    1. The application will ask you to confirm a code received via SMS or Call on your cell phone, I recommend choosing the SMS option.
+    2. The email and cell phone used to register can be changed later if necessary.
 3. Create a backup password for your account, this protects your Authy account and allows you to backup your account:
-   1. In the application, click on the 3 little dots and open the "Settings" menu.
-   2. Go to the "Accounts" tab and search for "Backups”.
-   3. Enable the "Backups" feature and put a good backup password:
-      1. Use the BitWarden password generator to create a random and unique password:
-         - I recommend that you write down the Authy backup password on a piece of paper and keep it in a safe place, just like you did with the BitWarden master password, it is essential that you never lose either one.
+    1. In the application, click on the 3 little dots and open the "Settings" menu.
+    2. Go to the "Accounts" tab and search for "Backups”.
+    3. Enable the "Backups" feature and put a good backup password:
+        1. Use the BitWarden password generator to create a random and unique password:
+            - I recommend that you write down the Authy backup password on a piece of paper and keep it in a safe place, just like you did with the BitWarden master password, it is essential that you never lose either one.
 4. Enable two-factor authentication on any account using the application:
-   1. Go to the website of the account that you want to activate 2FA (for example: Twitter, Facebook, etc.).
-   2. Go into your account settings and look under "account security" sections for the option of enable two-step verification.
-   3. Enable 2FA and choose to use an "Authenticating Application" as the method.
-   4. The site will provide you with a QR code or a character code.
-   5. Login to the Authy app, open the options menu and click Add Account.
-   6. The app will give you two options:
-      1. Scan QR code.
-      2. Enter the code manually.
-   7. If you have the QR code on some screen just scan it, or if you only have the character code at hand just type it and click Save.
-   8. Now you have that account registered with Authy, whenever you make login to that site and are asked for an authentication code you can open the application and see the code related to that account:
-      1. Remember that the code is updated every 30 seconds for security reasons, so there is no point in trying to memorize this authentication code to use later.
+    1. Go to the website of the account that you want to activate 2FA (for example: Twitter, Facebook, etc.).
+    2. Go into your account settings and look under "account security" sections for the option of enable two-step verification.
+    3. Enable 2FA and choose to use an "Authenticating Application" as the method.
+    4. The site will provide you with a QR code or a character code.
+    5. Login to the Authy app, open the options menu and click Add Account.
+    6. The app will give you two options:
+        1. Scan QR code.
+        2. Enter the code manually.
+    7. If you have the QR code on some screen just scan it, or if you only have the character code at hand just type it and click Save.
+    8. Now you have that account registered with Authy, whenever you make login to that site and are asked for an authentication code you can open the application and see the code related to that account:
+        1. Remember that the code is updated every 30 seconds for security reasons, so there is no point in trying to memorize this authentication code to use later.
 
 After reading these two tutorials, you now have an idea of how to use these two applications to increase the security of all your accounts and at the same time decrease the number of passwords you have to remember. To complement all of this I will only point out a few things:
 
-- Once you have created your Authy account, use the app to enable two-step verification on your BitWarden account, that way your protection is complete.
-- After you have created BitWarden and Authy accounts take some time and improve your passwords and enable 2FA on all the accounts you already have, this will take you 1-2 hours but can prevent a lot of problems in the future.
-- Write down the BitWarden Master Password and the Authy Backup Password (along with the emails and phone numbers used to create the accounts) on at least more than one piece of paper, and keep them in different places, this will save you a lot of headaches.
-- The master password of your BitWarden account should not be shared with anyone, this is one of the most recurrent reasons for data leaks.
-- It is not recommended that you login with your BitWarden account on an unknown device, such as university computers, library computers, etc.
+-   Once you have created your Authy account, use the app to enable two-step verification on your BitWarden account, that way your protection is complete.
+-   After you have created BitWarden and Authy accounts take some time and improve your passwords and enable 2FA on all the accounts you already have, this will take you 1-2 hours but can prevent a lot of problems in the future.
+-   Write down the BitWarden Master Password and the Authy Backup Password (along with the emails and phone numbers used to create the accounts) on at least more than one piece of paper, and keep them in different places, this will save you a lot of headaches.
+-   The master password of your BitWarden account should not be shared with anyone, this is one of the most recurrent reasons for data leaks.
+-   It is not recommended that you login with your BitWarden account on an unknown device, such as university computers, library computers, etc.
 
 ## **Conclusion**
 

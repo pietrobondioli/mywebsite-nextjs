@@ -1,22 +1,22 @@
-@import '../../utils/config';
+@import "../../utils/config";
 
 .about__text {
-  & div {
-    text-align: center;
-    padding: 8px 0;
-    font-weight: 600;
-  }
-  .title {
-  }
-  .subtitle {
-  }
-  .description {
-    font-weight: 400;
-    text-align: justify;
-    @include media-md {
-      text-align: center;
+    & div {
+        text-align: center;
+        padding: 8px 0;
+        font-weight: 600;
     }
-  }
-  .period {
-  }
+    .title {
+    }
+    .subtitle {
+    }
+    .description {
+        font-weight: 400;
+        text-align: justify;
+        @include media-md {
+            text-align: center;
+        }
+    }
+    .period {
+    }
 }

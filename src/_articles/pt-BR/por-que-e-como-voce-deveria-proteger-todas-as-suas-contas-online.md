@@ -1,14 +1,14 @@
 ---
-slug: 'por-que-e-como-voce-deveria-proteger-todas-as-suas-contas-online'
-title: 'Por que (e Como) você deveria proteger todas as suas contas online'
-published: '2021-02-11'
-publishedHumanReadable: '11/02/2021'
-lastModified: '2021-02-11'
-author: 'Pietro Bondioli'
-excerpt: '80% das violações de dados registradas em 2020 foram causadas por senhas que eram fracas ou que foram roubadas. Saiba como se proteger usando os apps Bitwarden e Authy.'
-image: '/articles/passwords-and-digital-security.png'
-imageAlt: 'Um computador, um cadeado e uma chave simbolizando o conceito de segurança digital.'
-twitterProfile: '@bondioli_pietro'
+slug: "por-que-e-como-voce-deveria-proteger-todas-as-suas-contas-online"
+title: "Por que (e Como) você deveria proteger todas as suas contas online"
+published: "2021-02-11"
+publishedHumanReadable: "11/02/2021"
+lastModified: "2021-02-11"
+author: "Pietro Bondioli"
+excerpt: "80% das violações de dados registradas em 2020 foram causadas por senhas que eram fracas ou que foram roubadas. Saiba como se proteger usando os apps Bitwarden e Authy."
+image: "/articles/passwords-and-digital-security.png"
+imageAlt: "Um computador, um cadeado e uma chave simbolizando o conceito de segurança digital."
+twitterProfile: "@bondioli_pietro"
 ---
 
 # **Por que (e Como) você deveria proteger todas as suas contas online**
@@ -35,10 +35,10 @@ O maior problema de segurança surge quando, além de as pessoas usarem senhas f
 
 Digamos que Maria tem 24 contas online, entre elas estão:
 
-- 1 conta no Google que tem como senha: c0x1nh4maria
-- 1 conta no Twitter que tem como senha: 123c0x1nh4
-- 1 conta na Amazon que tem como senha: senha123456
-- 1 conta no Habbo Hotel que tem como senha: coxinha
+-   1 conta no Google que tem como senha: c0x1nh4maria
+-   1 conta no Twitter que tem como senha: 123c0x1nh4
+-   1 conta na Amazon que tem como senha: senha123456
+-   1 conta no Habbo Hotel que tem como senha: coxinha
 
 Agora imagine que a base de dados do Habbo Hotel tenha sido comprometida (ou que Maria caiu em um golpe online) e agora sabem que o e-mail e senha de sua conta no Habbo são, respectivamente, maria@gmail.com e “coxinha”, essas duas informações seriam o suficiente para que em poucas horas, talvez em minutos, conseguissem acesso a todas suas outras contas, já que Maria usa senhas repetitivas e não tem ativado nenhum tipo de “autenticação de dois fatores”.
 
@@ -134,9 +134,9 @@ Usando esse conceito matemático, podemos calcular, por exemplo, quantas combina
 
 Devemos levar em conta que, normalmente, quando vamos criar uma senha, 94 caracteres são disponibilizados:
 
-- Números (10 diferentes: 0-9)
-- Letras (52 diferentes: A-Z e a-z)
-- Símbolos (32 diferentes)
+-   Números (10 diferentes: 0-9)
+-   Letras (52 diferentes: A-Z e a-z)
+-   Símbolos (32 diferentes)
 
 Então, são 16 posições possíveis (tamanho) e 94 possibilidades para cada. Agora multiplicando o número de possibilidades de cada posição temos:
 
@@ -189,10 +189,10 @@ A maneira mais simples de separarmos nossas contas em camadas é usando contas d
 
 Digamos que João use a internet com quatro propósitos claramente distintos:
 
-- Usar redes sociais
-- Realizar comprar online
-- Armazenar fotos e mídias
-- Trocar e-mails relacionados ao trabalho
+-   Usar redes sociais
+-   Realizar comprar online
+-   Armazenar fotos e mídias
+-   Trocar e-mails relacionados ao trabalho
 
 O recomendado é que João crie uma conta de e-mail para cada um desses propósitos, pois assim, caso o e-mail que ele usa para trabalhar, por exemplo, seja invadido, os hackers não encontrarão um “pote de ouro” com todas as informações sobre João num local só – suas fotos, informações sobre compras e informações sobre suas interações sociais estarão protegidas. Obviamente para que esse método seja eficaz, é necessário que cada um desses e-mails estejam protegidos por boas senhas (aleatórias e únicas) e com a verificação de dois fatores ativada.
 
@@ -208,20 +208,20 @@ Essa funcionalidade é boa para sua segurança pois, mesmo que alguma pessoa e/o
 
 Em suma, vimos que para proteger de verdade nossas contas online precisamos:
 
-- Usar senhas fortes e únicas para cada conta (geradas de maneira aleatória)
-- Separar a proteção de nossas contas em camadas (principalmente usando 2FA)
+-   Usar senhas fortes e únicas para cada conta (geradas de maneira aleatória)
+-   Separar a proteção de nossas contas em camadas (principalmente usando 2FA)
 
 Mas ao tentar cumprir esses requisitos podemos nos deparar com problemas. Por exemplo, quando criamos senhas fortes e únicas para cada conta, como fazer para memorizar todas elas? Ou também, quando ativamos a verificação de etapas, como saber onde seu código de verificação vai chegar? E se eu mudar o número do meu celular? como vou receber o código de autenticação via SMS se não tenho mais acesso ao antigo numero? Para nos ajudar com esses problemas existem aplicativos/serviços gratuitos e seguros que podemos usar:
 
-- Para o gerenciamento de contas/senhas podemos usar o BitWarden, um aplicativo que, além de ser gratuito para todas as plataformas (PC e Mobile), também é totalmente transparente com a comunidade
-- Para gerenciamento e integração de todas as contas com a autenticação de dois fatores podemos usar o Authy, um aplicativo gratuito para todas as plataformas, e muito intuitivo para quem vai usá-lo pela primeira vez
+-   Para o gerenciamento de contas/senhas podemos usar o BitWarden, um aplicativo que, além de ser gratuito para todas as plataformas (PC e Mobile), também é totalmente transparente com a comunidade
+-   Para gerenciamento e integração de todas as contas com a autenticação de dois fatores podemos usar o Authy, um aplicativo gratuito para todas as plataformas, e muito intuitivo para quem vai usá-lo pela primeira vez
 
 ### **BitWarden**
 
 O BitWarden, além de armazenar todas as suas credenciais de maneira segura, também irá te ajudar a:
 
-- Gerar senhas aleatórias e únicas
-- Autopreencher formulários de login
+-   Gerar senhas aleatórias e únicas
+-   Autopreencher formulários de login
 
 E o principal da ferramenta é que você poderá criar contas usando senhas aleatórias e únicas sem ter o problema de ter que lembrar de cada uma, já que uma vez logado no aplicativo do BitWarden você pode usar o recurso de autopreenchimento ou poderá copiar a senha de cada conta registrada, então, resumindo, a única senha que você precisará lembrar é a Senha Mestra do BitWarden.
 
@@ -230,50 +230,50 @@ E o principal da ferramenta é que você poderá criar contas usando senhas alea
 Caso você esteja usando celular ou outro dispositivo móvel (celulares, tablets, etc) você pode seguir os mesmos passos baixando o app BitWarden na loja de aplicativos do Google ou IOS (Apple).
 
 1. Primeiramente você deve criar uma conta no BitWarden:
-   1. Acesse o site <a href="https://www.bitwarden.com/" target="_blank" rel="noopener">https://www.bitwarden.com/</a> e clique em Start a Free Trial ou em Log In.
-   2. Caso tenha clicado em Log In agora você deve clicar em Criar Conta.
-   3. Na tela de criação de contas preencha os dados pedidos:
-      1. Coloque seu e-mail principal e seu nome.
-      2. Use o site <a href="https://www.lastpass.com/password-generatoren.com/" target="_blank" rel="noopener">https://www.lastpass.com/password-generatoren.com/</a> para gerar aleatoriamente sua Senha Mestra:
-         - Quando for gerar sua senha use pelo menos 16 caracteres de tamanho, é importante que essa senha seja forte pois ela estará protegendo todas as suas outras senhas. O site te dá a opção de criar uma senha “fácil de pronunciar”, “fácil de ler” ou uma com “todos os caracteres”, escolha a que te agradar mais.
-         - Recomendo que anote seu e-mail e sua senha mestra num papel e deixe esse papel guardado em algum local seguro de sua casa (já que é possível que você esqueça essa senha).
-      3. Na dica de senha você pode colocar qualquer coisa aleatória ou simplesmente um lembrete de onde está o seu papel com a senha anotada.
-   4. Após criar sua conta você será redirecionado para o seu cofre BitWarden, lá você verá uma notificação pedindo para que você confirme seu e-mail:
-      1. Clique no botão “enviar e-mail” presente na notificação.
-      2. Verifique a caixa de entrada da sua conta de e-mail, lá você vai achar um e-mail do BitWarden com um link de confirmação, clique neste link para confirmar a sua conta.
-   5. Pronto! Seu cofre foi criado!
+    1. Acesse o site <a href="https://www.bitwarden.com/" target="_blank" rel="noopener">https://www.bitwarden.com/</a> e clique em Start a Free Trial ou em Log In.
+    2. Caso tenha clicado em Log In agora você deve clicar em Criar Conta.
+    3. Na tela de criação de contas preencha os dados pedidos:
+        1. Coloque seu e-mail principal e seu nome.
+        2. Use o site <a href="https://www.lastpass.com/password-generatoren.com/" target="_blank" rel="noopener">https://www.lastpass.com/password-generatoren.com/</a> para gerar aleatoriamente sua Senha Mestra:
+            - Quando for gerar sua senha use pelo menos 16 caracteres de tamanho, é importante que essa senha seja forte pois ela estará protegendo todas as suas outras senhas. O site te dá a opção de criar uma senha “fácil de pronunciar”, “fácil de ler” ou uma com “todos os caracteres”, escolha a que te agradar mais.
+            - Recomendo que anote seu e-mail e sua senha mestra num papel e deixe esse papel guardado em algum local seguro de sua casa (já que é possível que você esqueça essa senha).
+        3. Na dica de senha você pode colocar qualquer coisa aleatória ou simplesmente um lembrete de onde está o seu papel com a senha anotada.
+    4. Após criar sua conta você será redirecionado para o seu cofre BitWarden, lá você verá uma notificação pedindo para que você confirme seu e-mail:
+        1. Clique no botão “enviar e-mail” presente na notificação.
+        2. Verifique a caixa de entrada da sua conta de e-mail, lá você vai achar um e-mail do BitWarden com um link de confirmação, clique neste link para confirmar a sua conta.
+    5. Pronto! Seu cofre foi criado!
 2. Baixe o aplicativo/programa/extensão do BitWarden nas plataformas onde você for usar a ferramenta. No site <a href="https://www.bitwarden.com/download/" target="_blank" rel="noopener">https://www.bitwarden.com/download/</a> podem ser encontrados os links de download para as mais diversas plataformas/sistemas.
 3. Independentemente da plataforma onde você estiver usando o BitWarden, três abas ficarão disponíveis por padrão nos aplicativos:
-   1. Meu Cofre: nesta aba você verá todas as credenciais/senhas/contas que você possui armazenados em seu cofre.
-   2. Gerador/Ferramentas: nesta aba fica uma ferramenta de geração de senhas aleatórias e únicas, sempre que você for criar uma nova conta em qualquer site use essa ferramenta para gerar sua senha.
-   3. Configurações: aba com diversas opções de configuração para sua extensão, seu cofre e sua conta BitWarden.
+    1. Meu Cofre: nesta aba você verá todas as credenciais/senhas/contas que você possui armazenados em seu cofre.
+    2. Gerador/Ferramentas: nesta aba fica uma ferramenta de geração de senhas aleatórias e únicas, sempre que você for criar uma nova conta em qualquer site use essa ferramenta para gerar sua senha.
+    3. Configurações: aba com diversas opções de configuração para sua extensão, seu cofre e sua conta BitWarden.
 4. Em todas as plataformas você vai ter as mesmas funcionalidades base disponíveis:
-   1. Você pode adicionar novas credenciais manualmente ao seu cofre clicando no botão “+”, ao clicar no botão um formulário com alguns campos irá aparecer:
-      1. O campo “tipo” é o tipo de credencial que você deseja salvar, no caso estamos registrando contas online então deixe marcado “credencial”.
-      2. O campo “nome” se refere ao nome que você quer dar àquela credencial, coloque o que você achar melhor, no meu caso eu escrevo algo do tipo “Conta E-mail Principal” ou “Conta E-mail Secundária”.
-      3. Os campos “nome de usuário” e “senha” são as credenciais que você quer salvar.
-      4. O campo “URI” ou “URL” se refere aos sites de onde são essas credenciais, por exemplo se você estiver registrando uma credencial do Gmail você deve preencher esse campo com “gmail.com”.
-      5. Os outros campos são irrelevantes neste momento, você pode apenas deixar eles como eles estão por padrão.
-   2. Você pode acessar todas as credenciais armazenadas em seu cofre e copiar o “nome de usuário” ou “senha” de qualquer credencial a qualquer momento.
-   3. Uma ferramenta de geração automática de senhas pode ser usado para gerar senhas aleatórias e únicas de acordo com as opções escolhidas, você pode escolher o tamanho da senha, tipos de caracteres usados, entre outras opções..
+    1. Você pode adicionar novas credenciais manualmente ao seu cofre clicando no botão “+”, ao clicar no botão um formulário com alguns campos irá aparecer:
+        1. O campo “tipo” é o tipo de credencial que você deseja salvar, no caso estamos registrando contas online então deixe marcado “credencial”.
+        2. O campo “nome” se refere ao nome que você quer dar àquela credencial, coloque o que você achar melhor, no meu caso eu escrevo algo do tipo “Conta E-mail Principal” ou “Conta E-mail Secundária”.
+        3. Os campos “nome de usuário” e “senha” são as credenciais que você quer salvar.
+        4. O campo “URI” ou “URL” se refere aos sites de onde são essas credenciais, por exemplo se você estiver registrando uma credencial do Gmail você deve preencher esse campo com “gmail.com”.
+        5. Os outros campos são irrelevantes neste momento, você pode apenas deixar eles como eles estão por padrão.
+    2. Você pode acessar todas as credenciais armazenadas em seu cofre e copiar o “nome de usuário” ou “senha” de qualquer credencial a qualquer momento.
+    3. Uma ferramenta de geração automática de senhas pode ser usado para gerar senhas aleatórias e únicas de acordo com as opções escolhidas, você pode escolher o tamanho da senha, tipos de caracteres usados, entre outras opções..
 5. Caso você queira usar o BitWarden em um navegador de internet:
-   1. No <a href="https://www.bitwarden.com/download/" target="_blank" rel="noopener">link passado no tópico 2</a> você encontrará links para instalar a extensão em oito Navegadores diferentes (Google Chrome, Firefox, Opera, Microsoft Edgar, Safari, Vivaldi, Brave e Tor Browser), clique no link que corresponde ao seu navegador e instale a extensão.
-   2. Com a extensão instalada, clique no ícone (um escudo branco e azul) que surgirá na barra de ferramentas do navegador, e faça login com sua conta BitWarden.
-   3. Após ter feito o login veremos que agora existem 4 abas dentro da janela da extensão:
-      1. As três abas padrão.
-      2. Uma aba chamada “Aba” onde serão mostradas todas as credenciais salvas para o site em que você estiver no momento.
-   4. Fazendo uso da extensão as seguintes funcionalidades adicionais estarão disponíveis:
-      1. Toda vez que você for fazer login ou criar uma nova conta a extensão irá pedir para salvar suas credenciais, você apenas precisa clicar em “sim”.
-      2. Caso você já tenha salvo as credenciais de login de algum site, sempre que você for fazer login novamente naquele site basta clicar no ícone da extensão (escudo azul e branco), ir para a seção “Aba”, e clicar na credencial salva para que o formulário de login seja preenchido automaticamente.
+    1. No <a href="https://www.bitwarden.com/download/" target="_blank" rel="noopener">link passado no tópico 2</a> você encontrará links para instalar a extensão em oito Navegadores diferentes (Google Chrome, Firefox, Opera, Microsoft Edgar, Safari, Vivaldi, Brave e Tor Browser), clique no link que corresponde ao seu navegador e instale a extensão.
+    2. Com a extensão instalada, clique no ícone (um escudo branco e azul) que surgirá na barra de ferramentas do navegador, e faça login com sua conta BitWarden.
+    3. Após ter feito o login veremos que agora existem 4 abas dentro da janela da extensão:
+        1. As três abas padrão.
+        2. Uma aba chamada “Aba” onde serão mostradas todas as credenciais salvas para o site em que você estiver no momento.
+    4. Fazendo uso da extensão as seguintes funcionalidades adicionais estarão disponíveis:
+        1. Toda vez que você for fazer login ou criar uma nova conta a extensão irá pedir para salvar suas credenciais, você apenas precisa clicar em “sim”.
+        2. Caso você já tenha salvo as credenciais de login de algum site, sempre que você for fazer login novamente naquele site basta clicar no ícone da extensão (escudo azul e branco), ir para a seção “Aba”, e clicar na credencial salva para que o formulário de login seja preenchido automaticamente.
 6. Caso você queira usar o BitWarden em um dispositivo móvel:
-   1. No <a href="https://www.bitwarden.com/download/" target="_blank" rel="noopener">link passado no tópico 2</a> você encontrará links para instalar o aplicativo tanto em sistemas Android quanto em IOS (Apple), ou você também pode simplesmente pesquisar por “BitWarden” na “AppStore” ou “PlayStore” e instalá-lo.
-   2. Com o app já instalado, abra o aplicativo e faça login com seu e-mail e sua senha mestra.
-   3. No caso de dispositivos móveis você também tem a funcionalidade de autopreenchimento, mas ela deve ser ativada:
-      1. Abra o app e vá para a aba “Configurações”.
-      2. Ative o “Serviço de Autopreenchimento” e o “Serviço de Acessibilidade de Autopreenchimento”.
-   4. Caso seu dispositivo possua leitor biométrico (leitor de digital do dedo) você pode usar isso para desbloquear seu cofre BitWarden, excluindo a necessidade de escrever sua senha mestra toda vez:
-      1. Abra o app e vá para a aba “Configurações”.
-      2. Procure pela opção “Desbloquear com Biometria” e clique para ativá-la. 7. O aplicativo “BitWarden” para PC/Notebook não apresenta nenhuma funcionalidade extra que valha a pena ser apresentada.
+    1. No <a href="https://www.bitwarden.com/download/" target="_blank" rel="noopener">link passado no tópico 2</a> você encontrará links para instalar o aplicativo tanto em sistemas Android quanto em IOS (Apple), ou você também pode simplesmente pesquisar por “BitWarden” na “AppStore” ou “PlayStore” e instalá-lo.
+    2. Com o app já instalado, abra o aplicativo e faça login com seu e-mail e sua senha mestra.
+    3. No caso de dispositivos móveis você também tem a funcionalidade de autopreenchimento, mas ela deve ser ativada:
+        1. Abra o app e vá para a aba “Configurações”.
+        2. Ative o “Serviço de Autopreenchimento” e o “Serviço de Acessibilidade de Autopreenchimento”.
+    4. Caso seu dispositivo possua leitor biométrico (leitor de digital do dedo) você pode usar isso para desbloquear seu cofre BitWarden, excluindo a necessidade de escrever sua senha mestra toda vez:
+        1. Abra o app e vá para a aba “Configurações”.
+        2. Procure pela opção “Desbloquear com Biometria” e clique para ativá-la. 7. O aplicativo “BitWarden” para PC/Notebook não apresenta nenhuma funcionalidade extra que valha a pena ser apresentada.
 
 ### **Authy**
 
@@ -284,35 +284,35 @@ O Authy é um aplicativo autenticador, ou seja, ele irá funcionar como um fator
 Apesar de existir um aplicativo para PC/Notebook este tutorial só vai abordar o uso do aplicativo em dispositivos móveis.
 
 1. Baixe o aplicativo Authy em seu dispositivo móvel Android ou IOS:
-   1. No site <a href="https://www.authy.com/download/" target="_blank" rel="noopener">https://www.authy.com/download/</a> podem ser encontrados links para download do aplicativo para diversas plataformas/sistemas. Você também pode encontrar o aplicativo na “AppStore” ou na “PlayStore” simplesmente pesquisando por “Authy” – o nome completo do app nessas lojas é “Twilio Authy” ou “Twilio Authy 2-Factor Authentication”.
+    1. No site <a href="https://www.authy.com/download/" target="_blank" rel="noopener">https://www.authy.com/download/</a> podem ser encontrados links para download do aplicativo para diversas plataformas/sistemas. Você também pode encontrar o aplicativo na “AppStore” ou na “PlayStore” simplesmente pesquisando por “Authy” – o nome completo do app nessas lojas é “Twilio Authy” ou “Twilio Authy 2-Factor Authentication”.
 2. Abra o aplicativo e faça seu registro usando seu número de celular e seu e-mail:
-   1. O aplicativo vai pedir que você confirme um código recebido por meio de SMS ou Ligação em seu celular, recomendo escolher a opção SMS.
-   2. O e-mail e celular usados para registrar podem ser alterados posteriormente caso seja necessário.
+    1. O aplicativo vai pedir que você confirme um código recebido por meio de SMS ou Ligação em seu celular, recomendo escolher a opção SMS.
+    2. O e-mail e celular usados para registrar podem ser alterados posteriormente caso seja necessário.
 3. Crie uma senha de backup para sua conta, isso protege sua conta Authy e possibilita que você faça um backup de sua conta:
-   1. No aplicativo clique nos 3 pontinhos e abra o menu de “Configurações”.
-   2. Vá para a aba “Contas” e procure por “Backups”.
-   3. Ative a funcionalidade de “Backups” e coloque uma boa senha de backup:
-      1. Use o gerador de senhas do BitWarden para gerar uma senha aleatória e única. - Recomendo que anote a senha de backup do Authy em um papel e guarde num local seguro, assim como você fez com a senha mestre do BitWarden – é essencial que você nunca perca nenhuma das duas.
+    1. No aplicativo clique nos 3 pontinhos e abra o menu de “Configurações”.
+    2. Vá para a aba “Contas” e procure por “Backups”.
+    3. Ative a funcionalidade de “Backups” e coloque uma boa senha de backup:
+        1. Use o gerador de senhas do BitWarden para gerar uma senha aleatória e única. - Recomendo que anote a senha de backup do Authy em um papel e guarde num local seguro, assim como você fez com a senha mestre do BitWarden – é essencial que você nunca perca nenhuma das duas.
 4. Ativando a autenticação de dois fatores em alguma conta usando o aplicativo:
-   1. Vá para o site da conta em que você pretende ativar a 2FA (por exemplo: Twitter, Facebook, etc).
-   2. Vá nas configurações e procure nas seções de “segurança da conta” pela opção de ativar a verificação em duas etapas.
-   3. Ative a 2FA e escolha usar um “Aplicativo autenticador” como método.
-   4. O site irá lhe prover um QR code ou um código de caracteres.
-   5. Entre no app do Authy, abra o menu de opções e clique em Adicionar Conta.
-   6. O app vai te dar duas opções:
-      1. Escanear código QR.
-      2. Introduzir o código manualmente.
-   7. Se você tiver o código QR em alguma tela basta escanear, ou caso você tenha somente o código de caracteres em mãos basta digitar e clicar em Salvar.
-   8. Agora você possui aquela conta registrada no Authy, sempre que você for fazer login naquele site e lhe for pedido um código de autenticação basta você abrir o aplicativo e ver o código relacionado àquela conta:
-      1. Lembrando que o código é atualizado a cada 30 segundos por motivos de segurança, então nem adianta tentar memorizar esse código de autenticação para usar depois.
+    1. Vá para o site da conta em que você pretende ativar a 2FA (por exemplo: Twitter, Facebook, etc).
+    2. Vá nas configurações e procure nas seções de “segurança da conta” pela opção de ativar a verificação em duas etapas.
+    3. Ative a 2FA e escolha usar um “Aplicativo autenticador” como método.
+    4. O site irá lhe prover um QR code ou um código de caracteres.
+    5. Entre no app do Authy, abra o menu de opções e clique em Adicionar Conta.
+    6. O app vai te dar duas opções:
+        1. Escanear código QR.
+        2. Introduzir o código manualmente.
+    7. Se você tiver o código QR em alguma tela basta escanear, ou caso você tenha somente o código de caracteres em mãos basta digitar e clicar em Salvar.
+    8. Agora você possui aquela conta registrada no Authy, sempre que você for fazer login naquele site e lhe for pedido um código de autenticação basta você abrir o aplicativo e ver o código relacionado àquela conta:
+        1. Lembrando que o código é atualizado a cada 30 segundos por motivos de segurança, então nem adianta tentar memorizar esse código de autenticação para usar depois.
 
 Após ler esses dois tutoriais, você agora tem uma noção de como utilizar esses dois aplicativos para aumentar a segurança de todas as suas contas e ao mesmo tempo diminuir o número de senhas que você precisa lembrar. Para complementar tudo isso somente irei pontuar algumas coisas:
 
-- Após criar a conta no Authy, use o app para ativar a verificação de duas etapas em sua conta BitWarden, dessa maneira sua proteção estará completa.
-- Depois de ter criado as contas BitWarden e Authy tire um tempo para melhorar suas senhas e ative a 2FA em todas as contas que você já possui, isso vai te tomar 1-2 horas porém pode evitar muitos problemas no futuro.
-- Anote a Senha Mestra do BitWarden e a Senha de Backup do Authy (junto com os e-mails e n° de telefone usados para criar as contas) em pelo menos mais de um papel, e guarde eles em locais diferentes, isso vai te evitar muita dor de cabeça.
-- A senha mestra de sua conta BitWarden não deve ser compartilhada com ninguém, esse é um dos motivos mais recorrentes em vazamentos de dado.
-- Não é recomendado que você faça login em sua conta BitWarden em um dispositivo desconhecido, como computadores de universidade, bibliotecas, etc.
+-   Após criar a conta no Authy, use o app para ativar a verificação de duas etapas em sua conta BitWarden, dessa maneira sua proteção estará completa.
+-   Depois de ter criado as contas BitWarden e Authy tire um tempo para melhorar suas senhas e ative a 2FA em todas as contas que você já possui, isso vai te tomar 1-2 horas porém pode evitar muitos problemas no futuro.
+-   Anote a Senha Mestra do BitWarden e a Senha de Backup do Authy (junto com os e-mails e n° de telefone usados para criar as contas) em pelo menos mais de um papel, e guarde eles em locais diferentes, isso vai te evitar muita dor de cabeça.
+-   A senha mestra de sua conta BitWarden não deve ser compartilhada com ninguém, esse é um dos motivos mais recorrentes em vazamentos de dado.
+-   Não é recomendado que você faça login em sua conta BitWarden em um dispositivo desconhecido, como computadores de universidade, bibliotecas, etc.
 
 ## **Conclusão**
 

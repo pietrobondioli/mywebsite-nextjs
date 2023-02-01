@@ -1,25 +1,25 @@
 .formAlert {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  bottom: -48px;
-  left: 0;
-  height: 48px;
-  width: 100%;
-  font-weight: 600;
-  color: var(--white-text);
-  z-index: 999;
-  transition: all 500ms ease-in-out;
-  &_show {
-    visibility: visible;
-    bottom: 0;
-  }
-  &_success {
-    background-color: var(--default-green);
-  }
-  &_error {
-    background-color: var(--default-red);
-  }
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    bottom: -48px;
+    left: 0;
+    height: 48px;
+    width: 100%;
+    font-weight: 600;
+    color: var(--white-text);
+    z-index: 999;
+    transition: all 500ms ease-in-out;
+    &_show {
+        visibility: visible;
+        bottom: 0;
+    }
+    &_success {
+        background-color: var(--default-green);
+    }
+    &_error {
+        background-color: var(--default-red);
+    }
 }

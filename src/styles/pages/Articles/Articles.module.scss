@@ -1,16 +1,16 @@
-@import '../../utils/config';
+@import "../../utils/config";
 
 .articles {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(256px, 416px));
-  justify-content: space-evenly;
-  gap: 32px;
-  justify-items: center;
-  padding: 64px 0;
-  @include media-lg {
-    gap: 48px;
-  }
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(256px, 416px));
+    justify-content: space-evenly;
+    gap: 32px;
+    justify-items: center;
+    padding: 64px 0;
+    @include media-lg {
+        gap: 48px;
+    }
 }

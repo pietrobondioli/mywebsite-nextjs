@@ -1,25 +1,25 @@
-@import '../utils/variables';
-@import './fonts';
+@import "../utils/variables";
+@import "./fonts";
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  border: 0;
-  user-select: text;
-  &:focus {
-    outline: none;
-  }
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    user-select: text;
+    &:focus {
+        outline: none;
+    }
 }
 
 body {
-  font-family: 'Source Code Pro', monospace;
-  font-weight: 500;
+    font-family: "Source Code Pro", monospace;
+    font-weight: 500;
 }
 
 img {
-  box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }

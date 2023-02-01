@@ -1,11 +1,11 @@
-@import '../../utils/config';
-@import '../../utils/variables';
+@import "../../utils/config";
+@import "../../utils/variables";
 
 .section__title {
-  height: 10vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 1.25rem;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.25rem;
 }

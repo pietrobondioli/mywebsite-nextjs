@@ -1,35 +1,35 @@
-@import '../../utils/config';
-@import '../../utils/mixins';
-@import '../../utils/variables';
+@import "../../utils/config";
+@import "../../utils/mixins";
+@import "../../utils/variables";
 
 .section {
-  display: grid;
-  justify-content: stretch;
-  justify-items: center;
-  gap: 16px;
-  padding: map-get($heights, navbar) 32px;
-  min-height: 100vh;
-  @include media-md {
-    padding: map-get($heights, navbar) 64px;
-    gap: 32px;
-  }
-  @include media-lg {
-    padding: map-get($heights, navbar) 96px;
-    gap: 48px;
-    &.flex-h {
-      min-height: 70vh;
+    display: grid;
+    justify-content: stretch;
+    justify-items: center;
+    gap: 16px;
+    padding: map-get($heights, navbar) 32px;
+    min-height: 100vh;
+    @include media-md {
+        padding: map-get($heights, navbar) 64px;
+        gap: 32px;
     }
-  }
-  @include media-xl {
-    padding: map-get($heights, navbar) 160px;
-    &.flex-h {
-      min-height: 60vh;
+    @include media-lg {
+        padding: map-get($heights, navbar) 96px;
+        gap: 48px;
+        &.flex-h {
+            min-height: 70vh;
+        }
     }
-  }
-  @include media-xxl {
-    padding: map-get($heights, navbar) 224px;
-    &.flex-h {
-      min-height: 40vh;
+    @include media-xl {
+        padding: map-get($heights, navbar) 160px;
+        &.flex-h {
+            min-height: 60vh;
+        }
     }
-  }
+    @include media-xxl {
+        padding: map-get($heights, navbar) 224px;
+        &.flex-h {
+            min-height: 40vh;
+        }
+    }
 }
