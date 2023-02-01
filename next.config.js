@@ -1,7 +1,8 @@
-const generateSitemap = require('./scripts/generateSitemap');
-const generateRobotsTxt = require('./scripts/generateRobotsTxt');
+/**
+ * @type {import('next').NextConfig}
+ */
 
-module.exports ={
+const nextConfig = {
   esModule: true,
   webpackDevMiddleware: (config) => {
     config.watchOptions = {
@@ -18,9 +19,11 @@ module.exports ={
     locales: ['en-US', 'pt-BR'],
     defaultLocale: 'en-US',
   },
-  webpack: (config) => {
-    generateSitemap();
-    generateRobotsTxt();
-    return config;
-  }
+//   webpack: (config) => {
+//     generateSitemap();
+//     generateRobotsTxt();
+//     return config;
+//   }
 };
+
+module.exports = nextConfig

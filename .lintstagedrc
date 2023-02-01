@@ -1,0 +1,11 @@
+{
+  "*": [
+    "npm run test -- --passWithNoTests"
+  ],
+  "src/**/*.{js,jsx,ts,tsx}": [
+    "eslint --fix"
+  ],
+  "src/**/*.{js,jsx,ts,tsx,css,md,json}": [
+    "prettier --write --config ./.prettierrc"
+  ]
+}
