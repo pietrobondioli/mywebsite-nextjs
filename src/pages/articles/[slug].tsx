@@ -1,21 +1,21 @@
-/* eslint-disable react/no-danger */
-// React/Next Components
 import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 
 import getArticle from "@/lib/getArticle"
 import getArticlesSlugs from "@/lib/getArticlesSlugs"
-
-// Components
-import Section from "@/components/Section"
-
-// Styles
+import { Section } from "@/components/Section"
 import styles from "@/styles/pages/Article/Article.module.scss"
 
-const Article = ({ article }) => {
-    const router = useRouter()
+type ArticleProps = {
+    article: Article
+}
+
+const Article: NextPage<ArticleProps> = (props) => {
+    const { article } = props
     const { metadata } = article
+    const router = useRouter()
 
     return (
         <>
@@ -52,12 +52,18 @@ const Article = ({ article }) => {
     )
 }
 
-export async function getStaticProps(context) {
-    const {
-        locale,
-        params: { slug },
-    } = context
-    const article = await getArticle(locale, slug)
+export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string }> = async (
+    context
+) => {
+    const { locale, params } = context
+
+    if (!params?.slug || !locale) {
+        return {
+            notFound: true,
+        }
+    }
+
+    const article = await getArticle(locale, params?.slug)
 
     return {
         props: {
@@ -66,13 +72,20 @@ export async function getStaticProps(context) {
     }
 }
 
-export async function getStaticPaths(context) {
+type LocaleSlug = {
+    params: {
+        slug: string
+    }
+    locale?: string
+}
+
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) => {
     const { locales, defaultLocale } = context
 
-    const slugs = await getArticlesSlugs(locales)
+    const slugs = await getArticlesSlugs(locales || [])
 
-    const paths = locales.reduce((map, locale) => {
-        let slugsOfDefaultLocale = []
+    const paths = locales?.reduce<LocaleSlug[]>((map, locale) => {
+        let slugsOfDefaultLocale: LocaleSlug[] = []
         if (locale === defaultLocale) {
             slugsOfDefaultLocale = slugs[locale].map((slug) => {
                 return { params: { slug } }
@@ -86,7 +99,7 @@ export async function getStaticPaths(context) {
     }, [])
 
     return {
-        paths,
+        paths: paths || [],
         fallback: false,
     }
 }

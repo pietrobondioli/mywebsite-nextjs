@@ -1,16 +1,12 @@
-// React/Next Components
+import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
 
-// Hooks
 import useTranslation from "@/hooks/useTranslation"
+import { Education } from "@/containers/About/Education"
+import { Experience } from "@/containers/About/Experience"
+import { Skills } from "@/containers/About/Skills"
 
-// Components
-import Education from "@/containers/About/Education"
-import Experience from "@/containers/About/Experience"
-import Skills from "@/containers/About/Skills"
-
-// Contents
 const aboutContent = {
     "pt-BR": {
         pageTitle: "Sobre - Pietro Bondioli",
@@ -22,7 +18,7 @@ const aboutContent = {
     },
 }
 
-function About() {
+const About: React.FC = () => {
     const router = useRouter()
     const translate = useTranslation(aboutContent)
 

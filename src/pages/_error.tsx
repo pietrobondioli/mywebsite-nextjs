@@ -1,10 +1,8 @@
-// React/Next Components
+import React from "react"
 import Head from "next/head"
+import { NextPage } from "next"
 
-// Components
-import ErrorAlert from "@/containers/ErrorAlert"
-
-// Hooks
+import { ErrorAlert } from "@/containers/ErrorAlert"
 import useTranslation from "@/hooks/useTranslation"
 
 const errorContent = {
@@ -16,7 +14,11 @@ const errorContent = {
     },
 }
 
-const Error = (props) => {
+type ErrorProps = {
+    statusCode: number
+}
+
+const Error: NextPage<ErrorProps> = (props) => {
     const translate = useTranslation(errorContent)
     const { statusCode } = props
 
@@ -36,7 +38,7 @@ const Error = (props) => {
 Error.getInitialProps = ({ res, err }) => {
     const statusCode = res ? res.statusCode : err ? err.statusCode : 404
 
-    return { statusCode }
+    return { statusCode } as ErrorProps
 }
 
 export default Error

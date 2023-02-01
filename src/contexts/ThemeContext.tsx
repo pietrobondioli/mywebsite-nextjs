@@ -1,14 +1,22 @@
-import React from "react"
+import React, { createContext, useState } from "react"
 
-const ThemeContext = React.createContext()
+type ThemeContextType = {
+    theme: string
+    toggleTheme: () => void
+}
+
+const ThemeContext = createContext<ThemeContextType>({
+    theme: "dark",
+    toggleTheme: () => {},
+})
 
 const themes = {
     dark: "dark",
     light: "light",
 }
 
-const ThemeContextProvider = ({ children }) => {
-    const [theme, setTheme] = React.useState(themes.dark)
+const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
+    const [theme, setTheme] = useState(themes.dark)
     let storedTheme
 
     const toggleTheme = () => {

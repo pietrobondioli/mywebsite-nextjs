@@ -1,14 +1,11 @@
-// React/Next Components
+import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { NextPage } from "next"
 
-// Hooks
 import useTranslation from "@/hooks/useTranslation"
+import { Projects as ProjectsSection } from "@/containers/Projects"
 
-// Components
-import ProjectsSection from "@/containers/Projects"
-
-// Contents
 const projectsContent = {
     "pt-BR": {
         pageTitle: "Projetos - Pietro Bondioli",
@@ -21,7 +18,7 @@ const projectsContent = {
     },
 }
 
-function Projects() {
+const Projects: NextPage = () => {
     const router = useRouter()
     const translate = useTranslation(projectsContent)
 

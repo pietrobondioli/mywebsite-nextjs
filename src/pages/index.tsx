@@ -1,14 +1,11 @@
-// React/Next Components
+import React from "react"
 import Head from "next/head"
+import { NextPage } from "next"
 
-// Hooks
 import useTranslation from "@/hooks/useTranslation"
+import { Header } from "@/containers/HomePage/Header"
+import { Presentation } from "@/containers/HomePage/Presentation"
 
-// Components
-import Header from "@/containers/HomePage/Header"
-import Presentation from "@/containers/HomePage/Presentation"
-
-// Contents
 const indexContent = {
     "pt-BR": {
         pageDescription:
@@ -20,7 +17,7 @@ const indexContent = {
     },
 }
 
-function HomePage() {
+const HomePage: NextPage = () => {
     const translate = useTranslation(indexContent)
 
     return (

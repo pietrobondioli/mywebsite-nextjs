@@ -1,18 +1,13 @@
-// React/Next Components
+import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { GetStaticProps, NextPage } from "next"
 
-// Hooks
 import useTranslation from "@/hooks/useTranslation"
-
-// Components
-import ArticlesSection from "@/containers/Articles"
-
-// Lib
+import { Articles as ArticlesSection } from "@/containers/Articles"
 import getArticle from "@/lib/getArticle"
 import getArticlesSlugs from "@/lib/getArticlesSlugs"
 
-// Contents
 const pageInfo = {
     "pt-BR": {
         pageTitle: "Artigos - Pietro Bondioli",
@@ -26,7 +21,12 @@ const pageInfo = {
     },
 }
 
-function Articles({ articles }) {
+type ArticlesProps = {
+    articles: ArticleMetadata[]
+}
+
+const Articles: NextPage<ArticlesProps> = (props) => {
+    const { articles } = props
     const router = useRouter()
     const translate = useTranslation(pageInfo)
 
@@ -42,18 +42,26 @@ function Articles({ articles }) {
                 <meta name="twitter:description" content={translate("pageDescription")} />
             </Head>
             <main>
-                <ArticlesSection articles={articles} />
+                <ArticlesSection articlesMetadata={articles} />
             </main>
         </>
     )
 }
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps<{ articles: ArticleMetadata[] }> = async (context) => {
     const { locale } = context
+
+    if (!locale) {
+        return {
+            props: {
+                articles: [],
+            },
+        }
+    }
 
     const articlesSlugs = await getArticlesSlugs([locale])
 
-    const articles = []
+    const articles: ArticleMetadata[] = []
 
     await articlesSlugs[locale].forEach(async (slug) => {
         const { metadata } = await getArticle(locale, slug)

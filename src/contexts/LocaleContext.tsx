@@ -1,12 +1,22 @@
 // React/Next Components
-import React from "react"
+import React, { createContext } from "react"
 import { useRouter } from "next/router"
 
-const LocaleContext = React.createContext()
+type LocaleContextType = {
+    locales: string[]
+    locale?: string
+    defaultLocale: string
+}
 
-const LocaleContextProvider = ({ children }) => {
+const LocaleContext = createContext<LocaleContextType>({
+    locales: [],
+    locale: "",
+    defaultLocale: "",
+})
+
+const LocaleContextProvider = ({ children }: { children: React.ReactNode }) => {
     const router = useRouter()
-    const { locales, locale, defaultLocale } = router
+    const { locales = ["en-US"], locale, defaultLocale = "en-US" } = router
 
     return (
         <LocaleContext.Provider value={{ locales, locale, defaultLocale }}>

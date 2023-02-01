@@ -1,9 +1,17 @@
-import React from "react"
+import React, { createContext, useState } from "react"
 
-const NavbarContext = React.createContext()
+type NavbarContextType = {
+    isNavbarOpen: boolean
+    setIsNavbarOpen: (v: boolean) => void
+}
 
-const NavbarContextProvider = ({ children }) => {
-    const [isNavbarOpen, setIsNavbarOpen] = React.useState(false)
+const NavbarContext = createContext<NavbarContextType>({
+    isNavbarOpen: false,
+    setIsNavbarOpen: (v: boolean) => {},
+})
+
+const NavbarContextProvider = ({ children }: { children: React.ReactNode }) => {
+    const [isNavbarOpen, setIsNavbarOpen] = useState(false)
 
     return (
         <NavbarContext.Provider value={{ isNavbarOpen, setIsNavbarOpen }}>

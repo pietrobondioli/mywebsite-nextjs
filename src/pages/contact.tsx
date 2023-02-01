@@ -1,15 +1,12 @@
-// React/Next Components
+import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { NextPage } from "next"
 
-// Hooks
 import useTranslation from "@/hooks/useTranslation"
+import { ContactForm } from "@/containers/Contact/ContactForm"
+import { ContactInfo } from "@/containers/Contact/ContactInfo"
 
-// Components
-import ContactForm from "@/containers/Contact/ContactForm"
-import ContactInfo from "@/containers/Contact/ContactInfo"
-
-// Contents
 const contactContent = {
     "pt-BR": {
         pageTitle: "Contato - Pietro Bondioli",
@@ -23,7 +20,7 @@ const contactContent = {
     },
 }
 
-function Contact() {
+const Contact: NextPage = () => {
     const router = useRouter()
     const translate = useTranslation(contactContent)
 

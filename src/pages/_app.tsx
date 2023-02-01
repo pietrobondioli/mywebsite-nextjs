@@ -1,23 +1,16 @@
-// React/Next Components
 import React from "react"
 import Head from "next/head"
+import { AppProps } from "next/app"
 
-// Hocs
-import WithTheme from "@/hocs/WithTheme"
-
-// Components Context
 import { NavbarContextProvider } from "@/contexts/NavbarContext"
 import { ThemeContextProvider } from "@/contexts/ThemeContext"
 import { LocaleContextProvider } from "@/contexts/LocaleContext"
+import { Navbar } from "@/components/Navbar"
+import { Footer } from "@/components/Footer"
 
-// Components
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
-
-// Styles
 import "@/styles/main.scss"
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
         <LocaleContextProvider>
             <ThemeContextProvider>
@@ -40,11 +33,9 @@ const MyApp = ({ Component, pageProps }) => {
                             content="6m8-QuB3vOo-b-V4kOc1lSgrfKvGVHxLVQDN6UWY6fE"
                         />
                     </Head>
-                    <WithTheme>
-                        <Navbar />
-                        <Component {...pageProps} />
-                        <Footer />
-                    </WithTheme>
+                    <Navbar />
+                    <Component {...pageProps} />
+                    <Footer />
                 </NavbarContextProvider>
             </ThemeContextProvider>
         </LocaleContextProvider>
