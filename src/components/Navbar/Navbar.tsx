@@ -4,10 +4,10 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 
-import styles from "@/styles/components/Navbar/Navbar.module.scss"
 import useTranslation from "@/hooks/useTranslation"
 import { NavbarContext } from "@/contexts/NavbarContext"
 
+import styles from "./Navbar.module.scss"
 import { ToggleThemeButton } from "./ToggleThemeButton/ToggleThemeButton"
 import { ChangeLocaleButton } from "./ChangeLocaleButton/ChangeLocaleButton"
 import { NavbarItem } from "./NavbarItem/NavbarItem"

@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "next/image"
 
-import styles from "@/styles/pages/About/SkillItem.module.scss"
+import styles from "./SkillItem.module.scss"
 
 type SkillItemProps = {
     skillLink: string

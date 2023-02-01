@@ -2,8 +2,8 @@ import React from "react"
 import Link from "next/link"
 
 import useTranslation from "@/hooks/useTranslation"
-import styles from "@/styles/components/Section/SectionContent.module.scss"
 
+import styles from "./SectionContent.module.scss"
 import sectionContent from "./content"
 
 type SectionContentProps = {

@@ -3,7 +3,8 @@ import React from "react"
 import Link from "next/link"
 
 import useTranslation from "@/hooks/useTranslation"
-import styles from "@/styles/pages/Articles/ArticleCard.module.scss"
+
+import styles from "./ArticleCard.module.scss"
 
 const articleCardContent = {
     "pt-BR": {

@@ -4,7 +4,8 @@ import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
 import { SectionContent } from "@/components/Section/SectionContent"
 import useTranslation from "@/hooks/useTranslation"
-import styles from "@/styles/pages/About/AboutContent.module.scss"
+
+import styles from "../AboutContent.module.scss"
 
 import experienceContent from "./content"
 

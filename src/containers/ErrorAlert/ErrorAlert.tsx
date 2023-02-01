@@ -1,8 +1,8 @@
 import React from "react"
 
 import useTranslation from "@/hooks/useTranslation"
-import styles from "@/styles/pages/Error/Error.module.scss"
 
+import styles from "./Error.module.scss"
 import errorAlertContent from "./content"
 
 export type ErrorAlertProps = {

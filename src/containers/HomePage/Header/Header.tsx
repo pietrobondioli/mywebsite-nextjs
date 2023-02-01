@@ -6,8 +6,8 @@ import { LocaleContext } from "@/contexts/LocaleContext"
 import { TerminalUnderslash } from "@/components/TerminalUnderslash"
 import { Section } from "@/components/Section"
 import useTranslation from "@/hooks/useTranslation"
-import styles from "@/styles/pages/HomePage/Header.module.scss"
 
+import styles from "./Header.module.scss"
 import headerContent from "./content"
 
 export const Header: React.FC = () => {

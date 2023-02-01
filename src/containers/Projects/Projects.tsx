@@ -3,8 +3,8 @@ import React from "react"
 import { Section } from "@/components/Section"
 import { SectionContent } from "@/components/Section/SectionContent"
 import useTranslation from "@/hooks/useTranslation"
-import styles from "@/styles/pages/Projects/Projects.module.scss"
 
+import styles from "./Projects.module.scss"
 import projectsContent from "./content"
 
 export const Projects: React.FC = () => {

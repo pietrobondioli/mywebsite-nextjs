@@ -1,6 +1,6 @@
 import React from "react"
 
-import styles from "@/styles/components/TerminalUnderslash.module.scss"
+import styles from "./TerminalUnderslash.module.scss"
 
 type TerminalUnderslashProps = {
     isAnimationActive: boolean

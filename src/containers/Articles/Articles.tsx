@@ -1,8 +1,8 @@
 import React from "react"
 
 import { Section } from "@/components/Section"
-import styles from "@/styles/pages/Articles/Articles.module.scss"
 
+import styles from "./Articles.module.scss"
 import { ArticleCard } from "./ArticleCard"
 
 type ArticlesProps = {

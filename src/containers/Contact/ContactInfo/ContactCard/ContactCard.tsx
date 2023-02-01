@@ -1,6 +1,6 @@
 import React from "react"
 
-import styles from "@/styles/pages/Contact/ContactCard.module.scss"
+import styles from "./ContactCard.module.scss"
 
 export type ContactCardProps = {
     img: string

@@ -6,7 +6,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import getArticle from "@/lib/getArticle"
 import getArticlesSlugs from "@/lib/getArticlesSlugs"
 import { Section } from "@/components/Section"
-import styles from "@/styles/pages/Article/Article.module.scss"
+import { Article as ArticleContainer } from "@/containers/Article"
 
 type ArticleProps = {
     article: Article
@@ -42,11 +42,7 @@ const Article: NextPage<ArticleProps> = (props) => {
                 <meta name="twitter:image:alt" content={metadata.imageAlt} />
             </Head>
             <Section>
-                <img className={styles.article_img} src={metadata.image} alt={metadata.imageAlt} />
-                <article
-                    className={styles.article}
-                    dangerouslySetInnerHTML={{ __html: article.content }}
-                />
+                <ArticleContainer article={article} />
             </Section>
         </>
     )

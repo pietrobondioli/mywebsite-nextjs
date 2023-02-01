@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "next/link"
 
-import styles from "@/styles/components/Navbar/NavbarItem.module.scss"
+import styles from "./NavbarItem.module.scss"
 
 export type NavbarItemProps = {
     itemName?: string

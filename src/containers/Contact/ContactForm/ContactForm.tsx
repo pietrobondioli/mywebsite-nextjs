@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 
 import useTranslation from "@/hooks/useTranslation"
-import styles from "@/styles/pages/Contact/ContactForm.module.scss"
 import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
 
+import styles from "./ContactForm.module.scss"
 import { FormAlert } from "./FormAlert"
 import contactFormContent from "./content"
 

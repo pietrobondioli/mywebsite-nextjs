@@ -1,8 +1,8 @@
 import React from "react"
 
 import useTranslation from "@/hooks/useTranslation"
-import styles from "@/styles/pages/Contact/FormAlert.module.scss"
 
+import styles from "./FormAlert.module.scss"
 import formAlertContent from "./content"
 
 type FormAlertProps = {

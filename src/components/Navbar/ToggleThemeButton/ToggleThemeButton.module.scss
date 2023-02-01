@@ -1,5 +1,5 @@
-@use "../../utils/variables" as *;
-@use "../../utils/config" as *;
+@import "@/styles/utils/variables";
+@import "@/styles/utils/config";
 
 $icons-images: (
     "sun": url("/icons/toggleThemeButton/sun-32px.png"),

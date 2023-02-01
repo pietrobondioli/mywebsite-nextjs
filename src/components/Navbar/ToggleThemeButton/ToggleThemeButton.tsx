@@ -1,8 +1,9 @@
 import React, { useContext } from "react"
 
 // Styles
-import styles from "@/styles/components/Navbar/ToggleThemeButton.module.scss"
 import { ThemeContext } from "@/contexts/ThemeContext"
+
+import styles from "./ToggleThemeButton.module.scss"
 
 export const ToggleThemeButton: React.FC = () => {
     const { theme, toggleTheme } = useContext(ThemeContext)

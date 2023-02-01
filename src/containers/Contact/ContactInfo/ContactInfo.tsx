@@ -2,10 +2,10 @@ import React from "react"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 
 import useTranslation from "@/hooks/useTranslation"
-import styles from "@/styles/pages/Contact/ContactInfo.module.scss"
 import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
 
+import styles from "./ContactInfo.module.scss"
 import { ContactCard } from "./ContactCard"
 import contactInfoContent from "./content"
 

@@ -1,6 +1,6 @@
 import React from "react"
 
-import styles from "@/styles/components/Section/Section.module.scss"
+import styles from "./Section.module.scss"
 
 export type SectionProps = {
     sectionType?: "flex-h" | "flex-w"

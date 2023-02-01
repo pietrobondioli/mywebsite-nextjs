@@ -1,11 +1,8 @@
-// React/Next Components
 import React from "react"
 
-// Styles
-import styles from "@/styles/components/Section/SectionTitle.module.scss"
+import { TerminalUnderslash } from "@/components/TerminalUnderslash"
 
-// Components
-import { TerminalUnderslash } from "../../TerminalUnderslash"
+import styles from "./SectionTitle.module.scss"
 
 type SectionTitleProps = {
     title?: string
