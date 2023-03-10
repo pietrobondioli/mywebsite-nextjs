@@ -1,101 +1,55 @@
 {
-    "env": {
-        "node": true,
-        "browser": true,
-        "es2021": true
-    },
-    "parserOptions": {
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12
-    },
-    "plugins": [
-        "react",
-        "react-hooks",
-        "@typescript-eslint",
-        "import",
-        "prettier"
-    ],
-    "extends": [
-        "eslint:recommended",
-        "plugin:import/recommended",
-        "plugin:import/typescript",
-        "plugin:react/recommended",
-        "plugin:jsx-a11y/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended"
-    ],
-    "settings": {
-        "import/resolver": {
-            "typescript": {}
-        },
-        "react": {
-            "version": "detect"
-        }
-    },
+    "plugins": ["prettier"],
+    "extends": ["next", "next/core-web-vitals", "prettier"],
     "rules": {
-        "import/order": [
-            "error",
+      "prettier/prettier": "error",
+      "camelcase": "off",
+      "import/prefer-default-export": "off",
+      "react/jsx-filename-extension": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/no-unused-prop-types": "off",
+      "react/require-default-props": "off",
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "ts": "never",
+          "tsx": "never",
+          "js": "never",
+          "jsx": "never"
+        }
+      ],
+      "quotes": "off",
+      "jsx-a11y/anchor-is-valid": [
+        "error",
+        {
+          "components": ["Link"],
+          "specialLink": ["hrefLeft", "hrefRight"],
+          "aspects": ["invalidHref", "preferButton"]
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": "**/*.+(ts|tsx)",
+        "parser": "@typescript-eslint/parser",
+        "plugins": ["@typescript-eslint/eslint-plugin"],
+        "extends": ["plugin:@typescript-eslint/recommended", "prettier"],
+        "rules": {
+          "@typescript-eslint/explicit-function-return-type": "off",
+          "@typescript-eslint/explicit-module-boundary-types": "off",
+          "no-use-before-define": [0],
+          "@typescript-eslint/no-use-before-define": [1],
+          "@typescript-eslint/no-explicit-any": "off",
+          "@typescript-eslint/no-var-requires": "off",
+          "@typescript-eslint/quotes": [
+            2,
+            "backtick",
             {
-                "groups": [
-                    "builtin",
-                    "external",
-                    "internal",
-                    "parent",
-                    "sibling",
-                    "index",
-                    "unknown"
-                ],
-                "newlines-between": "always"
+              "avoidEscape": true
             }
-        ],
-        "sort-imports": [
-            "error",
-            {
-                "ignoreCase": true,
-                "ignoreDeclarationSort": true
-            }
-        ],
-        "react/self-closing-comp": [
-            "error",
-            {
-                "component": false,
-                "html": true
-            }
-        ],
-        "import/no-named-as-default-member": "off",
-        "no-param-reassign": "off",
-        "import/prefer-default-export": "off",
-        "react/jsx-props-no-spreading": "off",
-        "no-console": "warn", // Warning to reduce console logs used throughout app
-        "react/prop-types": "off", // Not using prop-types because we have TypeScript
-        "newline-before-return": "warn",
-        "no-useless-return": "warn",
-        "prefer-const": "warn",
-        "@typescript-eslint/ban-types": "warn",
-        "react/display-name": "off",
-        "react/jsx-key": "warn",
-        "@typescript-eslint/no-empty-function": "warn",
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": [
-            "warn"
-        ],
-        "dot-notation": "off",
-        "class-methods-use-this": "off",
-        "react/no-array-index-key": "warn",
-        "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": [
-            "error"
-        ],
-        "no-shadow": "off",
-        "@typescript-eslint/no-shadow": [
-            "error"
-        ],
-        "react/button-has-type": "warn",
-        "react/require-default-props": "off",
-        "no-plusplus": "off",
-        "arrow-body-style": "off"
-    }
-}
+          ]
+        }
+      }
+    ]
+  }
