@@ -1,15 +1,14 @@
 import React from "react"
-
-import styles from "./Footer.module.scss"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
 
 export const Footer: React.FC = () => {
     return (
-        <footer className={styles.footer}>
-            <p className={styles.footer__text}>
-                Pietro Bondioli <span className={styles.footer__text_separator} />
+        <footer className="w-full h-40 flex flex-col items-center justify-evenly">
+            <p className="text-center text-lg">
+                Pietro Bondioli <span className="md:hide">-</span>
                 {` `}
                 <a
-                    className={styles.footer__link}
+                    className="text-primary-dark hover:text-primary duration-500"
                     href="https://opensource.org/licenses/MIT"
                     target="_blank"
                     rel="noreferrer"
@@ -17,16 +16,16 @@ export const Footer: React.FC = () => {
                     Copyright (c) 2021 MIT
                 </a>
             </p>
-            <div className={styles.footer__icons}>
+            <div className="flex gap-6">
                 <a href="https://github.com/bondiolipietro" target="_blank" rel="noreferrer">
-                    <div className={`${styles.footer__icon} ${styles.github}`} />
+                    <FaGithub className="m-4 w-6 h-6 hover:text-primary-dark duration-500" />
                 </a>
                 <a
                     href="https://www.linkedin.com/in/pietrobondioli/"
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <div className={`${styles.footer__icon} ${styles.linkedin}`} />
+                    <FaLinkedin className="m-4 w-6 h-6 hover:text-primary-dark duration-500" />
                 </a>
             </div>
         </footer>

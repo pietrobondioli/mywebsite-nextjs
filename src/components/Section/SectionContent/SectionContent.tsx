@@ -1,10 +1,9 @@
 import React from "react"
 import { useTranslation } from "next-i18next"
 import Image from "next/image"
+import Link from "next/link"
 
-import { LinkButton } from "@/components/LinkButton"
-
-import styles from "./SectionContent.module.scss"
+import { Button } from "@/components/Button"
 
 type SectionContentProps = {
     children?: React.ReactNode
@@ -21,26 +20,25 @@ export const SectionContent: React.FC<SectionContentProps> = (props) => {
     const { t } = useTranslation(`common`)
 
     return (
-        <div className={styles.section__content}>
+        <div className="max-h-min w-full flex items-center justify-between flex-col lg:flex-row gap-32">
             <Image
                 width={128}
                 height={128}
-                className={styles.content__image}
+                className="rounded-full"
                 src={image || `/icons/error/warning-128px.png`}
                 alt={imageAlt || `No content.`}
             />
-            <div>
-                <div className={styles.content__text}>{children || text}</div>
+            <div className="flex items-center flex-col gap-6 px-12 grow">
+                <div className="text-start text-lg my-4">{children || text}</div>
                 {readMore &&
-                    (!readMoreTargetBlank ? (
-                        <LinkButton href={readMoreLink || ``} label={t(`readMore`)} />
+                    (readMoreTargetBlank ? (
+                        <a href={readMoreLink} target="_blank" rel="noreferrer">
+                            <Button label={t(`readMore`)} />
+                        </a>
                     ) : (
-                        <LinkButton
-                            href={readMoreLink}
-                            target="_blank"
-                            rel="noreferrer"
-                            label={t(`readMore`)}
-                        />
+                        <Link href={readMoreLink || ``}>
+                            <Button label={t(`readMore`)} />
+                        </Link>
                     ))}
             </div>
         </div>

@@ -1,33 +1,32 @@
+import { ParsedUrlQueryInput } from "querystring"
+
 import React from "react"
 import Link from "next/link"
 
-import styles from "./NavbarItem.module.scss"
-import { ParsedUrlQueryInput } from "querystring"
-
 export type NavbarItemProps = {
-    itemName?: string
-    itemLink: string
-    itemQuery?: string | ParsedUrlQueryInput
-    itemLocale?: string
-    itemScroll?: boolean
+    name?: string
+    link: string
+    query?: string | ParsedUrlQueryInput
+    locale?: string
+    scroll?: boolean
 }
 
 export const NavbarItem: React.FC<NavbarItemProps> = (props) => {
-    const { itemName, itemLink, itemQuery, itemLocale, itemScroll } = props
+    const { name, link, query, locale, scroll } = props
 
     return (
         <Link
             href={
                 {
-                    pathname: itemLink,
-                    query: itemQuery,
+                    pathname: link,
+                    query: query,
                 } || ``
             }
-            locale={itemLocale}
-            scroll={itemScroll}
-            className={styles.menu__item}
+            locale={locale}
+            scroll={scroll}
+            className="h-max w-full py-1 px-2 flex justify-center items-center text-base font-semibold text-center text-black hover:text-primary dark:text-white hover:dark:text-primary-light duration-500 mx-3 lg:text-lg cursor-pointer"
         >
-            {itemName}
+            {name}
         </Link>
     )
 }

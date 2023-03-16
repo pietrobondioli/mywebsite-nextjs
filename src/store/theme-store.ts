@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { persist } from "zustand/middleware"
+import { createJSONStorage, persist } from "zustand/middleware"
 
 type ThemeState = {
     theme: "light" | "dark"
@@ -29,7 +29,7 @@ export const useThemeStore = create<ThemeStore>()(
         }),
         {
             name: `Theme`,
-            getStorage: () => localStorage,
+            storage: createJSONStorage(() => localStorage),
             partialize: (s) => ({ state: s.state }),
         }
     )

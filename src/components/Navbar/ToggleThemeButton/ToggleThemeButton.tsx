@@ -1,16 +1,14 @@
 import React from "react"
 
-// Styles
-import styles from "./ToggleThemeButton.module.scss"
 import { useThemeActions, useThemeState } from "@/store/theme-store"
+
+import styles from "./ToggleThemeButton.module.scss"
 
 export const ToggleThemeButton: React.FC = () => {
     const { theme } = useThemeState()
     const { TOGGLE_THEME } = useThemeActions()
-    let isDarkTheme
-    if (theme === `dark`) {
-        isDarkTheme = true
-    }
+
+    const isDarkTheme = theme === `dark`
 
     return (
         <div className={styles.toggleButton}>

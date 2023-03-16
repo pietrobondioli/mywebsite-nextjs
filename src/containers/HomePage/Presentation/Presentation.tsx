@@ -43,7 +43,7 @@ export const Presentation: React.FC = () => {
                 const content = SECTIONS[section]
 
                 return (
-                    <Section key={section} sectionType="flex-h">
+                    <Section key={section}>
                         <SectionTitle title={t(`presentation.${section}.title`)} />
                         <SectionContent
                             text={t(`presentation.${section}.text`)}

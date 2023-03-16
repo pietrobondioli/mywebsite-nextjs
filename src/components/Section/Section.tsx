@@ -1,17 +1,19 @@
 import React from "react"
 
-import styles from "./Section.module.scss"
-
 export type SectionProps = {
-    sectionType?: "flex-h" | "flex-w"
+    stretchToViewportHeight?: boolean
     children: React.ReactNode
 }
 
 export const Section: React.FC<SectionProps> = (props) => {
-    const { sectionType, children } = props
+    const { children, stretchToViewportHeight } = props
+
+    const minHeightClass = stretchToViewportHeight
+        ? `min-h-svh`
+        : `lg:min-h-[70vh] xl:min-h-[60vh] 2xl:min-h-[50vh]`
 
     return (
-        <section className={`${styles.section} ${sectionType && styles[sectionType]}`}>
+        <section className={`${minHeightClass} grid gap-4 px-8 py-12 lg:px-32 xl:px-48 2xl:px-64`}>
             {children}
         </section>
     )

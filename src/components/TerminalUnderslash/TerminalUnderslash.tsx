@@ -13,5 +13,5 @@ export const TerminalUnderslash: React.FC<TerminalUnderslashProps> = (props) => 
         ? styles.terminal__underslash_active
         : styles.terminal__underslash_disabled
 
-    return <span className={`${styles.terminal__underslash} ${animationClass}`}>_</span>
+    return <span className={`text-primary font-semibold ${animationClass}`}>_</span>
 }

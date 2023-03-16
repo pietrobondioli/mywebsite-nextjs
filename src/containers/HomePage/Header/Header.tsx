@@ -8,7 +8,7 @@ import { Section } from "@/components/Section"
 import styles from "./Header.module.scss"
 
 export const Header: React.FC = () => {
-    const { t } = useTranslation()
+    const { t } = useTranslation(`home`)
     const [terminalCommand, setTerminalCommand] = useState(``)
     const [isTyping, setIsTyping] = useState(false)
     const timeouts: NodeJS.Timeout[] = useMemo(() => [], [])

@@ -3,11 +3,11 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+import { GetStaticProps } from "next"
 
 import { Education } from "@/containers/About/Education"
 import { Experience } from "@/containers/About/Experience"
 import { Skills } from "@/containers/About/Skills"
-import { GetStaticProps } from "next"
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     const translations = await serverSideTranslations(locale || ``, [`common`, `about`])
@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
 const About: React.FC = () => {
     const router = useRouter()
-    const { t } = useTranslation()
+    const { t } = useTranslation(`about`)
 
     return (
         <>

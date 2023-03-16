@@ -1,6 +1,4 @@
 .terminal__underslash {
-    color: var(--primary);
-    font-weight: bolder;
     &_active {
         animation: terminal_underslash_animation 600ms cubic-bezier(1, 0.1, 0.1, 1) infinite
             alternate;

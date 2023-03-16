@@ -1,0 +1,16 @@
+$logo: url("/icons/navbar/logo.png");
+$animatedLogo: url("/icons/navbar/logoAnimated.png");
+
+// $navbar-images: (
+//     "black-menuBar": url("/icons/navbar/black-menu-3bars-48px.png"),
+//     "black-closeMenu": url("/icons/navbar/black-x-48px.png"),
+//     "white-menuBar": url("/icons/navbar/white-menu-3bars-48px.png"),
+//     "white-closeMenu": url("/icons/navbar/white-x-48px.png"),
+// );
+
+.navbar__logo {
+    background-image: $logo;
+    &:hover {
+        background-image: $animatedLogo;
+    }
+}

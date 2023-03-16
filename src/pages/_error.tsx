@@ -22,15 +22,15 @@ export const getServerSideProps: GetServerSideProps = async ({ res, locale }) =>
 type ErrorProps = InferGetServerSidePropsType<typeof getServerSideProps>
 
 const Error: NextPage<ErrorProps> = (props) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation(`error`)
     const { statusCode } = props
+
+    const title = `Erro ` + statusCode
 
     return (
         <>
             <Head>
-                <title>
-                    {t(`pageTitle`)} {statusCode}
-                </title>
+                <title>{title}</title>
                 <meta name="robots" content="noindex, nofollow" />
             </Head>
             <ErrorAlert statusCode={statusCode} />

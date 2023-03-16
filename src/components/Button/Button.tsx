@@ -12,7 +12,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 export const COLOR_CLASS_MAP = {
-    primary: `bg-blue-500 hover:bg-blue-600 text-white`,
+    primary: `bg-primary hover:bg-primary-dark text-white`,
     secondary: `bg-gray-500 hover:bg-gray-600 text-white`,
     danger: `bg-red-500 hover:bg-red-600 text-white`,
     success: `bg-green-500 hover:bg-green-600 text-white`,
@@ -36,7 +36,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
     return (
         <button
-            className={`${colorClass} ${fullWidthClass} text-base py-2 px-4 flex items-center justify-center gap-2 rounded-sm duration-500 ease-in-out`}
+            className={`${colorClass} ${fullWidthClass} text-base py-2 px-4 flex items-center justify-center gap-2 rounded-sm duration-500 ease-in-out shadow-sm hover:shadow-md`}
             type="button"
             {...buttonProps}
         >

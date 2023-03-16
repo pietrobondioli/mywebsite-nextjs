@@ -46,7 +46,7 @@ type ArticlesProps = {
 const Articles: NextPage<ArticlesProps> = (props) => {
     const { articles } = props
     const router = useRouter()
-    const { t } = useTranslation()
+    const { t } = useTranslation(`articles`)
 
     return (
         <>

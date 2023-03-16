@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
 const Contact: NextPage = () => {
     const router = useRouter()
-    const { t } = useTranslation()
+    const { t } = useTranslation(`contact`)
 
     return (
         <>

@@ -12,11 +12,11 @@ export const ChangeLocaleButton: React.FC = () => {
     return (
         <NavbarItem
             key="changeLocale"
-            itemName={locale}
-            itemLink={pathname}
-            itemQuery={query}
-            itemLocale={changeTo}
-            itemScroll={false}
+            name={locale}
+            link={pathname}
+            query={query}
+            locale={changeTo}
+            scroll={false}
         />
     )
 }
