@@ -1,16 +1,14 @@
 import React from "react"
-
-import useTranslation from "@/hooks/useTranslation"
+import { useTranslation } from "next-i18next"
 
 import styles from "./Error.module.scss"
-import errorAlertContent from "./content"
 
 export type ErrorAlertProps = {
     statusCode: number
 }
 
 export const ErrorAlert: React.FC<ErrorAlertProps> = (props) => {
-    const translations = useTranslation(errorAlertContent)
+    const { t } = useTranslation(`error`)
     const { statusCode } = props
 
     return (
@@ -18,7 +16,7 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = (props) => {
             <div className={styles.errorImage} />
             <div className={styles.errorCode}>{statusCode}</div>
             <div className={styles.errorMessage}>
-                {statusCode ? translations("serverError") : translations("clientError")}
+                {statusCode ? t(`error_alert.server_error`) : t(`error_alert.client_error`)}
             </div>
         </div>
     )

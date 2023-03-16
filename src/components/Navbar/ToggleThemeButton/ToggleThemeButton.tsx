@@ -1,14 +1,14 @@
-import React, { useContext } from "react"
+import React from "react"
 
 // Styles
-import { ThemeContext } from "@/contexts/ThemeContext"
-
 import styles from "./ToggleThemeButton.module.scss"
+import { useThemeActions, useThemeState } from "@/store/theme-store"
 
 export const ToggleThemeButton: React.FC = () => {
-    const { theme, toggleTheme } = useContext(ThemeContext)
+    const { theme } = useThemeState()
+    const { TOGGLE_THEME } = useThemeActions()
     let isDarkTheme
-    if (theme === "dark") {
+    if (theme === `dark`) {
         isDarkTheme = true
     }
 
@@ -21,7 +21,7 @@ export const ToggleThemeButton: React.FC = () => {
                 id=""
                 checked={!isDarkTheme}
                 onChange={() => {
-                    toggleTheme()
+                    TOGGLE_THEME()
                 }}
             />
             <div className={styles.toggleButton__ball} />

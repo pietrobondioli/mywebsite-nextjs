@@ -1,0 +1,33 @@
+{
+    "pageDescription": "Eu criei este website para ser um local onde eu posso melhor apresentar meu trabalho e habilidades, e também compartilhar meus conhecimentos, pensamentos e ideias.",
+    "header": {
+        "myWebsite": "myWebsite",
+        "welcomeWebsite": "echo \"welcome to my website!\""
+    },
+    "presentation": {
+        "introduction": {
+            "title": "",
+            "text": "Meu nome é Pietro Bondioli, tenho 19 anos, e curso Análise e Desenvolvimento de Sistemas na Mackenzie. Sempre gostei de tecnologia em geral, mas a área que mais me deixa animado é a de desenvolvimento web ligado a qualquer assunto financeiro, como e-commerces, mercado financeiro  e criptomoedas. Esse site foi feito por mim com a intenção de ser um lugar onde eu posso apresentar melhor meu trabalho e minhas habilidades, além de compartilhar meus conhecimentos, pensamentos e idéias (através de artigos e projetos).","imageAlt": "Uma foto de Pietro Bondioli."
+        },
+        "about": {
+            "title": "sobre",
+            "text": "Nesta seção voce vai encontrar informação sobre minhas educação, experiências e conhecimento específicos de tecnologia (como linguagens de programação, frameworks, ferramentas, etc).",
+            "imageAlt": "Um desenho de um cérebro."
+        },
+        "articles": {
+            "title": "artigos",
+            "text": "Qualquer coisa que eu ache que vale a pena ser compartilhado vai ser encontrado aqui, desde artigos compartilhando conhecimento até artigos contendo apenas  alguns \"pensamentos esquecíveis\".",
+            "imageAlt": "Um desenho de um papel e uma pena de escrever simbolizando um 'artigo'."
+        },
+        "projects": {
+            "title": "projetos",
+            "text": "Provavelmente eu tenho mais projetos próprios do que essa seção vai te mostrar, mas antes de postar qualquer projeto eu prefiro amadurecer não só a ideia do projeto como também o código base (além de criar um boa documentação inicial para o projeto).",
+            "imageAlt": "Um desenho de um livro."
+        },
+        "contact": {
+            "title": "contato",
+            "text": "Nesta seção estão todas as minhas redes sociais, desde as mais profissionais até as mais pessoais, além disso voce também pode usar o formulário da seção caso você queira me enviar alguma mensagem.",
+            "imageAlt": "Um notebook e um balão de fala simbolizando 'contato'."
+        }
+    }
+}

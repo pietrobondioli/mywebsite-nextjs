@@ -1,10 +1,9 @@
 import React from "react"
 import Link from "next/link"
-
-import useTranslation from "@/hooks/useTranslation"
+import { useTranslation } from "next-i18next"
 
 import styles from "./SectionContent.module.scss"
-import sectionContent from "./content"
+import Image from "next/image"
 
 type SectionContentProps = {
     children?: React.ReactNode
@@ -18,20 +17,26 @@ type SectionContentProps = {
 
 export const SectionContent: React.FC<SectionContentProps> = (props) => {
     const { children, text, image, imageAlt, readMore, readMoreLink, readMoreTargetBlank } = props
-    const translation = useTranslation(sectionContent)
+    const { t } = useTranslation(`common`)
 
     return (
         <div className={styles.section__content}>
-            <img className={styles.content__image} src={image} alt={imageAlt} />
+            <Image
+                width={128}
+                height={128}
+                className={styles.content__image}
+                src={image || `/icons/error/warning-128px.png`}
+                alt={imageAlt || `No content.`}
+            />
             <div>
                 <div className={styles.content__text}>{children || text}</div>
                 {readMore &&
                     (!readMoreTargetBlank ? (
                         <Link
-                            href={readMoreLink || ""}
+                            href={readMoreLink || ``}
                             className={`button ${styles.content__button}`}
                         >
-                            {translation("readMore")}
+                            {t(`readMore`)}
                         </Link>
                     ) : (
                         <a
@@ -40,7 +45,7 @@ export const SectionContent: React.FC<SectionContentProps> = (props) => {
                             target="_blank"
                             rel="noreferrer"
                         >
-                            {translation("readMore")}
+                            {t(`readMore`)}
                         </a>
                     ))}
             </div>

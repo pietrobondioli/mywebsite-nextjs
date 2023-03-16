@@ -1,16 +1,14 @@
 /**
  * @type {import('next').NextConfig}
  */
+const { i18n } = require("./next-i18next.config")
 
 const nextConfig = {
     esModule: true,
     env: {
         DOMAIN_NAME: "www.pietrobondioli.com.br",
     },
-    i18n: {
-        locales: ["en-US", "pt-BR"],
-        defaultLocale: "en-US",
-    },
+    i18n,
 }
 
 module.exports = nextConfig

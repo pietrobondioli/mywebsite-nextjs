@@ -1,63 +1,62 @@
-// React/Next Components
-import React, { useContext, useState } from "react"
+import React, { useCallback, useEffect, useMemo, useState } from "react"
 import { Link as ScrollLink } from "react-scroll"
+import { useTranslation } from "next-i18next"
 
-import { LocaleContext } from "@/contexts/LocaleContext"
 import { TerminalUnderslash } from "@/components/TerminalUnderslash"
 import { Section } from "@/components/Section"
-import useTranslation from "@/hooks/useTranslation"
 
 import styles from "./Header.module.scss"
-import headerContent from "./content"
 
 export const Header: React.FC = () => {
-    const translate = useTranslation(headerContent)
-    const { locale } = useContext(LocaleContext)
-    const [terminalCommand, setTerminalCommand] = useState("")
+    const { t } = useTranslation()
+    const [terminalCommand, setTerminalCommand] = useState(``)
     const [isTyping, setIsTyping] = useState(false)
-    const timeouts: NodeJS.Timeout[] = []
+    const timeouts: NodeJS.Timeout[] = useMemo(() => [], [])
 
-    const clearTimeouts = () => {
+    const clearTimeouts = useCallback(() => {
         while (timeouts.length) {
             clearTimeout(timeouts.pop())
         }
-    }
+    }, [timeouts])
 
-    const typingAnimation = (phrase: string) => {
-        const letters = phrase.split("")
-        setIsTyping(true)
+    const typingAnimation = useCallback(
+        (phrase: string) => {
+            const letters = phrase.split(``)
+            setIsTyping(true)
 
-        letters.forEach((letter, index) => {
-            timeouts.push(
-                setTimeout(() => {
-                    setTerminalCommand((lastState) => {
-                        return lastState + letter
-                    })
-                    if (letters.length === index + 1) setIsTyping(false)
-                }, 150 * index)
-            )
-        })
-    }
+            letters.forEach((letter, index) => {
+                timeouts.push(
+                    setTimeout(() => {
+                        setTerminalCommand((lastState) => {
+                            return lastState + letter
+                        })
+                        if (letters.length === index + 1) setIsTyping(false)
+                    }, 150 * index)
+                )
+            })
+        },
+        [timeouts]
+    )
 
-    const callAnimation = () => {
+    const callAnimation = useCallback(() => {
         clearTimeouts()
         setIsTyping(false)
-        setTerminalCommand("")
-        const phrase = translate("welcomeWebsite")
+        setTerminalCommand(``)
+        const phrase = t(`header.welcomeWebsite`)
         timeouts.push(
             setTimeout(() => {
                 typingAnimation(phrase)
             }, 3000)
         )
-    }
+    }, [clearTimeouts, t, timeouts, typingAnimation])
 
-    React.useEffect(() => {
+    useEffect(() => {
         callAnimation()
 
         return () => {
             clearTimeouts()
         }
-    }, [locale])
+    }, [callAnimation, clearTimeouts])
 
     return (
         <Section>
@@ -65,8 +64,8 @@ export const Header: React.FC = () => {
                 <div className={styles.content__title}>Pietro Bondioli</div>
                 <div className={styles.content__terminal}>
                     <div>
-                        [pietro@pietro-pc{" "}
-                        <span className={styles.terminal__wd}>{translate("myWebsite")}</span>
+                        [pietro@pietro-pc{` `}
+                        <span className={styles.terminal__wd}>{t(`header.myWebsite`)}</span>
                         ]$
                     </div>
                     <div className={styles.terminal__command}>

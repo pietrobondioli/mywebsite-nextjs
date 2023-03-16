@@ -1,0 +1,21 @@
+{
+    "navbar": [
+        {
+            "name": "sobre",
+            "link": "/about"
+        },
+        {
+            "name": "artigos",
+            "link": "/articles"
+        },
+        {
+            "name": "projetos",
+            "link": "/projects"
+        },
+        {
+            "name": "contato",
+            "link": "/contact"
+        }
+    ],
+    "readMore": "leia mais"
+}

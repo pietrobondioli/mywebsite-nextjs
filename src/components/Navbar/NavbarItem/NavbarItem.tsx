@@ -2,11 +2,12 @@ import React from "react"
 import Link from "next/link"
 
 import styles from "./NavbarItem.module.scss"
+import { ParsedUrlQueryInput } from "querystring"
 
 export type NavbarItemProps = {
     itemName?: string
     itemLink: string
-    itemQuery?: {}
+    itemQuery?: string | ParsedUrlQueryInput
     itemLocale?: string
     itemScroll?: boolean
 }
@@ -20,7 +21,7 @@ export const NavbarItem: React.FC<NavbarItemProps> = (props) => {
                 {
                     pathname: itemLink,
                     query: itemQuery,
-                } || ""
+                } || ``
             }
             locale={itemLocale}
             scroll={itemScroll}

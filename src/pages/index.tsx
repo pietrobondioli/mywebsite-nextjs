@@ -1,30 +1,30 @@
 import React from "react"
 import Head from "next/head"
-import { NextPage } from "next"
+import { GetStaticProps, NextPage } from "next"
+import { useTranslation } from "next-i18next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
-import useTranslation from "@/hooks/useTranslation"
 import { Header } from "@/containers/HomePage/Header"
 import { Presentation } from "@/containers/HomePage/Presentation"
 
-const indexContent = {
-    "pt-BR": {
-        pageDescription:
-            "Eu criei este website para ser um local onde eu posso melhor apresentar meu trabalho e habilidades, e também compartilhar meus conhecimentos, pensamentos e ideias.",
-    },
-    "en-US": {
-        pageDescription:
-            "I created this website with the intention of being a place where I can better present my work and skills, ando also share my knowledge, thoughts and ideas.",
-    },
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    const translations = await serverSideTranslations(locale || ``, [`common`, `home`])
+
+    return {
+        props: {
+            ...translations,
+        },
+    }
 }
 
 const HomePage: NextPage = () => {
-    const translate = useTranslation(indexContent)
+    const { t } = useTranslation()
 
     return (
         <>
             <Head>
                 <title>Pietro Bondioli</title>
-                <meta name="description" content={translate("pageDescription")} />
+                <meta name="description" content={t(`pageDescription`)} />
             </Head>
             <main>
                 <Header />

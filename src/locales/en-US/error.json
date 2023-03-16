@@ -1,0 +1,7 @@
+{
+    "title": "Error",
+    "error_alert": {
+        "server_error": "An error occurred on server.",
+        "client_error": "An error occurred on client."
+    }
+}

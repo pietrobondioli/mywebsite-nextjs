@@ -1,0 +1,43 @@
+{
+    "pageTitle": "Contato - Pietro Bondioli",
+    "pageDescription": "E-mail: pietrobondiolideveloper@gmail.com \n Github: www.github.com/bondiolipietro \n Linkedin: www.linkedin.com/in/pietrobondioli",
+    "form": {
+        "title": "contact me",
+        "errors": {
+            "name": "nome",
+            "name_error_required": "nome é obrigatório",
+            "name_error_length": "nome deve ter entre 1-32 caracteres",
+            "lastName": "sobrenome",
+            "lastName_error_required": "sobrenome é obrigatório",
+            "lastName_error_length": "sobrenome deve ter entre 1-32 caracteres",
+            "email": "e-mail",
+            "email_error_required": "email é obrigatório",
+            "email_error_pattern": "email inválido",
+            "subject": "assunto",
+            "subject_error_required": "assunto é obrigatório",
+            "subject_error_length": "assunto deve ter entre 1-96 caracteres",
+            "message": "mensagem",
+            "message_error_required": "mensagem é obrigatório",
+            "message_error_length": "mensagem deve ter entre 1-4096 caracteres"
+        },
+        "button": "enviar",
+        "alerts": {
+            "success": "Mensagem enviada com sucesso.",
+            "error": "Não foi possível enviar a mensagem."
+        }
+    },
+    "info": {
+        "title": "social",
+        "cards": {
+            "linkedin": {
+                "message": "click to open linkedin"
+            },
+            "github": {
+                "message": "click to open github"
+            },
+            "gmail": {
+                "message": "click to copy email"
+            }
+        }
+    }
+}

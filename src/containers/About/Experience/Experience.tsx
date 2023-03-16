@@ -1,46 +1,33 @@
 import React from "react"
+import { useTranslation } from "next-i18next"
 
 import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
 import { SectionContent } from "@/components/Section/SectionContent"
-import useTranslation from "@/hooks/useTranslation"
 
 import styles from "../AboutContent.module.scss"
 
-import experienceContent from "./content"
-
-const sectionContent = {
-    "pt-BR": {
-        title: "experiência",
-    },
-    "en-US": {
-        title: "experience",
-    },
-}
-
 export const Experience: React.FC = () => {
-    let translate = useTranslation(sectionContent)
+    const { t } = useTranslation(`about`)
+
+    const experiences = t(`experience.items`, { returnObjects: true })
 
     return (
-        <Section key={translate("title")}>
-            <SectionTitle title={translate("title")} />
-            {experienceContent.map((content) => {
-                translate = useTranslation(content)
-
+        <Section key={t(`experience.title`)}>
+            <SectionTitle title={t(`experience.title`)} />
+            {experiences.map((xp) => {
                 return (
                     <SectionContent
-                        key={translate("name")}
-                        image={content.image}
-                        imageAlt={translate("imageAlt")}
-                        readMore={content.readMore}
+                        key={xp.name}
+                        image={xp.image}
+                        imageAlt={xp.imageAlt}
+                        readMore={xp.readMore}
                     >
                         <div className={`${styles.about__text}`}>
-                            <div className={`${styles.title}`}>{translate("name")}</div>
-                            <div className={`${styles.subtitle}`}>{translate("position")}</div>
-                            <div className={`${styles.description}`}>
-                                {translate("description")}
-                            </div>
-                            <div className={`${styles.period}`}>{translate("period")}</div>
+                            <div className={`${styles.title}`}>{xp.name}</div>
+                            <div className={`${styles.subtitle}`}>{xp.position}</div>
+                            <div className={`${styles.description}`}>{xp.description}</div>
+                            <div className={`${styles.period}`}>{xp.period}</div>
                         </div>
                     </SectionContent>
                 )

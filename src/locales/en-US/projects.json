@@ -1,0 +1,16 @@
+{
+    "pageTitle": "Projects - Pietro Bondioli",
+    "pageDescription": "Here you can take a look at some projects I created or participated.",
+    "projects_infos": {
+        "peepo_discord_bot": {
+            "name": "Peepo Discord Bot",
+            "description": "Peepo is a multi functionality discord bot built to fill in several features that i missed in another discord bots. Until now it has only a few commands that i'm using to play table RPG with some friends.",
+            "imageAlt": "A notebook with a speech bubble symbolizing a Website."
+        },
+        "my_website": {
+            "name": "My Website",
+            "description": "This was not the first site that I programmed but it was the first that I actually \"completed\". The site was built in Javascript with the Next.js framework, styling was done using Scss, and I chose to use Docker to virtualize the project due to the various changes of operating system I was making while developing.",
+            "imageAlt": "A notebook with a speech bubble symbolizing a Website."
+        }
+    }
+}

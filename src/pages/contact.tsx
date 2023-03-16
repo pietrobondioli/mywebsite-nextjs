@@ -1,39 +1,37 @@
 import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { NextPage } from "next"
+import { GetStaticProps, NextPage } from "next"
+import { useTranslation } from "next-i18next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
-import useTranslation from "@/hooks/useTranslation"
 import { ContactForm } from "@/containers/Contact/ContactForm"
 import { ContactInfo } from "@/containers/Contact/ContactInfo"
 
-const contactContent = {
-    "pt-BR": {
-        pageTitle: "Contato - Pietro Bondioli",
-        pageDescription:
-            "E-mail: pietrobondiolideveloper@gmail.com \n Github: www.github.com/bondiolipietro \n Linkedin: www.linkedin.com/in/pietrobondioli",
-    },
-    "en-US": {
-        pageTitle: "Contact - Pietro Bondioli",
-        pageDescription:
-            "E-mail: pietrobondiolideveloper@gmail.com \n Github: www.github.com/bondiolipietro \n Linkedin: www.linkedin.com/in/pietrobondioli",
-    },
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    const translations = await serverSideTranslations(locale || ``, [`common`, `contact`])
+
+    return {
+        props: {
+            ...translations,
+        },
+    }
 }
 
 const Contact: NextPage = () => {
     const router = useRouter()
-    const translate = useTranslation(contactContent)
+    const { t } = useTranslation()
 
     return (
         <>
             <Head>
-                <title>{translate("pageTitle")}</title>
-                <meta name="description" content={translate("pageDescription")} />
-                <meta property="og:title" content={translate("pageTitle")} />
-                <meta property="og:description" content={translate("pageDescription")} />
+                <title>{t(`pageTitle`)}</title>
+                <meta name="description" content={t(`pageDescription`)} />
+                <meta property="og:title" content={t(`pageTitle`)} />
+                <meta property="og:description" content={t(`pageDescription`)} />
                 <meta property="og:url" content={`pietrobondioli.com.br${router.asPath}`} />
-                <meta name="twitter:title" content={translate("pageTitle")} />
-                <meta name="twitter:description" content={translate("pageDescription")} />
+                <meta name="twitter:title" content={t(`pageTitle`)} />
+                <meta name="twitter:description" content={t(`pageDescription`)} />
             </Head>
             <main>
                 <ContactForm />

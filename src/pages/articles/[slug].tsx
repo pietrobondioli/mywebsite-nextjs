@@ -3,8 +3,8 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 
-import getArticle from "@/lib/getArticle"
-import getArticlesSlugs from "@/lib/getArticlesSlugs"
+import getArticle from "@/utils/getArticle"
+import getArticlesSlugs from "@/utils/getArticlesSlugs"
 import { Section } from "@/components/Section"
 import { Article as ArticleContainer } from "@/containers/Article"
 

@@ -1,53 +1,75 @@
 import React from "react"
 import { CopyToClipboard } from "react-copy-to-clipboard"
+import { useTranslation } from "next-i18next"
 
-import useTranslation from "@/hooks/useTranslation"
 import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
 
 import styles from "./ContactInfo.module.scss"
 import { ContactCard } from "./ContactCard"
-import contactInfoContent from "./content"
 
-const sectionContent = {
-    "pt-BR": {
-        title: "social",
+const INFO_CARDS = {
+    linkedin: {
+        type: `link`,
+        image: `/icons/contact/linkedin-128px.png`,
+        imageAlt: `Linkedin logo.`,
+        cardColor: `#80d8ff`,
+        name: `linkedin/pietrobondioli`,
+        content: `https://www.linkedin.com/in/pietrobondioli`,
     },
-    "en-US": {
-        title: "social",
+    github: {
+        type: `link`,
+        image: `/icons/contact/github-black-128px.png`,
+        imageAlt: `Github logo.`,
+        cardColor: `#7c7c7c`,
+        name: `github/bondiolipietro`,
+        content: `https://github.com/bondiolipietro`,
+    },
+    gmail: {
+        type: `copy`,
+        image: `/icons/contact/gmail-128px.png`,
+        imageAlt: `Gmail logo.`,
+        cardColor: `#ff8a80`,
+        name: `gmail/pietrobondioli`,
+        content: `pietrobondiolideveloper@gmail.com`,
     },
 }
 
 export const ContactInfo: React.FC = () => {
-    let translate = useTranslation(sectionContent)
+    const { t } = useTranslation(`contact`)
 
     return (
         <Section>
-            <SectionTitle title={translate("title")} />
+            <SectionTitle title={t(`info.title`)} />
             <div className={styles.contactInfo}>
-                {contactInfoContent.map((card) => {
-                    translate = useTranslation(card)
+                {Object.keys(INFO_CARDS).map((key) => {
+                    const card = key as keyof typeof INFO_CARDS
+                    const content = INFO_CARDS[card]
 
                     return (
                         <ContactCard
-                            key={card.id}
-                            img={card.image}
-                            alt={card.imageAlt}
-                            cardColor={card.cardColor}
+                            key={card}
+                            img={content.image}
+                            alt={content.imageAlt}
+                            cardColor={content.cardColor}
                         >
-                            {card.type === "link" && (
-                                <a href={card.content} target="blank" className={styles.card__link}>
-                                    {card.name}
+                            {content.type === `link` && (
+                                <a
+                                    href={content.content}
+                                    target="blank"
+                                    className={styles.card__link}
+                                >
+                                    {content.name}
                                     <br />
-                                    <div>{translate("message")}</div>
+                                    <div>{t(`info.cards.${card}.message`)}</div>
                                 </a>
                             )}
-                            {card.type === "copy" && (
-                                <CopyToClipboard text={card.content}>
+                            {content.type === `copy` && (
+                                <CopyToClipboard text={content.content}>
                                     <button type="button" className={styles.card__button}>
-                                        {card.content}
+                                        {content.content}
                                         <br />
-                                        <div>{translate("message")}</div>
+                                        <div>{t(`info.cards.${card}.message`)}</div>
                                     </button>
                                 </CopyToClipboard>
                             )}

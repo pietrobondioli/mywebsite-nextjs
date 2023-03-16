@@ -1,49 +1,53 @@
 // React/Next Components
-import React, { useContext, useRef } from "react"
+import React, { useCallback, useEffect, useRef } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
-
-import useTranslation from "@/hooks/useTranslation"
-import { NavbarContext } from "@/contexts/NavbarContext"
+import { useTranslation } from "next-i18next"
 
 import styles from "./Navbar.module.scss"
 import { ToggleThemeButton } from "./ToggleThemeButton/ToggleThemeButton"
 import { ChangeLocaleButton } from "./ChangeLocaleButton/ChangeLocaleButton"
 import { NavbarItem } from "./NavbarItem/NavbarItem"
-import navbarContent from "./content"
+import { useNavBarActions, useNavBarState } from "@/store/navbar-store"
 
 export const Navbar: React.FC = () => {
+    const { t } = useTranslation(`common`)
+
+    const navbarItems = t(`navbar`, { returnObjects: true })
+
     const router = useRouter()
-    let translate
-    const { isNavbarOpen, setIsNavbarOpen } = useContext(NavbarContext)
+    const { isOpen } = useNavBarState()
+    const { TOGGLE_NAVBAR, RESET_NAVBAR } = useNavBarActions()
     const refMenu = useRef<HTMLDivElement>(null)
 
-    const resetMenuState = () => {
-        setIsNavbarOpen(false)
-        if (refMenu.current) enableBodyScroll(refMenu.current)
-    }
+    const resetMenuState = useCallback(() => {
+        RESET_NAVBAR()
+        if (refMenu.current) {
+            enableBodyScroll(refMenu.current)
+        }
+    }, [RESET_NAVBAR])
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (refMenu.current === null) return
 
-        if (!isNavbarOpen) {
+        if (!isOpen) {
             enableBodyScroll(refMenu.current)
         } else {
             disableBodyScroll(refMenu.current)
         }
-    }, [isNavbarOpen])
+    }, [isOpen])
 
-    React.useEffect(() => {
-        window.addEventListener("resize", resetMenuState)
-        router.events.on("routeChangeStart", resetMenuState)
+    useEffect(() => {
+        window.addEventListener(`resize`, resetMenuState)
+        router.events.on(`routeChangeStart`, resetMenuState)
         clearAllBodyScrollLocks()
 
         return () => {
-            window.removeEventListener("resize", resetMenuState)
-            router.events.off("routeChangeStart", resetMenuState)
+            window.removeEventListener(`resize`, resetMenuState)
+            router.events.off(`routeChangeStart`, resetMenuState)
         }
-    }, [])
+    }, [resetMenuState, router.events])
 
     return (
         <nav className={styles.navbar}>
@@ -53,29 +57,21 @@ export const Navbar: React.FC = () => {
             <button
                 type="button"
                 onClick={() => {
-                    setIsNavbarOpen(!isNavbarOpen)
+                    TOGGLE_NAVBAR()
                 }}
                 className={`${styles.navbar__button}
-        ${isNavbarOpen ? `${styles.navbar__button_active}` : `${styles.navbar__button_disabled}`}`}
+        ${isOpen ? `${styles.navbar__button_active}` : `${styles.navbar__button_disabled}`}`}
             />
 
             <div
                 ref={refMenu}
                 className={`${styles.navbar__menu}
-            ${isNavbarOpen ? `${styles.navbar__menu_active}` : `${styles.navbar__menu_disabled}`}`}
+            ${isOpen ? `${styles.navbar__menu_active}` : `${styles.navbar__menu_disabled}`}`}
             >
                 <ToggleThemeButton />
                 <ChangeLocaleButton />
-                {navbarContent.map((item) => {
-                    translate = useTranslation(item)
-
-                    return (
-                        <NavbarItem
-                            key={translate("itemName")}
-                            itemName={translate("itemName")}
-                            itemLink={item.link}
-                        />
-                    )
+                {navbarItems.map((item) => {
+                    return <NavbarItem key={item.name} itemName={item.name} itemLink={item.link} />
                 })}
             </div>
         </nav>

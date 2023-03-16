@@ -1,9 +1,7 @@
 import React from "react"
-
-import useTranslation from "@/hooks/useTranslation"
+import { useTranslation } from "next-i18next"
 
 import styles from "./FormAlert.module.scss"
-import formAlertContent from "./content"
 
 type FormAlertProps = {
     show: boolean
@@ -11,8 +9,9 @@ type FormAlertProps = {
 }
 
 export const FormAlert: React.FC<FormAlertProps> = (props) => {
-    const translate = useTranslation(formAlertContent)
     const { show, status } = props
+
+    const { t } = useTranslation(`contact`)
 
     return (
         <div
@@ -20,7 +19,7 @@ export const FormAlert: React.FC<FormAlertProps> = (props) => {
                 status ? styles.formAlert_success : styles.formAlert_error
             }`}
         >
-            {status ? translate("success") : translate("error")}
+            {status ? t(`form.alerts.success`) : t(`form.alerts.error`)}
         </div>
     )
 }

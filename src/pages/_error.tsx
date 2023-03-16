@@ -1,44 +1,41 @@
 import React from "react"
 import Head from "next/head"
-import { NextPage } from "next"
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
+import { useTranslation } from "next-i18next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 import { ErrorAlert } from "@/containers/ErrorAlert"
-import useTranslation from "@/hooks/useTranslation"
 
-const errorContent = {
-    "pt-BR": {
-        pageTitle: "Erro",
-    },
-    "en-US": {
-        pageTitle: "Error",
-    },
+export const getServerSideProps: GetServerSideProps = async ({ res, locale }) => {
+    const translations = await serverSideTranslations(locale || ``, [`common`, `error`])
+
+    const statusCode = res ? res.statusCode : 404
+
+    return {
+        props: {
+            ...translations,
+            statusCode,
+        },
+    }
 }
 
-type ErrorProps = {
-    statusCode: number
-}
+type ErrorProps = InferGetServerSidePropsType<typeof getServerSideProps>
 
 const Error: NextPage<ErrorProps> = (props) => {
-    const translate = useTranslation(errorContent)
+    const { t } = useTranslation()
     const { statusCode } = props
 
     return (
         <>
             <Head>
                 <title>
-                    {translate("pageTitle")} {statusCode}
+                    {t(`pageTitle`)} {statusCode}
                 </title>
                 <meta name="robots" content="noindex, nofollow" />
             </Head>
             <ErrorAlert statusCode={statusCode} />
         </>
     )
-}
-
-Error.getInitialProps = ({ res, err }) => {
-    const statusCode = res ? res.statusCode : err ? err.statusCode : 404
-
-    return { statusCode } as ErrorProps
 }
 
 export default Error
