@@ -1,33 +1,31 @@
 @import "@/styles/utils/config";
-@import "@/styles/utils/mixins";
-@import "@/styles/utils/variables";
 
 .section {
     display: grid;
     justify-content: stretch;
     justify-items: center;
     gap: 16px;
-    padding: map-get($heights, navbar) 32px;
+    padding: 48px 32px;
     min-height: 100vh;
     @include media-md {
-        padding: map-get($heights, navbar) 64px;
+        padding: 48px 64px;
         gap: 32px;
     }
     @include media-lg {
-        padding: map-get($heights, navbar) 96px;
+        padding: 48px 96px;
         gap: 48px;
         &.flex-h {
             min-height: 70vh;
         }
     }
     @include media-xl {
-        padding: map-get($heights, navbar) 160px;
+        padding: 48px 160px;
         &.flex-h {
             min-height: 60vh;
         }
     }
     @include media-xxl {
-        padding: map-get($heights, navbar) 224px;
+        padding: 48px 224px;
         &.flex-h {
             min-height: 40vh;
         }

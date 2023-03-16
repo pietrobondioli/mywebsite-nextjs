@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next"
 
 import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
+import { Button } from "@/components/Button"
 
 import styles from "./ContactForm.module.scss"
 import { FormAlert } from "./FormAlert"
@@ -146,13 +147,7 @@ export const ContactForm: React.FC = () => {
                     )}
                 </div>
                 <div className={`${styles.form__group} ${styles.form__button}`}>
-                    <input
-                        className={`button ${styles.input}`}
-                        name="submit"
-                        id="submit"
-                        type="submit"
-                        value={t(`form.button`)}
-                    />
+                    <Button name="submit" id="submit" type="submit" value={t(`form.button`)} />
                 </div>
             </form>
             {submitStatus ? (

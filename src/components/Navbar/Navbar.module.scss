@@ -1,6 +1,4 @@
-@import "@/styles/utils/variables";
 @import "@/styles/utils/config";
-@import "@/styles/utils/mixins";
 
 $navbar-images: (
     "logo": url("/icons/navbar/logo.png"),
@@ -29,8 +27,10 @@ $navbar-images: (
 .navbar__logo {
     cursor: pointer;
     width: 48px;
-    height: map-get($heights, navbar);
-    @extend %backgroundConfigs;
+    height: 48px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
     background-image: map-get($navbar-images, logo);
     background-color: transparent;
     background-size: 32px 32px;
@@ -48,7 +48,9 @@ $navbar-images: (
     height: 48px;
     padding: 0;
     border: none;
-    @extend %backgroundConfigs;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
     background-size: 22px 22px;
     background-color: transparent;
     z-index: 999;

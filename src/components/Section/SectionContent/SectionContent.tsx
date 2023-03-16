@@ -1,9 +1,10 @@
 import React from "react"
-import Link from "next/link"
 import { useTranslation } from "next-i18next"
+import Image from "next/image"
+
+import { LinkButton } from "@/components/LinkButton"
 
 import styles from "./SectionContent.module.scss"
-import Image from "next/image"
 
 type SectionContentProps = {
     children?: React.ReactNode
@@ -32,21 +33,14 @@ export const SectionContent: React.FC<SectionContentProps> = (props) => {
                 <div className={styles.content__text}>{children || text}</div>
                 {readMore &&
                     (!readMoreTargetBlank ? (
-                        <Link
-                            href={readMoreLink || ``}
-                            className={`button ${styles.content__button}`}
-                        >
-                            {t(`readMore`)}
-                        </Link>
+                        <LinkButton href={readMoreLink || ``} label={t(`readMore`)} />
                     ) : (
-                        <a
+                        <LinkButton
                             href={readMoreLink}
-                            className={`button ${styles.content__button}`}
                             target="_blank"
                             rel="noreferrer"
-                        >
-                            {t(`readMore`)}
-                        </a>
+                            label={t(`readMore`)}
+                        />
                     ))}
             </div>
         </div>

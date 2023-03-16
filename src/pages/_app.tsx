@@ -6,7 +6,7 @@ import { appWithTranslation } from "next-i18next"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 
-import "@/styles/main.scss"
+import "@/styles/globals.scss"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
