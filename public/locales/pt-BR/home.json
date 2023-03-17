@@ -11,12 +11,12 @@
         },
         "about": {
             "title": "sobre",
-            "text": "Nesta seção voce vai encontrar informação sobre minhas educação, experiências e conhecimento específicos de tecnologia (como linguagens de programação, frameworks, ferramentas, etc).",
+            "text": "Nesta seção voce vai encontrar informação sobre minha educação, experiências e conhecimento específicos de tecnologia (como linguagens de programação, frameworks, ferramentas, etc).",
             "imageAlt": "Um desenho de um cérebro."
         },
         "articles": {
             "title": "artigos",
-            "text": "Qualquer coisa que eu ache que vale a pena ser compartilhado vai ser encontrado aqui, seja um artigo, um tutorial ou qualquer outra coisa que eu ache que as pessoas podem se interessar.",
+            "text": "Geralmente escrevo artigos para solidificar o conhecimento ganho durante a resolução de um problema específico. Aqui você pode encontrar alguns artigos que escrevi sobre tecnologias que estou estudando ou que já estudei.",
             "imageAlt": "Um desenho de um papel e uma pena de escrever simbolizando um 'artigo'."
         },
         "projects": {

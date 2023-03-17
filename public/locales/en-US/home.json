@@ -17,7 +17,7 @@
         },
         "articles": {
             "title": "articles",
-            "text": "Anything I think is worth sharing will be found here, whether it's an article, a tutorial, or anything else I think people might be interested in.",
+            "text": "I usually write articles to solidify the knowledge gained while solving a specific problem. Here you can find some articles I've written about technologies I'm currently studying or have already studied.",
             "imageAlt": "A paper and a writing pen drawing symbolizing an article."
         },
         "projects": {

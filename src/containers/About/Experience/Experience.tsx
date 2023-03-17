@@ -22,7 +22,7 @@ export const Experience: React.FC = () => {
                         readMore={xp.readMore}
                     >
                         <div className="flex items-center flex-col text-lg gap-2 text-center">
-                            <b>{xp.name}</b>
+                            <p>{xp.name}</p>
                             <b className="text-lg">{xp.position}</b>
                             <p className="text-primary">{xp.stack}</p>
                             <p>{xp.description}</p>

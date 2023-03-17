@@ -22,7 +22,7 @@ export const Education: React.FC = () => {
                         readMore={ed.readMore}
                     >
                         <div className="flex items-center flex-col text-lg gap-2 text-center">
-                            <b>{ed.name}</b>
+                            <p>{ed.name}</p>
                             <b>{ed.course}</b>
                             <p>{ed.description}</p>
                             <b className="text-base">{ed.period}</b>

@@ -13,7 +13,9 @@ export const Section: React.FC<SectionProps> = (props) => {
         : `lg:min-h-[70vh] xl:min-h-[60vh] 2xl:min-h-[50vh]`
 
     return (
-        <section className={`${minHeightClass} grid gap-4 px-8 py-12 lg:px-32 xl:px-48 2xl:px-64`}>
+        <section
+            className={`${minHeightClass} grid gap-4 px-6 md:px-8 py-12 lg:px-32 xl:px-48 2xl:px-64`}
+        >
             {children}
         </section>
     )

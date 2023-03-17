@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 /**
  * Hook to animate a string of text like a typewriter (terminal)

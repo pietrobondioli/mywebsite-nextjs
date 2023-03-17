@@ -1,4 +1,3 @@
-// React/Next Components
 import React, { useCallback, useEffect, useRef } from "react"
 import { useRouter } from "next/router"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"

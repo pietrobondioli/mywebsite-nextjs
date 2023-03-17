@@ -28,7 +28,7 @@ export const SectionContent: React.FC<SectionContentProps> = (props) => {
                 src={image || `/icons/error/warning-128px.png`}
                 alt={imageAlt || `No content.`}
             />
-            <div className="flex items-center flex-col gap-6 px-4 md:px-6 lg:px-12 grow">
+            <div className="flex items-center flex-col gap-6 md:px-6 lg:px-12 grow">
                 {children || text}
                 {readMore &&
                     (readMoreTargetBlank ? (
