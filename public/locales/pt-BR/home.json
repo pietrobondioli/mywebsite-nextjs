@@ -7,7 +7,7 @@
     "presentation": {
         "introduction": {
             "title": "",
-            "text": "Meu nome é Pietro Bondioli, tenho 19 anos, e curso Análise e Desenvolvimento de Sistemas na Mackenzie. Sempre gostei de tecnologia em geral, mas a área que mais me deixa animado é a de desenvolvimento web ligado a qualquer assunto financeiro, como e-commerces, mercado financeiro  e criptomoedas. Esse site foi feito por mim com a intenção de ser um lugar onde eu posso apresentar melhor meu trabalho e minhas habilidades, além de compartilhar meus conhecimentos, pensamentos e idéias (através de artigos e projetos).","imageAlt": "Uma foto de Pietro Bondioli."
+            "text": "Olá, meu nome é Pietro e sou um dev fascinado por tecnologia. Nos ultimos anos tenho me dedicado a estudar e desenvolver sistemas, estando presente e aprendendo sobre cada etapa do desenvolvimento, desde a concepção de soluções, passando por decisões técnicas e arquiteturais, desenvolvimento, testes, deploy e manutenção.","imageAlt": "Uma foto de Pietro Bondioli."
         },
         "about": {
             "title": "sobre",
@@ -16,18 +16,13 @@
         },
         "articles": {
             "title": "artigos",
-            "text": "Qualquer coisa que eu ache que vale a pena ser compartilhado vai ser encontrado aqui, desde artigos compartilhando conhecimento até artigos contendo apenas  alguns \"pensamentos esquecíveis\".",
+            "text": "Qualquer coisa que eu ache que vale a pena ser compartilhado vai ser encontrado aqui, seja um artigo, um tutorial ou qualquer outra coisa que eu ache que as pessoas podem se interessar.",
             "imageAlt": "Um desenho de um papel e uma pena de escrever simbolizando um 'artigo'."
         },
         "projects": {
             "title": "projetos",
-            "text": "Provavelmente eu tenho mais projetos próprios do que essa seção vai te mostrar, mas antes de postar qualquer projeto eu prefiro amadurecer não só a ideia do projeto como também o código base (além de criar um boa documentação inicial para o projeto).",
+            "text": "Aqui você poderá encontrar qualquer projeto que eu ache que as pessoas podem, porventura, se interessar. Se sinta livre para fazer sugestões ou perguntas.",
             "imageAlt": "Um desenho de um livro."
-        },
-        "contact": {
-            "title": "contato",
-            "text": "Nesta seção estão todas as minhas redes sociais, desde as mais profissionais até as mais pessoais, além disso voce também pode usar o formulário da seção caso você queira me enviar alguma mensagem.",
-            "imageAlt": "Um notebook e um balão de fala simbolizando 'contato'."
         }
     }
 }

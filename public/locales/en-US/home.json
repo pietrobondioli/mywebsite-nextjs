@@ -7,7 +7,7 @@
     "presentation": {
         "introduction": {
             "title": "",
-            "text": "My name is Pietro Bondioli, I'm 19 years old, and I'm a student of Software Analysis and Development at Mackenzie. I've always liked technology, but the area that most excites me is web development related to any financial subject, such as e-commerces, financial market and cryptocurrencies. This website was created by me with the intention of being a place where I can better present my work and skills, ando also share my knowledge, thoughts and ideas (through articles and projects).",
+            "text": "Hello, my name is Pietro and I'm a dev fascinated by technology. In the last few years I have been studying and developing systems, being present and learning about each stage of development, from solution conception, through technical and architectural decisions, development, testing, deployment and maintenance.",
             "imageAlt": "Pietro Bondioli's picture."
         },
         "about": {
@@ -17,18 +17,13 @@
         },
         "articles": {
             "title": "articles",
-            "text": "Anything that I think is worth sharing will be found here, from articles sharing knowledge to articles containing just a few \"forgettable thoughts\". ",
+            "text": "Anything I think is worth sharing will be found here, whether it's an article, a tutorial, or anything else I think people might be interested in.",
             "imageAlt": "A paper and a writing pen drawing symbolizing an article."
         },
         "projects": {
             "title": "projects",
-            "text": "I probably have more projects of my own than this section will show you, but before posting any project I prefer to mature not only the project idea but also the base code (in addition to creating a good initial documentation for the project). ",
+            "text": "Here you can find any project that I think people might be interested in. Feel free to make suggestions or questions.",
             "imageAlt": "Book drawing."
-        },
-        "contact": {
-            "title": "contact",
-            "text": "In this section are all my social networks, from the most professional to the most personal, in addition you can also use the form in the section if you want to send me a message. ",
-            "imageAlt": "A notebook with a speech bubble symbolizing 'contact'."
         }
     }
 }

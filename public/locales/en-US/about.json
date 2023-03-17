@@ -24,16 +24,28 @@
             {
                 "name": "Take Blip",
                 "position": "Software Engineer",
-                "description": "C# | .NET Core | Node.js | JS | Azure | Docker | Kubernetes",
-                "period": "May 2021 ~ PRESENT",
+                "stack": "C# | .NET Core | Typescript | ReactJS | Azure | Docker | Kubernetes",
+                "description": "I worked on the development of several REST APIs for integration with systems of clients like Nestlé, Vale, 99 Food, Petrobrás, among others. These APIs were intended to serve as a base for data consumption by Chatbots, and were developed mainly using C# and .NET Core, sometimes also using Node.JS and Express.JS. Also, I had to deal with the whole ecosystem that surrounded these APIs: Azure Devops, Docker, Docker Compose, Kubernetes, Seq Log.",
+                "period": "May 2021 ~ PRESENT | Full-time",
                 "image": "/icons/about/take-blip-logo.png",
                 "imageAlt": "Take Blip company logo.",
                 "readMore": false
             },
             {
+                "name": "Essencial Gestão Pública",
+                "position": "Full Stack Developer",
+                "stack": "Typescript | ReactJS | Java | Spring Boot | MySql | Docker",
+                "description": "I participated in the development of a Public Management System, being mainly responsible for refactoring a legacy front-end. The refactoring was done using Micro Frontends pattern, along with React.JS and its entire ecosystem. In addition, I brought to the backend of the project (Java, Spring Boot) practices of using technologies such as: Docker, Docker Compose, Log4J, Graylog. This experience not only helped me to grow technically but also helped me to improve my management skills, since for the refactoring of this front-end I counted with the help of two interns that were in the process of learning.",
+                "period": "October 2021 ~ PRESENT | Part-time",
+                "image": "/icons/about/essencial-gestao-publica-logo.png",
+                "imageAlt": "Essencial Gestão Pública company logo.",
+                "readMore": false
+            },
+            {
                 "name": "Freelancer",
                 "position": "Javascript Developer",
-                "description": "Node.JS | Express.JS | Electron.JS | Firebase",
+                "stack": "Node.JS | Express.JS | Electron.JS | Firebase",
+                "description": "In 2020 I worked for a local company developing a desktop software for internal process management, it was my first paid job as a developer. The technologies used were: Node.JS, Express.JS, Electron.JS, Firebase.",
                 "period": "2020",
                 "image": "/icons/home/brain-256px.png",
                 "imageAlt": "A brain drawing.",

@@ -9,7 +9,7 @@
         },
         "my_website": {
             "name": "My Website",
-            "description": "This was not the first site that I programmed but it was the first that I actually \"completed\". The site was built in Javascript with the Next.js framework, styling was done using Scss, and I chose to use Docker to virtualize the project due to the various changes of operating system I was making while developing.",
+            "description": "This wasn't the first website I designed but it was the first one I actually \"completed\". The site was built first with Javascript and Next.js framework. In 2023 it was refactored using: Typescript, Next.js, TailwindCSS, and Zustand.",
             "imageAlt": "A notebook with a speech bubble symbolizing a Website."
         }
     }

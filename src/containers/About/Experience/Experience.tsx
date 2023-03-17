@@ -23,9 +23,10 @@ export const Experience: React.FC = () => {
                     >
                         <div className="flex items-center flex-col text-lg gap-2 text-center">
                             <b>{xp.name}</b>
-                            <b>{xp.position}</b>
+                            <b className="text-lg">{xp.position}</b>
+                            <p className="text-primary">{xp.stack}</p>
                             <p>{xp.description}</p>
-                            <b>{xp.period}</b>
+                            <b className="text-base">{xp.period}</b>
                         </div>
                     </SectionContent>
                 )

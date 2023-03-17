@@ -25,7 +25,7 @@ export const Education: React.FC = () => {
                             <b>{ed.name}</b>
                             <b>{ed.course}</b>
                             <p>{ed.description}</p>
-                            <b>{ed.period}</b>
+                            <b className="text-base">{ed.period}</b>
                         </div>
                     </SectionContent>
                 )
