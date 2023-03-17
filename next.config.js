@@ -5,7 +5,7 @@ const { i18n } = require("./next-i18next.config")
 
 const nextConfig = {
     env: {
-        DOMAIN_NAME: "www.pietrobondioli.com.br",
+        DOMAIN_NAME: "pietrobondioli.com.br",
     },
     i18n,
     async redirects() {
