@@ -2,11 +2,67 @@ import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 import getArticle from "@/utils/getArticle"
 import getArticlesSlugs from "@/utils/getArticlesSlugs"
 import { Section } from "@/components/Section"
 import { Article as ArticleContainer } from "@/containers/Article"
+
+export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string }> = async (
+    context
+) => {
+    const { locale, params } = context
+
+    const translations = await serverSideTranslations(locale || ``, [`common`, `error`])
+
+    if (!params?.slug || !locale) {
+        return {
+            notFound: true,
+        }
+    }
+
+    const article = await getArticle(locale, params?.slug)
+
+    return {
+        props: {
+            article,
+            ...translations,
+        },
+    }
+}
+
+type LocaleSlug = {
+    params: {
+        slug: string
+    }
+    locale?: string
+}
+
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) => {
+    const { locales, defaultLocale } = context
+
+    const slugs = await getArticlesSlugs(locales || [])
+
+    const paths = locales?.reduce<LocaleSlug[]>((map, locale) => {
+        let slugsOfDefaultLocale: LocaleSlug[] = []
+        if (locale === defaultLocale) {
+            slugsOfDefaultLocale = slugs[locale].map((slug) => {
+                return { params: { slug } }
+            })
+        }
+        const slugsOfLocales = slugs[locale].map((slug) => {
+            return { params: { slug }, locale }
+        })
+
+        return [...map, ...slugsOfLocales, ...slugsOfDefaultLocale]
+    }, [])
+
+    return {
+        paths: paths || [],
+        fallback: false,
+    }
+}
 
 type ArticleProps = {
     article: Article
@@ -46,58 +102,6 @@ const Article: NextPage<ArticleProps> = (props) => {
             </Section>
         </>
     )
-}
-
-export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string }> = async (
-    context
-) => {
-    const { locale, params } = context
-
-    if (!params?.slug || !locale) {
-        return {
-            notFound: true,
-        }
-    }
-
-    const article = await getArticle(locale, params?.slug)
-
-    return {
-        props: {
-            article,
-        },
-    }
-}
-
-type LocaleSlug = {
-    params: {
-        slug: string
-    }
-    locale?: string
-}
-
-export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) => {
-    const { locales, defaultLocale } = context
-
-    const slugs = await getArticlesSlugs(locales || [])
-
-    const paths = locales?.reduce<LocaleSlug[]>((map, locale) => {
-        let slugsOfDefaultLocale: LocaleSlug[] = []
-        if (locale === defaultLocale) {
-            slugsOfDefaultLocale = slugs[locale].map((slug) => {
-                return { params: { slug } }
-            })
-        }
-        const slugsOfLocales = slugs[locale].map((slug) => {
-            return { params: { slug }, locale }
-        })
-
-        return [...map, ...slugsOfLocales, ...slugsOfDefaultLocale]
-    }, [])
-
-    return {
-        paths: paths || [],
-        fallback: false,
-    }
 }
 
 export default Article

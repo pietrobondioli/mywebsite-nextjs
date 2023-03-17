@@ -25,6 +25,7 @@ module.exports = {
             red: "#ec3535",
             grey: "#7c7c7c",
             "grey-opaque": "#7c7c7cbd",
+            orange: "#f5a623",
         },
         extend: {
             height: {

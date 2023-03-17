@@ -4,8 +4,6 @@ import { useTranslation } from "next-i18next"
 import { Section } from "@/components/Section"
 import { SectionContent } from "@/components/Section/SectionContent"
 
-import styles from "./Projects.module.scss"
-
 const PROJECTS = {
     peepo_discord_bot: {
         image: `/icons/projects/pepe-computer-chair-256px.png`,
@@ -39,11 +37,11 @@ export const Projects: React.FC = () => {
                             readMoreLink={content.readMoreLink}
                             readMoreTargetBlank={content.readMoreTargetBlank}
                         >
-                            <div className={styles.project__text}>
-                                <div className={styles.name}>
+                            <div>
+                                <div className="text-center py-2 font-semibold">
                                     {t(`projects_infos.${project}.name`)}
                                 </div>
-                                <div className={styles.description}>
+                                <div className="text-justify">
                                     {t(`projects_infos.${project}.description`)}
                                 </div>
                             </div>

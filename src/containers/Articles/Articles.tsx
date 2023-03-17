@@ -2,7 +2,6 @@ import React from "react"
 
 import { Section } from "@/components/Section"
 
-import styles from "./Articles.module.scss"
 import { ArticleCard } from "./ArticleCard"
 
 type ArticlesProps = {
@@ -14,7 +13,7 @@ export const Articles: React.FC<ArticlesProps> = (props) => {
 
     return (
         <Section>
-            <div className={styles.articles}>
+            <div className="w-full h-full grid grid-cols-1 justify-evenly gap-8 justify-items-center py-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {articlesMetadata.map((article) => (
                     <ArticleCard
                         key={article.slug}

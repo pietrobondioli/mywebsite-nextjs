@@ -2,11 +2,13 @@ import React from "react"
 import Head from "next/head"
 import { AppProps } from "next/app"
 import { appWithTranslation } from "next-i18next"
+import { ToastContainer } from "react-toastify"
 
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import { Theme } from "@/containers/Theme"
 
+import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.scss"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -30,15 +32,18 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                     content="6m8-QuB3vOo-b-V4kOc1lSgrfKvGVHxLVQDN6UWY6fE"
                 />
             </Head>
-            <Theme>
-                <div className="min-h-svh flex flex-col justify-between">
-                    <Navbar />
-                    <div className="grow">
-                        <Component {...pageProps} />
+            <>
+                <ToastContainer />
+                <Theme>
+                    <div className="min-h-svh flex flex-col justify-between">
+                        <Navbar />
+                        <div className="grow">
+                            <Component {...pageProps} />
+                        </div>
+                        <Footer />
                     </div>
-                    <Footer />
-                </div>
-            </Theme>
+                </Theme>
+            </>
         </>
     )
 }

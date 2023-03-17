@@ -5,8 +5,6 @@ import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
 import { SectionContent } from "@/components/Section/SectionContent"
 
-import styles from "../AboutContent.module.scss"
-
 export const Experience: React.FC = () => {
     const { t } = useTranslation(`about`)
 
@@ -23,11 +21,11 @@ export const Experience: React.FC = () => {
                         imageAlt={xp.imageAlt}
                         readMore={xp.readMore}
                     >
-                        <div className={`${styles.about__text}`}>
-                            <div className={`${styles.title}`}>{xp.name}</div>
-                            <div className={`${styles.subtitle}`}>{xp.position}</div>
-                            <div className={`${styles.description}`}>{xp.description}</div>
-                            <div className={`${styles.period}`}>{xp.period}</div>
+                        <div className="flex items-center flex-col text-lg gap-2 text-center">
+                            <b>{xp.name}</b>
+                            <b>{xp.position}</b>
+                            <p>{xp.description}</p>
+                            <b>{xp.period}</b>
                         </div>
                     </SectionContent>
                 )

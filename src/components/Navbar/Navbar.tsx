@@ -13,8 +13,6 @@ export const Navbar: React.FC = () => {
 
     const navbarItems = t(`navbar`, { returnObjects: true })
 
-    console.log(isMobile)
-
     return (
         <div className="bg-white-700 dark:bg-secondary shadow-md text-black dark:text-white">
             {isMobile ? (

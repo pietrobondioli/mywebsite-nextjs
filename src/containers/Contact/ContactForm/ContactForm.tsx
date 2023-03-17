@@ -7,7 +7,6 @@ import { SectionTitle } from "@/components/Section/SectionTitle"
 import { Button } from "@/components/Button"
 
 import styles from "./ContactForm.module.scss"
-import { FormAlert } from "./FormAlert"
 
 type FormData = {
     name: string
@@ -150,11 +149,11 @@ export const ContactForm: React.FC = () => {
                     <Button name="submit" id="submit" type="submit" value={t(`form.button`)} />
                 </div>
             </form>
-            {submitStatus ? (
+            {/* {submitStatus ? (
                 <FormAlert show={submitVisibility} status={true} />
             ) : (
                 <FormAlert show={submitVisibility} status={false} />
-            )}
+            )} */}
         </Section>
     )
 }

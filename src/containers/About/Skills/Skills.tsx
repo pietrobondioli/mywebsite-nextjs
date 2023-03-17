@@ -4,7 +4,6 @@ import { useTranslation } from "next-i18next"
 import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
 
-import styles from "./Skills.module.scss"
 import { SkillItem } from "./SkillItem"
 
 const SKILL_ITEMS = {
@@ -204,12 +203,11 @@ export const Skills: React.FC = () => {
                 const content = SKILL_ITEMS[skill]
 
                 return (
-                    <div
-                        key={t(`skills.sections.${skill}.title`)}
-                        className={styles.skills__content}
-                    >
-                        <div className={styles.name}>{t(`skills.sections.${skill}.title`)}</div>
-                        <div className={styles.skills}>
+                    <div key={t(`skills.sections.${skill}.title`)} className="w-full flex flex-col">
+                        <div className="text-xl self-start my-4">
+                            {t(`skills.sections.${skill}.title`)}
+                        </div>
+                        <div className="grid my-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                             {content.map((skill) => {
                                 return (
                                     <SkillItem

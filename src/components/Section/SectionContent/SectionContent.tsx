@@ -20,7 +20,7 @@ export const SectionContent: React.FC<SectionContentProps> = (props) => {
     const { t } = useTranslation(`common`)
 
     return (
-        <div className="max-h-min w-full flex items-center justify-between flex-col lg:flex-row gap-32">
+        <div className="max-h-min w-full flex items-center justify-between flex-col lg:flex-row gap-16 lg:gap-32 my-8">
             <Image
                 width={128}
                 height={128}
@@ -28,8 +28,8 @@ export const SectionContent: React.FC<SectionContentProps> = (props) => {
                 src={image || `/icons/error/warning-128px.png`}
                 alt={imageAlt || `No content.`}
             />
-            <div className="flex items-center flex-col gap-6 px-12 grow">
-                <div className="text-start text-lg my-4">{children || text}</div>
+            <div className="flex items-center flex-col gap-6 px-4 md:px-6 lg:px-12 grow">
+                {children || text}
                 {readMore &&
                     (readMoreTargetBlank ? (
                         <a href={readMoreLink} target="_blank" rel="noreferrer">

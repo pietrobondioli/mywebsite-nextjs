@@ -12,9 +12,9 @@ export const SectionTitle: React.FC<SectionTitleProps> = (props) => {
     return (
         <>
             {title && (
-                <div className="w-full py-5 flex items-center justify-start text-xl">
+                <h2 className="w-full py-5 flex items-center justify-start text-xl">
                     {title} <TerminalUnderslash isAnimationActive />
-                </div>
+                </h2>
             )}
         </>
     )

@@ -11,11 +11,8 @@
         {
             "name": "projects",
             "link": "/projects"
-        },
-        {
-            "name": "contact",
-            "link": "/contact"
         }
     ],
-    "readMore": "read more"
+    "readMore": "read more",
+    "fallbackImgAlt": "An error occurred while loading the image"
 }

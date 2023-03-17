@@ -26,11 +26,11 @@ const SECTIONS = {
         readMore: true,
         readMoreLink: `/projects`,
     },
-    contact: {
-        image: `/icons/home/contact-256px.png`,
-        readMore: true,
-        readMoreLink: `/contact`,
-    },
+    // contact: {
+    //     image: `/icons/home/contact-256px.png`,
+    //     readMore: true,
+    //     readMoreLink: `/contact`,
+    // },
 } as const
 
 export const Presentation: React.FC = () => {

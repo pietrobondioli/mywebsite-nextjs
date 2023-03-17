@@ -1,81 +1,38 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react"
+import React from "react"
 import { Link as ScrollLink } from "react-scroll"
 import { useTranslation } from "next-i18next"
+import { MdOutlineKeyboardArrowDown } from "react-icons/md"
 
 import { TerminalUnderslash } from "@/components/TerminalUnderslash"
 import { Section } from "@/components/Section"
-
-import styles from "./Header.module.scss"
+import { useTypingAnimation } from "@/hooks/useTypingAnimation"
 
 export const Header: React.FC = () => {
     const { t } = useTranslation(`home`)
-    const [terminalCommand, setTerminalCommand] = useState(``)
-    const [isTyping, setIsTyping] = useState(false)
-    const timeouts: NodeJS.Timeout[] = useMemo(() => [], [])
 
-    const clearTimeouts = useCallback(() => {
-        while (timeouts.length) {
-            clearTimeout(timeouts.pop())
-        }
-    }, [timeouts])
-
-    const typingAnimation = useCallback(
-        (phrase: string) => {
-            const letters = phrase.split(``)
-            setIsTyping(true)
-
-            letters.forEach((letter, index) => {
-                timeouts.push(
-                    setTimeout(() => {
-                        setTerminalCommand((lastState) => {
-                            return lastState + letter
-                        })
-                        if (letters.length === index + 1) setIsTyping(false)
-                    }, 150 * index)
-                )
-            })
-        },
-        [timeouts]
-    )
-
-    const callAnimation = useCallback(() => {
-        clearTimeouts()
-        setIsTyping(false)
-        setTerminalCommand(``)
-        const phrase = t(`header.welcomeWebsite`)
-        timeouts.push(
-            setTimeout(() => {
-                typingAnimation(phrase)
-            }, 3000)
-        )
-    }, [clearTimeouts, t, timeouts, typingAnimation])
-
-    useEffect(() => {
-        callAnimation()
-
-        return () => {
-            clearTimeouts()
-        }
-    }, [callAnimation, clearTimeouts])
+    const { animatedText, isTyping } = useTypingAnimation({
+        text: t(`header.welcomeWebsite`),
+        resetAfter: 3000,
+    })
 
     return (
-        <Section>
-            <div className={styles.header__content}>
-                <div className={styles.content__title}>Pietro Bondioli</div>
-                <div className={styles.content__terminal}>
+        <Section stretchToViewportHeight>
+            <div className="self-end flex flex-col items-center justify-center text-base lg:text-xl text-center">
+                <div>Pietro Bondioli</div>
+                <div className="flex items-center justify-around text-primary dark:text-primary-light gap-2 flex-col lg:flex-row">
                     <div>
                         [pietro@pietro-pc{` `}
-                        <span className={styles.terminal__wd}>{t(`header.myWebsite`)}</span>
+                        <span className="text-black dark:text-white">{t(`header.myWebsite`)}</span>
                         ]$
                     </div>
-                    <div className={styles.terminal__command}>
-                        {terminalCommand}
+                    <div className="text-black dark:text-white">
+                        {animatedText}
                         <TerminalUnderslash isAnimationActive={!isTyping} />
                     </div>
                 </div>
             </div>
-            <ScrollLink to="presentation" spy={true} smooth={true} className={styles.header__arrow}>
-                <div className={styles.arrow__button} />
+            <ScrollLink to="presentation" spy={true} smooth={true} className="w-full self-end">
+                <MdOutlineKeyboardArrowDown className="box-content text-5xl animate-bounce m-auto cursor-pointer p-2" />
             </ScrollLink>
         </Section>
     )

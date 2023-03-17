@@ -6,7 +6,6 @@ import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 import { ContactForm } from "@/containers/Contact/ContactForm"
-import { ContactInfo } from "@/containers/Contact/ContactInfo"
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     const translations = await serverSideTranslations(locale || ``, [`common`, `contact`])
@@ -35,7 +34,6 @@ const Contact: NextPage = () => {
             </Head>
             <main>
                 <ContactForm />
-                <ContactInfo />
             </main>
         </>
     )

@@ -25,7 +25,7 @@ const Error: NextPage<ErrorProps> = (props) => {
     const { t } = useTranslation(`error`)
     const { statusCode } = props
 
-    const title = `Erro ` + statusCode
+    const title = t(`error_alert`) + statusCode
 
     return (
         <>
