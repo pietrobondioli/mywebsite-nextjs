@@ -1,5 +1,5 @@
 ---
-slug: "guia-ilustrado-do-cors"
+slug: "cors-illustrated-guide"
 title: "Guia Ilustrado do CORS"
 published: "2023-03-25"
 publishedHumanReadable: "03/25/2023"

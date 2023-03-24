@@ -1,5 +1,5 @@
 ---
-slug: "solucionando-problemas-de-cors-com-docker-nginx"
+slug: "solving-cors-problems-with-docker-nginx"
 title: "O que fazer quando o CORS impede o desenvolvimento: uma solução com Docker e Nginx"
 published: "2023-03-25"
 publishedHumanReadable: "03/25/2023"

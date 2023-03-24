@@ -10,7 +10,7 @@ image: "/articles/cors-illustrated-guide/cors-illustrated.png"
 imageAlt: "Two faces, going from angry to happy, with the text CORS Illustrated Guide"
 ---
 
-# Guia Ilustrado do CORS
+# CORS Illustrated Guide
 
 ##### Mar 25, 2023 · 2 min - Pietro Bondioli
 

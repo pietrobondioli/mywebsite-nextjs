@@ -1,5 +1,5 @@
 ---
-slug: "por-que-e-como-voce-deveria-proteger-todas-as-suas-contas-online"
+slug: "why-and-how-you-should-protect-all-your-online-accounts"
 title: "Por que (e Como) você deveria proteger todas as suas contas online"
 published: "2021-02-11"
 publishedHumanReadable: "11/02/2021"
