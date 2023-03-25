@@ -34,6 +34,10 @@ module.exports = {
             minHeight: {
                 svh: "calc(var(--vh, 1vh) * 100)",
             },
+            screens: {
+                "3xl": "1920px",
+                "4xl": "2560px",
+            },
         },
     },
     plugins: [
