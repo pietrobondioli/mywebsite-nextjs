@@ -6,8 +6,8 @@ import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 import { Articles as ArticlesSection } from "@/containers/Articles"
-import getArticle from "@/utils/getArticle"
-import getArticlesSlugs from "@/utils/getArticlesSlugs"
+import { getArticle } from "@/utils/getArticle"
+import { getArticlesSlugs } from "@/utils/getArticlesSlugs"
 
 export const getStaticProps: GetStaticProps<{ articles: ArticleMetadata[] }> = async (context) => {
     const { locale } = context
@@ -20,12 +20,12 @@ export const getStaticProps: GetStaticProps<{ articles: ArticleMetadata[] }> = a
         }
     }
 
-    const articlesSlugs = await getArticlesSlugs([locale])
+    const articlesSlugs = getArticlesSlugs([locale])
 
     const articles: ArticleMetadata[] = []
 
-    articlesSlugs[locale].forEach(async (slug) => {
-        const { metadata } = await getArticle(locale, slug)
+    articlesSlugs[locale].forEach((slug) => {
+        const { metadata } = getArticle(locale, slug)
         articles.push(metadata)
     })
 

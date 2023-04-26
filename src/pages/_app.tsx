@@ -17,7 +17,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <Head>
                 <link rel="shortcut icon" href="/icons/favicon.ico" />
                 <meta httpEquiv="content-type" content="text/html" />
+                <meta charSet="utf-8" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta name="HandheldFriendly" content="True" />
                 <meta httpEquiv="content-language" content="pt, en" />
                 <meta name="author" content="Pietro Bondioli" />
                 <meta name="creator" content="Pietro Bondioli" />
@@ -25,8 +27,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                 <meta property="og:site_name" content="Pietro Bondioli" />
                 <meta property="og:type" content="website" />
                 <meta name="twitter:card" content="summary" />
-                <meta name="twitter:site" content="@bondioli_pietro" />
-                <meta name="twitter:creator" content="@bondioli_pietro" />
                 <meta
                     name="google-site-verification"
                     content="6m8-QuB3vOo-b-V4kOc1lSgrfKvGVHxLVQDN6UWY6fE"

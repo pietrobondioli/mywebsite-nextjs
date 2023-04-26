@@ -4,8 +4,8 @@ import { useRouter } from "next/router"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
-import getArticle from "@/utils/getArticle"
-import getArticlesSlugs from "@/utils/getArticlesSlugs"
+import { getArticle } from "@/utils/getArticle"
+import { getArticlesSlugs } from "@/utils/getArticlesSlugs"
 import { Section } from "@/components/Section"
 import { Article as ArticleContainer } from "@/containers/Article"
 
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
         }
     }
 
-    const article = await getArticle(locale, params?.slug)
+    const article = getArticle(locale, params?.slug)
 
     return {
         props: {
@@ -40,22 +40,16 @@ type LocaleSlug = {
 }
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) => {
-    const { locales, defaultLocale } = context
+    const { locales } = context
 
-    const slugs = await getArticlesSlugs(locales || [])
+    const slugs = getArticlesSlugs(locales || [])
 
-    const paths = locales?.reduce<LocaleSlug[]>((map, locale) => {
-        let slugsOfDefaultLocale: LocaleSlug[] = []
-        if (locale === defaultLocale) {
-            slugsOfDefaultLocale = slugs[locale].map((slug) => {
-                return { params: { slug } }
-            })
-        }
+    const paths = locales?.reduce<LocaleSlug[]>((prev, locale) => {
         const slugsOfLocales = slugs[locale].map((slug) => {
             return { params: { slug }, locale }
         })
 
-        return [...map, ...slugsOfLocales, ...slugsOfDefaultLocale]
+        return [...prev, ...slugsOfLocales]
     }, [])
 
     return {
@@ -90,8 +84,6 @@ const Article: NextPage<ArticleProps> = (props) => {
                 <meta property="article:published_time" content={metadata.published} />
                 <meta property="article:modified_time" content={metadata.lastModified} />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content={metadata.twitterProfile} />
-                <meta name="twitter:creator" content={metadata.twitterProfile} />
                 <meta name="twitter:title" content={metadata.title} />
                 <meta name="twitter:description" content={metadata.excerpt} />
                 <meta name="twitter:image" content={metadata.image} />

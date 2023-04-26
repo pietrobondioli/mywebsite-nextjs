@@ -19,13 +19,13 @@ imageAlt: "Imagem de um computador com o console do navegador aberto, mostrando 
 Não são poucas as vezes que, como desenvolvedor, eu me deparo com aqueles tipos de problemas que nós nunca cogitamos que viria a ser um problema. Alguns meses atrás eu possuia o seguinte cenário:
 
 - Havia uma aplicação monolito, e meu trabalho era basicamente desacoplar o front-end do back-end.
-- Por conta de ser um back-end pesado (com diversas aplicações necessárias para o correto funcionamento do sistema), não era uma opção deixar o app rodando em background enquanto eu desenvolvia - na época a nasa ainda não havia enviado um computador para mim 😛.
+- Por conta de ser um back-end pesado (com diversas aplicações necessárias para o correto funcionamento do sistema), não era uma opção deixar o app rodando em background enquanto eu desenvolvia - na época a nasa ainda não havia enviado um computador para mim.
 
 Em um primeiro pensamento a solução parece simples, podemos apenas apontar todas as chamadas de API para o servidor remoto - é aqui que chega na parte do problema não cogitado: o mecanismo de CORS (Cross-Origin Resource Sharing) não estava configurado/ativado, o que faz muito sentido, já que por ser uma aplicação monolítica não havia necessidade.
 
 Então, eu precisava de alguma maneira de retirar este impedimento do meu caminho, de preferência sem ter que alterar nada no backend - já que eu não era o responsável pelo back-end e mudanças no back-end geralmente tem impactos mais críticos em uma aplicação. Felizmente havia uma solução simples para o problema, envolvendo dois gigantes do desenvolvimento de software: Docker e Nginx.
 
-Neste artigo vou tentar explicar brevemente o porquê do problema ter ocorrido e qual foi a solução de fato usada. Espero que gostem! 😄
+Neste artigo vou tentar explicar brevemente o porquê do problema ter ocorrido e qual foi a solução de fato usada. Espero que gostem!
 
 ## O que é CORS?
 
@@ -43,55 +43,53 @@ Para resolver o problema de CORS, criei um container Docker com um servidor Ngin
 
 O código abaixo é referente ao arquivo de configuração do Nginx, ele deverá ser nomeado `default.conf.template` e ficar sob uma pasta nomeada `templates`:
 
-```conf
-server {
-    listen 80;
+```nginx
+    server {
+        listen 80;
 
-    location / {
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        location / {
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
 
-        if ($request_method = 'OPTIONS') {
-            return 204;
+            if ($request_method = 'OPTIONS') {
+                return 204;
+            }
+
+            add_header 'Access-Control-Allow-Origin' '*';
+            add_header 'Access-Control-Allow-Credentials' 'true';
+            add_header 'Access-Control-Allow-Methods' '*';
+            add_header 'Access-Control-Allow-Headers' '*';
+
+            rewrite /(.*) /$1 break;
+
+            proxy_pass http://backend:3000;
         }
-
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Credentials' 'true';
-        add_header 'Access-Control-Allow-Methods' '*';
-        add_header 'Access-Control-Allow-Headers' '*';
-
-        rewrite /(.*) /$1 break;
-
-        proxy_pass http://backend:3000;
     }
-}
 ```
 
 Você precisará referênciar a pasta templates dentro do seu arquivo de `docker-compose.yaml`:
 
 ```yaml
-version: '3.9'
-
-services:
-  cors_proxy:
-    container_name: cors_proxy
-    image: nginx
-    env_file:
-      - .env
-    volumes:
-      - ./templates:/etc/nginx/templates
-    restart: on-failure
-    ports:
-      - "${EXPOSED_PORT}:80"
+    services:
+    cors_proxy:
+        container_name: cors_proxy
+        image: nginx
+        env_file:
+        - .env
+        volumes:
+        - ./templates:/etc/nginx/templates
+        restart: on-failure
+        ports:
+        - "${EXPOSED_PORT}:80"
 ```
 
 Para finalizar basta criar um arquivo `.env` juntamente com o seu `docker-compose.yaml`:
 
-```env
-REMOTE_HOST=#{REMOTE_HOST}
-EXPOSED_PORT=#{EXPOSED_PORT}
+```txt
+    REMOTE_HOST=#{REMOTE_HOST}
+    EXPOSED_PORT=#{EXPOSED_PORT}
 ```
 
 Substitua os valores:

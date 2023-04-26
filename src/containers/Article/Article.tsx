@@ -4,6 +4,7 @@ import Image from "next/image"
 import { FALLBACK_IMAGE } from "@/utils/constants"
 
 import styles from "./Article.module.scss"
+import "highlight.js/styles/atom-one-dark-reasonable.css"
 
 export type ArticleProps = {
     article: Article

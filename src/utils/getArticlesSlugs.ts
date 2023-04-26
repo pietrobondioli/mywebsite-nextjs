@@ -3,17 +3,24 @@ import path from "path"
 
 const ARTICLES_PATH = path.resolve(`src`, `_articles`)
 
-async function getArticlesSlugs(locales: string[]) {
-    const articlesSlugs = locales.reduce((map, locale) => {
+type ArticlesSlugs = { [key: string]: string[] }
+
+/**
+ * for each locale, get all articles slugs
+ * @param locales - locales to get articles slugs
+ * @returns articles slugs, grouped by locale
+ */
+function getArticlesSlugs(locales: string[]) {
+    const articlesSlugs: ArticlesSlugs = locales.reduce((prev, locale) => {
         const fileNames = fs.readdirSync(`${ARTICLES_PATH}/${locale}/`, `utf-8`)
         const slugs = fileNames.map((fileName) => {
             return fileName.replace(`.md`, ``)
         })
 
-        return { ...map, [locale]: slugs }
+        return { ...prev, [locale]: slugs }
     }, {})
 
-    return articlesSlugs as { [key: string]: string[] }
+    return articlesSlugs
 }
 
-export default getArticlesSlugs
+export { getArticlesSlugs }

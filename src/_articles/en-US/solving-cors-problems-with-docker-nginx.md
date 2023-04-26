@@ -19,13 +19,13 @@ imageAlt: "A pc with the browser console open, showing a CORS error, and beside 
 As a developer, I often come across those types of problems that we never thought would be a problem. A few months ago I had the following scenario:
 
 - There was a monolithic application, and my job was basically to decouple the frontend from the backend.
-- Due to being a heavy backend (with several applications necessary for the system to function properly), it was not an option to run the backend running in background while I was developing the frontend - at the time NASA had not yet sent me a computer 😛.
+- Due to being a heavy backend (with several applications necessary for the system to function properly), it was not an option to run the backend running in background while I was developing the frontend - at the time NASA had not yet sent me a computer.
 
 At first, the solution seems simple, we can just point all API calls to the remote server - this is where it comes to the part of the problem not considered: the CORS (Cross-Origin Resource Sharing) mechanism was not configured/enabled on backend, which makes a lot of sense, since it was a monolithic application there was no need.
 
 So, I needed some way to remove this impediment from my path, preferably without having to change anything in the backend - since I was not responsible for the backend and changes in the backend usually have more critical impacts on an application. Fortunately, there was a simple solution to the problem, involving two giants of software development: Docker and Nginx.
 
-In this article, I will try to briefly explain why the problem occurred and what the actual solution was. I hope you enjoy it! 😄
+In this article, I will try to briefly explain why the problem occurred and what the actual solution was. I hope you enjoy it!
 
 ## What is CORS?
 
@@ -43,53 +43,53 @@ To solve the CORS problem, I created a Docker container with an Nginx server tha
 
 The code below refers to the Nginx configuration file, it should be named default.conf.template and placed in a folder named templates:
 
-```conf
-server {
-    listen 80;
+```nginx
+    server {
+        listen 80;
 
-    location / {
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        location / {
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
 
-        if ($request_method = 'OPTIONS') {
-            return 204;
+            if ($request_method = 'OPTIONS') {
+                return 204;
+            }
+
+            add_header 'Access-Control-Allow-Origin' '*';
+            add_header 'Access-Control-Allow-Credentials' 'true';
+            add_header 'Access-Control-Allow-Methods' '*';
+            add_header 'Access-Control-Allow-Headers' '*';
+
+            rewrite /(.*) /$1 break;
+
+            proxy_pass http://backend:3000;
         }
-
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Credentials' 'true';
-        add_header 'Access-Control-Allow-Methods' '*';
-        add_header 'Access-Control-Allow-Headers' '*';
-
-        rewrite /(.*) /$1 break;
-
-        proxy_pass http://backend:3000;
     }
-}
 ```
 
 You will need to reference the templates folder in your docker-compose.yaml file:
 
 ```yaml
-services:
-  cors_proxy:
-    container_name: cors_proxy
-    image: nginx
-    env_file:
-      - .env
-    volumes:
-      - ./templates:/etc/nginx/templates
-    restart: on-failure
-    ports:
-      - "${EXPOSED_PORT}:80"
+    services:
+    cors_proxy:
+        container_name: cors_proxy
+        image: nginx
+        env_file:
+        - .env
+        volumes:
+        - ./templates:/etc/nginx/templates
+        restart: on-failure
+        ports:
+        - "${EXPOSED_PORT}:80"
 ```
 
 Finally, create a .env file alongside your docker-compose.yaml file:
 
-```env
-REMOTE_HOST=#{REMOTE_HOST}
-EXPOSED_PORT=#{EXPOSED_PORT}
+```txt
+    REMOTE_HOST=#{REMOTE_HOST}
+    EXPOSED_PORT=#{EXPOSED_PORT}
 ```
 
 Replace the values:
