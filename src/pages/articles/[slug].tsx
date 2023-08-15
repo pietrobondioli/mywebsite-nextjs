@@ -45,9 +45,10 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) 
     const slugs = getArticlesSlugs(locales || [])
 
     const paths = locales?.reduce<LocaleSlug[]>((prev, locale) => {
-        const slugsOfLocales = slugs[locale].map((slug) => {
-            return { params: { slug }, locale }
-        })
+        const slugsOfLocales =
+            slugs[locale]?.map((slug) => {
+                return { params: { slug }, locale }
+            }) ?? []
 
         return [...prev, ...slugsOfLocales]
     }, [])

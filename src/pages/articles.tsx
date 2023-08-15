@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<{ articles: ArticleMetadata[] }> = a
 
     const articles: ArticleMetadata[] = []
 
-    articlesSlugs[locale].forEach((slug) => {
+    articlesSlugs[locale]?.forEach((slug) => {
         const { metadata } = getArticle(locale, slug)
         articles.push(metadata)
     })
