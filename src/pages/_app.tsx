@@ -1,8 +1,10 @@
 import React from "react"
 import Head from "next/head"
-import { AppProps } from "next/app"
 import { appWithTranslation } from "next-i18next"
 import { ToastContainer } from "react-toastify"
+import { type Session } from "next-auth"
+import { SessionProvider } from "next-auth/react"
+import { type AppType } from "next/app"
 
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
@@ -11,7 +13,10 @@ import { Theme } from "@/containers/Theme"
 import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.scss"
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp: AppType<{ session: Session | null }> = ({
+    Component,
+    pageProps: { session, ...pageProps },
+}) => {
     return (
         <>
             <Head>
@@ -32,7 +37,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                     content="6m8-QuB3vOo-b-V4kOc1lSgrfKvGVHxLVQDN6UWY6fE"
                 />
             </Head>
-            <>
+            <SessionProvider session={session}>
                 <ToastContainer />
                 <Theme>
                     <div className="min-h-svh flex flex-col justify-between">
@@ -43,7 +48,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                         <Footer />
                     </div>
                 </Theme>
-            </>
+            </SessionProvider>
         </>
     )
 }
