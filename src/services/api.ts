@@ -1,6 +1,11 @@
+import { Article, Comment } from "@prisma/client"
+
 const API_BASE_URL = `/api`
 
-export const fetchArticles = async (lang?: string, slug?: string): Promise<any[]> => {
+export const fetchArticles = async (
+    lang?: string,
+    slug?: string
+): Promise<Omit<Article, "content">[]> => {
     const params = new URLSearchParams()
     if (lang) params.append(`lang`, lang)
     if (slug) params.append(`slug`, slug)
@@ -9,19 +14,19 @@ export const fetchArticles = async (lang?: string, slug?: string): Promise<any[]
     return response.json()
 }
 
-export const fetchArticleById = async (id: string): Promise<any> => {
+export const fetchArticleById = async (id: string): Promise<Article> => {
     const response = await fetch(`${API_BASE_URL}/articles/${id}`)
     if (!response.ok) throw new Error(`Failed to fetch article`)
     return response.json()
 }
 
-export const fetchCommentsForArticle = async (articleId: string): Promise<any[]> => {
+export const fetchCommentsForArticle = async (articleId: string): Promise<Comment[]> => {
     const response = await fetch(`${API_BASE_URL}/articles/${articleId}/comments`)
     if (!response.ok) throw new Error(`Failed to fetch comments`)
     return response.json()
 }
 
-export const createComment = async (content: string, articleId: string): Promise<any> => {
+export const createComment = async (content: string, articleId: string): Promise<Comment> => {
     const response = await fetch(`${API_BASE_URL}/comments`, {
         method: `POST`,
         headers: { "Content-Type": `application/json` },
@@ -30,7 +35,7 @@ export const createComment = async (content: string, articleId: string): Promise
     return response.json()
 }
 
-export const updateComment = async (id: string, updatedData: any): Promise<any> => {
+export const updateComment = async (id: string, updatedData: any): Promise<Comment> => {
     const response = await fetch(`${API_BASE_URL}/comments/${id}`, {
         method: `PUT`,
         headers: { "Content-Type": `application/json` },
