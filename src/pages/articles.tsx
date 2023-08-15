@@ -4,14 +4,11 @@ import { useRouter } from "next/router"
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { Article } from "@prisma/client"
 
 import { Articles } from "@/containers/Articles"
-import { fetchArticles } from "@/services/api"
+import { ArticlePreview, fetchArticles } from "@/services/api"
 
-export const getStaticProps: GetStaticProps<{ articles: Omit<Article, "content">[] }> = async (
-    context
-) => {
+export const getStaticProps: GetStaticProps<{ articles: ArticlePreview[] }> = async (context) => {
     const { locale } = context
 
     if (!locale) {
@@ -22,7 +19,9 @@ export const getStaticProps: GetStaticProps<{ articles: Omit<Article, "content">
         }
     }
 
-    const articles = await fetchArticles(locale)
+    const articles = await fetchArticles({ lang: locale, preview: true })
+
+    console.log({ articles })
 
     const translations = await serverSideTranslations(locale || ``, [`common`, `articles`])
 
@@ -51,7 +50,7 @@ const ArticlesPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
                 <meta name="twitter:description" content={t(`pageDescription`)} />
             </Head>
             <main>
-                <Articles articlesMetadata={articles} />
+                <Articles articles={articles} />
             </main>
         </>
     )

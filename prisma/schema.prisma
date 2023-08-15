@@ -65,10 +65,10 @@ model Article {
     published_at  DateTime
     last_modified DateTime
     author_name   String
-    excerpt       String
+    excerpt       String    @db.Text
     image_url     String
     image_alt     String
-    content       String
+    content       String    @db.LongText
     comments      Comment[]
     category      String
 }
