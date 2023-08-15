@@ -9,20 +9,20 @@ datasource db {
 }
 
 model Account {
-    id                String  @id @default(cuid())
-    userId            String
-    type              String
-    provider          String
-    providerAccountId String
-    refresh_token     String?
-    access_token      String?
-    expires_at        Int?
-    token_type        String?
-    scope             String?
-    id_token          String?
-    session_state     String?
-    user_id           String?
-    user              User    @relation(fields: [userId], references: [id])
+    id                       String  @id @default(cuid())
+    userId                   String
+    type                     String
+    provider                 String
+    providerAccountId        String
+    refresh_token            String?
+    refresh_token_expires_in Int?
+    access_token             String?
+    expires_at               Int?
+    token_type               String?
+    scope                    String?
+    id_token                 String?
+    session_state            String?
+    user                     User    @relation(fields: [userId], references: [id])
 
     @@unique([provider, providerAccountId])
     @@index([userId])
@@ -31,11 +31,11 @@ model Account {
 model Session {
     id           String   @id @default(cuid())
     sessionToken String   @unique
-    user_id      String
+    userId       String
     expires      DateTime
-    user         User     @relation(fields: [user_id], references: [id])
+    user         User     @relation(fields: [userId], references: [id])
 
-    @@index([user_id])
+    @@index([userId])
 }
 
 model User {
