@@ -1,14 +1,22 @@
 import { Article, Comment } from "@prisma/client"
 
-const API_BASE_URL = `/api`
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? ``
 
-export const fetchArticles = async (
-    lang?: string,
+export type ArticlePreview = Omit<Article, "content">
+
+export const fetchArticles = async <T extends boolean>({
+    lang,
+    slug,
+    preview,
+}: {
+    lang?: string
     slug?: string
-): Promise<Omit<Article, "content">[]> => {
+    preview: T
+}): Promise<T extends true ? ArticlePreview[] : Article[]> => {
     const params = new URLSearchParams()
     if (lang) params.append(`lang`, lang)
     if (slug) params.append(`slug`, slug)
+    if (preview) params.append(`preview`, `true`)
 
     const response = await fetch(`${API_BASE_URL}/articles?${params}`)
     return response.json()
