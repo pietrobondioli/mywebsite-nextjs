@@ -1,13 +1,11 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
     provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "mysql"
-    url      = env("DATABASE_URL")
+    provider     = "mysql"
+    url          = env("DATABASE_URL")
+    relationMode = "prisma"
 }
 
 model Account {
@@ -16,24 +14,28 @@ model Account {
     type              String
     provider          String
     providerAccountId String
-    refresh_token     String? // @db.Text
-    access_token      String? // @db.Text
+    refresh_token     String?
+    access_token      String?
     expires_at        Int?
     token_type        String?
     scope             String?
-    id_token          String? // @db.Text
+    id_token          String?
     session_state     String?
-    user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user_id           String?
+    user              User    @relation(fields: [userId], references: [id])
 
     @@unique([provider, providerAccountId])
+    @@index([userId])
 }
 
 model Session {
     id           String   @id @default(cuid())
     sessionToken String   @unique
-    userId       String
+    user_id      String
     expires      DateTime
-    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user         User     @relation(fields: [user_id], references: [id])
+
+    @@index([user_id])
 }
 
 model User {
@@ -65,11 +67,15 @@ model Article {
 model Comment {
     id         String    @id @default(cuid())
     content    String
-    parent_id  String?   @map("parentCommentId")
-    parent     Comment?  @relation("CommentToComment", fields: [parent_id], references: [id])
+    parent_id  String?
+    parent     Comment?  @relation("CommentToComment", fields: [parent_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
     replies    Comment[] @relation("CommentToComment")
     article_id String
     article    Article   @relation(fields: [article_id], references: [id])
     author_id  String
     author     User      @relation(fields: [author_id], references: [id])
+
+    @@index([parent_id])
+    @@index([article_id])
+    @@index([author_id])
 }
