@@ -44,6 +44,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    Comment       Comment[]
 }
 
 model VerificationToken {
@@ -52,4 +53,23 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Article {
+    id       String    @id @default(cuid())
+    title    String
+    content  String
+    comments Comment[]
+}
+
+model Comment {
+    id         String    @id @default(cuid())
+    content    String
+    parent_id  String?   @map("parentCommentId")
+    parent     Comment?  @relation("CommentToComment", fields: [parent_id], references: [id])
+    replies    Comment[] @relation("CommentToComment")
+    article_id String
+    article    Article   @relation(fields: [article_id], references: [id])
+    author_id  String
+    author     User      @relation(fields: [author_id], references: [id])
 }
