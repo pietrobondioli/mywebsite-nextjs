@@ -58,10 +58,19 @@ model VerificationToken {
 }
 
 model Article {
-    id       String    @id @default(cuid())
-    title    String
-    content  String
-    comments Comment[]
+    id            String    @id @default(cuid())
+    slug          String
+    lang          String
+    title         String
+    published_at  DateTime
+    last_modified DateTime
+    author_name   String
+    excerpt       String
+    image_url     String
+    image_alt     String
+    content       String
+    comments      Comment[]
+    category      String
 }
 
 model Comment {
