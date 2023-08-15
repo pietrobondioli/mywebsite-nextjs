@@ -19,9 +19,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res, locale }) =>
     }
 }
 
-type ErrorProps = InferGetServerSidePropsType<typeof getServerSideProps>
-
-const Error: NextPage<ErrorProps> = (props) => {
+const ErrorPage: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (props) => {
     const { t } = useTranslation(`error`)
     const { statusCode } = props
 
@@ -38,4 +36,4 @@ const Error: NextPage<ErrorProps> = (props) => {
     )
 }
 
-export default Error
+export default ErrorPage

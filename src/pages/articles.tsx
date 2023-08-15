@@ -1,15 +1,17 @@
 import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { GetStaticProps, NextPage } from "next"
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+import { Article } from "@prisma/client"
 
-import { Articles as ArticlesSection } from "@/containers/Articles"
-import { getArticle } from "@/utils/getArticle"
-import { getArticlesSlugs } from "@/utils/getArticlesSlugs"
+import { Articles } from "@/containers/Articles"
+import { fetchArticles } from "@/services/api"
 
-export const getStaticProps: GetStaticProps<{ articles: ArticleMetadata[] }> = async (context) => {
+export const getStaticProps: GetStaticProps<{ articles: Omit<Article, "content">[] }> = async (
+    context
+) => {
     const { locale } = context
 
     if (!locale) {
@@ -20,14 +22,7 @@ export const getStaticProps: GetStaticProps<{ articles: ArticleMetadata[] }> = a
         }
     }
 
-    const articlesSlugs = getArticlesSlugs([locale])
-
-    const articles: ArticleMetadata[] = []
-
-    articlesSlugs[locale]?.forEach((slug) => {
-        const { metadata } = getArticle(locale, slug)
-        articles.push(metadata)
-    })
+    const articles = await fetchArticles(locale)
 
     const translations = await serverSideTranslations(locale || ``, [`common`, `articles`])
 
@@ -39,11 +34,7 @@ export const getStaticProps: GetStaticProps<{ articles: ArticleMetadata[] }> = a
     }
 }
 
-type ArticlesProps = {
-    articles: ArticleMetadata[]
-}
-
-const Articles: NextPage<ArticlesProps> = (props) => {
+const ArticlesPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) => {
     const { articles } = props
     const router = useRouter()
     const { t } = useTranslation(`articles`)
@@ -60,10 +51,10 @@ const Articles: NextPage<ArticlesProps> = (props) => {
                 <meta name="twitter:description" content={t(`pageDescription`)} />
             </Head>
             <main>
-                <ArticlesSection articlesMetadata={articles} />
+                <Articles articlesMetadata={articles} />
             </main>
         </>
     )
 }
 
-export default Articles
+export default ArticlesPage

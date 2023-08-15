@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     }
 }
 
-const Projects: NextPage = () => {
+const ProjectsPage: NextPage = () => {
     const router = useRouter()
     const { t } = useTranslation(`projects`)
 
@@ -39,4 +39,4 @@ const Projects: NextPage = () => {
     )
 }
 
-export default Projects
+export default ProjectsPage

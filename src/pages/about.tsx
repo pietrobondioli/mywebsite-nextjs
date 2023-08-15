@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     }
 }
 
-const About: React.FC = () => {
+const AboutPage: React.FC = () => {
     const router = useRouter()
     const { t } = useTranslation(`about`)
 
@@ -43,4 +43,4 @@ const About: React.FC = () => {
     )
 }
 
-export default About
+export default AboutPage
