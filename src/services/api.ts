@@ -62,7 +62,10 @@ export const createComment = async (content: string, articleId: string): Promise
 }
 
 export const updateComment = async (id: string, updatedData: any): Promise<Comment> => {
-    const response = await fetch(`${API_BASE_URL}/comments/${id}`, {
+    const params = new URLSearchParams()
+    if (id) params.append(`id`, id)
+
+    const response = await fetch(`${API_BASE_URL}/comments?${params}`, {
         method: `PUT`,
         headers: { "Content-Type": `application/json` },
         body: JSON.stringify(updatedData),
@@ -71,7 +74,10 @@ export const updateComment = async (id: string, updatedData: any): Promise<Comme
 }
 
 export const deleteComment = async (id: string): Promise<void> => {
-    const response = await fetch(`${API_BASE_URL}/comments/${id}`, {
+    const params = new URLSearchParams()
+    if (id) params.append(`id`, id)
+
+    const response = await fetch(`${API_BASE_URL}/comments?${params}`, {
         method: `DELETE`,
     })
     if (!response.ok) throw new Error(`Failed to delete comment`)
