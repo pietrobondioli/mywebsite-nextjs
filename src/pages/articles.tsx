@@ -1,49 +1,46 @@
 import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { GetStaticProps, NextPage } from "next"
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
-import { Articles as ArticlesSection } from "@/containers/Articles"
-import { getArticle } from "@/utils/getArticle"
-import { getArticlesSlugs } from "@/utils/getArticlesSlugs"
+import { Articles } from "@/containers/Articles"
+import { ArticlePreview, fetchArticles } from "@/services/api"
+import { ArticlesByCategory, reduceArticlesByCategory } from "@/utils/reduceArticlesByCategory"
 
-export const getStaticProps: GetStaticProps<{ articles: ArticleMetadata[] }> = async (context) => {
+export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = async (context) => {
     const { locale } = context
 
     if (!locale) {
         return {
             props: {
-                articles: [],
+                articles: {},
             },
         }
     }
 
-    const articlesSlugs = getArticlesSlugs([locale])
+    let articles: ArticlePreview[]
 
-    const articles: ArticleMetadata[] = []
+    if (process.env.NEXT_PUBLIC_BUILD_ENV === `vercel`) {
+        articles = []
+    } else {
+        articles = await fetchArticles({ lang: locale, preview: true })
+    }
 
-    articlesSlugs[locale].forEach((slug) => {
-        const { metadata } = getArticle(locale, slug)
-        articles.push(metadata)
-    })
+    const articlesByCategory = reduceArticlesByCategory(articles)
 
     const translations = await serverSideTranslations(locale || ``, [`common`, `articles`])
 
     return {
         props: {
-            articles,
+            articles: articlesByCategory,
             ...translations,
         },
     }
 }
 
-type ArticlesProps = {
-    articles: ArticleMetadata[]
-}
-
-const Articles: NextPage<ArticlesProps> = (props) => {
+const ArticlesPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) => {
     const { articles } = props
     const router = useRouter()
     const { t } = useTranslation(`articles`)
@@ -60,10 +57,10 @@ const Articles: NextPage<ArticlesProps> = (props) => {
                 <meta name="twitter:description" content={t(`pageDescription`)} />
             </Head>
             <main>
-                <ArticlesSection articlesMetadata={articles} />
+                <Articles articles={articles} />
             </main>
         </>
     )
 }
 
-export default Articles
+export default ArticlesPage
