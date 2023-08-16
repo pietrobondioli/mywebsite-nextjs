@@ -6,28 +6,29 @@ import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 import { Articles } from "@/containers/Articles"
-import { ArticlePreview, fetchArticles } from "@/services/api"
+import { fetchArticles } from "@/services/api"
+import { ArticlesByCategory, reduceArticlesByCategory } from "@/utils/reduceArticlesByCategory"
 
-export const getStaticProps: GetStaticProps<{ articles: ArticlePreview[] }> = async (context) => {
+export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = async (context) => {
     const { locale } = context
 
     if (!locale) {
         return {
             props: {
-                articles: [],
+                articles: {},
             },
         }
     }
 
     const articles = await fetchArticles({ lang: locale, preview: true })
 
-    console.log({ articles })
+    const articlesByCategory = reduceArticlesByCategory(articles)
 
     const translations = await serverSideTranslations(locale || ``, [`common`, `articles`])
 
     return {
         props: {
-            articles,
+            articles: articlesByCategory,
             ...translations,
         },
     }
