@@ -12,7 +12,13 @@ import {
     updateComment,
 } from "@/services/api"
 
-function CommentForm({ onSubmit }: { onSubmit: (content: string, parentId?: string) => void }) {
+function CommentForm({
+    onSubmit,
+    onCancel,
+}: {
+    onSubmit: (content: string, parentId?: string) => void
+    onCancel?: () => void
+}) {
     const [content, setContent] = useState(``)
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -26,12 +32,23 @@ function CommentForm({ onSubmit }: { onSubmit: (content: string, parentId?: stri
             <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                className="w-full p-2 border rounded shadow-md dark:bg-secondary dark:text-white focus:shadow-sm hover:shadow-sm focus:bg-white-700 focus:outline focus:ring-1 focus:ring-primary"
+                className="w-full p-2 border rounded shadow-md bg-gray-100 dark:bg-gray-900 dark:text-white focus:shadow-sm hover:shadow-sm focus:bg-white focus:outline focus:ring-1 focus:ring-primary"
                 rows={3}
             />
-            <button type="submit" className="mt-2 px-4 py-2 bg-primary text-white rounded">
-                Submit
-            </button>
+            <div className="flex space-x-2 mt-2">
+                <button type="submit" className="px-3 py-1 bg-primary text-white rounded">
+                    Submit
+                </button>
+                {onCancel && (
+                    <button
+                        type="button"
+                        onClick={onCancel}
+                        className="px-3 py-1 bg-gray-300 text-black rounded"
+                    >
+                        Cancel
+                    </button>
+                )}
+            </div>
         </form>
     )
 }
@@ -52,65 +69,78 @@ function CommentItem({
     const { data: session } = useSession()
     const [isEditing, setIsEditing] = useState(false)
     const [isReplying, setIsReplying] = useState(false)
-    const [editedContent, setEditedContent] = useState(comment.content)
 
     const handleReply = (content: string) => {
         setIsReplying(false)
         onReply(content, comment.id)
     }
 
-    const handleUpdate = () => {
-        setIsEditing(false)
-        onUpdate(comment.id, { content: editedContent })
-    }
-
     return (
-        <div
-            className="border p-2 mt-2 dark:text-white shadow-sm bg-white dark:bg-secondary"
-            style={{ marginLeft: `${level * 20}px` }}
-        >
-            <p>{comment.content}</p>
-            {!isEditing && (
-                <>
-                    {session?.user.id === comment.author_id && (
-                        <>
-                            <button
-                                onClick={() => setIsEditing(true)}
-                                className="mt-2 px-4 py-2 bg-orange text-white rounded mr-2"
-                            >
-                                Edit
-                            </button>
-                            <button
-                                onClick={() => onDelete(comment.id)}
-                                className="mt-2 px-4 py-2 bg-red text-white rounded mr-2"
-                            >
-                                Delete
-                            </button>
-                        </>
-                    )}
-                    <button
-                        onClick={() => setIsReplying(true)}
-                        className="mt-2 px-4 py-2 bg-primary text-white rounded hover:bg-blue-600"
-                    >
-                        Reply
-                    </button>
-                    {isReplying && <CommentForm onSubmit={handleReply} />}
-                    {comment.replies?.map((reply) => (
-                        <CommentItem
-                            key={reply.id}
-                            comment={reply}
-                            onReply={onReply}
-                            onUpdate={onUpdate}
-                            onDelete={onDelete}
-                            level={level + 1}
-                        />
-                    ))}
-                </>
+        <div style={{ position: `relative` }}>
+            {level > 0 && (
+                <div
+                    style={{
+                        position: `absolute`,
+                        left: `${level * 10 - 2}px`,
+                        top: 0,
+                        bottom: 0,
+                        width: `2px`,
+                        backgroundColor: `#ccc`,
+                    }}
+                ></div>
             )}
+            <div
+                className="border p-2 my-2 dark:text-white shadow-md bg-white dark:bg-secondary border-gray-300"
+                style={{ marginLeft: `${level * 10}px` }}
+            >
+                <p>{comment.content}</p>
+                {!isEditing && (
+                    <>
+                        {session?.user.id === comment.author_id && (
+                            <>
+                                <button
+                                    onClick={() => setIsEditing(true)}
+                                    className="mt-2 px-3 py-1 bg-orange-500 text-white rounded mr-2 hover:bg-orange-600 duration-150"
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    onClick={() => onDelete(comment.id)}
+                                    className="mt-2 px-3 py-1 bg-red-500 text-white rounded mr-2 hover:bg-red-600 duration-150"
+                                >
+                                    Delete
+                                </button>
+                            </>
+                        )}
+                        <button
+                            onClick={() => setIsReplying(true)}
+                            className="mt-2 px-3 py-1 bg-primary text-white rounded hover:bg-blue-600 duration-150"
+                        >
+                            Reply
+                        </button>
+                        {isReplying && (
+                            <CommentForm
+                                onSubmit={handleReply}
+                                onCancel={() => setIsReplying(false)}
+                            />
+                        )}
+                    </>
+                )}
+            </div>
+
+            {comment.replies?.map((reply) => (
+                <CommentItem
+                    key={reply.id}
+                    comment={reply}
+                    onReply={onReply}
+                    onUpdate={onUpdate}
+                    onDelete={onDelete}
+                    level={level + 1}
+                />
+            ))}
         </div>
     )
 }
-
 function CommentList({
     comments,
     onReply,
@@ -173,14 +203,14 @@ function LoginDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
                                 signIn()
                                 onClose()
                             }}
-                            className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-white hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-dark sm:text-sm"
+                            className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-3 py-1 bg-primary text-white hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-dark sm:text-sm"
                         >
                             Login
                         </button>
                         <button
                             type="button"
                             onClick={onClose}
-                            className="mt-3 inline-flex justify-center w-full rounded-md border border-grey dark:border-grey-opaque shadow-sm px-4 py-2 bg-white dark:bg-secondary text-secondary dark:text-white hover:bg-white-500 dark:hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-dark sm:text-sm"
+                            className="mt-3 inline-flex justify-center w-full rounded-md border border-grey dark:border-grey-opaque shadow-sm px-3 py-1 bg-white dark:bg-secondary text-secondary dark:text-white hover:bg-white-500 dark:hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-dark sm:text-sm"
                         >
                             Cancel
                         </button>
