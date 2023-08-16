@@ -7,7 +7,7 @@ import { Article } from "@prisma/client"
 
 import { Section } from "@/components/Section"
 import { ArticleContainer } from "@/containers/Article"
-import { fetchArticles } from "@/services/api"
+import { ArticlePreview, fetchArticles } from "@/services/api"
 import { markdownToHtml } from "@/utils/markdownToHtml"
 import CommentsContainer from "@/containers/Comments"
 
@@ -20,10 +20,12 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
 
     let article: Article | undefined = undefined
 
-    if (process.env.NEXT_PUBLIC_BUILD_ENV !== `vercel`) {
+    try {
         const articles = await fetchArticles({ slug: params?.slug, lang: locale, preview: false })
 
         article = articles[0]
+    } catch (error) {
+        console.error(error)
     }
 
     if (!article) {
@@ -63,17 +65,20 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) 
 
     let paths: LocaleSlug[] = []
 
-    if (process.env.NEXT_PUBLIC_BUILD_ENV !== `vercel`) {
-        for (const locale of locales) {
-            const articles = await fetchArticles({ lang: locale, preview: true })
-
-            const localePaths: LocaleSlug[] = articles.map((article) => ({
-                params: { slug: article.slug },
-                locale: locale,
-            }))
-
-            paths = [...paths, ...localePaths]
+    for (const locale of locales) {
+        let articles: ArticlePreview[] = []
+        try {
+            articles = await fetchArticles({ lang: locale, preview: true })
+        } catch (error) {
+            console.error(error)
         }
+
+        const localePaths: LocaleSlug[] = articles.map((article) => ({
+            params: { slug: article.slug },
+            locale: locale,
+        }))
+
+        paths = [...paths, ...localePaths]
     }
 
     return {

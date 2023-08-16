@@ -20,12 +20,12 @@ export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = 
         }
     }
 
-    let articles: ArticlePreview[]
+    let articles: ArticlePreview[] = []
 
-    if (process.env.NEXT_PUBLIC_BUILD_ENV === `vercel`) {
-        articles = []
-    } else {
+    try {
         articles = await fetchArticles({ lang: locale, preview: true })
+    } catch (error) {
+        console.error(error)
     }
 
     const articlesByCategory = reduceArticlesByCategory(articles)
