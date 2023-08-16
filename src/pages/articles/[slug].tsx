@@ -7,9 +7,9 @@ import { Article } from "@prisma/client"
 
 import { Section } from "@/components/Section"
 import { ArticleContainer } from "@/containers/Article"
-import { ArticlePreview, fetchArticles } from "@/services/api"
 import { markdownToHtml } from "@/utils/markdownToHtml"
 import CommentsContainer from "@/containers/Comments"
+import { ArticlePreview, getArticles } from "@/server/lib/getArticles"
 
 export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string }> = async (
     context
@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
     let article: Article | undefined = undefined
 
     try {
-        const articles = await fetchArticles({ slug: params?.slug, lang: locale, preview: false })
+        const articles = await getArticles({ slug: params?.slug, lang: locale, preview: false })
 
         article = articles[0]
     } catch (error) {
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
 
     return {
         props: {
-            article,
+            article: JSON.parse(JSON.stringify(article)),
             ...translations,
         },
     }
@@ -68,7 +68,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) 
     for (const locale of locales) {
         let articles: ArticlePreview[] = []
         try {
-            articles = await fetchArticles({ lang: locale, preview: true })
+            articles = await getArticles({ lang: locale, preview: true })
         } catch (error) {
             console.error(error)
         }

@@ -1,6 +1,6 @@
 import { Article } from "@prisma/client"
 
-import { ArticlePreview } from "@/services/api"
+import { ArticlePreview } from "@/server/lib/getArticles"
 
 export type ArticlesByCategory = Record<string, ArticlePreview[]>
 

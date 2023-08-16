@@ -6,8 +6,8 @@ import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 import { Articles } from "@/containers/Articles"
-import { ArticlePreview, fetchArticles } from "@/services/api"
 import { ArticlesByCategory, reduceArticlesByCategory } from "@/utils/reduceArticlesByCategory"
+import { ArticlePreview, getArticles } from "@/server/lib/getArticles"
 
 export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = async (context) => {
     const { locale } = context
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = 
     let articles: ArticlePreview[] = []
 
     try {
-        articles = await fetchArticles({ lang: locale, preview: true })
+        articles = await getArticles({ lang: locale, preview: true })
     } catch (error) {
         console.error(error)
     }
@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = 
 
     return {
         props: {
-            articles: articlesByCategory,
+            articles: JSON.parse(JSON.stringify(articlesByCategory)),
             ...translations,
         },
     }
