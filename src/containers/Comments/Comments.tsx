@@ -191,7 +191,7 @@ function LoginDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
                             Login Required
                         </h3>
                         <div className="mt-2">
-                            <p className="text-sm text-grey dark:text-white">
+                            <p className="text-sm text-gray-500 dark:text-white">
                                 You need to be logged in to reply to a comment.
                             </p>
                         </div>
@@ -210,7 +210,7 @@ function LoginDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
                         <button
                             type="button"
                             onClick={onClose}
-                            className="mt-3 inline-flex justify-center w-full rounded-md border border-grey dark:border-grey-opaque shadow-sm px-3 py-1 bg-white dark:bg-secondary text-secondary dark:text-white hover:bg-white-500 dark:hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-dark sm:text-sm"
+                            className="mt-3 inline-flex justify-center w-full rounded-md border border-gray-500 dark:border-grey-opaque shadow-sm px-3 py-1 bg-white dark:bg-secondary text-secondary dark:text-white hover:bg-white-500 dark:hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-dark sm:text-sm"
                         >
                             Cancel
                         </button>
