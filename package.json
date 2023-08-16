@@ -37,6 +37,7 @@
         "remark-parse": "^10.0.1",
         "remark-rehype": "10.1.0",
         "sass": "^1.59.3",
+        "swr": "2.2.1",
         "unified": "^10.1.2",
         "zod": "3.22.0",
         "zustand": "4.3.6"

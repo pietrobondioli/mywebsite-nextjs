@@ -52,11 +52,15 @@ export const fetchCommentsForArticle = async (articleId: string): Promise<Commen
     return response.json()
 }
 
-export const createComment = async (content: string, articleId: string): Promise<Comment> => {
+export const createComment = async (
+    content: string,
+    articleId: string,
+    parentId?: string
+): Promise<Comment> => {
     const response = await fetch(`${API_BASE_URL}/comments`, {
         method: `POST`,
         headers: { "Content-Type": `application/json` },
-        body: JSON.stringify({ content, article_id: articleId }),
+        body: JSON.stringify({ content, article_id: articleId, parent_id: parentId }),
     })
     return response.json()
 }

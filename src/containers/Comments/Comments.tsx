@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import useSWR, { mutate } from "swr"
+import { useState } from "react"
 import { signIn, useSession } from "next-auth/react"
 
 import {
@@ -39,16 +40,23 @@ function CommentItem({
     onReply,
     onUpdate,
     onDelete,
+    level = 0,
 }: {
     comment: ThreadComment
     onReply: (content: string, parentId: string) => void
     onUpdate: (id: string, updatedData: any) => void
     onDelete: (id: string) => void
+    level?: number
 }) {
+    const { data: session } = useSession()
     const [isEditing, setIsEditing] = useState(false)
+    const [isReplying, setIsReplying] = useState(false)
     const [editedContent, setEditedContent] = useState(comment.content)
 
-    const handleReply = (content: string) => onReply(content, comment.id)
+    const handleReply = (content: string) => {
+        setIsReplying(false)
+        onReply(content, comment.id)
+    }
 
     const handleUpdate = () => {
         setIsEditing(false)
@@ -56,37 +64,36 @@ function CommentItem({
     }
 
     return (
-        <div className="border p-2 mt-2 dark:text-white">
-            {isEditing ? (
+        <div
+            className="border p-2 mt-2 dark:text-white shadow-sm bg-white dark:bg-secondary"
+            style={{ marginLeft: `${level * 20}px` }}
+        >
+            <p>{comment.content}</p>
+            {!isEditing && (
                 <>
-                    <textarea
-                        value={editedContent}
-                        onChange={(e) => setEditedContent(e.target.value)}
-                        className="w-full p-2 border rounded dark:bg-secondary dark:text-white"
-                    />
+                    {session?.user.id === comment.author_id && (
+                        <>
+                            <button
+                                onClick={() => setIsEditing(true)}
+                                className="mt-2 px-4 py-2 bg-orange text-white rounded mr-2"
+                            >
+                                Edit
+                            </button>
+                            <button
+                                onClick={() => onDelete(comment.id)}
+                                className="mt-2 px-4 py-2 bg-red text-white rounded mr-2"
+                            >
+                                Delete
+                            </button>
+                        </>
+                    )}
                     <button
-                        onClick={handleUpdate}
-                        className="mt-2 px-4 py-2 bg-orange text-white rounded"
+                        onClick={() => setIsReplying(true)}
+                        className="mt-2 px-4 py-2 bg-primary text-white rounded hover:bg-blue-600"
                     >
-                        Update
+                        Reply
                     </button>
-                </>
-            ) : (
-                <>
-                    <p>{comment.content}</p>
-                    <button
-                        onClick={() => setIsEditing(true)}
-                        className="mt-2 px-4 py-2 bg-orange text-white rounded"
-                    >
-                        Edit
-                    </button>
-                    <button
-                        onClick={() => onDelete(comment.id)}
-                        className="mt-2 px-4 py-2 bg-red text-white rounded ml-2"
-                    >
-                        Delete
-                    </button>
-                    <CommentForm onSubmit={handleReply} />
+                    {isReplying && <CommentForm onSubmit={handleReply} />}
                     {comment.replies?.map((reply) => (
                         <CommentItem
                             key={reply.id}
@@ -94,6 +101,7 @@ function CommentItem({
                             onReply={onReply}
                             onUpdate={onUpdate}
                             onDelete={onDelete}
+                            level={level + 1}
                         />
                     ))}
                 </>
@@ -184,55 +192,44 @@ function LoginDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
 
 export default function CommentsContainer({ articleId }: { articleId: string }) {
     const { data: session } = useSession()
-    const [comments, setComments] = useState<CommentThread>([])
+
+    const { data: comments, error } = useSWR<CommentThread>(articleId, fetchCommentsForArticle)
 
     const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false)
-
-    useEffect(() => {
-        const fetchComments = async () => {
-            const fetchedComments = await fetchCommentsForArticle(articleId)
-            setComments(fetchedComments)
-        }
-        fetchComments()
-    }, [articleId])
 
     const handleAddComment = async (content: string, parentId?: string) => {
         if (!session) {
             setIsLoginDialogOpen(true)
-
             return
         }
-        const newComment = await createComment(content, articleId)
-        if (parentId) {
-            newComment.parent_id = parentId
-        }
-        setComments((prevComments) => [...prevComments, newComment])
+        await createComment(content, articleId, parentId)
+        mutate(articleId)
     }
 
     const handleUpdateComment = async (id: string, updatedData: any) => {
-        const updatedComment = await updateComment(id, updatedData)
-        setComments((prevComments) =>
-            prevComments.map((comment) => (comment.id === id ? updatedComment : comment))
-        )
+        await updateComment(id, updatedData)
+        mutate(articleId)
     }
 
     const handleDeleteComment = async (id: string) => {
         await deleteComment(id)
-        setComments((prevComments) => prevComments.filter((comment) => comment.id !== id))
+        mutate(articleId)
     }
+
+    if (error) return <div>Error loading comments</div>
 
     return (
         <>
             <LoginDialog isOpen={isLoginDialogOpen} onClose={() => setIsLoginDialogOpen(false)} />
             <div className="mt-8">
                 <h2 className="text-2xl mb-4 text-primary-dark dark:text-white">Comments</h2>
+                <CommentForm onSubmit={handleAddComment} />
                 <CommentList
-                    comments={comments}
+                    comments={comments || []}
                     onReply={handleAddComment}
                     onUpdate={handleUpdateComment}
                     onDelete={handleDeleteComment}
                 />
-                <CommentForm onSubmit={handleAddComment} />
             </div>
         </>
     )

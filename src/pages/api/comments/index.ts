@@ -10,12 +10,13 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         const user = await getServerAuthSession({ req, res })
 
         if (req.method === `POST`) {
-            const { content, article_id } = req.body
+            const { content, article_id, parent_id } = req.body
             const comment = await prisma.comment.create({
                 data: {
                     content,
                     article_id,
                     author_id: user.id,
+                    parent_id,
                 },
             })
             return res.json(comment)
