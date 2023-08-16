@@ -4,13 +4,13 @@ import { signIn, useSession } from "next-auth/react"
 import { toast } from "react-toastify"
 
 import {
-    CommentThread,
     createComment,
     deleteComment,
     fetchCommentsForArticle,
-    ThreadComment,
     updateComment,
 } from "@/services/api"
+import { CommentWithRepliesAndAuthor } from "@/pages/api/articles/[id]/comments"
+import { formatDate } from "@/utils/formatDate"
 
 function CommentForm({
     onSubmit,
@@ -59,16 +59,26 @@ function CommentItem({
     onUpdate,
     onDelete,
     level = 0,
+    openLoginDialog,
 }: {
-    comment: ThreadComment
+    comment: CommentWithRepliesAndAuthor
     onReply: (content: string, parentId: string) => void
     onUpdate: (id: string, updatedData: any) => void
     onDelete: (id: string) => void
     level?: number
+    openLoginDialog?: () => void
 }) {
     const { data: session } = useSession()
     const [isEditing, setIsEditing] = useState(false)
     const [isReplying, setIsReplying] = useState(false)
+
+    const handleClickReply = () => {
+        if (!session) {
+            openLoginDialog?.()
+            return
+        }
+        setIsReplying(true)
+    }
 
     const handleReply = (content: string) => {
         setIsReplying(false)
@@ -90,10 +100,15 @@ function CommentItem({
                 ></div>
             )}
             <div
-                className="border p-2 my-2 dark:text-white shadow-md bg-white dark:bg-secondary border-gray-300"
+                className="border p-2 my-4 dark:text-white shadow-md bg-white dark:bg-secondary border-gray-300"
                 style={{ marginLeft: `${level * 10}px` }}
             >
                 <p>{comment.content}</p>
+                <p className="text-gray-500 mt-2 dark:text-gray-400">By: {comment.author.name}</p>
+                <p className="text-gray-400 text-sm mt-1 dark:text-gray-500">
+                    Posted on: {formatDate(comment.created_at)}
+                    {comment.edited_at && ` | Edited: ${formatDate(comment.edited_at)}`}
+                </p>
                 {!isEditing && (
                     <>
                         {session?.user.id === comment.author_id && (
@@ -113,7 +128,7 @@ function CommentItem({
                             </>
                         )}
                         <button
-                            onClick={() => setIsReplying(true)}
+                            onClick={handleClickReply}
                             className="mt-2 px-3 py-1 bg-primary text-white rounded hover:bg-blue-600 duration-150"
                         >
                             Reply
@@ -131,7 +146,7 @@ function CommentItem({
             {comment.replies?.map((reply) => (
                 <CommentItem
                     key={reply.id}
-                    comment={reply}
+                    comment={reply as CommentWithRepliesAndAuthor}
                     onReply={onReply}
                     onUpdate={onUpdate}
                     onDelete={onDelete}
@@ -141,16 +156,19 @@ function CommentItem({
         </div>
     )
 }
+
 function CommentList({
     comments,
     onReply,
     onUpdate,
     onDelete,
+    openLoginDialog,
 }: {
     comments: any[]
     onReply: (content: string, parentId: string) => void
     onUpdate: (id: string, updatedData: any) => void
     onDelete: (id: string) => void
+    openLoginDialog?: () => void
 }) {
     return (
         <div className="dark:text-white">
@@ -161,6 +179,7 @@ function CommentList({
                     onReply={onReply}
                     onUpdate={onUpdate}
                     onDelete={onDelete}
+                    openLoginDialog={openLoginDialog}
                 />
             ))}
         </div>
@@ -224,7 +243,10 @@ function LoginDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
 export default function CommentsContainer({ articleId }: { articleId: string }) {
     const { data: session } = useSession()
 
-    const { data: comments, error } = useSWR<CommentThread>(articleId, fetchCommentsForArticle)
+    const { data: comments, error } = useSWR<CommentWithRepliesAndAuthor[]>(
+        articleId,
+        fetchCommentsForArticle
+    )
 
     const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false)
 
@@ -278,6 +300,7 @@ export default function CommentsContainer({ articleId }: { articleId: string }) 
                     onReply={handleAddComment}
                     onUpdate={handleUpdateComment}
                     onDelete={handleDeleteComment}
+                    openLoginDialog={() => setIsLoginDialogOpen(true)}
                 />
             </div>
         </>
