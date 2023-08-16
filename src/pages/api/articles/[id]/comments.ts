@@ -1,30 +1,25 @@
 import { NextApiRequest, NextApiResponse } from "next/types"
+import { Prisma } from "@prisma/client"
 
 import { prisma } from "@/server/db"
 
-export type ThreadComment = {
-    replies?: {
-        id: string
-        content: string
-        parent_id: string | null
-        article_id: string
-        author_id: string
-    }[]
-} & {
-    id: string
-    content: string
-    parent_id: string | null
-    article_id: string
-    author_id: string
-}
+export type CommentWithRepliesAndAuthor = Prisma.CommentGetPayload<{
+    include: {
+        replies: true
+        author: {
+            select: {
+                id: true
+                name: true
+            }
+        }
+    }
+}>
 
-export type CommentThread = ThreadComment[]
-
-function structureComments(comments: CommentThread) {
+function structureComments(comments: CommentWithRepliesAndAuthor[]) {
     const topLevelComments = comments.filter((comment) => !comment.parent_id)
     const nestedComments = comments.filter((comment) => comment.parent_id)
 
-    const findChildren = (parentComment: ThreadComment) => {
+    const findChildren = (parentComment: any) => {
         parentComment.replies = nestedComments.filter(
             (reply) => reply.parent_id === parentComment.id
         )
@@ -47,6 +42,12 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
             where: { article_id },
             include: {
                 replies: true,
+                author: {
+                    select: {
+                        id: true,
+                        name: true,
+                    },
+                },
             },
         })
 

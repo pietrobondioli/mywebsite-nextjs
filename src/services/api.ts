@@ -1,5 +1,7 @@
 import { Article, Comment } from "@prisma/client"
 
+import { CommentWithRepliesAndAuthor } from "@/pages/api/articles/[id]/comments"
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? ``
 
 export type ArticlePreview = Omit<Article, "content">
@@ -28,25 +30,9 @@ export const fetchArticleById = async (id: string): Promise<Article> => {
     return response.json()
 }
 
-export type ThreadComment = {
-    replies?: {
-        id: string
-        content: string
-        parent_id: string | null
-        article_id: string
-        author_id: string
-    }[]
-} & {
-    id: string
-    content: string
-    parent_id: string | null
-    article_id: string
-    author_id: string
-}
-
-export type CommentThread = ThreadComment[]
-
-export const fetchCommentsForArticle = async (articleId: string): Promise<CommentThread> => {
+export const fetchCommentsForArticle = async (
+    articleId: string
+): Promise<CommentWithRepliesAndAuthor[]> => {
     const response = await fetch(`${API_BASE_URL}/articles/${articleId}/comments`)
     if (!response.ok) throw new Error(`Failed to fetch comments`)
     return response.json()

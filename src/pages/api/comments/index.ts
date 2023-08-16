@@ -39,7 +39,10 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
             const updatedComment = await prisma.comment.update({
                 where: { id },
-                data: req.body,
+                data: {
+                    content: req.body.content,
+                    edited_at: new Date(),
+                },
             })
             return res.json(updatedComment)
         }
