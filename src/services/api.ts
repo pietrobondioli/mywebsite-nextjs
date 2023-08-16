@@ -28,7 +28,25 @@ export const fetchArticleById = async (id: string): Promise<Article> => {
     return response.json()
 }
 
-export const fetchCommentsForArticle = async (articleId: string): Promise<Comment[]> => {
+export type ThreadComment = {
+    replies?: {
+        id: string
+        content: string
+        parent_id: string | null
+        article_id: string
+        author_id: string
+    }[]
+} & {
+    id: string
+    content: string
+    parent_id: string | null
+    article_id: string
+    author_id: string
+}
+
+export type CommentThread = ThreadComment[]
+
+export const fetchCommentsForArticle = async (articleId: string): Promise<CommentThread> => {
     const response = await fetch(`${API_BASE_URL}/articles/${articleId}/comments`)
     if (!response.ok) throw new Error(`Failed to fetch comments`)
     return response.json()
