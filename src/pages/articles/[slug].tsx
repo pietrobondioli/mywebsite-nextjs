@@ -18,9 +18,13 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
 
     const translations = await serverSideTranslations(locale ?? ``, [`common`, `error`])
 
-    const articles = await fetchArticles({ slug: params?.slug, lang: locale, preview: false })
+    let article: Article | undefined = undefined
 
-    const article = articles[0]
+    if (process.env.NEXT_PUBLIC_BUILD_ENV !== `vercel`) {
+        const articles = await fetchArticles({ slug: params?.slug, lang: locale, preview: false })
+
+        article = articles[0]
+    }
 
     if (!article) {
         return {
@@ -59,15 +63,17 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) 
 
     let paths: LocaleSlug[] = []
 
-    for (const locale of locales) {
-        const articles = await fetchArticles({ lang: locale, preview: true })
+    if (process.env.NEXT_PUBLIC_BUILD_ENV !== `vercel`) {
+        for (const locale of locales) {
+            const articles = await fetchArticles({ lang: locale, preview: true })
 
-        const localePaths: LocaleSlug[] = articles.map((article) => ({
-            params: { slug: article.slug },
-            locale: locale,
-        }))
+            const localePaths: LocaleSlug[] = articles.map((article) => ({
+                params: { slug: article.slug },
+                locale: locale,
+            }))
 
-        paths = [...paths, ...localePaths]
+            paths = [...paths, ...localePaths]
+        }
     }
 
     return {

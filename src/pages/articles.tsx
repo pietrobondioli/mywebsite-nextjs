@@ -6,7 +6,7 @@ import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 import { Articles } from "@/containers/Articles"
-import { fetchArticles } from "@/services/api"
+import { ArticlePreview, fetchArticles } from "@/services/api"
 import { ArticlesByCategory, reduceArticlesByCategory } from "@/utils/reduceArticlesByCategory"
 
 export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = async (context) => {
@@ -20,7 +20,13 @@ export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = 
         }
     }
 
-    const articles = await fetchArticles({ lang: locale, preview: true })
+    let articles: ArticlePreview[]
+
+    if (process.env.NEXT_PUBLIC_BUILD_ENV === `vercel`) {
+        articles = []
+    } else {
+        articles = await fetchArticles({ lang: locale, preview: true })
+    }
 
     const articlesByCategory = reduceArticlesByCategory(articles)
 
