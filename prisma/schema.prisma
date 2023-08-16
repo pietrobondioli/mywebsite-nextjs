@@ -83,6 +83,8 @@ model Comment {
     article    Article   @relation(fields: [article_id], references: [id])
     author_id  String
     author     User      @relation(fields: [author_id], references: [id])
+    created_at DateTime  @default(now())
+    edited_at  DateTime?
 
     @@index([parent_id])
     @@index([article_id])
