@@ -1,7 +1,7 @@
 import React from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { GetStaticProps, NextPage } from "next"
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { Article } from "@prisma/client"
 
@@ -39,38 +39,43 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
     }
 }
 
-// type LocaleSlug = {
-//     params: {
-//         slug: string
-//     }
-//     locale?: string
-// }
-
-// export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) => {
-//     const { locales } = context
-
-//     const slugs = getArticlesSlugs(locales || [])
-
-//     const paths = locales?.reduce<LocaleSlug[]>((prev, locale) => {
-//         const slugsOfLocales =
-//             slugs[locale]?.map((slug) => {
-//                 return { params: { slug }, locale }
-//             }) ?? []
-
-//         return [...prev, ...slugsOfLocales]
-//     }, [])
-
-//     return {
-//         paths: paths || [],
-//         fallback: false,
-//     }
-// }
-
-type ArticleProps = {
-    article: Article
+type LocaleSlug = {
+    params: {
+        slug: string
+    }
+    locale?: string
 }
 
-const ArticlePage: NextPage<ArticleProps> = (props) => {
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) => {
+    const { locales } = context
+
+    if (!locales) {
+        return {
+            paths: [],
+            fallback: false,
+        }
+    }
+
+    let paths: LocaleSlug[] = []
+
+    for (const locale of locales) {
+        const articles = await fetchArticles({ lang: locale, preview: true })
+
+        const localePaths: LocaleSlug[] = articles.map((article) => ({
+            params: { slug: article.slug },
+            locale: locale,
+        }))
+
+        paths = [...paths, ...localePaths]
+    }
+
+    return {
+        paths: paths,
+        fallback: false,
+    }
+}
+
+const ArticlePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) => {
     const { article } = props
     const router = useRouter()
 
