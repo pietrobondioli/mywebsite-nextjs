@@ -20,11 +20,11 @@ function CommentForm({ onSubmit }: { onSubmit: (content: string, parentId?: stri
     }
 
     return (
-        <form onSubmit={handleSubmit} className="mt-4 flex flex-col">
+        <form onSubmit={handleSubmit} className="mt-4 flex flex-col dark:text-white">
             <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                className="w-full p-2 border rounded shadow-md hover:shadow-sm focus:shadow-sm  bg-white-300 focus:outline focus:ring-1 focus:ring-primary"
+                className="w-full p-2 border rounded shadow-md dark:bg-secondary dark:text-white focus:shadow-sm hover:shadow-sm focus:bg-white-700 focus:outline focus:ring-1 focus:ring-primary"
                 rows={3}
             />
             <button type="submit" className="mt-2 px-4 py-2 bg-primary text-white rounded">
@@ -56,17 +56,17 @@ function CommentItem({
     }
 
     return (
-        <div className="border p-2 mt-2">
+        <div className="border p-2 mt-2 dark:text-white">
             {isEditing ? (
                 <>
                     <textarea
                         value={editedContent}
                         onChange={(e) => setEditedContent(e.target.value)}
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded dark:bg-secondary dark:text-white"
                     />
                     <button
                         onClick={handleUpdate}
-                        className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
+                        className="mt-2 px-4 py-2 bg-orange text-white rounded"
                     >
                         Update
                     </button>
@@ -76,18 +76,18 @@ function CommentItem({
                     <p>{comment.content}</p>
                     <button
                         onClick={() => setIsEditing(true)}
-                        className="mt-2 px-4 py-2 bg-yellow-500 text-white rounded"
+                        className="mt-2 px-4 py-2 bg-orange text-white rounded"
                     >
                         Edit
                     </button>
                     <button
                         onClick={() => onDelete(comment.id)}
-                        className="mt-2 px-4 py-2 bg-red-500 text-white rounded ml-2"
+                        className="mt-2 px-4 py-2 bg-red text-white rounded ml-2"
                     >
                         Delete
                     </button>
                     <CommentForm onSubmit={handleReply} />
-                    {comment.replies?.map((reply: any) => (
+                    {comment.replies?.map((reply) => (
                         <CommentItem
                             key={reply.id}
                             comment={reply}
@@ -114,8 +114,8 @@ function CommentList({
     onDelete: (id: string) => void
 }) {
     return (
-        <div>
-            {comments.map((comment: ThreadComment) => (
+        <div className="dark:text-white">
+            {comments.map((comment) => (
                 <CommentItem
                     key={comment.id}
                     comment={comment}
@@ -140,31 +140,21 @@ function LoginDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
         >
             <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                 <div
-                    className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+                    className="fixed inset-0 bg-grey-opaque dark:bg-black bg-opacity-75 transition-opacity"
                     aria-hidden="true"
                 ></div>
-
-                <span
-                    className="hidden sm:inline-block sm:align-middle sm:h-screen"
-                    aria-hidden="true"
-                >
-                    &#8203;
-                </span>
-
-                <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-                    <div>
-                        <div className="mt-3 text-center sm:mt-5">
-                            <h3
-                                className="text-lg leading-6 font-medium text-gray-900"
-                                id="modal-title"
-                            >
-                                Login Required
-                            </h3>
-                            <div className="mt-2">
-                                <p className="text-sm text-gray-500">
-                                    You need to be logged in to reply to a comment.
-                                </p>
-                            </div>
+                <div className="inline-block align-bottom bg-white dark:bg-secondary text-secondary dark:text-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                    <div className="mt-3 text-center sm:mt-5">
+                        <h3
+                            className="text-lg leading-6 font-medium text-primary-dark dark:text-white"
+                            id="modal-title"
+                        >
+                            Login Required
+                        </h3>
+                        <div className="mt-2">
+                            <p className="text-sm text-grey dark:text-white">
+                                You need to be logged in to reply to a comment.
+                            </p>
                         </div>
                     </div>
                     <div className="mt-5 sm:mt-6">
@@ -174,14 +164,14 @@ function LoginDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
                                 signIn()
                                 onClose()
                             }}
-                            className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm"
+                            className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-white hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-dark sm:text-sm"
                         >
                             Login
                         </button>
                         <button
                             type="button"
                             onClick={onClose}
-                            className="mt-3 inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                            className="mt-3 inline-flex justify-center w-full rounded-md border border-grey dark:border-grey-opaque shadow-sm px-4 py-2 bg-white dark:bg-secondary text-secondary dark:text-white hover:bg-white-500 dark:hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-dark sm:text-sm"
                         >
                             Cancel
                         </button>
@@ -235,7 +225,7 @@ export default function CommentsContainer({ articleId }: { articleId: string }) 
         <>
             <LoginDialog isOpen={isLoginDialogOpen} onClose={() => setIsLoginDialogOpen(false)} />
             <div className="mt-8">
-                <h2 className="text-2xl mb-4">Comments</h2>
+                <h2 className="text-2xl mb-4 text-primary-dark dark:text-white">Comments</h2>
                 <CommentList
                     comments={comments}
                     onReply={handleAddComment}
