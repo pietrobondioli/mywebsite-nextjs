@@ -1,6 +1,7 @@
 import useSWR, { mutate } from "swr"
 import { useState } from "react"
 import { signIn, useSession } from "next-auth/react"
+import { toast } from "react-toastify"
 
 import {
     CommentThread,
@@ -202,17 +203,35 @@ export default function CommentsContainer({ articleId }: { articleId: string }) 
             setIsLoginDialogOpen(true)
             return
         }
-        await createComment(content, articleId, parentId)
+        try {
+            await createComment(content, articleId, parentId)
+
+            toast.success(`Comment added`)
+        } catch (e) {
+            toast.error(`Error adding comment`)
+        }
         mutate(articleId)
     }
 
     const handleUpdateComment = async (id: string, updatedData: any) => {
-        await updateComment(id, updatedData)
+        try {
+            await updateComment(id, updatedData)
+
+            toast.success(`Comment updated`)
+        } catch (e) {
+            toast.error(`Error updating comment`)
+        }
         mutate(articleId)
     }
 
     const handleDeleteComment = async (id: string) => {
-        await deleteComment(id)
+        try {
+            await deleteComment(id)
+
+            toast.success(`Comment deleted`)
+        } catch (e) {
+            toast.error(`Error deleting comment`)
+        }
         mutate(articleId)
     }
 
