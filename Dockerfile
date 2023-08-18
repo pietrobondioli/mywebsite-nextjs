@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:20-alpine
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -16,4 +16,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Running app
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]

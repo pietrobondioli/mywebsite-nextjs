@@ -14,6 +14,8 @@ services:
             - .:/usr/src/app
             - /usr/src/app/node_modules
             - /usr/src/app/.next
+        profiles:
+            - full
 
     mysql:
         image: mysql:8.0.32
@@ -27,4 +29,5 @@ services:
         volumes:
             - mysql-data:/var/lib/mysql
         profiles:
+            - full
             - database
