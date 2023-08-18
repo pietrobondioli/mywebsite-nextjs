@@ -1,13 +1,30 @@
-version: '3.8'
+version: "3.8"
+
+volumes:
+    mysql-data:
 
 services:
-  website:
-    ports:
-      - 3000:3000
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-      - /usr/src/app/.next
+    website:
+        ports:
+            - 3000:3000
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+            - /usr/src/app/.next
+
+    mysql:
+        image: mysql:8.0.32
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: database
+            MY_SQL_ROOT_HOST: "%"
+        ports:
+            - "3306:3306"
+        volumes:
+            - mysql-data:/var/lib/mysql
+        profiles:
+            - database
