@@ -20,9 +20,9 @@ async function seedUsers() {
 
 async function seedLanguages() {
     const languageData = [
-        { code: `en-US`, name: `English` },
-        { code: `es-ES`, name: `Español` },
-        { code: `pt-BR`, name: `Português` },
+        { code: `en`, name: `English` },
+        { code: `es`, name: `Español` },
+        { code: `pt`, name: `Português` },
     ]
 
     for (const lang of languageData) {
@@ -88,45 +88,82 @@ async function seedVerificationTokens() {
 }
 
 async function seedArticles() {
+    const articlesForLanguage = 5
     const languages = await prisma.language.findMany()
-    const categories = [`Tech`, `Lifestyle`, `Travel`, `Health`, `Business`] // Sample categories
+    const categories = [`Tech`, `Health`, `Business`]
 
-    for (const language of languages) {
-        await prisma.article.create({
-            data: {
-                slug: faker.lorem.slug(),
-                lang_id: language.id,
-                title: faker.lorem.sentence(),
-                published_at: faker.date.past(),
-                last_modified: faker.date.recent(),
-                author_name: `Pietro Bondioli`,
-                excerpt: faker.lorem.paragraph(),
-                image_url: faker.image.url(),
-                image_alt: faker.lorem.words(3),
-                content: faker.lorem.paragraphs(5),
-                category: faker.helpers.arrayElement(categories),
-            },
-        })
+    for (const category of categories) {
+        for (let i = 0; i < articlesForLanguage; i++) {
+            for (const language of languages) {
+                await prisma.article.create({
+                    data: {
+                        slug: `${category}-${i}-${language.name}${faker.lorem.slug()}`,
+                        lang_id: language.id,
+                        title: `${category}-${i}-${language.name}${faker.lorem.sentence()}`,
+                        published_at: faker.date.past(),
+                        last_modified: faker.date.recent(),
+                        author_name: `Pietro Bondioli`,
+                        excerpt: faker.lorem.paragraph(),
+                        image_url: faker.image.url(),
+                        image_alt: faker.lorem.words(3),
+                        content: faker.lorem.paragraphs(5),
+                        category: category,
+                    },
+                })
+            }
+        }
     }
 }
 
 async function seedSlugTranslations() {
-    const articles = await prisma.article.findMany()
     const languages = await prisma.language.findMany()
+    const articles = await prisma.article.findMany()
+
+    // A set to track articles that have already been targeted
+    const targetedArticles = new Set()
+
+    // A map to track source articles and their corresponding targets
+    const sourceToTargetMap = new Map()
 
     for (const article of articles) {
-        const sourceLang = await prisma.language.findUnique({ where: { id: article.lang_id } })
-        for (const targetLang of languages) {
-            if (sourceLang?.id && targetLang.id !== sourceLang.id) {
-                await prisma.slugTranslation.create({
-                    data: {
-                        sourceSlug: article.slug,
-                        targetSlug: faker.lorem.slug(),
-                        sourceLang_id: sourceLang?.id,
-                        targetLang_id: targetLang.id,
-                        article_id: article.id,
-                    },
-                })
+        for (const language of languages) {
+            if (language.id !== article.lang_id) {
+                let targetArticle
+
+                // Check if the article was previously targeted, if so, use the source as the target
+                if (sourceToTargetMap.has(article.id + `_` + language.id)) {
+                    targetArticle = sourceToTargetMap.get(article.id + `_` + language.id)
+                } else {
+                    // Find the next available article in the target language
+                    targetArticle = await prisma.article.findFirst({
+                        where: {
+                            category: article.category,
+                            lang_id: language.id,
+                            NOT: {
+                                id: {
+                                    in: Array.from(targetedArticles),
+                                },
+                            },
+                        },
+                    })
+
+                    if (targetArticle) {
+                        targetedArticles.add(targetArticle.id)
+                        sourceToTargetMap.set(targetArticle.id + `_` + article.lang_id, article)
+                    }
+                }
+
+                if (targetArticle) {
+                    await prisma.slugTranslation.create({
+                        data: {
+                            sourceSlug: article.slug,
+                            targetSlug: targetArticle.slug,
+                            sourceLang_id: article.lang_id,
+                            targetLang_id: language.id,
+                            article_id: article.id,
+                        },
+                    })
+                }
             }
         }
     }
