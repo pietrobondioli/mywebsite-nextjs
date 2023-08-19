@@ -5,17 +5,13 @@ const prisma = new PrismaClient()
 
 async function seedUsers() {
     const numberOfUsers = 40
-
-    for (let i = 0; i < numberOfUsers; i++) {
-        await prisma.user.create({
-            data: {
-                name: faker.person.fullName(),
-                email: faker.internet.email(),
-                emailVerified: faker.date.past(),
-                image: faker.image.avatar(),
-            },
-        })
-    }
+    const users = Array.from({ length: numberOfUsers }, () => ({
+        name: faker.person.fullName(),
+        email: faker.internet.email(),
+        emailVerified: faker.date.past(),
+        image: faker.image.avatar(),
+    }))
+    await prisma.user.createMany({ data: users })
 }
 
 async function seedLanguages() {
@@ -25,11 +21,7 @@ async function seedLanguages() {
         { code: `pt`, name: `Português` },
     ]
 
-    for (const lang of languageData) {
-        await prisma.language.create({
-            data: lang,
-        })
-    }
+    await prisma.language.createMany({ data: languageData })
 }
 
 async function seedAccounts() {
@@ -37,24 +29,22 @@ async function seedAccounts() {
     const accountTypes = [`personal`, `business`, `other`]
     const providers = [`google`, `facebook`, `twitter`, `github`]
 
-    for (const user of users) {
-        await prisma.account.create({
-            data: {
-                userId: user.id,
-                type: faker.helpers.arrayElement(accountTypes),
-                provider: faker.helpers.arrayElement(providers),
-                providerAccountId: faker.string.uuid(),
-                refresh_token: faker.string.uuid(),
-                refresh_token_expires_in: faker.number.int(3600),
-                access_token: faker.string.uuid(),
-                expires_at: faker.number.int(3600),
-                token_type: `Bearer`,
-                scope: `read`,
-                id_token: faker.string.uuid(),
-                session_state: faker.string.uuid(),
-            },
-        })
-    }
+    const accounts = users.map((user: any) => ({
+        userId: user.id,
+        type: faker.helpers.arrayElement(accountTypes),
+        provider: faker.helpers.arrayElement(providers),
+        providerAccountId: faker.string.uuid(),
+        refresh_token: faker.string.uuid(),
+        refresh_token_expires_in: faker.number.int(3600),
+        access_token: faker.string.uuid(),
+        expires_at: faker.number.int(3600),
+        token_type: `Bearer`,
+        scope: `read`,
+        id_token: faker.string.uuid(),
+        session_state: faker.string.uuid(),
+    }))
+
+    await prisma.account.createMany({ data: accounts })
 }
 
 async function seedSessions() {
@@ -94,6 +84,12 @@ async function seedArticles() {
 
     for (const category of categories) {
         for (let i = 0; i < articlesForLanguage; i++) {
+            const articleContainer = await prisma.articleContainer.create({
+                data: {
+                    name: `${category} ${i} container ${faker.lorem.sentence()}`,
+                },
+            })
+
             for (const language of languages) {
                 await prisma.article.create({
                     data: {
@@ -108,6 +104,7 @@ async function seedArticles() {
                         image_alt: faker.lorem.words(3),
                         content: faker.lorem.paragraphs(5),
                         category: category,
+                        article_container_id: articleContainer.id,
                     },
                 })
             }
@@ -115,69 +112,42 @@ async function seedArticles() {
     }
 }
 
-async function seedSlugTranslations() {
-    const languages = await prisma.language.findMany()
+async function seedComments() {
+    const users = await prisma.user.findMany()
     const articles = await prisma.article.findMany()
 
-    // A set to track articles that have already been targeted
-    const targetedArticles = new Set()
-
-    // A map to track source articles and their corresponding targets
-    const sourceToTargetMap = new Map()
-
     for (const article of articles) {
-        for (const language of languages) {
-            if (language.id !== article.lang_id) {
-                let targetArticle
+        const numberOfComments = faker.number.int({ min: 0, max: 10 })
 
-                // Check if the article was previously targeted, if so, use the source as the target
-                if (sourceToTargetMap.has(article.id + `_` + language.id)) {
-                    targetArticle = sourceToTargetMap.get(article.id + `_` + language.id)
-                } else {
-                    // Find the next available article in the target language
-                    targetArticle = await prisma.article.findFirst({
-                        where: {
-                            category: article.category,
-                            lang_id: language.id,
-                            NOT: {
-                                id: {
-                                    in: Array.from(targetedArticles),
-                                },
-                            },
-                        },
-                    })
+        for (let i = 0; i < numberOfComments; i++) {
+            const user = faker.helpers.arrayElement(users)
 
-                    if (targetArticle) {
-                        targetedArticles.add(targetArticle.id)
-                        sourceToTargetMap.set(targetArticle.id + `_` + article.lang_id, article)
-                    }
-                }
-
-                if (targetArticle) {
-                    await prisma.slugTranslation.create({
-                        data: {
-                            sourceSlug: article.slug,
-                            targetSlug: targetArticle.slug,
-                            sourceLang_id: article.lang_id,
-                            targetLang_id: language.id,
-                            article_id: article.id,
-                        },
-                    })
-                }
-            }
+            await prisma.comment.create({
+                data: {
+                    content: faker.lorem.sentences(),
+                    article_id: article.id,
+                    author_id: user.id,
+                    created_at: faker.date.recent(),
+                    // Add logic for nested replies here if desired
+                },
+            })
         }
     }
 }
 
 async function main() {
     console.log(`Start seeding ...`)
-    await seedUsers()
-    await seedLanguages()
-    await seedAccounts()
-    await seedSessions()
-    await seedVerificationTokens()
+    await Promise.all([
+        seedUsers(),
+        seedLanguages(),
+        seedAccounts(),
+        seedSessions(),
+        seedVerificationTokens(),
+    ])
+
     await seedArticles()
-    await seedSlugTranslations()
+    await seedComments()
+
     console.log(`Seeding finished.`)
 }
 

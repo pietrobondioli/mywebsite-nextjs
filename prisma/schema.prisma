@@ -59,6 +59,7 @@ model VerificationToken {
 
 model ArticleContainer {
     id       String    @id @default(cuid())
+    name     String
     articles Article[]
 }
 
@@ -94,7 +95,7 @@ model Language {
 
 model Comment {
     id         String    @id @default(cuid())
-    content    String
+    content    String    @db.Text
     parent_id  String?
     parent     Comment?  @relation("CommentToComment", fields: [parent_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
     replies    Comment[] @relation("CommentToComment")
