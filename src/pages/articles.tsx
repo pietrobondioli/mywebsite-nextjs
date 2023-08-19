@@ -6,8 +6,12 @@ import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 import { Articles } from "@/containers/Articles"
-import { ArticlesByCategory, reduceArticlesByCategory } from "@/utils/reduceArticlesByCategory"
-import { ArticlePreview, getArticles } from "@/server/lib/getArticles"
+import {
+    ArticlePreview,
+    ArticlesByCategory,
+    getArticles,
+    reduceArticlesByCategory,
+} from "@/server/lib/getArticles"
 
 export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = async (context) => {
     const { locale } = context

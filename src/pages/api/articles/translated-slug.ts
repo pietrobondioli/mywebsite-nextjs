@@ -14,21 +14,39 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     try {
-        const translation = await prisma.slugTranslation.findFirst({
+        const originalArticle = await prisma.article.findUnique({
             where: {
-                sourceSlug: slug,
-                targetLang: {
-                    code: targetLangCode,
-                },
+                slug: slug,
+            },
+            select: {
+                article_container_id: true,
             },
         })
 
-        if (!translation) {
-            return res.status(404).json({ error: `Translation not found` })
+        if (!originalArticle) {
+            return res.status(404).json({ error: `Original article not found` })
         }
 
-        return res.status(200).json({ translatedSlug: translation.targetSlug })
+        const translatedArticle = await prisma.article.findFirst({
+            where: {
+                article_container_id: originalArticle.article_container_id,
+                lang: {
+                    code: targetLangCode,
+                },
+            },
+            select: {
+                slug: true,
+            },
+        })
+
+        if (!translatedArticle) {
+            return res.status(404).json({ error: `Translated article not found` })
+        }
+
+        return res.status(200).json({ translatedSlug: translatedArticle.slug })
     } catch (error) {
-        return res.status(500).json({ error: `Server error` })
+        const errorMessage = error instanceof Error ? error.message : `Server error`
+
+        return res.status(500).json({ error: `Server error: ${errorMessage}` })
     }
 }

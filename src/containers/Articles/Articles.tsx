@@ -1,8 +1,8 @@
 import React from "react"
 
 import { Section } from "@/components/Section"
-import { ArticlesByCategory } from "@/utils/reduceArticlesByCategory"
 import { SectionTitle } from "@/components/Section/SectionTitle"
+import { ArticlesByCategory } from "@/server/lib/getArticles"
 
 import { ArticleCard } from "./ArticleCard"
 

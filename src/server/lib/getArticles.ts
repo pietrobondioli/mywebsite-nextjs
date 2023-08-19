@@ -2,7 +2,7 @@ import { Article, Prisma } from "@prisma/client"
 
 import { prisma } from "../db"
 
-export type ArticlePreview = Omit<Article, "content">
+export type ArticlePreview = Omit<Article, "content" | "article_container">
 
 export const getArticles = async <T extends boolean>({
     lang,
@@ -32,6 +32,9 @@ export const getArticles = async <T extends boolean>({
         category: true,
         lang: { select: { code: true } },
         content: false,
+        // Here we don't select the `article_container` by default as it might not be required
+        // If you need it later, you can add it to the select
+        article_container: false,
     }
 
     if (!preview) {
@@ -44,4 +47,18 @@ export const getArticles = async <T extends boolean>({
     })
 
     return articles as any
+}
+
+export type ArticlesByCategory = Record<string, ArticlePreview[]>
+
+export function reduceArticlesByCategory(articles: ArticlePreview[]) {
+    return articles.reduce<ArticlesByCategory>((acc, article) => {
+        const category = article.category || ``
+        const categorizedArticles = acc[category] ?? []
+
+        return {
+            ...acc,
+            [category]: [...categorizedArticles, article],
+        }
+    }, {})
 }
