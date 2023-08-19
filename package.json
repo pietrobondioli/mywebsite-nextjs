@@ -12,7 +12,8 @@
         "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
         "postinstall": "husky install && prisma generate",
         "seed": "node prisma/seed.js",
-        "add-article": "node prisma/scripts/add-article.js"
+        "add-article": "node prisma/scripts/add-article.js",
+        "add-languages": "node prisma/scripts/add-languages.js"
     },
     "dependencies": {
         "@faker-js/faker": "8.0.2",
