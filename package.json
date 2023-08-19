@@ -11,7 +11,8 @@
         "lint": "next lint",
         "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
         "postinstall": "husky install && prisma generate",
-        "seed": "node -r ts-node/register prisma/seed.ts"
+        "seed": "node prisma/seed.js",
+        "add-article": "node prisma/scripts/add-article.js"
     },
     "dependencies": {
         "@faker-js/faker": "8.0.2",

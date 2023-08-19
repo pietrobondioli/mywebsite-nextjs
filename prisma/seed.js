@@ -29,7 +29,7 @@ async function seedAccounts() {
     const accountTypes = [`personal`, `business`, `other`]
     const providers = [`google`, `facebook`, `twitter`, `github`]
 
-    const accounts = users.map((user: any) => ({
+    const accounts = users.map((user) => ({
         userId: user.id,
         type: faker.helpers.arrayElement(accountTypes),
         provider: faker.helpers.arrayElement(providers),
