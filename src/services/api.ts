@@ -59,3 +59,27 @@ export const deleteComment = async (id: string): Promise<void> => {
     })
     if (!response.ok) throw new Error(`Failed to delete comment`)
 }
+
+export const getClapCount = async (
+    articleId: string
+): Promise<{ clapCount: number; userClapped: boolean }> => {
+    const response = await fetch(`${API_BASE_URL}/articles/${articleId}/claps`)
+    if (!response.ok) throw new Error(`Failed to fetch clap count`)
+
+    return response.json()
+}
+
+export const addClap = async (articleId: string): Promise<void> => {
+    const response = await fetch(`${API_BASE_URL}/articles/${articleId}/claps`, {
+        method: `POST`,
+        headers: { "Content-Type": `application/json` },
+    })
+    if (!response.ok) throw new Error(`Failed to add clap`)
+}
+
+export const removeClap = async (articleId: string): Promise<void> => {
+    const response = await fetch(`${API_BASE_URL}/articles/${articleId}/claps`, {
+        method: `DELETE`,
+    })
+    if (!response.ok) throw new Error(`Failed to remove clap`)
+}
