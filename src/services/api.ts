@@ -4,6 +4,19 @@ import { CommentWithRepliesAndAuthor } from "@/pages/api/articles/[id]/comments"
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? ``
 
+export const fetchTranslatedSlug = async (
+    currentSlug: string,
+    targetLangCode: string
+): Promise<string> => {
+    const response = await fetch(
+        `${API_BASE_URL}/articles/translated-slug?slug=${currentSlug}&targetLangCode=${targetLangCode}`
+    )
+    if (!response.ok) throw new Error(`Failed to fetch translated slug`)
+    const { translatedSlug } = await response.json()
+
+    return translatedSlug
+}
+
 export const fetchCommentsForArticle = async (
     articleId: string
 ): Promise<CommentWithRepliesAndAuthor[]> => {
