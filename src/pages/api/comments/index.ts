@@ -9,6 +9,8 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     try {
         const user = await getServerAuthSession({ req, res })
 
+        if (!user) return res.status(401).json({ error: `User is not authenticated` })
+
         if (req.method === `POST`) {
             const { content, article_id, parent_id } = req.body
             const comment = await prisma.comment.create({
@@ -61,11 +63,10 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
             await prisma.comment.delete({ where: { id } })
             return res.status(204).end()
         }
-    } catch (error: any) {
-        if (error.message === `User is not authenticated`) {
-            return res.status(401).json({ error: `User is not authenticated` })
-        }
-        return res.status(500).json({ error: error.message })
+    } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : `Unknown error`
+
+        return res.status(500).json({ error: errorMessage })
     }
 
     return res.status(405).end()

@@ -60,7 +60,7 @@ export const getServerAuthSession = async (ctx: {
 }) => {
     const session = await getServerSession(ctx.req, ctx.res, authOptions)
 
-    if (!session) throw new Error(`User is not authenticated`)
+    if (!session) return null
 
     return session.user
 }
