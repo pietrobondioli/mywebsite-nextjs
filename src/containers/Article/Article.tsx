@@ -1,12 +1,10 @@
-import React from "react"
 import Image from "next/image"
 import { Article } from "@prisma/client"
 
 import { FALLBACK_IMAGE } from "@/utils/constants"
 
 import styles from "./Article.module.scss"
-
-import "highlight.js/styles/atom-one-dark-reasonable.css"
+import Claps from "../Claps"
 
 export type ArticleProps = {
     article: Article
@@ -14,7 +12,7 @@ export type ArticleProps = {
 
 export const ArticleContainer: React.FC<ArticleProps> = (props) => {
     const {
-        article: { content, image_alt, image_url },
+        article: { id, content, image_alt, image_url },
     } = props
 
     return (
@@ -28,6 +26,7 @@ export const ArticleContainer: React.FC<ArticleProps> = (props) => {
                 />
             </div>
             <article className={styles.article} dangerouslySetInnerHTML={{ __html: content }} />
+            <Claps articleId={id} />
         </>
     )
 }

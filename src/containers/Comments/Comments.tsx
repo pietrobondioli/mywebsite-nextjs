@@ -244,8 +244,8 @@ export default function CommentsContainer({ articleId }: { articleId: string }) 
     const { data: session } = useSession()
 
     const { data: comments, error } = useSWR<CommentWithRepliesAndAuthor[]>(
-        articleId,
-        fetchCommentsForArticle
+        `articles/${articleId}/comments`,
+        () => fetchCommentsForArticle(articleId)
     )
 
     const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false)
