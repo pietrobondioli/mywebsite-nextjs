@@ -57,49 +57,39 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
-model Article {
-    id               String            @id @default(cuid())
-    slug             String
-    lang_id          String
-    lang             Language          @relation(fields: [lang_id], references: [id])
-    title            String
-    published_at     DateTime
-    last_modified    DateTime
-    author_name      String
-    excerpt          String            @db.Text
-    image_url        String
-    image_alt        String
-    content          String            @db.LongText
-    comments         Comment[]
-    category         String
-    slugTranslations SlugTranslation[]
+model ArticleContainer {
+    id       String    @id @default(cuid())
+    articles Article[]
+}
 
+model Article {
+    id                   String           @id @default(cuid())
+    slug                 String           @unique
+    category             String
+    lang_id              String
+    lang                 Language         @relation(fields: [lang_id], references: [id])
+    title                String
+    published_at         DateTime
+    last_modified        DateTime
+    author_name          String
+    excerpt              String           @db.Text
+    image_url            String
+    image_alt            String
+    content              String           @db.LongText
+    comments             Comment[]
+    article_container_id String
+    article_container    ArticleContainer @relation(fields: [article_container_id], references: [id])
+
+    @@unique([slug, lang_id])
     @@index([lang_id])
+    @@index([article_container_id])
 }
 
 model Language {
-    id                     String            @id @default(cuid())
-    code                   String            @unique
-    name                   String
-    articles               Article[]
-    sourceSlugTranslations SlugTranslation[] @relation("sourceLanguage")
-    targetSlugTranslations SlugTranslation[] @relation("targetLanguage")
-}
-
-model SlugTranslation {
-    id            String   @id @default(cuid())
-    sourceSlug    String
-    targetSlug    String
-    sourceLang_id String
-    sourceLang    Language @relation(fields: [sourceLang_id], references: [id], name: "sourceLanguage")
-    targetLang_id String
-    targetLang    Language @relation(fields: [targetLang_id], references: [id], name: "targetLanguage")
-    article_id    String
-    article       Article  @relation(fields: [article_id], references: [id])
-
-    @@index([sourceLang_id])
-    @@index([targetLang_id])
-    @@index([article_id])
+    id       String    @id @default(cuid())
+    code     String    @unique
+    name     String
+    articles Article[]
 }
 
 model Comment {
