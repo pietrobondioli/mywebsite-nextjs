@@ -23,7 +23,7 @@ const ErrorPage: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>
     const { t } = useTranslation(`error`)
     const { statusCode } = props
 
-    const title = t(`error_alert`) + statusCode
+    const title = t(`error_alert.default`) + statusCode
 
     return (
         <>

@@ -1,6 +1,7 @@
 {
     "title": "Erro",
     "error_alert": {
+        "default": "Ocorreu um erro.",
         "server_error": "Ocorreu um erro no servidor.",
         "client_error": "Ocorreu um erro no client."
     }
