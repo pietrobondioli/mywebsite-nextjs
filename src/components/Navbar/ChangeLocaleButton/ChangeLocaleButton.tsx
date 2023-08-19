@@ -1,11 +1,11 @@
-// React/Next Components
 import React from "react"
 import { useRouter } from "next/router"
 
 import { NavbarItem } from "../NavbarItem"
 
 export const ChangeLocaleButton: React.FC = () => {
-    const { pathname, query, locales, locale } = useRouter()
+    const router = useRouter()
+    const { pathname, query, locales, locale } = router
 
     const changeTo = locales?.find((l) => l !== locale)
 
@@ -14,7 +14,7 @@ export const ChangeLocaleButton: React.FC = () => {
             key="changeLocale"
             name={locale}
             link={pathname}
-            query={query}
+            query={{ ...query, checkSlug: `true`, targetLang: changeTo }}
             locale={changeTo}
             scroll={false}
         />

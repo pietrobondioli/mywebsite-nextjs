@@ -1,4 +1,4 @@
-import { Article } from "@prisma/client"
+import { Article, Prisma } from "@prisma/client"
 
 import { prisma } from "../db"
 
@@ -13,15 +13,15 @@ export const getArticles = async <T extends boolean>({
     slug?: string
     preview: T
 }): Promise<T extends true ? ArticlePreview[] : Article[]> => {
-    const whereClause: any = {}
-    if (lang) whereClause.lang = lang
+    const whereClause: Prisma.ArticleWhereInput = {}
+
+    if (lang) whereClause.lang = { code: lang }
     if (slug) whereClause.slug = slug
 
-    const selectClause: any = {
+    const selectClause: Prisma.ArticleSelect = {
         id: true,
         slug: true,
         title: true,
-        lang: true,
         published_at: true,
         last_modified: true,
         author_name: true,
@@ -30,7 +30,7 @@ export const getArticles = async <T extends boolean>({
         image_alt: true,
         comments: true,
         category: true,
-        // Explicitly skip content
+        lang: { select: { code: true } },
         content: false,
     }
 
