@@ -47,6 +47,7 @@ model User {
     accounts      Account[]
     sessions      Session[]
     Comment       Comment[]
+    Clap          Clap[]
 }
 
 model VerificationToken {
@@ -80,6 +81,8 @@ model Article {
     comments             Comment[]
     article_container_id String
     article_container    ArticleContainer @relation(fields: [article_container_id], references: [id])
+    clapCount            Int              @default(0)
+    Clap                 Clap[]
 
     @@unique([slug, lang_id])
     @@index([lang_id])
@@ -109,4 +112,17 @@ model Comment {
     @@index([parent_id])
     @@index([article_id])
     @@index([author_id])
+}
+
+model Clap {
+    id        String   @id @default(cuid())
+    userId    String
+    user      User     @relation(fields: [userId], references: [id])
+    articleId String
+    article   Article  @relation(fields: [articleId], references: [id])
+    createdAt DateTime @default(now())
+
+    @@unique([userId, articleId])
+    @@index([userId])
+    @@index([articleId])
 }
