@@ -28,9 +28,7 @@ export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = 
 
     try {
         articles = await getArticles({ lang: locale, preview: true })
-    } catch (error) {
-        console.error(error)
-    }
+    } catch (error) {}
 
     const articlesByCategory = reduceArticlesByCategory(articles)
 
