@@ -19,6 +19,7 @@
         "@prisma/client": "5.1.1",
         "@t3-oss/env-nextjs": "0.6.1",
         "body-scroll-lock": "^3.1.5",
+        "eslint-config-next": "13.4.19",
         "gray-matter": "^4.0.3",
         "highlight.js": "11.8.0",
         "i18next": "23.4.4",
