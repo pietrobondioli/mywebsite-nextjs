@@ -18,22 +18,24 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
         props
 
     return (
-        <Link href={`/articles/${articleSlug}`}>
-            <div className="group cursor-pointer relative flex flex-col justify-start items-center text-black overflow-hidden bg-white-700 h-full">
+        <Link
+            href={`/articles/${articleSlug}`}
+            className="group cursor-pointer relative flex flex-col justify-start items-center text-black overflow-hidden bg-white-700 h-96 w-72 flex-shrink-0 min-w-0"
+        >
+            <div className="w-full h-2/5 overflow-hidden relative">
                 <Image
-                    width={512}
-                    height={256}
                     src={articleImage}
                     alt={articleImageAlt}
-                    className="w-full h-fit object-cover group-hover:scale-105 duration-500"
+                    className="absolute top-0 left-0 w-full h-full object-cover group-hover:scale-105 duration-500"
+                    layout="fill"
                 />
-                <div className="relative bottom-0 group-hover:bottom-3 duration-500 px-4 py-6 gap-2 flex flex-col justify-between bg-white-700 w-full h-full">
-                    <div className="text-xl">{articleTitle}</div>
-                    <div className="flex flex-col">
-                        <div className="text-grey-opaque">{articleDate}</div>
-                        <div className="text-base">
-                            {t(`card.by`)}: {articleAuthor}
-                        </div>
+            </div>
+            <div className="relative bottom-0 group-hover:bottom-3 duration-500 px-4 py-6 gap-2 flex flex-col justify-between bg-white-700 w-full h-3/5">
+                <div className="text-lg">{articleTitle}</div>
+                <div className="flex flex-col">
+                    <div className="text-gray-600">{articleDate}</div>
+                    <div className="text-base">
+                        {t(`card.by`)}: {articleAuthor}
                     </div>
                 </div>
             </div>
