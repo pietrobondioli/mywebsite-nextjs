@@ -12,6 +12,7 @@ import { Theme } from "@/containers/Theme"
 
 import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.scss"
+import { LoginDialog } from "@/components/LoginDialog"
 
 const MyApp: AppType<{ session: Session | null }> = ({
     Component,
@@ -40,6 +41,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
             <SessionProvider session={session}>
                 <ToastContainer />
                 <Theme>
+                    <LoginDialog />
                     <div className="min-h-svh flex flex-col justify-between">
                         <Navbar />
                         <div className="grow">
