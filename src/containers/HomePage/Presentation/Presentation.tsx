@@ -7,7 +7,7 @@ import { SectionContent } from "@/components/Section/SectionContent"
 
 const SECTIONS = {
     introduction: {
-        image: `/assets/icons/home/pietro-720px.jpg`,
+        image: `/assets/icons/home/pietro-2023.jpg`,
         readMore: false,
         readMoreLink: ``,
     },
