@@ -190,8 +190,10 @@ function CommentList({
 export default function CommentsContainer({ articleId }: { articleId: string }) {
     const { data: session } = useSession()
 
+    const articleCommentsKey = `articles/${articleId}/comments`
+
     const { data: comments, error } = useSWR<CommentWithRepliesAndAuthor[]>(
-        `articles/${articleId}/comments`,
+        articleCommentsKey,
         () => fetchCommentsForArticle(articleId)
     )
 
@@ -209,7 +211,7 @@ export default function CommentsContainer({ articleId }: { articleId: string }) 
         } catch (e) {
             toast.error(`Error adding comment`)
         }
-        mutate(articleId)
+        mutate(articleCommentsKey)
     }
 
     const handleUpdateComment = async (id: string, updatedData: any) => {
@@ -220,7 +222,7 @@ export default function CommentsContainer({ articleId }: { articleId: string }) 
         } catch (e) {
             toast.error(`Error updating comment`)
         }
-        mutate(articleId)
+        mutate(articleCommentsKey)
     }
 
     const handleDeleteComment = async (id: string) => {
@@ -231,7 +233,7 @@ export default function CommentsContainer({ articleId }: { articleId: string }) 
         } catch (e) {
             toast.error(`Error deleting comment`)
         }
-        mutate(articleId)
+        mutate(articleCommentsKey)
     }
 
     if (error) return <div>Error loading comments</div>
