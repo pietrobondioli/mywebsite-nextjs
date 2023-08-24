@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify"
 import { type Session } from "next-auth"
 import { SessionProvider } from "next-auth/react"
 import { type AppType } from "next/app"
+import { Analytics } from "@vercel/analytics/react"
 
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
@@ -39,6 +40,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
                 />
             </Head>
             <SessionProvider session={session}>
+                <Analytics />
                 <ToastContainer />
                 <Theme>
                     <LoginDialog />
