@@ -8,7 +8,7 @@ import { Article } from "@prisma/client"
 import { Section } from "@/components/Section"
 import { ArticleContainer } from "@/containers/Article"
 import { markdownToHtml } from "@/utils/markdownToHtml"
-import CommentsContainer from "@/containers/Comments"
+import CommentsContainer from "@/components/Comments"
 import { ArticlePreview, getArticles } from "@/server/lib/getArticles"
 
 export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string }> = async (

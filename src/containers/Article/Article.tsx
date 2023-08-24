@@ -4,7 +4,7 @@ import { Article } from "@prisma/client"
 import { FALLBACK_IMAGE } from "@/utils/constants"
 
 import styles from "./Article.module.scss"
-import Claps from "../Claps"
+import Claps from "@/components/Claps"
 
 export type ArticleProps = {
     article: Article
