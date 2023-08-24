@@ -4,12 +4,18 @@ import { PiHandsClapping } from "react-icons/pi"
 import { toast } from "react-toastify"
 
 import { addClap, getClapCount, removeClap } from "@/services/api"
+import { useSession } from "next-auth/react"
+import { useLoginDialogActions } from "@/components/LoginDialog/useLoginDialog"
 export type ClapsProps = {
     articleId: string
 }
 
 export function Claps(props: ClapsProps) {
     const { articleId } = props
+
+    const { data: session } = useSession()
+
+    const { OPEN } = useLoginDialogActions()
 
     const clapsKey = `claps/${articleId}`
 
@@ -38,6 +44,10 @@ export function Claps(props: ClapsProps) {
     }, [clapsKey, articleId])
 
     const handleAddOrRemoveClap = useCallback(async () => {
+        if (!session) {
+            OPEN()
+            return
+        }
         if (clapData?.userClapped) {
             await handleRemoveClap()
         } else {
