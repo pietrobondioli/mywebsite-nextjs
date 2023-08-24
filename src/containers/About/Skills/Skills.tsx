@@ -9,19 +9,14 @@ import { SkillItem } from "./SkillItem"
 const SKILL_ITEMS = {
     programming_languages: [
         {
-            name: `Typescript`,
-            image: `/icons/skills/typescript-32px.png`,
-            imageAlt: `Typescript logo.`,
-        },
-        {
-            name: `Java`,
-            image: `/icons/skills/java-32px.png`,
-            imageAlt: `Java logo.`,
-        },
-        {
             name: `C#`,
             image: `/icons/skills/csharp-32px.png`,
             imageAlt: `C# logo.`,
+        },
+        {
+            name: `Typescript`,
+            image: `/icons/skills/typescript-32px.png`,
+            imageAlt: `Typescript logo.`,
         },
         {
             name: `Html`,
@@ -40,11 +35,6 @@ const SKILL_ITEMS = {
         },
     ],
     frameworks: [
-        {
-            name: `Spring Boot`,
-            image: `/icons/skills/spring-boot-32px.png`,
-            imageAlt: `Spring Boot logo.`,
-        },
         {
             name: `.NET Core`,
             image: `/icons/skills/dotnet-32px.png`,
@@ -125,14 +115,14 @@ const SKILL_ITEMS = {
             imageAlt: `Node.js logo.`,
         },
         {
-            name: `PostgreSql`,
-            image: `/icons/skills/postgresql-32px.png`,
-            imageAlt: `PostgreSql logo.`,
-        },
-        {
             name: `MySql`,
             image: `/icons/skills/mysql-32px.png`,
             imageAlt: `MySql logo.`,
+        },
+        {
+            name: `PostgreSql`,
+            image: `/icons/skills/postgresql-32px.png`,
+            imageAlt: `PostgreSql logo.`,
         },
         {
             name: `MongoDB`,
