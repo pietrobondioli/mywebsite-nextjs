@@ -21,7 +21,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
     return (
         <>
             <Head>
-                <link rel="shortcut icon" href="/icons/favicon.ico" />
+                <link rel="shortcut icon" href="/assets/icons/favicon.ico" />
                 <meta httpEquiv="content-type" content="text/html" />
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />

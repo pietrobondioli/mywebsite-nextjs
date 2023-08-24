@@ -27,7 +27,7 @@
                 "stack": "C# | .NET Core | Typescript | ReactJS | Azure | Docker | Kubernetes",
                 "description": "Atuo no desenvolvimento de diversas APIs REST para integração com sistemas de clientes como Nestlé, Vale, 99 Food, Petrobrás, entre outros. Essas APIs tinha como propósito servir como base de consumo de dados por chatbots, e foram desenvolvidas utilizando principalmente C# e .NET Core, por vezes utilizando também Node.JS e Express.JS. Tendo também que lidar com todo o ecossistema que circundava essas APIs: Azure Devops, Docker, Docker Compose, Kubernetes, Seq Log.",
                 "period": "Maio 2021 ~ PRESENTE | Full-time",
-                "image": "/icons/about/take-blip-logo.png",
+                "image": "/assets/icons/about/take-blip-logo.png",
                 "imageAlt": "Logotipo da empresa Take Blip.",
                 "readMore": false
             },
@@ -37,7 +37,7 @@
                 "stack": "Typescript | ReactJS | Java | Spring Boot | MySql | Docker",
                 "description": "Participo do desenvolvimento de um Sistema de Gestão Pública, tendo sido responsável principalmente pela refatoração de um front-end legado. A refatoração foi feita utilizando padrão de Micro Frontends, juntamente com React.JS e todo seu ecossistema. Além disso, trouxe para o backend do projeto (Java, Spring Boot) práticas de utilização de tecnologias como: Docker, Docker Compose, Log4J, Graylog. Esta experiência não só me ajudou a crescer tecnicamente como também me ajudou a melhorar minhas habilidades de gestão, já que, para a refatoração desse front-end, eu contei com ajuda de dois estagiários que estavam em processo de aprendizado.",
                 "period": "Outubro 2021 ~ PRESENTE | Part-time",
-                "image": "/icons/about/essencial-gestao-publica-logo.png",
+                "image": "/assets/icons/about/essencial-gestao-publica-logo.png",
                 "imageAlt": "Logotipo da empresa Essencial Gestão Pública.",
                 "readMore": false
             },
@@ -47,7 +47,7 @@
                 "stack": "Node.JS | Express.JS | Electron.JS | Firebase",
                 "description": "Em 2020 trabalhei para uma empresa local desenvolvendo um software desktop para gerenciamento de processos internos, foi o meu primeiro trabalho remunerado como desenvolvedor. As tecnologias usadas foram: Node.JS, Express.JS, Electron.JS, Firebase.",
                 "period": "2020",
-                "image": "/icons/home/brain-256px.png",
+                "image": "/assets/icons/home/brain-256px.png",
                 "imageAlt": "Um desenho de um cérebro.",
                 "readMore": false
             }
@@ -61,7 +61,7 @@
                 "course": "Análise e Desenvolvimento de Sistemas",
                 "description": "Talvez as partes mais impactantes do curso para mim foram aquelas onde eu aprendi coisas básicas que formaram e reforçaram o meu conhecimento base em tecnologia, sou grato a matérias como Cálculo, Hardware, Algoritmos, Estrutura de Dados, Ética, entre outras.",
                 "period": "2019 ~ PRESENTE",
-                "image": "/icons/about/mackenzie-logo.png",
+                "image": "/assets/icons/about/mackenzie-logo.png",
                 "imageAlt": "mackenzie logo",
                 "readMore": false
             }

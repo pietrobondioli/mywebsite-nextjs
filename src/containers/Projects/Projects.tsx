@@ -6,13 +6,13 @@ import { SectionContent } from "@/components/Section/SectionContent"
 
 const PROJECTS = {
     peepo_discord_bot: {
-        image: `/icons/projects/pepe-computer-chair-256px.png`,
+        image: `/assets/icons/projects/pepe-computer-chair-256px.png`,
         readMore: true,
         readMoreTargetBlank: true,
         readMoreLink: `https://github.com/bondiolipietro/peepo-discord-bot`,
     },
     my_website: {
-        image: `/icons/home/contact-256px.png`,
+        image: `/assets/icons/home/contact-256px.png`,
         readMore: true,
         readMoreTargetBlank: true,
         readMoreLink: `https://github.com/bondiolipietro/mywebsite-nextjs`,

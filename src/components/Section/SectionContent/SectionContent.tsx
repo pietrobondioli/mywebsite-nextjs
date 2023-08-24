@@ -25,7 +25,7 @@ export const SectionContent: React.FC<SectionContentProps> = (props) => {
                 width={128}
                 height={128}
                 className="rounded-full"
-                src={image || `/icons/error/warning-128px.png`}
+                src={image || `/assets/icons/error/warning-128px.png`}
                 alt={imageAlt || `No content.`}
             />
             <div className="flex items-center flex-col gap-6 md:px-6 lg:px-12 grow">

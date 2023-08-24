@@ -7,27 +7,27 @@ import { SectionContent } from "@/components/Section/SectionContent"
 
 const SECTIONS = {
     introduction: {
-        image: `/icons/home/pietro-720px.jpg`,
+        image: `/assets/icons/home/pietro-720px.jpg`,
         readMore: false,
         readMoreLink: ``,
     },
     about: {
-        image: `/icons/home/brain-256px.png`,
+        image: `/assets/icons/home/brain-256px.png`,
         readMore: true,
         readMoreLink: `/about`,
     },
     articles: {
-        image: `/icons/home/article-256px.png`,
+        image: `/assets/icons/home/article-256px.png`,
         readMore: true,
         readMoreLink: `/articles`,
     },
     projects: {
-        image: `/icons/home/book-256px.png`,
+        image: `/assets/icons/home/book-256px.png`,
         readMore: true,
         readMoreLink: `/projects`,
     },
     // contact: {
-    //     image: `/icons/home/contact-256px.png`,
+    //     image: `/assets/icons/home/contact-256px.png`,
     //     readMore: true,
     //     readMoreLink: `/contact`,
     // },
