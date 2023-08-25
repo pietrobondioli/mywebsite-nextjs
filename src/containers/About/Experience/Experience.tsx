@@ -25,7 +25,11 @@ export const Experience: React.FC = () => {
                             <p>{xp.name}</p>
                             <b className="text-lg">{xp.position}</b>
                             <p className="text-primary">{xp.stack}</p>
-                            <p>{xp.description}</p>
+                            <div className="flex flex-col">
+                                {xp.description.split("\n").map((line, index) => (
+                                    <p key={index}>{line}</p>
+                                ))}
+                            </div>
                             <b className="text-base">{xp.period}</b>
                         </div>
                     </SectionContent>
