@@ -1,0 +1,18 @@
+{
+    "navbar": [
+        {
+            "name": "acerca de",
+            "link": "/about"
+        },
+        {
+            "name": "artículos",
+            "link": "/articles"
+        },
+        {
+            "name": "proyectos",
+            "link": "/projects"
+        }
+    ],
+    "readMore": "leer más",
+    "fallbackImgAlt": "Hubo un error al cargar la imagen"
+}

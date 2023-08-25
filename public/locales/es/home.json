@@ -1,0 +1,29 @@
+{
+    "pageDescription": "Creé este sitio web para ser un lugar donde pueda presentar mejor mi trabajo y habilidades, y también compartir mis conocimientos, pensamientos e ideas.",
+    "header": {
+        "myWebsite": "miSitioWeb",
+        "welcomeWebsite": "echo \"¡bienvenido a mi sitio web!\""
+    },
+    "presentation": {
+        "introduction": {
+            "title": "",
+            "text": "Hola, mi nombre es Pietro y soy un desarrollador fascinado por la tecnología. En los últimos años me he dedicado a estudiar y desarrollar sistemas, estando presente y aprendiendo sobre cada etapa del desarrollo, desde la concepción de soluciones, pasando por decisiones técnicas y arquitectónicas, desarrollo, pruebas, implementación y mantenimiento.",
+            "imageAlt": "Una foto de Pietro Bondioli."
+        },
+        "about": {
+            "title": "acerca de",
+            "text": "En esta sección encontrarás información sobre mi educación, experiencias y conocimientos específicos de tecnología (como lenguajes de programación, frameworks, herramientas, etc).",
+            "imageAlt": "Un dibujo de un cerebro."
+        },
+        "articles": {
+            "title": "artículos",
+            "text": "Generalmente escribo artículos para solidificar el conocimiento adquirido durante la resolución de un problema específico. Aquí puedes encontrar algunos artículos que escribí sobre tecnologías que estoy estudiando o que ya estudié.",
+            "imageAlt": "Un dibujo de un papel y una pluma simbolizando un 'artículo'."
+        },
+        "projects": {
+            "title": "proyectos",
+            "text": "Aquí podrás encontrar cualquier proyecto que creo que las personas podrían encontrar interesante. Siéntete libre de hacer sugerencias o preguntas.",
+            "imageAlt": "Un dibujo de un libro."
+        }
+    }
+}

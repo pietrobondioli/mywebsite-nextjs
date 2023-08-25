@@ -1,0 +1,16 @@
+{
+    "pageTitle": "Proyectos - Pietro Bondioli",
+    "pageDescription": "Aquí puedes ver algunos proyectos en los que participé o que creé.",
+    "projects_infos": {
+        "peepo_discord_bot": {
+            "name": "Peepo Discord Bot",
+            "description": "Peepo es un bot con diversas funcionalidades que fue creado con el propósito de proporcionar varias funcionalidades que me faltaban en otros bots de discord. Hasta el momento, el bot tiene pocos comandos (de lanzamiento de dados) que estoy usando para jugar RPG de mesa con algunos amigos.",
+            "imageAlt": "Una computadora portátil y un globo de diálogo simbolizando un sitio web."
+        },
+        "my_website": {
+            "name": "Mi sitio web",
+            "description": "Este no fue el primer sitio que programé, pero fue el primero que realmente \"terminé\". El sitio se construyó inicialmente con Javascript y Next.js. Y en 2023, el sitio fue refactorizado usando: Typescript, Next.js, TailwindCSS y Zustand.",
+            "imageAlt": "Una computadora portátil y un globo de diálogo simbolizando un sitio web."
+        }
+    }
+}

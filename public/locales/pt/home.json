@@ -2,12 +2,13 @@
     "pageDescription": "Eu criei este website para ser um local onde eu posso melhor apresentar meu trabalho e habilidades, e também compartilhar meus conhecimentos, pensamentos e ideias.",
     "header": {
         "myWebsite": "myWebsite",
-        "welcomeWebsite": "echo \"welcome to my website!\""
+        "welcomeWebsite": "echo \"bem vindo ao meu website!\""
     },
     "presentation": {
         "introduction": {
             "title": "",
-            "text": "Olá, meu nome é Pietro e sou um dev fascinado por tecnologia. Nos ultimos anos tenho me dedicado a estudar e desenvolver sistemas, estando presente e aprendendo sobre cada etapa do desenvolvimento, desde a concepção de soluções, passando por decisões técnicas e arquiteturais, desenvolvimento, testes, deploy e manutenção.","imageAlt": "Uma foto de Pietro Bondioli."
+            "text": "Olá, meu nome é Pietro e sou um dev fascinado por tecnologia. Nos ultimos anos tenho me dedicado a estudar e desenvolver sistemas, estando presente e aprendendo sobre cada etapa do desenvolvimento, desde a concepção de soluções, passando por decisões técnicas e arquiteturais, desenvolvimento, testes, deploy e manutenção.",
+            "imageAlt": "Uma foto de Pietro Bondioli."
         },
         "about": {
             "title": "sobre",

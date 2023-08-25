@@ -1,0 +1,70 @@
+{
+    "pageTitle": "Acerca de - Pietro Bondioli",
+    "pageDescription": "Conocimientos - Educación - Experiencia",
+    "skills": {
+        "title": "habilidades",
+        "sections": {
+            "programming_languages": {
+                "title": "lenguajes de programación"
+            },
+            "frameworks": {
+                "title": "frameworks"
+            },
+            "tools": {
+                "title": "herramientas"
+            },
+            "others": {
+                "title": "otros"
+            }
+        }
+    },
+    "experience": {
+        "title": "experiencia",
+        "items": [
+            {
+                "name": "Take Blip",
+                "position": "Ingeniero de Software Senior",
+                "stack": "C# | .NET Core | Typescript | ReactJS | Azure | Docker | Kubernetes",
+                "description": "• Desarrollo e integración de APIs REST para sistemas de grandes clientes, incluyendo Nestlé, Vale, 99 Food, Petrobrás, Usiminas, entre otros.\n• Implementación de soluciones robustas utilizando tecnologías como C#, .NET Core, NodeJS y ExpressJS.\n• Concepción y desarrollo de soluciones innovadoras que, después del lanzamiento, fueron adaptadas de forma genérica, ampliando su impacto y beneficiando a un mayor número de clientes.\n• Gestión y optimización del ecosistema de desarrollo, abarcando herramientas como Azure Devops, Docker, Docker Compose, Kubernetes y Seq Log.\n• Colaboración activa con equipos multidisciplinarios para garantizar la entrega de soluciones de alto impacto y eficiencia.",
+                "period": "Mayo 2021 ~ PRESENTE | Tiempo completo",
+                "image": "/assets/icons/about/take-blip-logo.png",
+                "imageAlt": "Logotipo de la empresa Take Blip.",
+                "readMore": false
+            },
+            {
+                "name": "Essencial Gestión Pública",
+                "position": "Desarrollador Full Stack",
+                "stack": "Typescript | ReactJS | Java | Spring Boot | MySql | Docker",
+                "description": "• Liderazgo técnico en la refactorización de frontend legado, adoptando patrones modernos como Micro Frontends y utilizando tecnologías como NodeJS, React, Typescript, Nginx.\n• Modernización y optimización de prácticas de backend, utilizando Java, Spring Boot, Docker, Docker Compose, Log4J y Graylog.\n• Mentoría y formación de pasantes, promoviendo un ambiente de aprendizaje continuo y colaboración.",
+                "period": "Octubre 2021 ~ PRESENTE | Tiempo parcial",
+                "image": "/assets/icons/about/essencial-gestao-publica-logo.png",
+                "imageAlt": "Logotipo de la empresa Essencial Gestión Pública.",
+                "readMore": false
+            },
+            {
+                "name": "Freelancer",
+                "position": "Desarrollador Javascript",
+                "stack": "Node.JS | Express.JS | Electron.JS | Firebase",
+                "description": "• Desarrollo personalizado de software de escritorio para optimización de procesos internos de empresas locales.\n• Implementación de soluciones robustas y eficientes utilizando NodeJS, ExpressJS, ElectronJS y Firebase.",
+                "period": "2020",
+                "image": "/assets/icons/home/brain-256px.png",
+                "imageAlt": "Un dibujo de un cerebro.",
+                "readMore": false
+            }
+        ]
+    },
+    "education": {
+        "title": "educación",
+        "items": [
+            {
+                "name": "Mackenzie",
+                "course": "Análisis y Desarrollo de Sistemas",
+                "description": "• Fundamentos de ciencia de la computación: Cálculo, Algoritmos, Hardware, Estructuras de Datos.",
+                "period": "2019 ~ PRESENTE",
+                "image": "/assets/icons/about/mackenzie-logo.png",
+                "imageAlt": "logotipo mackenzie",
+                "readMore": false
+            }
+        ]
+    }
+}
