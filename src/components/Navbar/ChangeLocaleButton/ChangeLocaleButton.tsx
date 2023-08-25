@@ -1,11 +1,18 @@
 import { fetchTranslatedSlug } from "@/services/api"
 import { useRouter } from "next/router"
+const getNextLocale = (currentLocale: string, allLocales: string[]) => {
+    const currentIndex = allLocales.indexOf(currentLocale)
+    if (currentIndex === -1) return allLocales[0]
+
+    const nextIndex = (currentIndex + 1) % allLocales.length
+    return allLocales[nextIndex]
+}
 
 export const ChangeLocaleButton: React.FC = () => {
     const router = useRouter()
     const { pathname, query, locales, locale } = router
 
-    const changeTo = locales?.find((l) => l !== locale)
+    const changeTo = getNextLocale(locale ?? `en`, locales ?? [])
 
     const handleLocaleChange = async () => {
         const slug = query.slug as string
