@@ -40,23 +40,12 @@ function isArticleData(obj) {
     )
 }
 
-async function createArticle(data) {
+async function createOrUpdateArticle(data) {
     const existingContainer = await prisma.articleContainer.findFirst({
         where: { name: data.name },
     })
 
-    if (existingContainer) {
-        console.log(`ArticleContainer with name "${data.name}" already exists.`)
-
-        const answer = await askQuestion("Do you want to abort? (yes/no) ")
-        if (answer.toLowerCase() === "yes") {
-            console.log("Aborted.")
-            return
-        }
-    }
-
-    const articlesToCreate = []
-
+    const articlesToCreateOrUpdate = []
     for (const articleData of data.articles) {
         const language = await prisma.language.findUnique({
             where: { code: articleData.lang },
@@ -67,7 +56,7 @@ async function createArticle(data) {
             continue
         }
 
-        articlesToCreate.push({
+        const articlePayload = {
             category: articleData.category,
             title: articleData.title,
             slug: articleData.slug,
@@ -79,19 +68,37 @@ async function createArticle(data) {
             author_name: articleData.author_name,
             image_url: articleData.image_url,
             image_alt: articleData.image_alt,
+        }
+
+        articlesToCreateOrUpdate.push(articlePayload)
+    }
+
+    if (existingContainer) {
+        console.log(`ArticleContainer with name "${data.name}" already exists.`)
+        const answer = await askQuestion("Do you want to add new articles? (yes/no) ")
+        if (answer.toLowerCase() !== "yes") {
+            console.log("Aborted.")
+            return
+        }
+
+        await prisma.article.createMany({
+            data: articlesToCreateOrUpdate.map((article) => ({
+                ...article,
+                containerId: existingContainer.id,
+            })),
+        })
+    } else {
+        await prisma.articleContainer.create({
+            data: {
+                name: data.name,
+                articles: {
+                    create: articlesToCreateOrUpdate,
+                },
+            },
         })
     }
 
-    await prisma.articleContainer.create({
-        data: {
-            name: data.name,
-            articles: {
-                create: articlesToCreate,
-            },
-        },
-    })
-
-    console.log("ArticleContainer and Articles added successfully.")
+    console.log("Operation completed successfully.")
 }
 
 function readJsonFile(path) {
@@ -113,7 +120,7 @@ if (!path) {
 const articleData = readJsonFile(path)
 
 if (isArticleData(articleData)) {
-    createArticle(articleData)
+    createOrUpdateArticle(articleData)
         .catch((e) => {
             console.error("Error:", e)
         })
