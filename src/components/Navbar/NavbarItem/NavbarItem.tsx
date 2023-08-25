@@ -22,7 +22,7 @@ export const NavbarItem: React.FC<NavbarItemProps> = (props) => {
             }}
             locale={locale}
             scroll={scroll}
-            className="h-max w-full py-1 px-2 flex justify-center items-center text-base font-semibold text-center text-black hover:text-primary dark:text-white hover:dark:text-primary-light duration-500 mx-3 lg:text-lg cursor-pointer"
+            className="h-max w-full py-1 px-2 flex justify-center items-center text-base font-semibold text-center text-black hover:text-primary dark:text-white hover:dark:text-primary-light duration-500 mx-3 lg:text-lg cursor-pointer whitespace-nowrap"
         >
             {name}
         </Link>
