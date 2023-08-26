@@ -27,7 +27,6 @@ export const ArticleContainer: React.FC<ArticleProps> = (props) => {
                 />
             </div>
             <article className={styles.article} dangerouslySetInnerHTML={{ __html: content }} />
-            <Claps articleId={id} />
         </>
     )
 }
