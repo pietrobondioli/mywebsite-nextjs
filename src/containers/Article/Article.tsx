@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Article } from "@prisma/client"
+import "highlight.js/styles/atom-one-dark.css"
 
 import { FALLBACK_IMAGE } from "@/utils/constants"
 

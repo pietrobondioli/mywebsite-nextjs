@@ -8,11 +8,27 @@ import highlight from "rehype-highlight"
 import langHttp from "highlight.js/lib/languages/http"
 import langNginx from "highlight.js/lib/languages/nginx"
 import langYaml from "highlight.js/lib/languages/yaml"
+import langJs from "highlight.js/lib/languages/javascript"
+import langTs from "highlight.js/lib/languages/typescript"
+import langJson from "highlight.js/lib/languages/json"
+import langCss from "highlight.js/lib/languages/css"
+import langHtml from "highlight.js/lib/languages/xml"
+import langShell from "highlight.js/lib/languages/shell"
+import langBash from "highlight.js/lib/languages/bash"
+import langCSharp from "highlight.js/lib/languages/csharp"
 
 const CODE_LANGUAGES = {
     http: langHttp,
     nginx: langNginx,
     yaml: langYaml,
+    js: langJs,
+    ts: langTs,
+    json: langJson,
+    css: langCss,
+    html: langHtml,
+    shell: langShell,
+    bash: langBash,
+    cs: langCSharp,
 }
 
 export async function markdownToHtml(mdContent: string): Promise<string> {
