@@ -24,8 +24,18 @@ export const ChangeLocaleButton: React.FC = () => {
                 translatedSlug = await fetchTranslatedSlug(slug, changeTo)
             } catch (error) {}
 
+            if (!translatedSlug)
+                return router.push(
+                    {
+                        pathname: `/articles`,
+                        query: { ...query },
+                    },
+                    undefined,
+                    { locale: changeTo }
+                )
+
             if (translatedSlug && translatedSlug !== slug) {
-                router.push(
+                return router.push(
                     {
                         pathname: `/articles/${translatedSlug}`,
                         query: { ...query },
@@ -33,26 +43,17 @@ export const ChangeLocaleButton: React.FC = () => {
                     undefined,
                     { locale: changeTo }
                 )
-            } else {
-                router.push(
-                    {
-                        pathname: pathname,
-                        query: { ...query },
-                    },
-                    undefined,
-                    { locale: changeTo }
-                )
             }
-        } else {
-            router.push(
-                {
-                    pathname: pathname,
-                    query: { ...query },
-                },
-                undefined,
-                { locale: changeTo }
-            )
         }
+
+        return router.push(
+            {
+                pathname: pathname,
+                query: { ...query },
+            },
+            undefined,
+            { locale: changeTo }
+        )
     }
 
     return (
