@@ -1,5 +1,5 @@
 import { signIn, getProviders, ClientSafeProvider } from "next-auth/react"
-import type { GetServerSideProps, NextPage } from "next"
+import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { ReactNode } from "react"
 import { FaGithub, FaDiscord, FaGoogle } from "react-icons/fa"
@@ -36,19 +36,42 @@ type SignInProps = {
 
 type ProviderName = "GITHUB" | "DISCORD" | "GOOGLE" | "DEFAULT"
 
-const SignIn: NextPage<SignInProps> = ({ providers }) => {
+export const getServerSideProps: GetServerSideProps<SignInProps> = async (context) => {
+    const { locale, locales } = context
+
+    const translations = await serverSideTranslations(
+        locale ?? ``,
+        [`common`, `error`],
+        null,
+        locales
+    )
+
+    const providersData = await getProviders()
+    const providers = providersData || {}
+
+    return {
+        props: {
+            providers,
+            ...translations,
+        },
+    }
+}
+
+const SignIn: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (props) => {
+    const { providers } = props
+
     const PROVIDERS_ICONS_MAP: Record<ProviderName, JSX.Element> = {
         GITHUB: <FaGithub />,
         DISCORD: <FaDiscord />,
         GOOGLE: <FaGoogle />,
-        DEFAULT: <span></span>, // Fallback, you can replace this with any default icon you want
+        DEFAULT: <span></span>,
     }
 
     const PROVIDERS_BG_MAP: Record<ProviderName, string> = {
         GITHUB: "bg-gray-800",
         DISCORD: "bg-indigo-600",
         GOOGLE: "bg-red-600",
-        DEFAULT: "bg-gray-500", // Fallback background color
+        DEFAULT: "bg-gray-500",
     }
 
     return (
@@ -81,22 +104,6 @@ const SignIn: NextPage<SignInProps> = ({ providers }) => {
             </div>
         </div>
     )
-}
-
-export const getServerSideProps: GetServerSideProps<SignInProps> = async (context) => {
-    const { locale } = context
-
-    const translations = await serverSideTranslations(locale ?? ``, [`common`, `error`])
-
-    const providersData = await getProviders()
-    const providers = providersData || {}
-
-    return {
-        props: {
-            providers,
-            ...translations,
-        },
-    }
 }
 
 export default SignIn
