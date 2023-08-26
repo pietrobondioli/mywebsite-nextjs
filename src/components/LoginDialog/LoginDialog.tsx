@@ -2,6 +2,7 @@ import { useIsLoginDialogOpen, useLoginDialogActions } from "./useLoginDialog"
 import React from "react"
 import { Dialog } from "@/components/Dialog"
 import { signIn } from "next-auth/react"
+import router from "next/router"
 
 export function LoginDialog() {
     const isOpen = useIsLoginDialogOpen()
@@ -17,7 +18,7 @@ export function LoginDialog() {
             actions={[
                 {
                     label: `Login`,
-                    onClick: () => signIn(),
+                    onClick: () => router.push(`/auth/signin?callbackUrl=${window.location.href}`),
                     variant: `primary`,
                     closeOnClick: true,
                 },
