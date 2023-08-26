@@ -8,7 +8,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { Projects as ProjectsSection } from "@/containers/Projects"
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-    const translations = await serverSideTranslations(locale || ``, [`common`, `projects`])
+    const translations = await serverSideTranslations(locale || `en`, [`common`, `projects`])
 
     return {
         props: {

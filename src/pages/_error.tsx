@@ -7,7 +7,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { ErrorAlert } from "@/containers/ErrorAlert"
 
 export const getServerSideProps: GetServerSideProps = async ({ res, locale }) => {
-    const translations = await serverSideTranslations(locale || ``, [`common`, `error`])
+    const translations = await serverSideTranslations(locale || `en`, [`common`, `error`])
 
     const statusCode = res ? res.statusCode : 404
 

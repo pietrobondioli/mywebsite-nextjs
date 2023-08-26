@@ -40,7 +40,7 @@ export const getServerSideProps: GetServerSideProps<SignInProps> = async (contex
     const { locale, locales } = context
 
     const translations = await serverSideTranslations(
-        locale ?? ``,
+        locale ?? `en`,
         [`common`, `error`],
         null,
         locales

@@ -8,7 +8,7 @@ import { Header } from "@/containers/HomePage/Header"
 import { Presentation } from "@/containers/HomePage/Presentation"
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-    const translations = await serverSideTranslations(locale || ``, [`common`, `home`])
+    const translations = await serverSideTranslations(locale || `en`, [`common`, `home`])
 
     return {
         props: {

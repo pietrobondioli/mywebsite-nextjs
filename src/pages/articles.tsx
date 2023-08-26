@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = 
 
     const articlesByCategory = reduceArticlesByCategory(articles)
 
-    const translations = await serverSideTranslations(locale || ``, [`common`, `articles`])
+    const translations = await serverSideTranslations(locale || `en`, [`common`, `articles`])
 
     return {
         props: {

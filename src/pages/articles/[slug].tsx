@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
 ) => {
     const { locale, params } = context
 
-    const translations = await serverSideTranslations(locale ?? ``, [`common`, `error`])
+    const translations = await serverSideTranslations(locale ?? `en`, [`common`, `error`])
 
     let article: Article | undefined = undefined
 

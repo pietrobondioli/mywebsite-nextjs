@@ -10,7 +10,7 @@ import { Experience } from "@/containers/About/Experience"
 import { Skills } from "@/containers/About/Skills"
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-    const translations = await serverSideTranslations(locale || ``, [`common`, `about`])
+    const translations = await serverSideTranslations(locale || `en`, [`common`, `about`])
 
     return {
         props: {
