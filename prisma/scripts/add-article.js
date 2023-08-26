@@ -18,6 +18,15 @@ function askQuestion(query) {
     })
 }
 
+function readMarkdownFile(path) {
+    try {
+        return fs.readFileSync(path, "utf-8")
+    } catch (error) {
+        console.error(`Error reading the markdown file from path "${path}":`, error)
+        process.exit(1)
+    }
+}
+
 function isArticleData(obj) {
     return (
         typeof obj.name === "string" &&
@@ -47,6 +56,10 @@ async function createOrUpdateArticle(data) {
 
     const articlesToCreateOrUpdate = []
     for (const articleData of data.articles) {
+        if (articleData.content.endsWith(".md")) {
+            articleData.content = readMarkdownFile(articleData.content)
+        }
+
         const language = await prisma.language.findUnique({
             where: { code: articleData.lang },
         })
@@ -84,7 +97,7 @@ async function createOrUpdateArticle(data) {
         await prisma.article.createMany({
             data: articlesToCreateOrUpdate.map((article) => ({
                 ...article,
-                containerId: existingContainer.id,
+                article_container_id: existingContainer.id,
             })),
         })
     } else {
