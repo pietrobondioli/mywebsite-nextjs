@@ -22,12 +22,15 @@ const MyApp: AppType<{ session: Session | null }> = ({
     return (
         <>
             <Head>
-                <link rel="shortcut icon" href="/assets/icons/favicon.ico" />
+                <link
+                    rel="shortcut icon"
+                    href={`${process.env.NEXT_PUBLIC_SITE_URL}/assets/icons/favicon.ico`}
+                />
                 <meta httpEquiv="content-type" content="text/html" />
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <meta name="HandheldFriendly" content="True" />
-                <meta httpEquiv="content-language" content="pt, en" />
+                <meta httpEquiv="content-language" content="pt, en, es" />
                 <meta name="author" content="Pietro Bondioli" />
                 <meta name="creator" content="Pietro Bondioli" />
                 <meta name="robots" content="index, follow" />

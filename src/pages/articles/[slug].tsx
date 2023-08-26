@@ -100,12 +100,15 @@ const ArticlePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (p
                 <meta property="og:title" content={article.title} />
                 <meta property="og:type" content="article" />
                 <meta property="og:description" content={article.excerpt} />
-                <meta property="og:image" itemProp="image" content={article.image_alt} />
+                <meta property="og:image" itemProp="image" content={article.image_url} />
                 <meta property="og:image:alt" content={article.image_alt} />
-                <meta property="og:url" content={`pietrobondioli.com.br${router.asPath}`} />
-                <meta property="og:site_name" content="Pietro Bondioli" />
+                <meta
+                    property="og:url"
+                    content={`${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`}
+                />
+
                 <meta property="article:author" content="Pietro Bondioli" />
-                <meta property="article:section" content="Technology" />
+                <meta property="article:section" content={article.category} />
                 <meta
                     property="article:published_time"
                     content={new Date(article.published_at).toLocaleDateString()}
@@ -114,6 +117,7 @@ const ArticlePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (p
                     property="article:modified_time"
                     content={new Date(article.last_modified).toLocaleDateString()}
                 />
+
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={article.title} />
                 <meta name="twitter:description" content={article.excerpt} />
