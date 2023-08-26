@@ -15,13 +15,30 @@ import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.scss"
 import { LoginDialog } from "@/components/LoginDialog"
 
-const MyApp: AppType<{ session: Session | null }> = ({
+export type OpenGraphData =
+    | {
+          property: string
+          content: string
+          key: string
+      }
+    | {
+          name: string
+          content: string
+          key: string
+      }
+
+const MyApp: AppType<{ session: Session | null; openGraphData: OpenGraphData[] }> = ({
     Component,
     pageProps: { session, ...pageProps },
 }) => {
+    const { openGraphData = [] } = pageProps
+
     return (
         <>
             <Head>
+                {openGraphData.map((og) => (
+                    <meta {...og} />
+                ))}
                 <link
                     rel="shortcut icon"
                     href={`${process.env.NEXT_PUBLIC_SITE_URL}/assets/icons/favicon.ico`}

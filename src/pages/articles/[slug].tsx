@@ -1,6 +1,5 @@
 import React from "react"
 import Head from "next/head"
-import { useRouter } from "next/router"
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { Article } from "@prisma/client"
@@ -11,6 +10,7 @@ import { markdownToHtml } from "@/utils/markdownToHtml"
 import CommentsContainer from "@/components/Comments"
 import { ArticlePreview, getArticles } from "@/server/lib/getArticles"
 import Claps from "@/components/Claps"
+import { OpenGraphData } from "../_app"
 
 export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string }> = async (
     context
@@ -39,10 +39,42 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
 
     article.content = htmlContent
 
+    const openGraphData: OpenGraphData[] = [
+        { name: "description", content: article.excerpt, key: "description" },
+        { property: "og:title", content: article.title, key: "og:title" },
+        { property: "og:type", content: "article", key: "og:type" },
+        { property: "og:description", content: article.excerpt, key: "og:description" },
+        { property: "og:image", content: article.image_url, key: "og:image" },
+        { property: "og:image:alt", content: article.image_alt, key: "og:image:alt" },
+        {
+            property: "og:url",
+            content: `${process.env.NEXT_PUBLIC_SITE_URL}/articles/${context.params?.slug}`,
+            key: "og:url",
+        },
+        { property: "article:author", content: "Pietro Bondioli", key: "article:author" },
+        { property: "article:section", content: article.category, key: "article:section" },
+        {
+            property: "article:published_time",
+            content: new Date(article.published_at).toLocaleDateString(),
+            key: "article:published_time",
+        },
+        {
+            property: "article:modified_time",
+            content: new Date(article.last_modified).toLocaleDateString(),
+            key: "article:modified_time",
+        },
+        { name: "twitter:card", content: "summary_large_image", key: "twitter:card" },
+        { name: "twitter:title", content: article.title, key: "twitter:title" },
+        { name: "twitter:description", content: article.excerpt, key: "twitter:description" },
+        { name: "twitter:image", content: article.image_url, key: "twitter:image" },
+        { name: "twitter:image:alt", content: article.image_alt, key: "twitter:image:alt" },
+    ]
+
     return {
         props: {
             article: JSON.parse(JSON.stringify(article)),
             ...translations,
+            openGraphData,
         },
     }
 }
@@ -90,39 +122,11 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) 
 
 const ArticlePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) => {
     const { article } = props
-    const router = useRouter()
 
     return (
         <>
             <Head>
                 <title>{article.title}</title>
-                <meta name="description" content={article.excerpt} />
-                <meta property="og:title" content={article.title} />
-                <meta property="og:type" content="article" />
-                <meta property="og:description" content={article.excerpt} />
-                <meta property="og:image" itemProp="image" content={article.image_url} />
-                <meta property="og:image:alt" content={article.image_alt} />
-                <meta
-                    property="og:url"
-                    content={`${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`}
-                />
-
-                <meta property="article:author" content="Pietro Bondioli" />
-                <meta property="article:section" content={article.category} />
-                <meta
-                    property="article:published_time"
-                    content={new Date(article.published_at).toLocaleDateString()}
-                />
-                <meta
-                    property="article:modified_time"
-                    content={new Date(article.last_modified).toLocaleDateString()}
-                />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={article.title} />
-                <meta name="twitter:description" content={article.excerpt} />
-                <meta name="twitter:image" content={article.image_url} />
-                <meta name="twitter:image:alt" content={article.image_alt} />
             </Head>
             <Section>
                 <ArticleContainer article={article} />
