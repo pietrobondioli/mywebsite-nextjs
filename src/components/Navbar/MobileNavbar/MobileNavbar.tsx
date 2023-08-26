@@ -77,9 +77,11 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = (props) => {
             >
                 <ToggleThemeButton />
                 <ChangeLocaleButton />
-                {items.map((item) => {
-                    return <NavbarItem key={item.name} name={item.name} link={item.link} />
-                })}
+                {Array.isArray(items)
+                    ? items.map((item) => {
+                          return <NavbarItem key={item.name} name={item.name} link={item.link} />
+                      })
+                    : null}
             </div>
         </nav>
     )

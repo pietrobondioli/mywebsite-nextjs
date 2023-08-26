@@ -19,9 +19,11 @@ export const DesktopNavbar: React.FC<DesktopNavbarProps> = (props) => {
             <div className="h-full w-auto top-0 left-0 flex items-center relative flex-row justify-end">
                 <ToggleThemeButton />
                 <ChangeLocaleButton />
-                {items.map((item) => {
-                    return <NavbarItem key={item.name} name={item.name} link={item.link} />
-                })}
+                {Array.isArray(items)
+                    ? items.map((item) => {
+                          return <NavbarItem key={item.name} name={item.name} link={item.link} />
+                      })
+                    : null}
             </div>
         </nav>
     )
