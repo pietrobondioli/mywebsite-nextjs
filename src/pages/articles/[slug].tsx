@@ -10,6 +10,7 @@ import { ArticleContainer } from "@/containers/Article"
 import { markdownToHtml } from "@/utils/markdownToHtml"
 import CommentsContainer from "@/components/Comments"
 import { ArticlePreview, getArticles } from "@/server/lib/getArticles"
+import Claps from "@/components/Claps"
 
 export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string }> = async (
     context
@@ -121,6 +122,7 @@ const ArticlePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (p
             </Head>
             <Section>
                 <ArticleContainer article={article} />
+                <Claps articleId={article.id} />
                 <CommentsContainer articleId={article.id} />
             </Section>
         </>
