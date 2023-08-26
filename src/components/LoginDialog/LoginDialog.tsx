@@ -18,7 +18,7 @@ export function LoginDialog() {
             actions={[
                 {
                     label: `Login`,
-                    onClick: () => router.push(`/auth/signin?callbackUrl=${window.location.href}`),
+                    onClick: () => signIn(),
                     variant: `primary`,
                     closeOnClick: true,
                 },

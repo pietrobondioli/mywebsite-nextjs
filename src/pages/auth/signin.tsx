@@ -3,6 +3,8 @@ import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { ReactNode } from "react"
 import { FaGithub, FaDiscord, FaGoogle } from "react-icons/fa"
+import { authOptions } from "@/server/auth"
+import { getServerSession } from "next-auth"
 
 interface SignInButtonProps {
     onClick: () => void
@@ -31,12 +33,28 @@ function SignInButton({
 }
 
 type SignInProps = {
-    providers: Record<string, ClientSafeProvider>
+    providers?: Record<string, ClientSafeProvider>
 }
 
 type ProviderName = "GITHUB" | "DISCORD" | "GOOGLE" | "DEFAULT"
 
 export const getServerSideProps: GetServerSideProps<SignInProps> = async (context) => {
+    const session = await getServerSession(context.req, context.res, authOptions)
+
+    if (session) {
+        if (context.query.callbackUrl) {
+            return {
+                redirect: {
+                    destination: context.query.callbackUrl as string,
+                    permanent: false,
+                },
+                props: {},
+            }
+        }
+
+        return { redirect: { destination: "/" }, props: {} }
+    }
+
     const { locale, locales } = context
 
     const translations = await serverSideTranslations(
@@ -45,6 +63,8 @@ export const getServerSideProps: GetServerSideProps<SignInProps> = async (contex
         null,
         locales
     )
+
+    console.log(translations)
 
     const providersData = await getProviders()
     const providers = providersData || {}
@@ -80,26 +100,28 @@ const SignIn: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> =
                 <h1 className="text-2xl font-bold mb-4 dark:text-white">Sign In</h1>
 
                 <div className="space-y-4">
-                    {Object.values(providers).map((provider) => {
-                        const providerNameUppercase = provider.name.toUpperCase()
-                        const icon =
-                            PROVIDERS_ICONS_MAP[providerNameUppercase as ProviderName] ||
-                            PROVIDERS_ICONS_MAP.DEFAULT
-                        const bgColor =
-                            PROVIDERS_BG_MAP[providerNameUppercase as ProviderName] ||
-                            PROVIDERS_BG_MAP.DEFAULT
+                    {providers
+                        ? Object.values(providers).map((provider) => {
+                              const providerNameUppercase = provider.name.toUpperCase()
+                              const icon =
+                                  PROVIDERS_ICONS_MAP[providerNameUppercase as ProviderName] ||
+                                  PROVIDERS_ICONS_MAP.DEFAULT
+                              const bgColor =
+                                  PROVIDERS_BG_MAP[providerNameUppercase as ProviderName] ||
+                                  PROVIDERS_BG_MAP.DEFAULT
 
-                        return (
-                            <SignInButton
-                                key={provider.name}
-                                onClick={() => signIn(provider.id)}
-                                icon={icon}
-                                backgroundColor={bgColor}
-                            >
-                                Sign in with {provider.name}
-                            </SignInButton>
-                        )
-                    })}
+                              return (
+                                  <SignInButton
+                                      key={provider.name}
+                                      onClick={() => signIn(provider.id)}
+                                      icon={icon}
+                                      backgroundColor={bgColor}
+                                  >
+                                      Sign in with {provider.name}
+                                  </SignInButton>
+                              )
+                          })
+                        : null}
                 </div>
             </div>
         </div>
