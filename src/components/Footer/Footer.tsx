@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
                 </a>
             </p>
             <div className="flex gap-6">
-                <a href="https://github.com/bondiolipietro" target="_blank" rel="noreferrer">
+                <a href="https://github.com/pietrobondioli" target="_blank" rel="noreferrer">
                     <FaGithub className="m-4 w-6 h-6 hover:text-primary-dark duration-500" />
                 </a>
                 <a

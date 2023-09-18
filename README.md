@@ -4,7 +4,7 @@ This website was created by me with the intention of being a place where I can b
 
 ## Author
 
--   Pietro Bondioli ([@bondiolipietro](https://github.com/bondiolipietro))
+-   Pietro Bondioli ([@pietrobondioli](https://github.com/pietrobondioli))
 
 ## License
 

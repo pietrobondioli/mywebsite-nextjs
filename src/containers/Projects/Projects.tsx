@@ -9,13 +9,13 @@ const PROJECTS = {
         image: `/assets/icons/projects/pepe-computer-chair-256px.png`,
         readMore: true,
         readMoreTargetBlank: true,
-        readMoreLink: `https://github.com/bondiolipietro/peepo-discord-bot`,
+        readMoreLink: `https://github.com/pietrobondioli/peepo-discord-bot`,
     },
     my_website: {
         image: `/assets/icons/home/contact-256px.png`,
         readMore: true,
         readMoreTargetBlank: true,
-        readMoreLink: `https://github.com/bondiolipietro/mywebsite-nextjs`,
+        readMoreLink: `https://github.com/pietrobondioli/mywebsite-nextjs`,
     },
 } as const
 
