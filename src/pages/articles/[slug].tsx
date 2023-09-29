@@ -1,15 +1,15 @@
-import React from "react"
-import Head from "next/head"
+import { Article } from "@prisma/client"
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { Article } from "@prisma/client"
+import Head from "next/head"
 
+import Claps from "@/components/Claps"
+import CommentsContainer from "@/components/Comments"
 import { Section } from "@/components/Section"
 import { ArticleContainer } from "@/containers/Article"
-import { markdownToHtml } from "@/utils/markdownToHtml"
-import CommentsContainer from "@/components/Comments"
 import { ArticlePreview, getArticles } from "@/server/lib/getArticles"
-import Claps from "@/components/Claps"
+import { markdownToHtml } from "@/utils/markdownToHtml"
+import { useRouter } from "next/router"
 import { OpenGraphData } from "../_app"
 
 export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string }> = async (
@@ -122,6 +122,12 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) 
 
 const ArticlePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (props) => {
     const { article } = props
+    const router = useRouter()
+
+    if (!article.is_published) {
+        router.push("/")
+        return null
+    }
 
     return (
         <>

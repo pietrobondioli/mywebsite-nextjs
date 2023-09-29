@@ -81,7 +81,7 @@ model Article {
     article_container_id String
     article_container    ArticleContainer @relation(fields: [article_container_id], references: [id])
     clapCount            Int              @default(0)
-    Clap                 Clap[]
+    is_published         Boolean          @default(false)
 
     @@unique([slug, lang_id])
     @@index([lang_id])
@@ -111,13 +111,4 @@ model Comment {
     @@index([parent_id])
     @@index([article_id])
     @@index([author_id])
-}
-
-model Clap {
-    id        String   @id @default(cuid())
-    articleId String
-    article   Article  @relation(fields: [articleId], references: [id])
-    createdAt DateTime @default(now())
-
-    @@index([articleId])
 }
