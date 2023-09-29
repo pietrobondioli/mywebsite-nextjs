@@ -1,5 +1,5 @@
 import { prisma } from "@/server/db"
-import articleSchema from "@/utils/schemas/article-schema"
+import { articleSchema } from "@/utils/schemas/article-schema"
 import { NextApiRequest, NextApiResponse } from "next"
 import { getSession } from "next-auth/react"
 

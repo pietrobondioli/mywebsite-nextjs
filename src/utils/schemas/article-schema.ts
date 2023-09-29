@@ -16,5 +16,7 @@ const articleSchema = z.object({
     clapCount: z.number().int().nonnegative().optional(),
     is_published: z.boolean().optional(),
 })
+type ArticleSchemaType = z.infer<typeof articleSchema>
 
-export default articleSchema
+export { articleSchema }
+export type { ArticleSchemaType }
