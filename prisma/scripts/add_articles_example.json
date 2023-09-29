@@ -12,7 +12,8 @@
             "lang": "en",
             "author_name": "Pietro Bondioli",
             "image_url": "https://example.com/image.jpg",
-            "image_alt": "Example image alt text"
+            "image_alt": "Example image alt text",
+            "is_published": true
         },
         {
             "category": "Example category-pt",
@@ -25,7 +26,8 @@
             "lang": "pt",
             "author_name": "Pietro Bondioli",
             "image_url": "https://example.com/image-pt.jpg",
-            "image_alt": "Example image alt text-pt"
+            "image_alt": "Example image alt text-pt",
+            "is_published": true
         },
         {
             "category": "Example category-es",
@@ -38,7 +40,8 @@
             "lang": "es",
             "author_name": "Pietro Bondioli",
             "image_url": "https://example.com/image-es.jpg",
-            "image_alt": "Example image alt text-es"
+            "image_alt": "Example image alt text-es",
+            "is_published": true
         }
     ]
 }

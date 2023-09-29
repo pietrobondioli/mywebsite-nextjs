@@ -35,6 +35,7 @@ export const getArticles = async <T extends boolean>({
         // Here we don't select the `article_container` by default as it might not be required
         // If you need it later, you can add it to the select
         article_container: false,
+        is_published: true,
     }
 
     if (!preview) {

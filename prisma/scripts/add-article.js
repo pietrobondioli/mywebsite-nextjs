@@ -44,6 +44,7 @@ function isArticleData(obj) {
                 "author_name",
                 "image_url",
                 "image_alt",
+                "is_published",
             ].every((field) => typeof article[field] === "string")
         )
     )
@@ -81,6 +82,7 @@ async function createOrUpdateArticle(data) {
             author_name: articleData.author_name,
             image_url: articleData.image_url,
             image_alt: articleData.image_alt,
+            is_published: articleData.is_published === "true",
         }
 
         articlesToCreateOrUpdate.push(articlePayload)
