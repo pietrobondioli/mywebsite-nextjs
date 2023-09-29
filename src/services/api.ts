@@ -83,12 +83,6 @@ export const addClap = async (articleId: string): Promise<void> => {
     if (!response.ok) throw new Error(`Failed to add clap`)
 }
 
-// The existing imports you've shared...
-
-// ===========================
-// === LANGUAGE API CALLS ===
-// ===========================
-
 export const fetchLanguages = async (): Promise<Language[]> => {
     const response = await fetch(`${API_BASE_URL}/language/list`)
     if (!response.ok) throw new Error("Failed to fetch languages")
@@ -130,10 +124,6 @@ export const deleteLanguage = async (id: string): Promise<void> => {
     })
     if (!response.ok) throw new Error("Failed to delete language")
 }
-
-// ================================
-// === ARTICLE CONTAINER CALLS ===
-// ================================
 
 export const fetchArticleContainers = async (): Promise<ArticleContainer[]> => {
     const response = await fetch(`${API_BASE_URL}/article-container/list`)
@@ -178,10 +168,6 @@ export const deleteArticleContainer = async (id: string): Promise<void> => {
     })
     if (!response.ok) throw new Error("Failed to delete article container")
 }
-
-// =======================
-// === ARTICLE CALLS ===
-// =======================
 
 export const fetchArticles = async (): Promise<Article[]> => {
     const response = await fetch(`${API_BASE_URL}/article/list`)
