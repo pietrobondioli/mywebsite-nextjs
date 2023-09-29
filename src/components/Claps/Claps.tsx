@@ -1,21 +1,15 @@
 import { useCallback } from "react"
-import useSWR, { mutate } from "swr"
 import { PiHandsClapping } from "react-icons/pi"
 import { toast } from "react-toastify"
+import useSWR, { mutate } from "swr"
 
-import { addClap, getClapCount, removeClap } from "@/services/api"
-import { useSession } from "next-auth/react"
-import { useLoginDialogActions } from "@/components/LoginDialog/useLoginDialog"
+import { addClap, getClapCount } from "@/services/api"
 export type ClapsProps = {
     articleId: string
 }
 
 export function Claps(props: ClapsProps) {
     const { articleId } = props
-
-    const { data: session } = useSession()
-
-    const { OPEN } = useLoginDialogActions()
 
     const clapsKey = `claps/${articleId}`
 
@@ -33,28 +27,6 @@ export function Claps(props: ClapsProps) {
         mutate(clapsKey)
     }, [clapsKey, articleId])
 
-    const handleRemoveClap = useCallback(async () => {
-        try {
-            await removeClap(articleId)
-            toast.success(`Clap removed!`)
-        } catch (err) {
-            toast.error(`Failed to remove clap: ${err}`)
-        }
-        mutate(clapsKey)
-    }, [clapsKey, articleId])
-
-    const handleAddOrRemoveClap = useCallback(async () => {
-        if (!session) {
-            OPEN()
-            return
-        }
-        if (clapData?.userClapped) {
-            await handleRemoveClap()
-        } else {
-            await handleAddClap()
-        }
-    }, [clapData?.userClapped, handleAddClap, handleRemoveClap])
-
     if (error) {
         return (
             <div className="mt-4 flex items-center gap-2">
@@ -68,7 +40,7 @@ export function Claps(props: ClapsProps) {
         <div className="mt-4 flex items-center gap-2">
             <PiHandsClapping
                 size={24}
-                onClick={handleAddOrRemoveClap}
+                onClick={handleAddClap}
                 className={`cursor-pointer transition-colors duration-300 ease-in-out ${
                     clapData?.userClapped
                         ? "text-yellow-400 hover:text-yellow-500"

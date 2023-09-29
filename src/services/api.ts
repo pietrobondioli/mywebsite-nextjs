@@ -76,10 +76,3 @@ export const addClap = async (articleId: string): Promise<void> => {
     })
     if (!response.ok) throw new Error(`Failed to add clap`)
 }
-
-export const removeClap = async (articleId: string): Promise<void> => {
-    const response = await fetch(`${API_BASE_URL}/articles/${articleId}/claps`, {
-        method: `DELETE`,
-    })
-    if (!response.ok) throw new Error(`Failed to remove clap`)
-}

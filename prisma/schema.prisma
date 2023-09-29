@@ -47,7 +47,6 @@ model User {
     accounts      Account[]
     sessions      Session[]
     Comment       Comment[]
-    Clap          Clap[]
 }
 
 model VerificationToken {
@@ -116,13 +115,9 @@ model Comment {
 
 model Clap {
     id        String   @id @default(cuid())
-    userId    String
-    user      User     @relation(fields: [userId], references: [id])
     articleId String
     article   Article  @relation(fields: [articleId], references: [id])
     createdAt DateTime @default(now())
 
-    @@unique([userId, articleId])
-    @@index([userId])
     @@index([articleId])
 }
