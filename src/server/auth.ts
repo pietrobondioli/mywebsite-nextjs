@@ -1,12 +1,12 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { type GetServerSidePropsContext } from "next"
-import { type DefaultSession, getServerSession, type NextAuthOptions } from "next-auth"
+import { getServerSession, type DefaultSession, type NextAuthOptions } from "next-auth"
 import DiscordProvider from "next-auth/providers/discord"
 import GitHubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 
-import { prisma } from "@/server/db"
 import { env } from "@/env.mjs"
+import { prisma } from "@/server/db"
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -18,6 +18,7 @@ declare module "next-auth" {
     interface Session extends DefaultSession {
         user: DefaultSession["user"] & {
             id: string
+            isAdmin: boolean
         }
     }
 }

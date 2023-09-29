@@ -47,6 +47,7 @@ model User {
     accounts      Account[]
     sessions      Session[]
     Comment       Comment[]
+    isAdmin       Boolean   @default(false)
 }
 
 model VerificationToken {
