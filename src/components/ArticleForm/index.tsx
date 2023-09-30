@@ -399,6 +399,7 @@ const ArticleForm: React.FC<ArticleFormProps> = ({ articleId, mode, onSuccessRed
                             type="checkbox"
                             onChange={(e) => field.onChange(e.target.checked)}
                             className="form-checkbox h-5 w-5 text-gray-600"
+                            checked={field.value}
                             value={field.value ? "true" : "false"}
                         />
                     )}
