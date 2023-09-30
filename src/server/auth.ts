@@ -30,13 +30,22 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
     callbacks: {
-        session: ({ session, user }) => ({
-            ...session,
-            user: {
-                ...session.user,
-                id: user.id,
-            },
-        }),
+        session: async ({ session, user }) => {
+            const dbUser = await prisma.user.findUnique({ where: { id: user.id } })
+
+            if (!dbUser) {
+                throw new Error("User not found in database")
+            }
+
+            return {
+                ...session,
+                user: {
+                    ...session.user,
+                    id: dbUser.id,
+                    isAdmin: dbUser.isAdmin,
+                },
+            }
+        },
     },
     adapter: PrismaAdapter(prisma),
     providers: [
