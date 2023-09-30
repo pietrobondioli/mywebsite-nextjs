@@ -9,6 +9,7 @@ import { CommentWithRepliesAndAuthor } from "@/pages/api/articles/[id]/comments"
 import { ArticleSchemaType } from "@/utils/schemas/article-schema"
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? ``
+const API_ADMIN_BASE_URL = `${API_BASE_URL}/admin`
 
 export const fetchTranslatedSlug = async (
     currentSlug: string,
@@ -84,19 +85,19 @@ export const addClap = async (articleId: string): Promise<void> => {
 }
 
 export const fetchLanguages = async (): Promise<Language[]> => {
-    const response = await fetch(`${API_BASE_URL}/language/list`)
+    const response = await fetch(`${API_ADMIN_BASE_URL}/language/list`)
     if (!response.ok) throw new Error("Failed to fetch languages")
     return response.json()
 }
 
 export const fetchLanguageById = async (id: string): Promise<Language> => {
-    const response = await fetch(`${API_BASE_URL}/language/${id}`)
+    const response = await fetch(`${API_ADMIN_BASE_URL}/language/${id}`)
     if (!response.ok) throw new Error("Failed to fetch language by id")
     return response.json()
 }
 
 export const createLanguage = async (data: CreateLanguageSchemaType): Promise<Language> => {
-    const response = await fetch(`${API_BASE_URL}/language/create`, {
+    const response = await fetch(`${API_ADMIN_BASE_URL}/language/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -105,34 +106,30 @@ export const createLanguage = async (data: CreateLanguageSchemaType): Promise<La
     return response.json()
 }
 
-export const updateLanguage = async (
-    id: string,
-    data: UpdateLanguageSchemaType
-): Promise<Language> => {
-    const response = await fetch(`${API_BASE_URL}/language/update/${id}`, {
+export const updateLanguage = async (id: string, data: UpdateLanguageSchemaType) => {
+    const response = await fetch(`${API_ADMIN_BASE_URL}/language/update/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
     })
     if (!response.ok) throw new Error("Failed to update language")
-    return response.json()
 }
 
 export const deleteLanguage = async (id: string): Promise<void> => {
-    const response = await fetch(`${API_BASE_URL}/language/delete/${id}`, {
+    const response = await fetch(`${API_ADMIN_BASE_URL}/language/delete/${id}`, {
         method: "DELETE",
     })
     if (!response.ok) throw new Error("Failed to delete language")
 }
 
 export const fetchArticleContainers = async (): Promise<ArticleContainer[]> => {
-    const response = await fetch(`${API_BASE_URL}/article-container/list`)
+    const response = await fetch(`${API_ADMIN_BASE_URL}/article-container/list`)
     if (!response.ok) throw new Error("Failed to fetch article containers")
     return response.json()
 }
 
 export const fetchArticleContainerById = async (id: string): Promise<ArticleContainer> => {
-    const response = await fetch(`${API_BASE_URL}/article-container/${id}`)
+    const response = await fetch(`${API_ADMIN_BASE_URL}/article-container/${id}`)
     if (!response.ok) throw new Error("Failed to fetch article container by id")
     return response.json()
 }
@@ -140,7 +137,7 @@ export const fetchArticleContainerById = async (id: string): Promise<ArticleCont
 export const createArticleContainer = async (
     data: CreateArticleContainerSchemaType
 ): Promise<ArticleContainer> => {
-    const response = await fetch(`${API_BASE_URL}/article-container/create`, {
+    const response = await fetch(`${API_ADMIN_BASE_URL}/article-container/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -152,37 +149,37 @@ export const createArticleContainer = async (
 export const updateArticleContainer = async (
     id: string,
     data: UpdateArticleContainerSchemaType
-): Promise<ArticleContainer> => {
-    const response = await fetch(`${API_BASE_URL}/article-container/update/${id}`, {
+) => {
+    const response = await fetch(`${API_ADMIN_BASE_URL}/article-container/update/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
     })
     if (!response.ok) throw new Error("Failed to update article container")
-    return response.json()
 }
 
 export const deleteArticleContainer = async (id: string): Promise<void> => {
-    const response = await fetch(`${API_BASE_URL}/article-container/delete/${id}`, {
+    const response = await fetch(`${API_ADMIN_BASE_URL}/article-container/delete/${id}`, {
         method: "DELETE",
     })
     if (!response.ok) throw new Error("Failed to delete article container")
 }
 
-export const fetchArticles = async (): Promise<Article[]> => {
-    const response = await fetch(`${API_BASE_URL}/article/list`)
+export const fetchArticles = async (articleContainerId?: string): Promise<Article[]> => {
+    const queryParams = articleContainerId ? `?articleContainerId=${articleContainerId}` : ""
+    const response = await fetch(`${API_ADMIN_BASE_URL}/article/list${queryParams}`)
     if (!response.ok) throw new Error("Failed to fetch articles")
     return response.json()
 }
 
 export const fetchArticleById = async (id: string): Promise<Article> => {
-    const response = await fetch(`${API_BASE_URL}/article/${id}`)
+    const response = await fetch(`${API_ADMIN_BASE_URL}/article/${id}`)
     if (!response.ok) throw new Error("Failed to fetch article by id")
     return response.json()
 }
 
 export const createArticle = async (data: ArticleSchemaType): Promise<Article> => {
-    const response = await fetch(`${API_BASE_URL}/article/create`, {
+    const response = await fetch(`${API_ADMIN_BASE_URL}/article/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -191,18 +188,17 @@ export const createArticle = async (data: ArticleSchemaType): Promise<Article> =
     return response.json()
 }
 
-export const updateArticle = async (id: string, data: ArticleSchemaType): Promise<Article> => {
-    const response = await fetch(`${API_BASE_URL}/article/update/${id}`, {
+export const updateArticle = async (id: string, data: ArticleSchemaType) => {
+    const response = await fetch(`${API_ADMIN_BASE_URL}/article/update/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
     })
     if (!response.ok) throw new Error("Failed to update article")
-    return response.json()
 }
 
 export const deleteArticle = async (id: string): Promise<void> => {
-    const response = await fetch(`${API_BASE_URL}/article/delete/${id}`, {
+    const response = await fetch(`${API_ADMIN_BASE_URL}/article/delete/${id}`, {
         method: "DELETE",
     })
     if (!response.ok) throw new Error("Failed to delete article")
