@@ -1,4 +1,6 @@
 import LanguageForm from "@/components/LanguageForm"
+import { Section } from "@/components/Section"
+import { SectionTitle } from "@/components/Section/SectionTitle"
 import { useRouter } from "next/router"
 import { toast } from "react-toastify"
 
@@ -12,14 +14,14 @@ const EditLanguagePage = () => {
     }
 
     return (
-        <div>
-            <h1>Edit Language</h1>
+        <Section>
+            <SectionTitle title={`Edit Language ${languageId}`} goBack={() => router.back()} />
             <LanguageForm
                 mode="edit"
                 languageId={languageId}
                 onSuccessRedirect={() => router.push("/admin/languages")}
             />
-        </div>
+        </Section>
     )
 }
 
