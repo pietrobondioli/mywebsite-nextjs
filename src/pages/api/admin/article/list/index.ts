@@ -1,11 +1,11 @@
+import { getServerAuthSession } from "@/server/auth"
 import { prisma } from "@/server/db"
 import { NextApiRequest, NextApiResponse } from "next"
-import { getSession } from "next-auth/react"
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
-    const session = await getSession({ req })
+    const session = await getServerAuthSession({ req, res })
 
-    if (!session?.user.isAdmin) {
+    if (!session?.isAdmin) {
         res.status(403).json({ error: "Not authorized" })
         return
     }
@@ -14,6 +14,13 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         res.setHeader("Allow", ["GET"])
         res.status(405).end(`Method ${req.method} Not Allowed`)
         return
+    }
+
+    const { articleContainerId } = req.query
+
+    if (articleContainerId && typeof articleContainerId !== "string") {
+        res.status(400).json({ error: "Invalid articleContainerId" })
+        return null
     }
 
     try {
@@ -28,20 +35,17 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
                 excerpt: true,
                 image_url: true,
                 is_published: true,
-                lang: {
-                    select: {
-                        code: true,
-                        name: true,
-                    },
-                },
-                article_container: {
-                    select: {
-                        name: true,
-                    },
-                },
+                category: true,
+                lang_id: true,
+                article_container_id: true,
             },
             orderBy: {
                 published_at: "desc",
+            },
+            where: {
+                article_container: {
+                    id: articleContainerId,
+                },
             },
         })
 

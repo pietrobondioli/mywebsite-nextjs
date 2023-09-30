@@ -1,11 +1,11 @@
+import { getServerAuthSession } from "@/server/auth"
 import { prisma } from "@/server/db"
 import { NextApiRequest, NextApiResponse } from "next"
-import { getSession } from "next-auth/react"
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
-    const session = await getSession({ req })
+    const session = await getServerAuthSession({ req, res })
 
-    if (!session?.user.isAdmin) {
+    if (!session?.isAdmin) {
         res.status(403).json({ error: "Not authorized" })
         return
     }
@@ -24,23 +24,13 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     }
 
     try {
-        const relatedArticles = await prisma.article.findMany({
-            where: { lang_id: id },
-        })
-
-        if (relatedArticles.length > 0) {
-            res.status(400).json({
-                error: "Cannot delete language with associated articles.",
-            })
-            return
-        }
-
-        await prisma.language.delete({
+        await prisma.language.update({
             where: { id },
+            data: req.body,
         })
 
         res.status(204).end()
     } catch (error) {
-        res.status(500).json({ error: "Error deleting language." })
+        res.status(500).json({ error: "Error updating language." })
     }
 }

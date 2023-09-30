@@ -1,11 +1,11 @@
+import { getServerAuthSession } from "@/server/auth"
 import { prisma } from "@/server/db"
 import { NextApiRequest, NextApiResponse } from "next"
-import { getSession } from "next-auth/react"
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
-    const session = await getSession({ req })
+    const session = await getServerAuthSession({ req, res })
 
-    if (!session?.user.isAdmin) {
+    if (!session?.isAdmin) {
         res.status(403).json({ error: "Not authorized" })
         return
     }
