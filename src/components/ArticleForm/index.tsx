@@ -83,7 +83,7 @@ const ArticleForm: React.FC<ArticleFormProps> = ({ articleId, mode, onSuccessRed
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-4">
                 <label htmlFor="slug" className="block text-gray-700 font-bold mb-2">
                     Slug
@@ -325,6 +325,7 @@ const ArticleForm: React.FC<ArticleFormProps> = ({ articleId, mode, onSuccessRed
                             {...field}
                             id="content"
                             placeholder="Content"
+                            rows={30}
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         />
                     )}

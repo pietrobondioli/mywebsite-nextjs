@@ -86,7 +86,7 @@ const ContainerForm: React.FC<ContainerFormProps> = ({ containerId, mode, onSucc
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-4">
                 <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
                     Name

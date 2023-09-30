@@ -5,8 +5,14 @@ const articleSchema = z.object({
     category: z.string(),
     lang_id: z.string(),
     title: z.string(),
-    published_at: z.date().optional(),
-    last_modified: z.date().optional(),
+    published_at: z
+        .string()
+        .transform((value) => new Date(value))
+        .optional(),
+    last_modified: z
+        .string()
+        .transform((value) => new Date(value))
+        .optional(),
     author_name: z.string(),
     excerpt: z.string().max(500),
     image_url: z.string().url(),

@@ -102,9 +102,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) 
         let articles: ArticlePreview[] = []
         try {
             articles = await getArticles({ lang: locale, preview: true })
-        } catch (error) {
-            console.error(error)
-        }
+        } catch (error) {}
 
         const localePaths: LocaleSlug[] = articles.map((article) => ({
             params: { slug: article.slug },

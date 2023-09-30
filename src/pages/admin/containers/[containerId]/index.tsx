@@ -10,9 +10,7 @@ const ContainerArticlesList = () => {
     const router = useRouter()
     const { containerId } = router.query
 
-    const { data, error } = useSWR(`/api/containers/${containerId}/articles`, () =>
-        fetchArticles(String(containerId))
-    )
+    const { data, error } = useSWR(containerId, () => fetchArticles(String(containerId)))
 
     const handleDelete = async (id: string) => {
         try {
