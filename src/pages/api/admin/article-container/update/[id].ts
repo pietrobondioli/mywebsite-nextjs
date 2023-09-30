@@ -24,19 +24,9 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     }
 
     try {
-        const relatedArticles = await prisma.article.findMany({
-            where: { article_container_id: id },
-        })
-
-        if (relatedArticles.length > 0) {
-            res.status(400).json({
-                error: "Cannot delete container with associated articles.",
-            })
-            return
-        }
-
-        await prisma.articleContainer.delete({
+        await prisma.articleContainer.update({
             where: { id },
+            data: req.body,
         })
 
         res.status(204).end()

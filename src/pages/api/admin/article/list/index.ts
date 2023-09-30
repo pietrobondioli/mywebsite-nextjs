@@ -42,11 +42,11 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
             orderBy: {
                 published_at: "desc",
             },
-            where: {
-                article_container: {
-                    id: articleContainerId,
+            ...(articleContainerId && {
+                where: {
+                    article_container_id: articleContainerId,
                 },
-            },
+            }),
         })
 
         res.json(articles)
