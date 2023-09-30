@@ -1,14 +1,16 @@
 import ArticleForm from "@/components/ArticleForm"
+import { Section } from "@/components/Section"
+import { SectionTitle } from "@/components/Section/SectionTitle"
 import { useRouter } from "next/router"
 
 const CreateArticlePage = () => {
     const router = useRouter()
 
     return (
-        <div>
-            <h1>Create New Article</h1>
+        <Section>
+            <SectionTitle title="Create New Article" goBack={() => router.back()} />
             <ArticleForm mode="create" onSuccessRedirect={() => router.push("/admin/containers")} />
-        </div>
+        </Section>
     )
 }
 
