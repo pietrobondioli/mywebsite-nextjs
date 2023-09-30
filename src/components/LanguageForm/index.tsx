@@ -78,21 +78,64 @@ const LanguageForm: React.FC<LanguageFormProps> = ({ languageId, mode, onSuccess
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Controller
-                name="code"
-                control={control}
-                render={({ field }) => <input {...field} placeholder="Code" />}
-            />
-            {errors.code && <p>{errors.code.message}</p>}
+            <div className="mb-4">
+                <label
+                    htmlFor="code"
+                    className="block text-gray-700 font-bold mb-2 dark:text-gray-100"
+                >
+                    Code
+                </label>
+                <Controller
+                    name="code"
+                    control={control}
+                    render={({ field }) => (
+                        <input
+                            {...field}
+                            type="text"
+                            id="code"
+                            placeholder="Code"
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-800 dark:text-gray-100"
+                        />
+                    )}
+                />
+                {errors.code && (
+                    <p className="text-red-500 text-xs italic">{errors.code.message}</p>
+                )}
+            </div>
 
-            <Controller
-                name="name"
-                control={control}
-                render={({ field }) => <input {...field} placeholder="Name" />}
-            />
-            {errors.name && <p>{errors.name.message}</p>}
+            <div className="mb-4">
+                <label
+                    htmlFor="name"
+                    className="block text-gray-700 font-bold mb-2 dark:text-gray-100"
+                >
+                    Name
+                </label>
+                <Controller
+                    name="name"
+                    control={control}
+                    render={({ field }) => (
+                        <input
+                            {...field}
+                            type="text"
+                            id="name"
+                            placeholder="Name"
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-800 dark:text-gray-100"
+                        />
+                    )}
+                />
+                {errors.name && (
+                    <p className="text-red-500 text-xs italic">{errors.name.message}</p>
+                )}
+            </div>
 
-            <button type="submit">{mode === "create" ? "Create" : "Update"} Language</button>
+            <div className="flex items-center justify-between">
+                <button
+                    type="submit"
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline duration-150"
+                >
+                    {mode === "create" ? "Create" : "Update"} Language
+                </button>
+            </div>
         </form>
     )
 }
