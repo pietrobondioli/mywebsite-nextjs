@@ -1,5 +1,17 @@
+import { GetServerSideProps } from "next"
 import { signIn, signOut, useSession } from "next-auth/react"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import Link from "next/link"
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+    const translations = await serverSideTranslations(locale ?? `en`, [`common`, `about`])
+
+    return {
+        props: {
+            ...translations,
+        },
+    }
+}
 
 const AdminDashboard = () => {
     const { data: session } = useSession()

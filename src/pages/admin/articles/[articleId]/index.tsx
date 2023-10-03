@@ -2,9 +2,21 @@ import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
 import { fetchArticleById } from "@/services/api"
 import { Article } from "@prisma/client"
+import { GetServerSideProps } from "next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import useSWR from "swr"
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+    const translations = await serverSideTranslations(locale ?? `en`, [`common`, `about`])
+
+    return {
+        props: {
+            ...translations,
+        },
+    }
+}
 
 const ArticleForm = () => {
     const router = useRouter()
