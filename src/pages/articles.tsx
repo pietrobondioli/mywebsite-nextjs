@@ -1,9 +1,8 @@
-import React from "react"
-import Head from "next/head"
-import { useRouter } from "next/router"
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+import Head from "next/head"
+import { useRouter } from "next/router"
 
 import { Articles } from "@/containers/Articles"
 import {
@@ -39,6 +38,7 @@ export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = 
             articles: JSON.parse(JSON.stringify(articlesByCategory)),
             ...translations,
         },
+        revalidate: 60,
     }
 }
 

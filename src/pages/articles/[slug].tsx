@@ -76,6 +76,7 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
             ...translations,
             openGraphData,
         },
+        revalidate: 60,
     }
 }
 
