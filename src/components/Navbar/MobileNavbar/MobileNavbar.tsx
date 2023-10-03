@@ -1,16 +1,17 @@
-import React, { useCallback, useEffect, useRef } from "react"
-import { useRouter } from "next/router"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import { useRouter } from "next/router"
+import React, { useCallback, useEffect, useRef } from "react"
 import { HiMenuAlt3 } from "react-icons/hi"
 import { IoMdClose } from "react-icons/io"
 
 import { useNavBarActions, useNavBarState } from "@/store/navbar-store"
 
-import { ToggleThemeButton } from "../ToggleThemeButton"
 import { ChangeLocaleButton } from "../ChangeLocaleButton"
-import { NavbarItem } from "../NavbarItem"
 import { Logo } from "../Logo"
+import { NavbarItem } from "../NavbarItem"
+import { ToggleThemeButton } from "../ToggleThemeButton"
 
+import { useUserIsAdmin } from "@/hooks/useUserIsAdmin"
 import styles from "./MobileNavbar.module.scss"
 
 type MobileNavbarProps = {
@@ -24,6 +25,7 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = (props) => {
     const { isOpen } = useNavBarState()
     const { TOGGLE_NAVBAR, RESET_NAVBAR } = useNavBarActions()
     const refMenu = useRef<HTMLDivElement>(null)
+    const isAdmin = useUserIsAdmin()
 
     const navMenuClass = isOpen
         ? `${styles.navbar__menu_active}`
@@ -82,6 +84,7 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = (props) => {
                           return <NavbarItem key={item.name} name={item.name} link={item.link} />
                       })
                     : null}
+                {isAdmin && <NavbarItem name="admin" link="/admin" />}
             </div>
         </nav>
     )

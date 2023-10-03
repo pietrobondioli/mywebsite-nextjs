@@ -1,9 +1,10 @@
 import React from "react"
 
-import { ToggleThemeButton } from "../ToggleThemeButton"
+import { useUserIsAdmin } from "@/hooks/useUserIsAdmin"
 import { ChangeLocaleButton } from "../ChangeLocaleButton"
-import { NavbarItem } from "../NavbarItem"
 import { Logo } from "../Logo"
+import { NavbarItem } from "../NavbarItem"
+import { ToggleThemeButton } from "../ToggleThemeButton"
 
 type DesktopNavbarProps = {
     items: { name: string; link: string }[]
@@ -11,6 +12,8 @@ type DesktopNavbarProps = {
 
 export const DesktopNavbar: React.FC<DesktopNavbarProps> = (props) => {
     const { items } = props
+
+    const isAdmin = useUserIsAdmin()
 
     return (
         <nav className="w-full max-w-full h-12 px-3 fixed flex justify-between items-center z-40 bg-white shadow dark:bg-secondary">
@@ -24,6 +27,7 @@ export const DesktopNavbar: React.FC<DesktopNavbarProps> = (props) => {
                           return <NavbarItem key={item.name} name={item.name} link={item.link} />
                       })
                     : null}
+                {isAdmin && <NavbarItem name="admin" link="/admin" />}
             </div>
         </nav>
     )
