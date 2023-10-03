@@ -36,8 +36,18 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
                 image_url: true,
                 is_published: true,
                 category: true,
-                lang_id: true,
-                article_container_id: true,
+                lang: {
+                    select: {
+                        id: true,
+                        name: true,
+                    },
+                },
+                article_container: {
+                    select: {
+                        id: true,
+                        name: true,
+                    },
+                },
             },
             orderBy: {
                 published_at: "desc",

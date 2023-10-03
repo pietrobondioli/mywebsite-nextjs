@@ -58,7 +58,7 @@ const ContainerArticlesList = () => {
                         >
                             <td className="border p-2">{article.title}</td>
                             <td className="border p-2">{article.category}</td>
-                            <td className="border p-2">{article.lang_id}</td>
+                            <td className="border p-2">{article.lang.name}</td>
                             <td className="border p-2">
                                 {article.published_at
                                     ? new Date(article.published_at).toLocaleDateString()

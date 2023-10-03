@@ -15,7 +15,7 @@ const articleSchema = z.object({
         .optional(),
     author_name: z.string(),
     excerpt: z.string().max(500),
-    image_url: z.string().url(),
+    image_url: z.string(),
     image_alt: z.string(),
     content: z.string(),
     article_container_id: z.string(),

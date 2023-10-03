@@ -3,7 +3,7 @@ import {
     UpdateArticleContainerSchemaType,
 } from "@/utils/schemas/article-container-schema"
 import { CreateLanguageSchemaType, UpdateLanguageSchemaType } from "@/utils/schemas/language-schema"
-import { Article, ArticleContainer, Comment, Language } from "@prisma/client"
+import { Article, ArticleContainer, Comment, Language, Prisma } from "@prisma/client"
 
 import { CommentWithRepliesAndAuthor } from "@/pages/api/articles/[id]/comments"
 import { ArticleSchemaType } from "@/utils/schemas/article-schema"
@@ -165,7 +165,16 @@ export const deleteArticleContainer = async (id: string): Promise<void> => {
     if (!response.ok) throw new Error("Failed to delete article container")
 }
 
-export const fetchArticles = async (articleContainerId?: string): Promise<Article[]> => {
+export const fetchArticles = async (
+    articleContainerId?: string
+): Promise<
+    Prisma.ArticleGetPayload<{
+        include: {
+            lang: true
+            article_container: true
+        }
+    }>[]
+> => {
     const queryParams = articleContainerId ? `?articleContainerId=${articleContainerId}` : ""
     const response = await fetch(`${API_ADMIN_BASE_URL}/article/list${queryParams}`)
     if (!response.ok) throw new Error("Failed to fetch articles")
