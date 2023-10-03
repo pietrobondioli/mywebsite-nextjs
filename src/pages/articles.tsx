@@ -15,10 +15,18 @@ import {
 export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = async (context) => {
     const { locale } = context
 
+    const translations = await serverSideTranslations(
+        locale ?? `en`,
+        [`common`, `articles`],
+        null,
+        ["en", "pt", "es"]
+    )
+
     if (!locale) {
         return {
             props: {
                 articles: {},
+                ...translations,
             },
         }
     }
@@ -30,8 +38,6 @@ export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = 
     } catch (error) {}
 
     const articlesByCategory = reduceArticlesByCategory(articles)
-
-    const translations = await serverSideTranslations(locale || `en`, [`common`, `articles`])
 
     return {
         props: {
