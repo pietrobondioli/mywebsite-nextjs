@@ -1,6 +1,10 @@
+import { signOut } from "next-auth/react"
 import React from "react"
 
+import { MenuIcon, MenuItem, MenuItemList, NavigationMenu } from "@/components/NavigationMenu"
+import { useLoggedUser } from "@/hooks/useLoggedUser"
 import { useUserIsAdmin } from "@/hooks/useUserIsAdmin"
+import { FaUserCircle } from "react-icons/fa"
 import { ChangeLocaleButton } from "../ChangeLocaleButton"
 import { Logo } from "../Logo"
 import { NavbarItem } from "../NavbarItem"
@@ -14,6 +18,7 @@ export const DesktopNavbar: React.FC<DesktopNavbarProps> = (props) => {
     const { items } = props
 
     const isAdmin = useUserIsAdmin()
+    const loggedUser = useLoggedUser()
 
     return (
         <nav className="w-full max-w-full h-12 px-3 fixed flex justify-between items-center z-40 bg-white shadow dark:bg-secondary">
@@ -27,7 +32,25 @@ export const DesktopNavbar: React.FC<DesktopNavbarProps> = (props) => {
                           return <NavbarItem key={item.name} name={item.name} link={item.link} />
                       })
                     : null}
-                {isAdmin && <NavbarItem name="admin" link="/admin" />}
+                {loggedUser && (
+                    <NavigationMenu>
+                        <MenuIcon>
+                            {loggedUser.image ? (
+                                <img
+                                    src={loggedUser.image}
+                                    alt="avatar"
+                                    className="rounded-full w-10"
+                                />
+                            ) : (
+                                <FaUserCircle />
+                            )}
+                        </MenuIcon>
+                        <MenuItemList>
+                            {isAdmin && <MenuItem href="/admin">Admin</MenuItem>}
+                            <MenuItem onSelect={() => signOut()}>Logout</MenuItem>
+                        </MenuItemList>
+                    </NavigationMenu>
+                )}
             </div>
         </nav>
     )

@@ -11,7 +11,9 @@ import { Logo } from "../Logo"
 import { NavbarItem } from "../NavbarItem"
 import { ToggleThemeButton } from "../ToggleThemeButton"
 
+import { useLoggedUser } from "@/hooks/useLoggedUser"
 import { useUserIsAdmin } from "@/hooks/useUserIsAdmin"
+import { signOut } from "next-auth/react"
 import styles from "./MobileNavbar.module.scss"
 
 type MobileNavbarProps = {
@@ -21,11 +23,13 @@ type MobileNavbarProps = {
 export const MobileNavbar: React.FC<MobileNavbarProps> = (props) => {
     const { items } = props
 
+    const isAdmin = useUserIsAdmin()
+    const loggedUser = useLoggedUser()
+
     const router = useRouter()
     const { isOpen } = useNavBarState()
     const { TOGGLE_NAVBAR, RESET_NAVBAR } = useNavBarActions()
     const refMenu = useRef<HTMLDivElement>(null)
-    const isAdmin = useUserIsAdmin()
 
     const navMenuClass = isOpen
         ? `${styles.navbar__menu_active}`
@@ -85,6 +89,7 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = (props) => {
                       })
                     : null}
                 {isAdmin && <NavbarItem name="admin" link="/admin" />}
+                {loggedUser && <NavbarItem name="logout" onClick={() => signOut()} />}
             </div>
         </nav>
     )
