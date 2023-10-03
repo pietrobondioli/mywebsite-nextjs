@@ -128,7 +128,7 @@ const ArticlePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (p
     const { article } = props
     const router = useRouter()
 
-    if (!article.is_published) {
+    if (!article?.is_published) {
         router.push("/")
         return null
     }
