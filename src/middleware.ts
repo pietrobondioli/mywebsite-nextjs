@@ -13,8 +13,6 @@ export function middleware() {
         "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
     )
 
-    console.log(CORS_ALLOWED_ORIGINS)
-
     return res
 }
 

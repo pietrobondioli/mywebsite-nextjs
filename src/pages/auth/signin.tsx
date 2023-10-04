@@ -1,10 +1,10 @@
-import { signIn, getProviders, ClientSafeProvider } from "next-auth/react"
+import { authOptions } from "@/server/auth"
 import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
+import { getServerSession } from "next-auth"
+import { ClientSafeProvider, getProviders, signIn } from "next-auth/react"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { ReactNode } from "react"
-import { FaGithub, FaDiscord, FaGoogle } from "react-icons/fa"
-import { authOptions } from "@/server/auth"
-import { getServerSession } from "next-auth"
+import { FaDiscord, FaGithub, FaGoogle } from "react-icons/fa"
 
 interface SignInButtonProps {
     onClick: () => void
@@ -64,7 +64,7 @@ export const getServerSideProps: GetServerSideProps<SignInProps> = async (contex
         locales
     )
 
-    console.log(translations)
+    console.log(JSON.stringify(translations))
 
     const providersData = await getProviders()
     const providers = providersData || {}

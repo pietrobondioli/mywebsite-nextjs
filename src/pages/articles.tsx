@@ -22,6 +22,8 @@ export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = 
         ["en", "pt", "es"]
     )
 
+    console.log(JSON.stringify(translations))
+
     if (!locale) {
         return {
             props: {
@@ -44,7 +46,7 @@ export const getStaticProps: GetStaticProps<{ articles: ArticlesByCategory }> = 
             articles: JSON.parse(JSON.stringify(articlesByCategory)),
             ...translations,
         },
-        revalidate: 60,
+        revalidate: 5,
     }
 }
 

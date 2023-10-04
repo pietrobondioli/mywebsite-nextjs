@@ -10,6 +10,7 @@ import { ArticleContainer } from "@/containers/Article"
 import { ArticlePreview, getArticles } from "@/server/lib/getArticles"
 import { markdownToHtml } from "@/utils/markdownToHtml"
 import { useRouter } from "next/router"
+import { useEffect } from "react"
 import { OpenGraphData } from "../_app"
 
 export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string }> = async (
@@ -24,6 +25,8 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
         ["en", "pt", "es"]
     )
 
+    console.log(JSON.stringify(translations))
+
     let article: Article | undefined = undefined
 
     try {
@@ -33,6 +36,12 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
     } catch (error) {
         console.error(error)
     }
+
+    console.log("Article", {
+        id: article?.id,
+        title: article?.title,
+        image_url: article?.image_url,
+    })
 
     if (!article) {
         return {
@@ -81,7 +90,7 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
             ...translations,
             openGraphData,
         },
-        revalidate: 60,
+        revalidate: 5,
     }
 }
 
@@ -118,9 +127,11 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (context) 
         paths = [...paths, ...localePaths]
     }
 
+    console.log(JSON.stringify(paths))
+
     return {
-        paths: paths,
-        fallback: false,
+        paths,
+        fallback: true,
     }
 }
 
@@ -128,10 +139,11 @@ const ArticlePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (p
     const { article } = props
     const router = useRouter()
 
-    if (!article?.is_published) {
-        router.push("/")
-        return null
-    }
+    useEffect(() => {
+        if (!article?.is_published) {
+            router.push("/")
+        }
+    }, [article, router])
 
     return (
         <>
