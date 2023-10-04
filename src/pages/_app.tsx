@@ -1,19 +1,20 @@
-import React from "react"
-import Head from "next/head"
-import { appWithTranslation } from "next-i18next"
-import { ToastContainer } from "react-toastify"
+import { Analytics } from "@vercel/analytics/react"
 import { type Session } from "next-auth"
 import { SessionProvider } from "next-auth/react"
+import { appWithTranslation, withTranslation } from "next-i18next"
 import { type AppType } from "next/app"
-import { Analytics } from "@vercel/analytics/react"
+import Head from "next/head"
+import { ToastContainer } from "react-toastify"
 
-import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
+import { Navbar } from "@/components/Navbar"
 import { Theme } from "@/containers/Theme"
 
-import "react-toastify/dist/ReactToastify.css"
-import "@/styles/globals.scss"
 import { LoginDialog } from "@/components/LoginDialog"
+import "@/styles/globals.scss"
+import "react-toastify/dist/ReactToastify.css"
+
+import nextI18NextConfig from "../../next-i18next.config"
 
 export type OpenGraphData =
     | {
@@ -77,4 +78,4 @@ const MyApp: AppType<{ session: Session | null; openGraphData: OpenGraphData[] }
     )
 }
 
-export default appWithTranslation(MyApp)
+export default appWithTranslation(withTranslation("common")(MyApp), nextI18NextConfig)

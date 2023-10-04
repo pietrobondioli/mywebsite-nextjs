@@ -45,6 +45,10 @@ export const getStaticProps: GetStaticProps<{ article: Article }, { slug: string
 
     if (!article) {
         return {
+            props: {
+                article: {},
+                ...translations,
+            },
             notFound: true,
         }
     }
