@@ -14,7 +14,7 @@ export const Section: React.FC<SectionProps> = (props) => {
 
     return (
         <section
-            className={`${minHeightClass} grid gap-4 px-6 md:px-8 py-12 lg:px-32 xl:px-48 2xl:px-64`}
+            className={`${minHeightClass} grid gap-4 px-6 md:px-8 py-12 lg:px-32 xl:px-48 2xl:px-64 mx-auto max-w-screen-2xl`}
         >
             {children}
         </section>
