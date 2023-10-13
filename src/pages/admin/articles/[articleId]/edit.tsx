@@ -1,4 +1,4 @@
-import ArticleForm from "@/components/ArticleForm"
+import { ArticleForm } from "@/components/ArticleForm"
 import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
 import { GetServerSideProps } from "next"

@@ -1,7 +1,7 @@
-import React from "react"
 import { useTranslation } from "next-i18next"
 import Image from "next/image"
 import Link from "next/link"
+import React from "react"
 
 import { Button } from "@/components/Button"
 
@@ -25,18 +25,18 @@ export const SectionContent: React.FC<SectionContentProps> = (props) => {
                 width={128}
                 height={128}
                 className="rounded-full"
-                src={image || `/assets/icons/error/warning-128px.png`}
-                alt={imageAlt || `No content.`}
+                src={image ?? `/assets/icons/error/warning-128px.png`}
+                alt={imageAlt ?? `No content.`}
             />
             <div className="flex items-center flex-col gap-6 md:px-6 lg:px-12 grow">
-                {children || text}
+                {children ?? text}
                 {readMore &&
                     (readMoreTargetBlank ? (
                         <a href={readMoreLink} target="_blank" rel="noreferrer">
                             <Button label={t(`readMore`)} />
                         </a>
                     ) : (
-                        <Link href={readMoreLink || ``}>
+                        <Link href={readMoreLink ?? ``}>
                             <Button label={t(`readMore`)} />
                         </Link>
                     ))}

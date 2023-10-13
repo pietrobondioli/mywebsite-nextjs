@@ -29,7 +29,7 @@ export const Projects: React.FC = () => {
     const { t } = useTranslation(`projects`)
 
     return (
-        <div>
+        <>
             {Object.keys(PROJECTS).map((key) => {
                 const project = key as keyof typeof PROJECTS
                 const content = PROJECTS[project]
@@ -55,6 +55,6 @@ export const Projects: React.FC = () => {
                     </Section>
                 )
             })}
-        </div>
+        </>
     )
 }

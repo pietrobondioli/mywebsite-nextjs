@@ -1,4 +1,4 @@
-import LanguageForm from "@/components/LanguageForm"
+import { LanguageForm } from "@/components/LanguageForm"
 import { Section } from "@/components/Section"
 import { SectionTitle } from "@/components/Section/SectionTitle"
 import { GetServerSideProps } from "next"
