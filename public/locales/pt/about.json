@@ -23,10 +23,10 @@
         "items": [
             {
                 "name": "Take Blip",
-                "position": "Engenheiro de Software Pleno",
-                "stack": "C# | .NET Core | Typescript | ReactJS | Azure | Docker | Kubernetes",
-                "description": "• Desenvolvimento e integração de APIs REST para sistemas de grandes clientes, incluindo Nestlé, Vale, 99 Food, Petrobrás, Usiminas, entre outros.\n• Implementação de soluções robustas utilizando tecnologias como C#, .NET Core, NodeJS, e ExpressJS.\n• Concepção e desenvolvimento de soluções inovadoras que, após o lançamento, foram adaptadas de forma genérica, ampliando seu impacto e beneficiando um número maior de clientes.\n• Gerenciamento e otimização do ecossistema de desenvolvimento, abrangendo ferramentas como Azure Devops, Docker, Docker Compose, Kubernetes e Seq Log.\n• Colaboração ativa com equipes multidisciplinares para garantir a entrega de soluções de alto impacto e eficiência.",
-                "period": "Maio 2021 ~ PRESENTE | Full-time",
+                "position": "Engenheiro de Software Full Stack",
+                "stack": "C# | .NET | Typescript | ReactJS | NestJS | Docker | Software Architecture | Chatbots",
+                "description": "• Desenvolvi e integrei APIs REST para grandes sistemas de clientes, incluindo Nestlé, Vale, 99 Food, Petrobras, Usiminas, entre outros. As soluções desenvolvidas lidaram com milhares de solicitações por segundo, garantindo alta capacidade de processamento e responsividade.\n• Implementei soluções robustas usando tecnologias como C#, .NET Core, NodeJS, ExpressJS e ReactJS.\n• Projetou e desenvolveu soluções inovadoras que, após o lançamento, foram adaptadas de forma genérica, expandindo seu impacto e beneficiando um maior número de clientes.\n• Gerenciou e otimizou o ecossistema de desenvolvimento, cobrindo ferramentas como Azure Devops, Docker, Docker Compose, Kubernetes e Seq Log.\n• Colaborou ativamente com equipes multidisciplinares para garantir a entrega de soluções eficientes e de alto impacto.",
+                "period": "Maio 2021 ~ PRESENTE | Tempo integral",
                 "image": "/assets/icons/about/take-blip-logo.png",
                 "imageAlt": "Logotipo da empresa Take Blip.",
                 "readMore": false
@@ -35,8 +35,8 @@
                 "name": "Essencial Gestão Pública",
                 "position": "Desenvolvedor Full Stack",
                 "stack": "Typescript | ReactJS | Java | Spring Boot | MySql | Docker",
-                "description": "• Liderança técnica na refatoração de frontend legado, adotando padrões modernos como Micro Frontends e fazendo uso de tecnologias como NodeJS, React, Typescript, Nginx.\n• Modernização e otimização de práticas de backend, utilizando Java, Spring Boot, Docker, Docker Compose, Log4J e Graylog.\n• Mentoria e formação de estagiários, promovendo um ambiente de aprendizado contínuo e colaboração.",
-                "period": "Outubro 2021 ~ PRESENTE | Part-time",
+                "description": "• Liderei iniciativas técnicas na reformulação de front-ends legados, adotando padrões modernos como Micro Front-ends e utilizando tecnologias como NodeJS, React, Typescript, Nginx. Essa reformulação resultou em uma redução de 90% nos erros de front-end, melhorando consideravelmente a estabilidade do sistema e a experiência do usuário.\n• Modernização e otimização das práticas de back-end, usando Java, Spring Boot, Docker, Docker Compose, Log4J e Graylog.\n• Mentoria e treinamento de estagiários, promovendo um ambiente de aprendizado contínuo e colaboração.",
+                "period": "Outubro 2021 ~ PRESENTE | Freelance",
                 "image": "/assets/icons/about/essencial-gestao-publica-logo.png",
                 "imageAlt": "Logotipo da empresa Essencial Gestão Pública.",
                 "readMore": false
@@ -45,8 +45,8 @@
                 "name": "Freelancer",
                 "position": "Desenvolvedor Javascript",
                 "stack": "Node.JS | Express.JS | Electron.JS | Firebase",
-                "description": "• Desenvolvimento personalizado de software desktop para otimização de processos internos de empresas locais.\n• Implementação de soluções robustas e eficientes utilizando NodeJS, ExpressJS, ElectronJS e Firebase.",
-                "period": "2020",
+                "description": "• Desenvolvimento de software personalizado para desktop para otimizar processos internos de empresas locais.\n• Implementei soluções robustas e eficientes usando NodeJS, ExpressJS, ElectronJS e Firebase.",
+                "period": "2020 | Freelance",
                 "image": "/assets/icons/home/brain-256px.png",
                 "imageAlt": "Um desenho de um cérebro.",
                 "readMore": false

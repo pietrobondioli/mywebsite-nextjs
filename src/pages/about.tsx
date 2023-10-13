@@ -1,9 +1,9 @@
-import React from "react"
-import Head from "next/head"
-import { useRouter } from "next/router"
+import { GetStaticProps } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { GetStaticProps } from "next"
+import Head from "next/head"
+import { useRouter } from "next/router"
+import React from "react"
 
 import { Education } from "@/containers/About/Education"
 import { Experience } from "@/containers/About/Experience"
@@ -35,8 +35,8 @@ const AboutPage: React.FC = () => {
                 <meta name="twitter:description" content={t(`pageDescription`)} />
             </Head>
             <main>
-                <Skills />
                 <Experience />
+                <Skills />
                 <Education />
             </main>
         </>
