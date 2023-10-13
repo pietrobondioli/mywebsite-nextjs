@@ -67,16 +67,16 @@ model ArticleContainer {
 model Article {
     id                   String           @id @default(cuid())
     slug                 String           @unique
-    category             String
+    category             String           @db.Text
     lang_id              String
     lang                 Language         @relation(fields: [lang_id], references: [id])
-    title                String
+    title                String           @db.Text
     published_at         DateTime
     last_modified        DateTime
     author_name          String
     excerpt              String           @db.Text
     image_url            String
-    image_alt            String
+    image_alt            String           @db.Text
     content              String           @db.LongText
     comments             Comment[]
     article_container_id String
