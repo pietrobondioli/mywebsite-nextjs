@@ -1,21 +1,27 @@
-import React from "react"
 import { useTranslation } from "next-i18next"
+import React from "react"
 
 import { Section } from "@/components/Section"
 import { SectionContent } from "@/components/Section/SectionContent"
 
 const PROJECTS = {
-    peepo_discord_bot: {
-        image: `/assets/icons/projects/pepe-computer-chair-256px.png`,
+    brasil_interface: {
+        image: `/assets/icons/projects/brasil-interface-logo-250px.png`,
         readMore: true,
         readMoreTargetBlank: true,
-        readMoreLink: `https://github.com/pietrobondioli/peepo-discord-bot`,
+        readMoreLink: `https://github.com/pietrobondioli/brasil-interface`,
     },
     my_website: {
         image: `/assets/icons/home/contact-256px.png`,
         readMore: true,
         readMoreTargetBlank: true,
         readMoreLink: `https://github.com/pietrobondioli/mywebsite-nextjs`,
+    },
+    peepo_discord_bot: {
+        image: `/assets/icons/projects/pepe-computer-chair-256px.png`,
+        readMore: true,
+        readMoreTargetBlank: true,
+        readMoreLink: `https://github.com/pietrobondioli/peepo-discord-bot`,
     },
 } as const
 

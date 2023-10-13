@@ -2,14 +2,19 @@
     "pageTitle": "Projetos - Pietro Bondioli",
     "pageDescription": "Aqui você pode ver alguns projetos dos quais eu participei ou fui criador.",
     "projects_infos": {
-        "peepo_discord_bot": {
-            "name": "Peepo Discord Bot",
-            "description": "Peepo é um bot com diversas funcionalidades que foi criado com o propósito de prover diversas funcionalidade que estavam me fazendo falta em outros bots do discord. Até o momento o bot conta com poucos comandos (de rolamento de dados) que eu estou usando para jogar RPG de mesa com alguns amigos",
-            "imageAlt": "Um notebook e um balão de fala simbolizando um Website."
+        "brasil_interface": {
+            "name": "Brasil Interface",
+            "description": "Brasil Interface destaca-se como a biblioteca de código aberto mais abrangente projetada especificamente para centralizar documentação e funcionalidades relacionadas a vários pontos de dados brasileiros. Até hoje, é incomparável em termos de profundidade de documentação e amplitude de funcionalidades de código aberto que oferece. Seu principal objetivo é fornecer uma ferramenta indispensável para desenvolvedores brasileiros que trabalham com tipos de dados locais, garantindo que eles tenham recursos confiáveis e extensos à sua disposição.",
+            "imageAlt": "Um desenvolvedor brasileiro mexendo em seu computador, na tela do computador está uma bandeira do Brasil, ao lado dele e embaixo do monitor estão livros."
         },
         "my_website": {
             "name": "Meu WebSite",
-            "description": "Este não foi o primeiro site que eu programei mas foi o primeiro que eu de fato \"concluí\". O site foi construído primeiramente com Javascript e Next.js. E em 2023 o site foi refatorado usando: Typescript, Next.js, TailwindCSS, e Zustand.",
+            "description": "Este não foi o primeiro site que eu programei mas foi o primeiro que eu de fato \"concluí\". O site foi construído primeiramente com Javascript e Next.js. E em 2023 o site foi refatorado usando: Typescript, Next.js, TailwindCSS, e Zustand, além disso também foram adicionadas funcionalidades para facilitar o manuseio de artigos publicados no site, para isso foi usado o ORM Prisma, o banco de dados MySql e a feature de API Routes do Next.js.",
+            "imageAlt": "Um notebook e um balão de fala simbolizando um Website."
+        },
+        "peepo_discord_bot": {
+            "name": "Peepo Discord Bot",
+            "description": "Peepo é um bot com diversas funcionalidades que foi criado com o propósito de prover funcionalidades que estavam me fazendo falta em outros bots do discord. Até o momento o bot conta com poucos comandos (de rolamento de dados) que eu estou usando para jogar RPG de mesa com alguns amigos. O bot foi criado usando Typescript, Node.js, e a biblioteca discord.js. O desenvolvimento foi interrompido em 2021 e não há previsão de retorno.",
             "imageAlt": "Um notebook e um balão de fala simbolizando um Website."
         }
     }
