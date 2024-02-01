@@ -18,7 +18,7 @@ export const Articles: React.FC<ArticlesProps> = (props) => {
             {Object.keys(articles).map((category) => (
                 <Section key={category}>
                     <SectionTitle title={category} />
-                    <div className="w-full grid gap-4 grid-cols-[repeat(auto-fill,minmax(18rem,1fr))] place-items-center">
+                    <div className="w-full grid gap-8 grid-cols-[repeat(auto-fill,minmax(18rem,1fr))] place-items-center">
                         {articles[category]?.map((article) => (
                             <ArticleCard
                                 key={article.slug}

@@ -71,7 +71,7 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = (props) => {
                     onClick={() => {
                         TOGGLE_NAVBAR()
                     }}
-                    className={`text-2xl p-2 border-none outline-none bg-transparent cursor-pointer duration-500 flex justify-center items-center dark:text-white`}
+                    className={`text-2xl p-2 border-none outline-none bg-transparent cursor-pointer duration-300 flex justify-center items-center dark:text-white`}
                 >
                     {isOpen ? <IoMdClose /> : <HiMenuAlt3 />}
                 </button>
@@ -85,8 +85,8 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = (props) => {
                 <ChangeLocaleButton />
                 {Array.isArray(items)
                     ? items.map((item) => {
-                          return <NavbarItem key={item.name} name={item.name} link={item.link} />
-                      })
+                        return <NavbarItem key={item.name} name={item.name} link={item.link} />
+                    })
                     : null}
                 {isAdmin && <NavbarItem name="admin" link="/admin" />}
                 {loggedUser && <NavbarItem name="logout" onClick={() => signOut()} />}

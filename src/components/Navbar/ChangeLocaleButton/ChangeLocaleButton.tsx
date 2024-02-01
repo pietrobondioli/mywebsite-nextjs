@@ -22,7 +22,7 @@ export const ChangeLocaleButton: React.FC = () => {
 
             try {
                 translatedSlug = await fetchTranslatedSlug(slug, changeTo)
-            } catch (error) {}
+            } catch (error) { }
 
             if (!translatedSlug)
                 return router.push(
@@ -58,7 +58,7 @@ export const ChangeLocaleButton: React.FC = () => {
 
     return (
         <button
-            className="h-max w-full py-1 px-2 flex justify-center items-center text-base font-semibold text-center text-black hover:text-primary dark:text-white hover:dark:text-primary-light duration-500 mx-3 lg:text-lg cursor-pointer"
+            className="h-max w-full py-1 px-2 flex justify-center items-center text-base font-semibold text-center text-black hover:text-primary dark:text-white hover:dark:text-primary-light duration-300 mx-3 lg:text-lg cursor-pointer"
             onClick={handleLocaleChange}
         >
             {locale}
