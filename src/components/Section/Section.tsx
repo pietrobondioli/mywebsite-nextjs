@@ -10,7 +10,7 @@ export const Section: React.FC<SectionProps> = (props) => {
 
     const minHeightClass = stretchToViewportHeight
         ? `min-h-svh`
-        : `lg:min-h-[70vh] xl:min-h-[60vh] 2xl:min-h-[50vh]`
+        : `lg:min-h-[60vh] xl:min-h-[50vh] 2xl:min-h-[40vh]`
 
     return (
         <section

@@ -36,7 +36,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
     return (
         <button
-            className={`${colorClass} ${fullWidthClass} text-base py-2 px-4 flex items-center justify-center gap-2 rounded-sm duration-500 ease-in-out shadow-sm hover:shadow-md`}
+            className={`${colorClass} ${fullWidthClass} text-base py-2 px-4 flex items-center justify-center gap-2 rounded-sm shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white-900 focus:ring-white-500 hover:scale-110 transition-transform duration-200`}
             type="button"
             {...buttonProps}
         >

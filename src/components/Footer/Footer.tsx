@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
             <p className="flex text-center text-base lg:text-lg flex-col lg:flex-row gap-4">
                 Pietro Bondioli <span className="hidden lg:block">-</span>
                 <a
-                    className="text-primary-dark hover:text-primary duration-500"
+                    className="text-primary hover:text-primary-light duration-300"
                     href="https://opensource.org/licenses/MIT"
                     target="_blank"
                     rel="noreferrer"
@@ -17,18 +17,19 @@ export const Footer: React.FC = () => {
                 </a>
             </p>
             <div className="flex gap-6">
-                <a href="https://github.com/pietrobondioli" target="_blank" rel="noreferrer">
-                    <FaGithub className="m-4 w-6 h-6 hover:text-primary-dark duration-500" />
+                <a href="https://github.com/pietrobondioli" target="_blank" rel="noreferrer" className="group">
+                    <FaGithub className="m-4 w-6 h-6 duration-300 group-hover:animate-bounce group-hover:text-primary" />
                 </a>
                 <a
                     href="https://www.linkedin.com/in/pietrobondioli/"
                     target="_blank"
                     rel="noreferrer"
+                    className="group"
                 >
-                    <FaLinkedin className="m-4 w-6 h-6 hover:text-primary-dark duration-500" />
+                    <FaLinkedin className="m-4 w-6 h-6 duration-300 group-hover:animate-bounce group-hover:text-primary" />
                 </a>
-                <a href="mailto:dev@pietrobondioli.com.br">
-                    <AiOutlineMail className="m-4 w-6 h-6 hover:text-primary-dark duration-500" />
+                <a href="mailto:dev@pietrobondioli.com.br" className="group">
+                    <AiOutlineMail className="m-4 w-6 h-6 duration-300 group-hover:animate-bounce group-hover:text-primary" />
                 </a>
             </div>
         </footer>
