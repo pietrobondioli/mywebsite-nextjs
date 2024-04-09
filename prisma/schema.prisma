@@ -1,11 +1,11 @@
 generator client {
     provider = "prisma-client-js"
+    previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
-    provider     = "mysql"
-    url          = env("DATABASE_URL")
-    relationMode = "prisma"
+    provider = "sqlite"
+    url      = "file:./dev.db"
 }
 
 model Account {
@@ -67,17 +67,17 @@ model ArticleContainer {
 model Article {
     id                   String           @id @default(cuid())
     slug                 String           @unique
-    category             String           @db.Text
+    category             String
     lang_id              String
     lang                 Language         @relation(fields: [lang_id], references: [id])
-    title                String           @db.Text
+    title                String
     published_at         DateTime
     last_modified        DateTime
     author_name          String
-    excerpt              String           @db.Text
+    excerpt              String
     image_url            String
-    image_alt            String           @db.Text
-    content              String           @db.LongText
+    image_alt            String
+    content              String
     comments             Comment[]
     article_container_id String
     article_container    ArticleContainer @relation(fields: [article_container_id], references: [id])
@@ -98,7 +98,7 @@ model Language {
 
 model Comment {
     id         String    @id @default(cuid())
-    content    String    @db.Text
+    content    String
     parent_id  String?
     parent     Comment?  @relation("CommentToComment", fields: [parent_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
     replies    Comment[] @relation("CommentToComment")
